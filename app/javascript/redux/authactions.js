@@ -34,7 +34,7 @@ export const checkCurrentUser = () => {
 
 export const signUp = (formData) => {
     return (dispatch) => {
-        axios.post('http://localhost:3000/users',{ 
+        axios.post('/users',{ 
             user: {
                 email: formData.user.email,
                 password: formData.user.password,
@@ -51,7 +51,7 @@ export const signUp = (formData) => {
 
 export const login = (formData) => {
     return (dispatch) => {
-        axios.post('http://localhost:3000/users/sign_in',{ 
+        axios.post('/users/sign_in',{ 
             user: {
                 email: formData.user.email,
                 password: formData.user.password

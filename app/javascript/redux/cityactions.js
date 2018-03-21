@@ -5,7 +5,7 @@ import {checkCurrentUser, toggleAuthPopup} from './authactions'
 
 export const fetchCities = () => {
     return (dispatch, getState) => {
-        return axios.get(`http://localhost:3000/cities?${getState().city.currentRoute}${getState().cityparams !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`)
+        return axios.get(`/cities?${getState().city.currentRoute}${getState().cityparams !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`)
             .then(response => {
                 dispatch(updateCities(response.data.cities, response.data.total_count, response.data.total_pages, response.data.per_page))
             })
@@ -76,7 +76,7 @@ export const updateCities = (cities, totalCount, totalPages, perPage) => {
 
 export const heartClick = (city) => {
     return (dispatch) => {
-        axios.get(`http://localhost:3000/cities/add_heart/${city.id}`)
+        axios.get(`/cities/add_heart/${city.id}`)
         .then(response => {
             console.log(`hearted ${city.name}`)
             dispatch(heartedFetch())
@@ -88,7 +88,7 @@ export const heartClick = (city) => {
 
 export const unheartClick = (city) => {
     return (dispatch) => {
-        axios.get(`http://localhost:3000/cities/remove_heart/${city.id}`)
+        axios.get(`/cities/remove_heart/${city.id}`)
         .then(response => {
             dispatch(heartedFetch())
         })
@@ -121,7 +121,7 @@ export const initialFetch = (route) => {
 export const heartedFetch = () => {
 
     return (dispatch) => {
-        axios.get("http://localhost:3000/cities/hearted")
+        axios.get("/cities/hearted")
         .then(response => {  
             dispatch(updateHearted(response.data))
         })
