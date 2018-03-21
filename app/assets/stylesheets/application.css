@@ -1,0 +1,373 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ .gutter{
+    margin: 0 16px;
+    }
+    /* unvisited link */
+    a:link {
+      color: rgb(255, 106, 80);
+    }
+
+    a.nav1link:link {
+      color: #3c8a8d;
+    }
+    
+    /* visited link */
+    a:visited {
+      color: rgb(255, 106, 80);
+    }
+
+    
+    /* mouse over link */
+    a:hover {
+      color: rgb(255, 179, 80);
+    }
+
+
+    
+    /* selected link */
+    a:active {
+      color: rgb(255, 179, 80);
+    }
+
+    .navbar {
+      position: absolute;
+      margin: 0;
+      line-height: 4.4;
+      bottom: 0px;
+      right: 7px;
+      font-size: 14px;
+    }
+
+    a.logolink {
+      text-decoration: none;
+      color: black;
+    }
+    .navlink1 {
+      width: 100px;
+      padding: 6px;
+      margin: 0 6px 6px;
+      text-decoration: none;
+      background-color: white;
+      color: #208386;
+      border: 2px solid #208386;
+      border-radius: 5px;
+    }
+
+
+    .navlink1active {
+      width: 100px;
+      padding: 6px;
+      margin: 0 6px 6px;
+      background-color: #bceef0;
+      text-decoration: none;
+      color: #3c8a8d;
+      border: 2px solid #208386;
+      border-radius: 5px;
+    }
+       
+
+    .navlink1:hover {
+      width: 100px;
+      padding: 6px;
+      margin: 0 6px 6px;
+      text-decoration: none;
+      background-color: #bceef0;
+      color: #208386;
+      border: 2px solid #208386;
+      border-radius: 5px;
+    }
+
+
+    a.navlink1 {
+      text-decoration: none;
+      color: #208386;
+    }
+
+    a.navlink1:hover {
+      text-decoration: none;
+      color: #208386;
+    }
+
+    
+
+
+
+    
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      background-color: white;
+      padding: 8px;
+    }
+    .main-container{
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 30px;
+      padding-right: 0px;
+      padding-bottom: 20px;
+      padding-left: 0px;
+      box-sizing: border-box;
+      display: flex;
+    }
+    .col-container{
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .left-col{
+      flex: 3;
+      min-width: 0;
+      text-align: center;
+    
+    }
+    .right-col{
+      flex: 1;
+      margin-left: 15px;
+      overflow-y: hidden;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .popup {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: rgba(0,0,0, 0.5);
+    }
+    .popup_inner {
+      position: absolute;
+      padding: 20px;
+      left: 30%;
+      right: 30%;
+      top: 25%;
+      bottom: 30%;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+    }
+
+    .city-popup {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: rgba(161, 159, 159, .5);
+    }
+    .city-popup-inner {
+      position: absolute;
+      padding: 20px;
+      left: 25%;
+      right: 25%;
+      top: 10%;
+      bottom: 10%;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+    }
+    
+    .logo {
+      width:50px;
+      height:50px;
+    }
+    .stat-icon-lg {
+      width:20px;
+      height:20px;
+    }
+    .stat-icon-sm {
+      width:12px;
+      height:12px;
+    }
+
+    .city-icon{
+      width:40px;
+      height:40px;
+    }
+    .icon-container{
+      flex: 1;
+      min-width: 0;
+      max-width: 35px;
+      text-align: left;
+      padding: 4px;
+    
+    }
+    .info-container{
+      flex: 6;
+      overflow-y: hidden;
+      margin-left: 10px;
+      min-width: 0;
+      overflow: hidden;
+      text-align: left;
+      padding: 0px;
+    }
+    
+    .center-heart{
+      position: relative;
+      top: 25%;
+    }
+    .heart-container{
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+      font-size: 15px;
+      color: rgb(163, 160, 160);
+    }
+    
+    .city-name-container{
+      width: 100%;
+      vertical-align: top;
+    }
+    .stat-container{
+      width: 100%;
+      vertical-align: top;
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+    }
+    
+    .about-container{
+      background: rgb(234, 245, 191);
+      padding: 10px;
+      margin-top: 30px;
+      width: 95%;
+    }
+    .about-link{
+      margin-top: 4px;
+    }
+    h1 {
+      font-family: 'Architects Daughter', cursive;
+      font-size: 30px;
+      display:inline;
+      line-height: .6;
+    }
+    h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      display:inline;
+      text-align: center;
+    }
+    h3 {
+      font-family: 'Architects Daughter', cursive;
+      font-size: 18px;
+      display:inline;
+      text-align: right;
+    }
+    .top-align{
+      vertical-align: top;
+    }
+
+    .filter-div{
+      padding-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    
+    .underline {
+      border-bottom: 2px solid black;
+      display: inline-block;
+      line-height: 0.7;
+      width: 100%;
+    }
+    .on-style {
+      background: #93cfd1;
+      padding: 4px;
+      margin-top: 5px;
+      width: 95%;
+    }
+    
+    .city-item {
+      background: rgb(247, 247, 247);
+      padding: 5px;
+      margin-top: 10px;
+      width: 95%;
+      text-align: Left;
+      display: flex;
+      border-radius: 10px;
+    }
+    
+    .off-filters{
+      margin-top: 15px;
+    }
+    .on-filters{
+      margin-top: 15px
+    }
+    .off-style {
+      padding: 4px;
+      margin-top: 2px;
+      width: 95%;
+      
+    }
+    
+
+    .dropdown {
+      font-size: 15px;
+    }
+    
+    select {
+      background: transparent;
+      border: 1px solid grey;
+      max-width: 95%;
+      font-size: 14px;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px;
+      background-color: white;
+    }
+
+    .img-city-icon {
+      border-radius: 50%;
+      height: 45px;
+      width: 45px;
+    }
+
+    .img-city-icon-lg {
+      border-radius: 15px;
+      height: 150px;
+    }
+
+    .page-numbers {
+      padding-left: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .page-numbers > li {
+      margin-right: 0.3em;
+      color: blue;
+      user-select: none;
+      cursor: pointer;
+    }
+    
