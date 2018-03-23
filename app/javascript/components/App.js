@@ -115,21 +115,21 @@ const mapDispatchToProps = dispatch => {
     heartedFetch: () => dispatch(cityActions.heartedFetch()),
     heartClick: (city) => dispatch(cityActions.heartClick(city)),
     unheartClick: (city) => dispatch(cityActions.unheartClick(city)),
-    updateCurrentUser: (email) => dispatch(authActions.updateCurrentUser(email)),
-    checkCurrentUser: () => dispatch(authActions.checkCurrentUser()),
-    toggleAuthPopup: () => dispatch(authActions.toggleAuthPopup()),
     toggleCityPopup: () => dispatch(cityActions.toggleCityPopup()),
     pageChange: (direction, page) => dispatch(cityActions.pageChange(direction, page)),
     initialFetch: (route) => dispatch(cityActions.initialFetch(route)),
-    signUp: (user) => dispatch(authActions.signUp(user)),
-    login: (user) => dispatch(authActions.login(user)),
     logout: () => dispatch(authActions.logout()),
     clearHearted: () => dispatch(cityActions.clearHearted()),
     clearAllFilters: () => dispatch(cityActions.clearAllFilters()),
     unclick: (id) => dispatch(cityActions.unclick(id)),
     setSingleCity: (city) => dispatch(cityActions.setSingleCity(city)),
     showSingleCity: (city) => dispatch(cityActions.showSingleCity(city)),
-    toggleSingleCityAuthPopup: () => dispatch(cityActions.toggleSingleCityAuthPopup())
+    toggleSingleCityAuthPopup: () => dispatch(cityActions.toggleSingleCityAuthPopup()),
+    signUp: (user) => dispatch(authActions.signUp(user)),
+    login: (user) => dispatch(authActions.login(user)),
+    updateCurrentUser: (email) => dispatch(authActions.updateCurrentUser(email)),
+    checkCurrentUser: () => dispatch(authActions.checkCurrentUser()),
+    toggleAuthPopup: () => dispatch(authActions.toggleAuthPopup())
   }
 }
 

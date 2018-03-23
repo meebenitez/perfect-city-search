@@ -22,7 +22,7 @@ export const checkCurrentUser = () => {
     return (dispatch) => {
         axios.get('/users/check_for_user', { })
         .then(response => {
-            if (response.data.email) {
+            if (response.data !== null) {
                 dispatch(heartedFetch())
                 dispatch(updateCurrentUser(response.data.email))
                 console.log("updated current user")
