@@ -27,7 +27,8 @@ const initialState = {
     inactiveFilters: FILTERS,
     filterHolder: "",
     showCityPopup: false,
-    singleCity: null
+    singleCity: null,
+    hashTag: null,
 }
 
 const cityreducer = (state = initialState, action) => {
@@ -43,7 +44,7 @@ const cityreducer = (state = initialState, action) => {
                     ...state,
                     params: state.params.filter(function(item){ return !(key in item)}),
                     inactiveFilters: inactiveArray,
-                    filterHolder: value, 
+                    //filterHolder: value, 
                     page: 1,
                     startPage: 1
                 }
@@ -54,7 +55,7 @@ const cityreducer = (state = initialState, action) => {
                     ...state,
                     params: state.params.filter(function(item){ return !(key in item)}).concat(obj),
                     inactiveFilters: inactiveArray.filter(function(item){return key !== item }),
-                    filterHolder: value,
+                    //filterHolder: value,
                     page: 1,
                     startPage: 1
                 }
@@ -81,7 +82,9 @@ const cityreducer = (state = initialState, action) => {
         case 'UPDATE_ACTIVE_FILTERS':
             return {
                 ...state,
-                activeFilters: action.payload.map((item) => {return Object.keys(item)[0]})
+                activeFilters: action.payload.map((item) => {return Object.keys(item)[0]}),
+                hashTag: state.params.map(e => Object.values(e)).join("#"),
+                filterHolder: state.params
             }
         case 'UPDATE_ROUTE':
             if (action.currentRoute === "/popular") {

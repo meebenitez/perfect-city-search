@@ -17,7 +17,14 @@ export const filterChange = (event) => {
         dispatch({type: 'FILTER_CHANGE', payload: event})
         dispatch(fetchCities())
         dispatch(updateActiveFilters(getState().city.params))
+        dispatch(updateHash())
     }    
+}
+
+export const updateHash = () => {
+    return (dispatch, getState) => {
+        window.location.hash = getState().city.hashTag
+    }
 }
 
 export const clearAllFilters = () => {

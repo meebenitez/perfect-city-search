@@ -104,7 +104,8 @@ const mapStateToProps = state => {
     perPage: state.city.perPage,
     currentRoute: state.city.currentRoute,
     singleCity: state.city.singleCity,
-    singleCityWaiting: state.city.singleCityWaiting
+    singleCityWaiting: state.city.singleCityWaiting,
+    hashTag: state.city.hashTag
   }
 }
 

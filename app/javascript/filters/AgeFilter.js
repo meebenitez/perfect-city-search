@@ -1,11 +1,12 @@
 import React from 'react';
+import {filterHolderFinder} from '../components/utils/filterFunctions'
 
 const AgeFilter = (props) => {
     return (
         <div className="filter-div">
             <label htmlFor="AgeFilter">👥 Median Age:</label>
             <br></br>
-            <select value={props.value} defaultValue={props.filterHolder} id= "AgeFilter" onChange={(event) => props.onFilterChange(event)}>
+            <select value={props.value} defaultValue={filterHolderFinder("AgeFilter", props.params, props.activeFilters)} id= "AgeFilter" onChange={(event) => props.onFilterChange(event)}>
                     <option value="">Deactivate</option>
                     <option value="[age_from]=20&[age_to]=36">Millenial</option>
                     <option value="[age_from]=36&[age_to]=52">Gen X</option>
