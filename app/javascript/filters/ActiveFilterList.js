@@ -32,7 +32,7 @@ const ActiveFilterList = (props) => {
     const emptyMessage = <div>You have no filters set. Select one below to get started.</div>
 
     const renderFilters = componentArray.map( (Filter) =>  
-        <Filter onFilterChange={props.onFilterChange} key={Filter} params={props.params} toggleCheck={props.toggleCheck}/>
+        <Filter onFilterChange={props.onFilterChange} key={Filter} params={props.params} toggleCheck={props.toggleCheck} isActive={1}/>
     );
 
     return (

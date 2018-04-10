@@ -3,7 +3,7 @@ import React from 'react';
 class MedianIncomeFilter extends React.Component {
     constructor(props){
         super(props)
-        this.state = {checked: false}
+        this.state = this.props.isActive !== undefined ? {checked: true} : {checked: false}
         this.handleChange = this.handleChange.bind(this)
     }
 
@@ -36,7 +36,7 @@ class MedianIncomeFilter extends React.Component {
         <div className="filter-div">
             <input type="checkbox" id= "MedianIncomeFilter" onChange={this.handleChange} checked={this.state.checked} />
             <label htmlFor="AgeFilter">💵 Median Income:</label>
-            {content}
+            {this.state.checked ? <div><input type="text" id= "MedianIncomeFilter" onChange={this.state.checked ? this.handleInput: null}/></div> : null}
             <br></br>
         </div>
         )
