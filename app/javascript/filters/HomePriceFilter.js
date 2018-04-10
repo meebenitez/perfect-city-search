@@ -1,11 +1,12 @@
 import React from 'react';
+import {filterHolderFinder} from '../components/utils/filterFunctions'
 
 const HomePriceFilter = (props) => {
     return (
         <div className="filter-div">
             <label htmlFor="HomePriceFilter"><img src={require('../../assets/images/house_icon.png')} className="stat-icon-sm"/> Median Home Price:</label>
             <br></br>
-            <select value={props.value} defaultValue={props.filterHolder} id= "HomePriceFilter" onChange={(event) => props.onFilterChange(event)}>
+            <select value={props.value} defaultValue={filterHolderFinder("HomePriceFilter", props.params, props.activeFilters)} id= "HomePriceFilter" onChange={(event) => props.onFilterChange(event)}>
                     <option value="">Deactivate</option>
                     <option value="[home_price_from]=1000&[home_price_to]=50000">$1,000 to $50,000</option>
                     <option value="[home_price_from]=50000&[home_price_to]=100000">$50,000 to $100,000</option>

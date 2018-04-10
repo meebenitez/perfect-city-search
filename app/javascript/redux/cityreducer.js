@@ -25,7 +25,6 @@ const initialState = {
     heartedCities: [],
     activeFilters: [],
     inactiveFilters: FILTERS,
-    filterHolder: "",
     showCityPopup: false,
     singleCity: null,
     hashTag: null,
@@ -44,7 +43,6 @@ const cityreducer = (state = initialState, action) => {
                     ...state,
                     params: state.params.filter(function(item){ return !(key in item)}),
                     inactiveFilters: inactiveArray,
-                    //filterHolder: value, 
                     page: 1,
                     startPage: 1
                 }
@@ -55,7 +53,6 @@ const cityreducer = (state = initialState, action) => {
                     ...state,
                     params: state.params.filter(function(item){ return !(key in item)}).concat(obj),
                     inactiveFilters: inactiveArray.filter(function(item){return key !== item }),
-                    //filterHolder: value,
                     page: 1,
                     startPage: 1
                 }
@@ -66,7 +63,6 @@ const cityreducer = (state = initialState, action) => {
                 return {
                     ...state,
                     params: state.params.filter(function(item){ return !(id in item)}),
-                    filterHolder: "", 
                     page: 1,
                     startPage: 1
                 }
@@ -76,7 +72,7 @@ const cityreducer = (state = initialState, action) => {
                 activeFilters: [],
                 params: [],
                 inactiveFilters: FILTERS,
-                filterHolder: ""
+                hashTag: ""
             }
         
         case 'UPDATE_ACTIVE_FILTERS':

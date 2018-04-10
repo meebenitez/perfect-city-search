@@ -71,7 +71,6 @@ class App extends React.Component {
                   params={this.props.params} 
                   activeFilters={this.props.activeFilters} 
                   inactiveFilters={this.props.inactiveFilters} 
-                  filterHolder={this.props.filterHolder}
                   clearAllFilters={this.props.clearAllFilters}
                   unclick={this.props.unclick}
                   showSingleCity={this.props.showSingleCity} />   
@@ -98,7 +97,6 @@ const mapStateToProps = state => {
     showCityPopup: state.city.showCityPopup,
     activeFilters: state.city.activeFilters,
     inactiveFilters: state.city.inactiveFilters,
-    filterHolder: state.city.filterHolder,
     totalCount: state.city.totalCount,
     totalPages: state.city.totalPages,
     perPage: state.city.perPage,
