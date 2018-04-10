@@ -13,7 +13,11 @@ class MedianIncomeFilter extends React.Component {
         this.setState({
             checked: !this.state.checked
         },() => {
-            this.props.onFilterChange("MedianIncomeFilter", "[income]=0")
+            if (this.state.checked === true ) {
+                this.props.onFilterChange("MedianIncomeFilter", "[income]=0")
+            } else {
+                this.props.onFilterChange("MedianIncomeFilter", "")
+            }
         });
 
     }
