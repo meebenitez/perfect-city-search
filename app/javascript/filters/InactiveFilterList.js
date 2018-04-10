@@ -31,7 +31,7 @@ const InactiveFilterList = (props) => {
     const componentArray = props.inactiveFilters.concat().sort().map((Filter) => {return componentListByString[Filter]})
 
     const renderFilters = componentArray.map( (Filter) =>
-        <Filter onFilterChange={props.onFilterChange} key={Filter} filterHolder={props.filterHolder} toggleCheck={props.toggleCheck}/>
+        <Filter onFilterChange={props.onFilterChange} key={Filter} filterHolder={props.filterHolder}/>
     );
 
 

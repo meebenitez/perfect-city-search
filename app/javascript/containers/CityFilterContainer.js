@@ -13,7 +13,6 @@ const CityFilterContainer = (props) =>
                 params={props.params} 
                 activeFilters={props.activeFilters} 
                 filterHolder={props.filterHolder}
-                toggleCheck={props.toggleCheck} 
                 clearAllFilters={props.clearAllFilters}/>
         </div> 
         <br></br>

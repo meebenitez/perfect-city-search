@@ -110,7 +110,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFilterChange: (event) => dispatch(cityActions.filterChange(event)),
+    onFilterChange: (filter, value) => dispatch(cityActions.filterChange(filter, value)),
     initialFetch: () => dispatch(cityActions.initialFetch()),
     heartedFetch: () => dispatch(cityActions.heartedFetch()),
     heartClick: (city) => dispatch(cityActions.heartClick(city)),
@@ -130,7 +130,6 @@ const mapDispatchToProps = dispatch => {
     updateCurrentUser: (email) => dispatch(authActions.updateCurrentUser(email)),
     checkCurrentUser: () => dispatch(authActions.checkCurrentUser()),
     toggleAuthPopup: () => dispatch(authActions.toggleAuthPopup()),
-    toggleCheck: (filter, defaultValue) => dispatch(cityActions.toggleCheck(filter, defaultValue))
   }
 }
 

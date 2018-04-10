@@ -12,16 +12,9 @@ export const fetchCities = () => {
     }
 }
 
-export const toggleCheck = (filter, defaultValue) => {
+export const filterChange = (filter, value) => {
     return (dispatch, getState) => {
-        dispatch({type: 'FILTER_CHANGE', filterName: filter, filterValue: defaultValue})
-        dispatch(filterUpdate())
-    }    
-}
-
-export const filterChange = (event) => {
-    return (dispatch, getState) => {
-        dispatch({type: 'FILTER_CHANGE', filterName: event.target.id, filterValue: event.target.value})
+        dispatch({type: 'FILTER_CHANGE', filterName: filter, filterValue: value})
         dispatch(filterUpdate())
     }    
 }

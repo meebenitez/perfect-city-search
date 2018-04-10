@@ -4,43 +4,37 @@ class MedianIncomeFilter extends React.Component {
     constructor(props){
         super(props)
         this.state = this.props.isActive !== undefined ? {checked: true} : {checked: false}
+        this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
 
 
-    handleChange(){
+    handleClick(){
         this.setState({
             checked: !this.state.checked
         },() => {
-            this.props.toggleCheck("MedianIncomeFilter", "[income]=85000")
-            //if (this.state.checked === false){
-            //    this.props.unclick("MedianIncomeFilter")
-            //}
+            this.props.onFilterChange("MedianIncomeFilter", "[income]=0")
         });
 
     }
 
-    handleInput(e){
-        if (this.state.checked === true) {
-            debugger;
+    handleChange(event){
+        this.props.onFilterChange(event.target.id, `[income]=${event.target.value}`)
+    }
+
+    
+
+    render(){    
+
+        return (
+            <div className="filter-div">
+                <input type="checkbox" id= "MedianIncomeFilter" onChange={this.handleClick} checked={this.state.checked} />
+                <label htmlFor="AgeFilter">💵 Median Income:</label>
+                {this.state.checked ? <input type="text" id= "MedianIncomeFilter" onChange={this.handleChange} /> : null}
+                <br></br>
+            </div>
+            )
         }
-    }
-
-    
-
-    render(){
-        const content = <div>{this.state.checked ? <div><input type="text" id= "MedianIncomeFilter" onChange={this.state.checked ? this.handleInput: null}/></div> : null}</div>
-    
-
-    return (
-        <div className="filter-div">
-            <input type="checkbox" id= "MedianIncomeFilter" onChange={this.handleChange} checked={this.state.checked} />
-            <label htmlFor="AgeFilter">💵 Median Income:</label>
-            {this.state.checked ? <div><input type="text" id= "MedianIncomeFilter" onChange={this.state.checked ? this.handleInput: null}/></div> : null}
-            <br></br>
-        </div>
-        )
-    }
 }
 
 export default MedianIncomeFilter;
