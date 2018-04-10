@@ -73,7 +73,8 @@ class App extends React.Component {
                   inactiveFilters={this.props.inactiveFilters} 
                   clearAllFilters={this.props.clearAllFilters}
                   unclick={this.props.unclick}
-                  showSingleCity={this.props.showSingleCity} />   
+                  showSingleCity={this.props.showSingleCity}
+                  toggleCheck={this.props.toggleCheck} />   
             </div>
           </div>
        </Aux>
@@ -128,7 +129,8 @@ const mapDispatchToProps = dispatch => {
     login: (user) => dispatch(authActions.login(user)),
     updateCurrentUser: (email) => dispatch(authActions.updateCurrentUser(email)),
     checkCurrentUser: () => dispatch(authActions.checkCurrentUser()),
-    toggleAuthPopup: () => dispatch(authActions.toggleAuthPopup())
+    toggleAuthPopup: () => dispatch(authActions.toggleAuthPopup()),
+    toggleCheck: (filter, defaultValue) => dispatch(cityActions.toggleCheck(filter, defaultValue))
   }
 }
 

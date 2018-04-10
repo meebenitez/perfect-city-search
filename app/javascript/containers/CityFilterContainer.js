@@ -8,12 +8,25 @@ const CityFilterContainer = (props) =>
 
     <Aux>
         <div className="on-style">
-            <ActiveFilterList onFilterChange={props.onFilterChange} params={props.params} activeFilters={props.activeFilters} filterHolder={props.filterHolder} clearAllFilters={props.clearAllFilters}/>
+            <ActiveFilterList 
+                onFilterChange={props.onFilterChange} 
+                params={props.params} 
+                activeFilters={props.activeFilters} 
+                filterHolder={props.filterHolder}
+                toggleCheck={props.toggleCheck} 
+                clearAllFilters={props.clearAllFilters}/>
         </div> 
         <br></br>
         <br></br>
         <div className="off-style">
-            <InactiveFilterList onFilterChange={props.onFilterChange} params={props.params} activeFilters={props.activeFilters} inactiveFilters={props.inactiveFilters} filterHolder={props.filterHolder} unclick={props.unclick}/>
+            <InactiveFilterList 
+                onFilterChange={props.onFilterChange} 
+                params={props.params} 
+                activeFilters={props.activeFilters} 
+                inactiveFilters={props.inactiveFilters} 
+                filterHolder={props.filterHolder} 
+                toggleCheck={props.toggleCheck}
+                unclick={props.unclick}/>
         </div>  
     </Aux>
 

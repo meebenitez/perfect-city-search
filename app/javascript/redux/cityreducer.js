@@ -33,8 +33,8 @@ const initialState = {
 const cityreducer = (state = initialState, action) => {
     switch(action.type) {
         case 'FILTER_CHANGE':
-            const key = action.payload.target.id
-            const value = action.payload.target.value
+            const key = action.filterName
+            const value = action.filterValue
             const inactiveArray = [...state.inactiveFilters]
             console.log("updated params")
             if (value === ""){ //condition for deactivating

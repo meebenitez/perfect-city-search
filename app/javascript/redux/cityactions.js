@@ -12,13 +12,26 @@ export const fetchCities = () => {
     }
 }
 
+export const toggleCheck = (filter, defaultValue) => {
+    return (dispatch, getState) => {
+        dispatch({type: 'FILTER_CHANGE', filterName: filter, filterValue: defaultValue})
+        dispatch(filterUpdate())
+    }    
+}
+
 export const filterChange = (event) => {
     return (dispatch, getState) => {
-        dispatch({type: 'FILTER_CHANGE', payload: event})
+        dispatch({type: 'FILTER_CHANGE', filterName: event.target.id, filterValue: event.target.value})
+        dispatch(filterUpdate())
+    }    
+}
+
+export const filterUpdate = () => {
+    return (dispatch, getState) => {
         dispatch(fetchCities())
         dispatch(updateActiveFilters(getState().city.params))
         dispatch(updateHash())
-    }    
+    }
 }
 
 export const updateHash = () => {

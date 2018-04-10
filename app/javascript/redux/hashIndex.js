@@ -1,7 +1,6 @@
 import React from 'react'
 
 
-//------------------Determines preset filter property--------------------/
 export function filterHolderFinder(filterName, params) {
 
     if (params !== undefined) {

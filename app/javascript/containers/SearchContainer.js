@@ -36,6 +36,7 @@ const SearchContainer = (props) =>
                 inactiveFilters={props.inactiveFilters} 
                 filterHolder={props.filterHolder}
                 clearAllFilters={props.clearAllFilters}
+                toggleCheck={props.toggleCheck}
                 unclick={props.unclick} />
         </div>
     </Aux>
