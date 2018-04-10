@@ -27,7 +27,7 @@ const initialState = {
     inactiveFilters: FILTERS,
     showCityPopup: false,
     singleCity: null,
-    hashTag: null,
+    hashTag: [],
 }
 
 const cityreducer = (state = initialState, action) => {
@@ -35,6 +35,7 @@ const cityreducer = (state = initialState, action) => {
         case 'FILTER_CHANGE':
             const key = action.filterName
             const value = action.filterValue
+            const hash = action.hashValue
             const inactiveArray = [...state.inactiveFilters]
             console.log("updated params")
             if (value === ""){ //condition for deactivating
@@ -44,17 +45,21 @@ const cityreducer = (state = initialState, action) => {
                     params: state.params.filter(function(item){ return !(key in item)}),
                     inactiveFilters: inactiveArray,
                     page: 1,
-                    startPage: 1
+                    startPage: 1,
+                    hashTag: state.hashTag.filter(function(item){ return !(key in item)})
                 }
             } else {
                 let obj = {}
                 obj[key] = value
+                let hashObj = {}
+                hashObj[key] = hash
                 return {
                     ...state,
                     params: state.params.filter(function(item){ return !(key in item)}).concat(obj),
                     inactiveFilters: inactiveArray.filter(function(item){return key !== item }),
                     page: 1,
-                    startPage: 1
+                    startPage: 1,
+                    hashTag: state.hashTag.filter(function(item){ return !(key in item)}).concat(hashObj),
                 }
             }
         case 'UNCHECK':
@@ -72,14 +77,13 @@ const cityreducer = (state = initialState, action) => {
                 activeFilters: [],
                 params: [],
                 inactiveFilters: FILTERS,
-                hashTag: ""
+                hashTag: []
             }
         
         case 'UPDATE_ACTIVE_FILTERS':
             return {
                 ...state,
                 activeFilters: action.payload.map((item) => {return Object.keys(item)[0]}),
-                hashTag: state.params.map(e => Object.values(e)).join("#"),
                 filterHolder: state.params
             }
         case 'UPDATE_ROUTE':

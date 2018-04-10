@@ -110,7 +110,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFilterChange: (filter, value) => dispatch(cityActions.filterChange(filter, value)),
+    onFilterChange: (filter, value, hash) => dispatch(cityActions.filterChange(filter, value, hash)),
     initialFetch: () => dispatch(cityActions.initialFetch()),
     heartedFetch: () => dispatch(cityActions.heartedFetch()),
     heartClick: (city) => dispatch(cityActions.heartClick(city)),

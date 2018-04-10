@@ -44,6 +44,11 @@
       color: rgb(255, 179, 80);
     }
 
+    .input-filter {
+      vertical-align: top;
+      display: inline-block;
+    }
+
     .navbar {
       position: absolute;
       margin: 0;

@@ -12,9 +12,9 @@ export const fetchCities = () => {
     }
 }
 
-export const filterChange = (filter, value) => {
+export const filterChange = (filter, value, hash = null) => {
     return (dispatch, getState) => {
-        dispatch({type: 'FILTER_CHANGE', filterName: filter, filterValue: value})
+        dispatch({type: 'FILTER_CHANGE', filterName: filter, filterValue: value, hashValue: hash})
         dispatch(filterUpdate())
     }    
 }
@@ -29,7 +29,7 @@ export const filterUpdate = () => {
 
 export const updateHash = () => {
     return (dispatch, getState) => {
-        window.location.hash = getState().city.hashTag
+        window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&')
     }
 }
 
@@ -37,6 +37,7 @@ export const clearAllFilters = () => {
     return (dispatch) => {
         dispatch(clearParams())
         dispatch(fetchCities())
+        dispatch(updateHash())
     }
 }
 

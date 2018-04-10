@@ -14,7 +14,7 @@ class MedianIncomeFilter extends React.Component {
             checked: !this.state.checked
         },() => {
             if (this.state.checked === true ) {
-                this.props.onFilterChange("MedianIncomeFilter", "[income]=0")
+                this.props.onFilterChange("MedianIncomeFilter", "[income]=0", `min-household-income>=0`)
             } else {
                 this.props.onFilterChange("MedianIncomeFilter", "")
             }
@@ -23,7 +23,7 @@ class MedianIncomeFilter extends React.Component {
     }
 
     handleChange(event){
-        this.props.onFilterChange(event.target.id, `[income]=${event.target.value}`)
+        this.props.onFilterChange(event.target.id, `[income]=${event.target.value}`, `min-household-income>=${event.target.value}`)
     }
 
     
@@ -34,7 +34,7 @@ class MedianIncomeFilter extends React.Component {
             <div className="filter-div">
                 <input type="checkbox" id= "MedianIncomeFilter" onChange={this.handleClick} checked={this.state.checked} />
                 <label htmlFor="AgeFilter">💵 Median Income:</label>
-                {this.state.checked ? <input type="text" id= "MedianIncomeFilter" onChange={this.handleChange} /> : null}
+                {this.state.checked ? <span className="input-filter">>= <input type="text" id= "MedianIncomeFilter" onChange={this.handleChange} /></span> : null}
                 <br></br>
             </div>
             )
