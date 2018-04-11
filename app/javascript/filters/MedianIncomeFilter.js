@@ -33,7 +33,7 @@ class MedianIncomeFilter extends React.Component {
         return (
             <div className="filter-div">
                 <input type="checkbox" id= "MedianIncomeFilter" onChange={this.handleClick} checked={this.state.checked} />
-                <label htmlFor="AgeFilter">💵 Median Income:</label>
+                <label htmlFor="MedianIncomeFilter">💵 Household Income</label><span className="question-mark"><sup>?</sup></span><br></br>
                 {this.state.checked ? <span className="input-filter">>= <input type="text" id= "MedianIncomeFilter" onChange={this.handleChange} /></span> : null}
                 <br></br>
             </div>

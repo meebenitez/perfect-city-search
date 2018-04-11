@@ -47,6 +47,15 @@
     .input-filter {
       vertical-align: top;
       display: inline-block;
+      text-indent: 20px;
+    }
+
+    .input-filter-minmax {
+      width: 50px;
+    }
+
+    .question-mark {
+      color: grey;
     }
 
     .navbar {

@@ -1,28 +1,57 @@
 import React from 'react';
-import {filterHolderFinder} from '../components/utils/filterFunctions'
 
-const HomePriceFilter = (props) => {
-    return (
-        <div className="filter-div">
-            <label htmlFor="HomePriceFilter"><img src={require('../../assets/images/house_icon.png')} className="stat-icon-sm"/> Median Home Price:</label>
-            <br></br>
-            <select value={props.value} defaultValue={filterHolderFinder("HomePriceFilter", props.params, props.activeFilters)} id= "HomePriceFilter" onChange={(event) => props.onFilterChange(event)}>
-                    <option value="">Deactivate</option>
-                    <option value="[home_price_from]=1000&[home_price_to]=50000">$1,000 to $50,000</option>
-                    <option value="[home_price_from]=50000&[home_price_to]=100000">$50,000 to $100,000</option>
-                    <option value="[home_price_from]=100000&[home_price_to]=200000">$100,000 to $200,000</option>
-                    <option value="[home_price_from]=200000&[home_price_to]=300000">$200,000 to $300,000</option>
-                    <option value="[home_price_from]=300000&[home_price_to]=400000">$300,000 to $400,000</option>
-                    <option value="[home_price_from]=400000&[home_price_to]=500000">$400,000 to $500,000</option>
-                    <option value="[home_price_from]=500000&[home_price_to]=600000">$500,000 to $600,000</option>
-                    <option value="[home_price_from]=600000&[home_price_to]=700000">$600,000 to $700,000</option>
-                    <option value="[home_price_from]=700000&[home_price_to]=800000">$700,000 to $800,000</option>
-                    <option value="[home_price_from]=800000&[home_price_to]=900000">$800,000 to $900,000</option>
-                    <option value="[home_price_from]=900000&[home_price_to]=1000000">$900,000 to $1M</option>
-                    <option value="[home_price_from]=1000000&[home_price_to]=10000000">$1M+</option>
-            </select>
-        </div>
-    )
+class HomePriceFilter extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = this.props.isActive !== undefined ? {checked: true, min: 0, max: 2000000} : {checked: false, min: 0, max: 2000000}
+        this.handleClick = this.handleClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+
+    handleClick(){
+        this.setState({
+            checked: !this.state.checked
+        },() => {
+            if (this.state.checked === true ) {
+                this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${this.state.min}&[home_price_to]=${this.state.max}`, `home-price=${this.state.min}to${this.state.max}`)
+            } else {
+                this.props.onFilterChange("HomePriceFilter", "")
+            }
+        });
+
+    }
+
+    handleChange(event){
+        if (event.target.id === "min") {
+            this.setState({
+                min: event.target.value
+            }, () => {
+                this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${this.state.min}&[home_price_to]=${this.state.max}`, `home-price=${this.state.min}to${this.state.max}`)
+            })
+        } else {
+            this.setState({
+                max: event.target.value
+            }, () => {
+                this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${this.state.min}&[home_price_to]=${this.state.max}`, `home-price=${this.state.min}to${this.state.max}`)
+            })
+        }
+    }
+
+    
+
+    render(){    
+
+        return (
+            <div className="filter-div">
+                <input type="checkbox" id= "HomePriceFilter" onChange={this.handleClick} checked={this.state.checked} />
+                <label htmlFor="HomePriceFilter"><img src={require('../../assets/images/house_icon.png')} className="stat-icon-sm"/> Median Home Value</label><span className="question-mark"><sup>?</sup></span><br></br>
+                {this.state.checked ? <span className="input-filter">$<input type="text" id= "min" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="max" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span> : null}
+            </div>
+            )
+        }
 }
 
 export default HomePriceFilter;
+
+     

@@ -5,9 +5,6 @@ const CollegeGradFilter = (props) => {
         <div className="filter-div">
             <label htmlFor="CollegeGradFilter"><img src={require('../../assets/images/graduate.png')} className="stat-icon-sm"/> College Graduates:</label>
             <br></br>
-            <select value={props.value} defaultValue={props.filterHolder} id= "CollegeGradFilter">
-                <option value="">Deactivate</option>
-            </select>
         </div>
     )
 }

@@ -5,9 +5,6 @@ const VoterDemoFilter = (props) => {
         <div className="filter-div">
             <label htmlFor="VoterDemoFilter"><img src={require('../../assets/images/vote.png')} className="stat-icon-sm"/> Voter Demographics:</label>
             <br></br>
-            <select value={props.value} defaultValue={props.filterHolder} id= "VoterDemoFilter">
-                <option value="">Deactivate</option>
-            </select>
         </div>
     )
 }
