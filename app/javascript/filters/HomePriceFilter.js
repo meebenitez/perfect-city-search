@@ -23,13 +23,13 @@ class HomePriceFilter extends React.Component {
     }
 
     handleChange(event){
-        if (event.target.id === "min") {
+        if (event.target.id === "homeValueMin") {
             this.setState({
                 min: event.target.value
             }, () => {
                 this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${this.state.min}&[home_price_to]=${this.state.max}`, `home-price=${this.state.min}to${this.state.max}`)
             })
-        } else {
+        } else if (event.target.id === "homeValueMax") {
             this.setState({
                 max: event.target.value
             }, () => {
@@ -46,7 +46,7 @@ class HomePriceFilter extends React.Component {
             <div className="filter-div">
                 <input type="checkbox" id= "HomePriceFilter" onChange={this.handleClick} checked={this.state.checked} />
                 <label htmlFor="HomePriceFilter"><img src={require('../../assets/images/house_icon.png')} className="stat-icon-sm"/> Median Home Value</label><span className="question-mark"><sup>?</sup></span><br></br>
-                {this.state.checked ? <span className="input-filter">$<input type="text" id= "min" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="max" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span> : null}
+                {this.state.checked ? <span className="input-filter">$<input type="text" id= "homeValueMin" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="homeValueMax" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span> : null}
             </div>
             )
         }
