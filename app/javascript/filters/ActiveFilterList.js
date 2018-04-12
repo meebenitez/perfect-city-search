@@ -30,7 +30,7 @@ const ActiveFilterList = (props) => {
 
     return (
     <div>
-        {(renderFilters.length > 0) ? <div>{renderFilters} <br></br><br></br><button onClick={() => props.clearAllFilters()}>clear filters</button></div>  : null }
+        {(renderFilters.length > 0) ? <div>{renderFilters}</div>  : null }
     </div>
     )
 }
