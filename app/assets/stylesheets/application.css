@@ -15,11 +15,12 @@
  */
 
  .gutter{
-    margin: 0 16px;
+    margin: 0;
     }
     /* unvisited link */
     a:link {
       color: rgb(255, 106, 80);
+      text-decoration: none;
     }
 
     a.nav1link:link {
@@ -125,20 +126,25 @@
     .container {
       position: relative;
       width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
+      margin-left:none;
+      margin-right:none;
       box-sizing: border-box;
       background-color: white;
-      padding: 8px;
+      padding: 0px;
     }
+
+    .grey-background {
+      background-color: #fcfafa;
+    }
+
     .main-container{
       position: relative;
       width: 100%;
-      margin: 0 auto;
+      margin: 0px;
       padding-top: 30px;
       padding-right: 0px;
-      padding-bottom: 20px;
-      padding-left: 0px;
+      padding-bottom: 0px;
+      padding-left: 16px;
       box-sizing: border-box;
       display: flex;
     }
@@ -148,13 +154,13 @@
       margin: 0 auto;
     }
     .left-col{
-      flex: 3;
+      width: 60%;
       min-width: 0;
       text-align: center;
     
     }
     .right-col{
-      flex: 1;
+      width: 40%;
       margin-left: 15px;
       overflow-y: hidden;
       min-width: 0;
@@ -235,7 +241,7 @@
     .info-container{
       flex: 6;
       overflow-y: hidden;
-      margin-left: 10px;
+      margin-left: 100px;
       min-width: 0;
       overflow: hidden;
       text-align: left;
@@ -261,7 +267,7 @@
     .stat-container{
       width: 100%;
       vertical-align: top;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       font-size: 12px;
     }
     
@@ -275,19 +281,18 @@
       margin-top: 4px;
     }
     h1 {
-      font-family: 'Architects Daughter', cursive;
-      font-size: 30px;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 35px;
       display:inline;
-      line-height: .6;
     }
     h2 {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       font-size: 18px;
       display:inline;
       text-align: center;
     }
     h3 {
-      font-family: 'Architects Daughter', cursive;
+      font-family: 'Permanent Marker', cursive;
       font-size: 18px;
       display:inline;
       text-align: right;
@@ -303,10 +308,9 @@
     }
     
     .underline {
-      border-bottom: 2px solid black;
       display: inline-block;
-      line-height: 0.7;
       width: 100%;
+      padding-left: 16px;
     }
     .on-style {
       background: #93cfd1;
@@ -353,15 +357,15 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       font-size: 13px;
       background-color: white;
     }
 
     .img-city-icon {
-      border-radius: 50%;
-      height: 45px;
-      width: 45px;
+      border-radius: 15px;
+      height: 80px;
+      width: 100px;
     }
 
     .img-city-icon-lg {

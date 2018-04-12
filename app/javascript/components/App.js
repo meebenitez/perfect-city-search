@@ -30,7 +30,7 @@ class App extends React.Component {
               currentUser={this.props.currentUser} 
               initialFetch={this.props.initialFetch}/>   
           </div>
-          <div className="container">
+          <div className="container grey-background">
             <div className="main-container">
                 {this.props.showAuthPopup ? 
                   <Devise 
