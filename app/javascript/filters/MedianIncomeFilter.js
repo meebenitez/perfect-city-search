@@ -45,12 +45,19 @@ class MedianIncomeFilter extends React.Component {
             <Aux>
                 {this.props.isActive !== undefined ? 
                 <div className="filter-div filter-on">
-                    <input type="checkbox" id= "MedianIncomeFilter" onChange={this.handleClick} checked={true}/>
-                    <label htmlFor="MedianIncomeFilter">💵 Household Income</label><span className="question-mark"><sup>?</sup></span><br></br>
-                    <span className="input-filter">$<input type="text" id= "incomeMin" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="incomeMax" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span>
+                    <div className="filter-container">
+                        <div className="left-filter-col">
+                            <label htmlFor="MedianIncomeFilter">💵 Household Income</label><span className="question-mark"><sup>?</sup></span><br></br>
+                            <span className="input-filter">$<input type="text" id= "incomeMin" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="incomeMax" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span>
+                        </div>
+                        <div className="right-filter-col">
+                            <div className="center-x">
+                                <label onClick={this.handleClick}>x</label>
+                            </div>
+                        </div>
+                    </div>
                 </div> :
-                <div className="filter-div filter-off">
-                    <input type="checkbox" id= "MedianIncomeFilter" onChange={this.handleClick} checked={false} />
+                <div className="filter-div filter-off" onClick={this.handleClick}>
                     <label htmlFor="MedianIncomeFilter">💵 Household Income</label><span className="question-mark"><sup>?</sup></span><br></br>
                 </div> }
             </Aux>
