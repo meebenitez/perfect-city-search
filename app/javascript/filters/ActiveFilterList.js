@@ -20,16 +20,9 @@ const ActiveFilterList = (props) => {
         RegionFilter: RegionFilter,
         HomePriceFilter: HomePriceFilter,
         MedianIncomeFilter: MedianIncomeFilter,
-        VoterDemoFilter: VoterDemoFilter,
-        GoodSchoolsFilter: GoodSchoolsFilter,
-        PotFriendlyFilter: PotFriendlyFilter,
-        CollegeGradFilter: CollegeGradFilter,
-        LowCrimeFilter: LowCrimeFilter
-
     }
 
     const componentArray = props.activeFilters.concat().sort().map((Filter) => {return componentListByString[Filter]})
-    const emptyMessage = <div>You have no filters set. Select one below to get started.</div>
 
     const renderFilters = componentArray.map( (Filter) =>  
         <Filter onFilterChange={props.onFilterChange} key={Filter} params={props.params} isActive={1}/>
@@ -37,8 +30,7 @@ const ActiveFilterList = (props) => {
 
     return (
     <div>
-        <h3>ACTIVE FILTERS</h3>
-        {(renderFilters.length > 0) ? <div>{renderFilters} <br></br><br></br><button onClick={() => props.clearAllFilters()}>clear filters</button></div>  : emptyMessage }
+        {(renderFilters.length > 0) ? <div>{renderFilters} <br></br><br></br><button onClick={() => props.clearAllFilters()}>clear filters</button></div>  : null }
     </div>
     )
 }

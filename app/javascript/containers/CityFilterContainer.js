@@ -7,7 +7,10 @@ import Aux from '../components/Aux'
 const CityFilterContainer = (props) => 
 
     <Aux>
-        <div className="on-style">
+        <h2>Filters</h2>
+        <br></br>
+        {props.activeFilters.length > 0 ? <button onClick={() => props.clearAllFilters()}>clear filters</button> : null }
+        <div>
             <ActiveFilterList 
                 onFilterChange={props.onFilterChange} 
                 params={props.params} 
@@ -17,7 +20,7 @@ const CityFilterContainer = (props) =>
         </div> 
         <br></br>
         <br></br>
-        <div className="off-style">
+        <div>
             <InactiveFilterList 
                 onFilterChange={props.onFilterChange} 
                 params={props.params} 

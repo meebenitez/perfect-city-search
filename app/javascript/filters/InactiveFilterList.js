@@ -20,12 +20,6 @@ const InactiveFilterList = (props) => {
         RegionFilter: RegionFilter,
         HomePriceFilter: HomePriceFilter,
         MedianIncomeFilter: MedianIncomeFilter,
-        VoterDemoFilter: VoterDemoFilter,
-        GoodSchoolsFilter: GoodSchoolsFilter,
-        PotFriendlyFilter: PotFriendlyFilter,
-        CollegeGradFilter: CollegeGradFilter,
-        LowCrimeFilter: LowCrimeFilter,
-        HighEmploymentFilter: HighEmploymentFilter
     }
 
     const componentArray = props.inactiveFilters.concat().sort().map((Filter) => {return componentListByString[Filter]})
@@ -37,7 +31,6 @@ const InactiveFilterList = (props) => {
 
     return (
     <div>
-        {renderFilters.length > 0 ? <span style={{fontWeight: 'bold'}}>INACTIVE FILTERS</span> : null}
         <br></br>
         {renderFilters}
     </div>
