@@ -3,22 +3,18 @@ import React from 'react';
 class MedianIncomeFilter extends React.Component {
     constructor(props){
         super(props)
-        this.state = this.props.isActive !== undefined ? {checked: true, min: 0, max: 2000000} : {checked: false, min: 0, max: 2000000}
+        this.state = {min: 0, max: 250000}
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
 
 
     handleClick(){
-        this.setState({
-            checked: !this.state.checked
-        },() => {
-            if (this.state.checked === true ) {
-                this.props.onFilterChange("MedianIncomeFilter", `[income_from]=${this.state.min}&[income_to]=${this.state.max}`, `median-income=${this.state.min}to${this.state.max}`)
-            } else {
-                this.props.onFilterChange("MedianIncomeFilter", "")
-            }
-        });
+        if ( this.props.isActive === undefined ) {
+            this.props.onFilterChange("MedianIncomeFilter", `[income_from]=${this.state.min}&[income_to]=${this.state.max}`, `median-income=${this.state.min}to${this.state.max}`)
+        } else {
+            this.props.onFilterChange("MedianIncomeFilter", "")
+        }
 
     }
 
@@ -46,9 +42,9 @@ class MedianIncomeFilter extends React.Component {
 
         return (
             <div className="filter-div">
-                <input type="checkbox" id= "MedianIncomeFilter" onChange={this.handleClick} checked={this.state.checked} />
+                <input type="checkbox" id= "MedianIncomeFilter" onChange={this.handleClick} checked={this.props.isActive !== undefined ? true : false} />
                 <label htmlFor="MedianIncomeFilter">💵 Household Income</label><span className="question-mark"><sup>?</sup></span><br></br>
-                {this.state.checked ? <span className="input-filter">$<input type="text" id= "incomeMin" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="incomeMax" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span> : null}
+                {this.props.isActive !== undefined ? <span className="input-filter">$<input type="text" id= "incomeMin" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="incomeMax" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span> : null}
             </div>
             )
         }
