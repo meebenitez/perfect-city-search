@@ -318,7 +318,8 @@
       margin-right: 5px;
       margin-bottom: 5px;
       font-size: 14px;
-      border-radius:10px;;
+      border-radius:10px;
+      user-select: none;
     }
 
     .filter-off {
@@ -328,11 +329,19 @@
       background-color: #cccfcf;
     }
 
+    .filter-off:hover {
+      border-color:  #4f5050;
+    }
+
     .filter-on {
       border-style: solid;
       border-width: 1px;
       border-color: #88cfff;
       background-color: rgb(136, 207, 255, .5);
+    }
+
+    .filter-on:hover {
+      border-color: #7ebbe4;
     }
 
     .filter-container {
@@ -366,10 +375,12 @@
       width: 50%;
       padding-left: 10px;
       font-weight: bold;
+      font-size: 18px;
     }
 
-
-
+    .center-x:hover {
+      text-decoration: underline;
+    }
 
     
     .header-container {
