@@ -15,7 +15,7 @@ module PerfectCitySearch
       DeviseController.respond_to :html, :json
     end
 
-
+    config.assets.initialize_on_precompile = false
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
