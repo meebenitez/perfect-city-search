@@ -7,9 +7,8 @@ import Aux from '../components/Aux'
 const CityFilterContainer = (props) => 
 
     <Aux>
-        <h2>Filters</h2>
-        <br></br>
-        {props.activeFilters.length > 0 ? <button onClick={() => props.clearAllFilters()}>clear filters</button> : null }
+        <h2>Filters</h2>   {props.activeFilters.length > 0 ? <label onClick={() => props.clearAllFilters()}>clear filters</label> : null }
+        <br></br><br></br>
         <div>
             <ActiveFilterList 
                 onFilterChange={props.onFilterChange} 
