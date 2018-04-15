@@ -181,7 +181,7 @@
       right: 0;
       bottom: 0;
       margin: auto;
-      background-color: rgba(0,0,0, 0.5);
+      background-color: rgb(0,0,0, 0.5);
     }
     .popup_inner {
       position: absolute;
@@ -204,7 +204,7 @@
       right: 0;
       bottom: 0;
       margin: auto;
-      background-color: rgba(161, 159, 159, .5);
+      background-color: rgb(161, 159, 159, .5);
     }
     .city-popup-inner {
       position: absolute;
