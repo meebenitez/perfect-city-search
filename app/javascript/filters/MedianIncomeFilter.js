@@ -47,7 +47,7 @@ class MedianIncomeFilter extends React.Component {
                 <div className="filter-div filter-on">
                     <div className="filter-container">
                         <div className="left-filter-col">
-                            <label htmlFor="MedianIncomeFilter">💵 Median Household Income</label><span className="question-mark"></span><br></br>
+                            <label htmlFor="MedianIncomeFilter">💵 Median Household Income</label><br></br>
                             <span className="input-filter">$<input type="text" id= "incomeMin" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="incomeMax" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span>
                         </div>
                         <div className="right-filter-col">
@@ -58,7 +58,7 @@ class MedianIncomeFilter extends React.Component {
                     </div>
                 </div> :
                 <div className="filter-div filter-off" onClick={this.handleClick}>
-                    <label htmlFor="MedianIncomeFilter">💵 Median Household Income</label><span className="question-mark"></span><br></br>
+                    <label htmlFor="MedianIncomeFilter">💵 Median Household Income</label><br></br>
                 </div> }
             </Aux>
             )
