@@ -33,7 +33,6 @@ export const fetchSearchCities = (term) => {
 }
 
 export const filterChange = (filter, value, hash = null) => {
-    debugger;
     return (dispatch, getState) => {
         dispatch({type: 'FILTER_CHANGE', filterName: filter, filterValue: value, hashValue: hash})
         dispatch(filterUpdate())
