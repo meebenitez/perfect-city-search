@@ -181,7 +181,7 @@
       right: 0;
       bottom: 0;
       margin: auto;
-      background-color: rgb(0,0,0, 0.5);
+      background-color: rgba(0,0,0, 0.5);
     }
     .popup_inner {
       position: absolute;
@@ -204,7 +204,7 @@
       right: 0;
       bottom: 0;
       margin: auto;
-      background-color: rgb(161, 159, 159, .5);
+      background-color: rgba(161, 159, 159, .5);
     }
     .city-popup-inner {
       position: absolute;
@@ -336,7 +336,7 @@
       border-style: solid;
       border-width: 1px;
       border-color: #88cfff;
-      background-color: rgb(136, 207, 255, .5);
+      background-color: rgba(136, 207, 255, .5);
     }
 
     .filter-on:hover {
@@ -501,6 +501,7 @@
       border-radius: 15px;
     }
     .search-box:focus {
+      box-shadow: 0 0 15px 5px #b0e0ee;
       border: 2px solid #bebede;
     }
     .close-icon {
