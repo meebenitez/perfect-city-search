@@ -6,9 +6,14 @@ const NameSearchFilter = (props) => {
         props.onFilterChange("NameSearchFilter",`[term]=${e.target.value}`,`[name]=${e.target.value}`)
       }
 
+    function handleClear() {
+        debugger;
+    }
+
     return (
         <div>
-            <input type="text" id="seachbox" className="search-box" onChange={(e)=>handleChange(e)}placeholder="Search Cities by Name..."/>
+            <input type="search" id="seachbox" name="focus" required className="search-box" onChange={(e)=>handleChange(e)}placeholder="Search by city name..."/>
+            
             <br></br>
         </div>
     )
@@ -16,4 +21,4 @@ const NameSearchFilter = (props) => {
 
 export default NameSearchFilter;
 
-
+//<button className="close-icon" onClick={() => handleClear()}></button>

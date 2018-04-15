@@ -27,7 +27,7 @@ const ActiveFilterList = (props) => {
 
     const componentArray = props.activeFilters.concat().sort().map((Filter) => {return componentListByString[Filter]})
 
-    const renderFilters = componentArray.map( (Filter) =>  
+    const renderFilters = componentArray.filter(val => val !== NameSearchFilter).map( (Filter) =>  
         <Filter onFilterChange={props.onFilterChange} key={Filter} params={props.params} isActive={1}/>
     );
 
