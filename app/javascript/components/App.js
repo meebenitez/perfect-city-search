@@ -28,7 +28,7 @@ class App extends React.Component {
             <Header 
               toggleAuthPopup={this.props.toggleAuthPopup} 
               currentUser={this.props.currentUser} 
-              initialFetch={this.props.initialFetch}/>   
+              initialFetch={this.props.initialFetch} />   
           </div>
           <div className="container grey-background">
             <div className="main-container max-width">
@@ -74,7 +74,10 @@ class App extends React.Component {
                   clearAllFilters={this.props.clearAllFilters}
                   unclick={this.props.unclick}
                   showSingleCity={this.props.showSingleCity}
-                  toggleCheck={this.props.toggleCheck} />   
+                  toggleCheck={this.props.toggleCheck}
+                  onSearch={this.props.onSearch}
+                  searchTerm={this.props.searchTerm}
+                  searchCities={this.props.searchCities} />   
             </div>
           </div>
        </Aux>
@@ -104,7 +107,9 @@ const mapStateToProps = state => {
     currentRoute: state.city.currentRoute,
     singleCity: state.city.singleCity,
     singleCityWaiting: state.city.singleCityWaiting,
-    hashTag: state.city.hashTag
+    hashTag: state.city.hashTag,
+    searchTerm: state.city.searchTerm,
+    searchCities: state.city.searchCities
   }
 }
 
@@ -130,6 +135,7 @@ const mapDispatchToProps = dispatch => {
     updateCurrentUser: (email) => dispatch(authActions.updateCurrentUser(email)),
     checkCurrentUser: () => dispatch(authActions.checkCurrentUser()),
     toggleAuthPopup: () => dispatch(authActions.toggleAuthPopup()),
+    onSearch: (value) => dispatch(cityActions.onSearch(value)),
   }
 }
 

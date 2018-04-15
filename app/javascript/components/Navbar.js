@@ -1,30 +1,18 @@
 import React from 'react';
 import Aux from './Aux'
 import { NavLink } from 'react-router-dom';
+import Autosuggest from 'react-autosuggest';
 
 
 
 
 const Navbar = (props) => {
 
+ 
 
+  
     return (
         <Aux>
-          <NavLink
-            to="/"
-            exact
-            className="navlink1"
-            activeClassName="navlink1active"
-            onClick={() => props.initialFetch("/")}
-          >City Search</NavLink>
-          <NavLink
-            to="/popular"
-            exact
-            className="navlink1"
-            activeClassName="navlink1active"
-            onClick={() => props.initialFetch("/popular")}
-          >⭐ Popular</NavLink>
-          
           { props.currentUser ?
               <NavLink
                 to="/hearted"

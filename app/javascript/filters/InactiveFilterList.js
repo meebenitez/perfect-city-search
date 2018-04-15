@@ -19,7 +19,7 @@ const InactiveFilterList = (props) => {
         AgeFilter: AgeFilter,
         RegionFilter: RegionFilter,
         HomePriceFilter: HomePriceFilter,
-        MedianIncomeFilter: MedianIncomeFilter,
+        MedianIncomeFilter: MedianIncomeFilter
     }
 
     const componentArray = props.inactiveFilters.concat().sort().map((Filter) => {return componentListByString[Filter]})

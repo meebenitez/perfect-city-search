@@ -117,10 +117,9 @@
       color: #208386;
     }
 
-    
-
-
-
+    .bold {
+      font-weight: bold;
+    }
     
     .container {
       position: relative;
@@ -147,7 +146,7 @@
       position: relative;
       width: 100%;
       margin: 0px;
-      padding-top: 30px;
+      padding-top: 10px;
       padding-right: 0px;
       padding-bottom: 0px;
       padding-left: 16px;
@@ -247,7 +246,7 @@
     .info-container{
       flex: 6;
       overflow-y: hidden;
-      margin-left: 100px;
+      margin-left: 200px;
       min-width: 0;
       overflow: hidden;
       text-align: left;
@@ -382,6 +381,22 @@
       text-decoration: underline;
     }
 
+    .search-box {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      border: 1px solid #C2C2C2;
+      box-shadow: 1px 1px 4px #EBEBEB;
+      -moz-box-shadow: 1px 1px 4px #EBEBEB;
+      -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+      border-radius: 3px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 3px;
+      padding: 7px;
+      outline: none;
+      width: 350px;
+  }
+
     
     .header-container {
       position: relative;
@@ -463,8 +478,8 @@
 
     .img-city-icon {
       border-radius: 15px;
-      height: 80px;
-      width: 100px;
+      height: 160px;
+      width: 200px;
     }
 
     .img-city-icon-lg {
@@ -477,8 +492,6 @@
       margin: 0;
       list-style: none;
       display: flex;
-      align-items: center;
-      justify-content: center;
     }
     
     .page-numbers > li {

@@ -2,6 +2,7 @@ import React from 'react';
 import ActiveFilterList from '../filters/ActiveFilterList'
 import InactiveFilterList from '../filters/InactiveFilterList'
 import Aux from '../components/Aux'
+import NameSearchFilter from '../filters/NameSearchFilter'
 
 
 const CityFilterContainer = (props) => 
@@ -16,6 +17,9 @@ const CityFilterContainer = (props) =>
                 activeFilters={props.activeFilters} 
                 filterHolder={props.filterHolder}
                 clearAllFilters={props.clearAllFilters}/>
+        </div>
+        <div>
+            <NameSearchFilter onSearch={props.onSearch} searchTerm={props.searchTerm} searchCities={props.searchCities}/>
         </div> 
         <br></br>
         <br></br>

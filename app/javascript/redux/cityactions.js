@@ -12,6 +12,26 @@ export const fetchCities = () => {
     }
 }
 
+export const onSearch = (value) => {
+    return (dispatch) => {
+        dispatch(fetchSearchCities(value))
+    }    
+}
+
+export const clickSearch = (value) => {
+    debugger;
+}
+
+export const fetchSearchCities = (term) => {
+    return (dispatch) => {
+        return axios.get(`/cities?${term}`)
+            .then(response => {
+                dispatch({type: 'ADD_SEARCH_TERM', searchTerm: term, cities: response.data.cities})
+            })
+    }
+
+}
+
 export const filterChange = (filter, value, hash = null) => {
     return (dispatch, getState) => {
         dispatch({type: 'FILTER_CHANGE', filterName: filter, filterValue: value, hashValue: hash})

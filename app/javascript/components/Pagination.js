@@ -11,7 +11,7 @@ const Pagination = (props) => {
             } else if (props.currentRoute === "[hearted]=yourhearted"){
                 return <span> cities that you've "hearted".</span>
             } else {
-                return <span> potentially great places to live.</span>
+                return <span> potentially great places to live.   </span>
             }
         }
         
@@ -53,8 +53,8 @@ const Pagination = (props) => {
 
 
         return (
-                    <div>Showing {startPage}-{(props.count - 1) + startPage} of {props.totalCount} {routeMessage()} <br></br>
-                        <ul className="page-numbers">
+                    <div>
+                        <ul className="page-numbers">Showing {startPage}-{(props.count - 1) + startPage} of &nbsp;<span className="bold">{props.totalCount}</span>&nbsp;{routeMessage()}&nbsp;
                             {(props.startPage <= 4) ? null : < li onClick={()=>props.pageChange("prev", null)}> ⇦ </li>}
                             {renderPageNumbers}
                             {pageNumbers.includes(props.totalPages) ? null : < li onClick={()=>props.pageChange("next", null)}> ⇨ </li>}

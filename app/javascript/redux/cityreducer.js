@@ -22,6 +22,8 @@ const initialState = {
     showCityPopup: false,
     singleCity: null,
     hashTag: [],
+    searchTerm: "",
+    searchCities: []
 }
 
 const cityreducer = (state = initialState, action) => {
@@ -55,6 +57,12 @@ const cityreducer = (state = initialState, action) => {
                     startPage: 1,
                     hashTag: state.hashTag.filter(function(item){ return !(key in item)}).concat(hashObj),
                 }
+            }
+        case 'ADD_SEARCH_TERM':
+            return {
+                ...state,
+                searchTerm: action.searchTerm,
+                searchCities: action.cities
             }
         case 'UNCHECK':
             const id = action.payload

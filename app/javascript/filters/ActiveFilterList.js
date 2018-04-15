@@ -11,6 +11,7 @@ import CollegeGradFilter from './CollegeGradFilter'
 import LowCrimeFilter from './LowCrimeFilter'
 import HighEmploymentFilter from './HighEmploymentFilter'
 
+
 const ActiveFilterList = (props) => {
 
 
