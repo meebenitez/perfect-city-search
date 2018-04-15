@@ -11,15 +11,16 @@ const CityFilterContainer = (props) =>
         <h2>Filters</h2>   {props.activeFilters.length > 0 ? <label onClick={() => props.clearAllFilters()}>clear filters</label> : null }
         <br></br><br></br>
         <div>
+            <NameSearchFilter onSearch={props.onSearch} searchTerm={props.searchTerm} searchCities={props.searchCities} onFilterChange={props.onFilterChange}/>
+        </div>
+        <br></br>
+        <div>
             <ActiveFilterList 
                 onFilterChange={props.onFilterChange} 
                 params={props.params} 
                 activeFilters={props.activeFilters} 
                 filterHolder={props.filterHolder}
                 clearAllFilters={props.clearAllFilters}/>
-        </div>
-        <div>
-            <NameSearchFilter onSearch={props.onSearch} searchTerm={props.searchTerm} searchCities={props.searchCities}/>
         </div> 
         <br></br>
         <br></br>

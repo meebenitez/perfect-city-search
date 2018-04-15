@@ -10,6 +10,7 @@ import PotFriendlyFilter from './PotFriendlyFilter'
 import CollegeGradFilter from './CollegeGradFilter'
 import LowCrimeFilter from './LowCrimeFilter'
 import HighEmploymentFilter from './HighEmploymentFilter'
+import NameSearchFilter from './NameSearchFilter'
 
 
 const ActiveFilterList = (props) => {
@@ -21,6 +22,7 @@ const ActiveFilterList = (props) => {
         RegionFilter: RegionFilter,
         HomePriceFilter: HomePriceFilter,
         MedianIncomeFilter: MedianIncomeFilter,
+        NameSearchFilter: NameSearchFilter
     }
 
     const componentArray = props.activeFilters.concat().sort().map((Filter) => {return componentListByString[Filter]})

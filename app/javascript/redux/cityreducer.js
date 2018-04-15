@@ -5,7 +5,8 @@ const FILTERS = [
     "AgeFilter", 
     "RegionFilter", 
     "HomePriceFilter", 
-    "MedianIncomeFilter"]
+    "MedianIncomeFilter",
+    "NameSearchFilter"]
     
 const initialState = {
     cities: [],

@@ -7,8 +7,6 @@ class CitiesController < ApplicationController
             @cities = current_user.cities
         elsif params[:popular].present? #Search Only Popular Cities
             @cities = City.where("popularity > ?", 15)
-        elsif params[:term].present?
-            @cities = City.where("LOWER(name) LIKE ?", "%#{params[:term].downcase}%")
         else
             @cities = City.where(nil) #All City Search
         end
@@ -17,6 +15,7 @@ class CitiesController < ApplicationController
         @cities = @cities.by_age(params[:age_from], params[:age_to]) if params[:age_from].present?
         @cities = @cities.by_home_price(params[:home_price_from], params[:home_price_to]) if params[:home_price_from].present?
         @cities = @cities.by_median_income(params[:income_from], params[:income_to]) if params[:income_from].present?
+        @cities = @cities.where("LOWER(name) LIKE ?", "%#{params[:term].downcase}%") if params[:term].present?
         #@cities = @cities.where("median_property_value <= ?", params[:home_value]) if params[:home_value].present?
         #@cities = @cities.where("median_household_income >= ?", params[:income]) if params[:income].present?
         @cities = @cities.order(popularity: :desc).page(params[:page])
