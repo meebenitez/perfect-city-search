@@ -8,8 +8,8 @@ import NameSearchFilter from '../filters/NameSearchFilter'
 const CityFilterContainer = (props) => 
 
     <Aux>
-        <div>.</div>
-        <h2>Filters</h2>  {props.activeFilters.length > 0 ? <label onClick={() => props.clearAllFilters()}>clear filters</label> : null }
+        <div className="intro teal-bg"><h4 className="underline">Ready to find a hidden gem?</h4><br></br>Sort through our database of over 25,000 US cities with detailed demographic, housing, lifestyle, employment, and income data using the filters provided below. If you find a city you love, click the ♥ to save it. You can learn more about how we source our data in our <a href="">FAQ.</a> <h4>Have fun!</h4></div>
+        <h2><img src={require('../../assets/images/filter.png')} className="stat-icon-lg"/>&nbsp;Filters</h2> {props.activeFilters.length > 0 ? <label onClick={() => props.clearAllFilters()}>clear filters</label> : null }
         <br></br><br></br>
         <br></br>
         <div>

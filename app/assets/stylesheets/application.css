@@ -293,6 +293,13 @@
       display:inline;
       text-align: right;
     }
+
+    h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+      display:inline;
+    }
     .top-align{
       vertical-align: top;
     }
@@ -369,6 +376,10 @@
     }
 
     .center-x:hover {
+      text-decoration: underline;
+    }
+
+    .underline {
       text-decoration: underline;
     }
 
@@ -452,11 +463,21 @@
     }
 
     .teal-bg {
-      background-color: #4ABDAC;
+      background-color: #f5be27;
+    }
+
+    .orange-bg {
+      background-color: #FA9595;
     }
 
     .teal-line {
       border-top: 1px solid #4ABDAC;
+    }
+
+    .intro {
+      padding: 5px;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
 
 

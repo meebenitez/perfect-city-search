@@ -56,7 +56,7 @@ const cityreducer = (state = initialState, action) => {
                     inactiveFilters: inactiveArray.filter(function(item){return key !== item }),
                     page: 1,
                     startPage: 1,
-                    hashTag: state.hashTag.filter(function(item){ return !(key in item)}).concat(hashObj),
+                    hashTag: state.hashTag.filter(function(item){ return !(key in item)}).concat(hashObj)
                 }
             }
         case 'ADD_SEARCH_TERM':
@@ -136,6 +136,11 @@ const cityreducer = (state = initialState, action) => {
                 heartedCities: [],
             }
         case 'PAGE_UPDATE':
+            if (state.page > 1 ) {
+                let hashPage = `page=${state.page}`
+            } else {
+                let hashPage = ""
+            }
             if (action.direction === null){
                 const newPage = action.page
                 return {

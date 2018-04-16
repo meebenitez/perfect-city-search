@@ -50,7 +50,7 @@ export const filterUpdate = () => {
 
 export const updateHash = () => {
     return (dispatch, getState) => {
-        window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&')
+        window.location.hash = getState().city.hashTag > 0 ? getState().city.hashTag.map(el => Object.values(el)).join('&').concat(`&page=${getState().city.page}`) : `page=${getState().city.page}`
     }
 }
 
@@ -73,6 +73,7 @@ export const pageChange = (direction = null, page = null) => {
         
         dispatch(pageUpdate(direction, page))
         dispatch(fetchCities())
+        dispatch(updateHash())
     }  
 }
 
