@@ -5,7 +5,8 @@ import {checkCurrentUser, toggleAuthPopup} from './authactions'
 
 export const fetchCities = () => {
     return (dispatch, getState) => {
-        return axios.get(`/cities?${getState().city.currentRoute}${getState().cityparams !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`)
+        console.log(getState().city.params)
+        return axios.get(`/cities?${getState().city.currentRoute}${getState().city.params !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`)
             .then(response => {
                 dispatch(updateCities(response.data.cities, response.data.total_count, response.data.total_pages, response.data.per_page))
             })
