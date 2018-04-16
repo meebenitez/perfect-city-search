@@ -1,4 +1,5 @@
 import React from 'react';
+import Aux from '../components/Aux'
 
 class NameSearchFilter extends React.Component {
     constructor(props){
@@ -24,10 +25,10 @@ class NameSearchFilter extends React.Component {
     render(){    
 
         return (
-            <div>
+            <Aux>
                 <input type="search" id="seachbox" name="focus" required className="search-box" onChange={this.handleChange} placeholder="Search by city name..."/>
                 <br></br>
-            </div>
+            </Aux>
             )
         }
 }

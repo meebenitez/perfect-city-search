@@ -15,7 +15,7 @@ const City = props => {
                     <div className="info-container">
                         <div className="city-name-container">
                             <Link to="#" onClick={props.showSingleCity}><h3>{props.city.name}, {props.city.short_state.toUpperCase()}</h3></Link>  
-                            { (props.city.popularity >= 20) ? "⭐" : null }
+                            { (props.city.popularity >= 20) ? <img src={require('../../assets/images/star.png')} className="stat-icon-lg"/> : null }
                         </div>
                         <div className="stat-container"><span style={{fontWeight: "bold"}}>{formatRegion(props.city.region)}</span> {formatPop(props.city.population)} residents | 👥 {props.city.median_age} median age | 💵 {formatFigure(props.city.median_household_income)} median income </div>
                         <div className="stat-container"><span><img src={require('../../assets/images/house_icon.png')} className="stat-icon-sm"/>{formatFigure(props.city.median_property_value)} median home price</span> | {formatIncomeHomeCompare(props.city.median_household_income, props.city.median_property_value)} home prices vs incomes</div>

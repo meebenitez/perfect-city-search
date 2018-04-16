@@ -27,22 +27,22 @@ export function formatRegion(region){
 //------------------Formatting Population--------------------/
 export function formatPop(pop) {
     if (pop > 1000000 ){
-      return <span><img src={require('../../../assets/images/cityscape.png')} className="stat-icon-lg"/> {(pop / 1000000).toFixed(1) + "M"}</span>
+      return <span>{(pop / 1000000).toFixed(1) + "M"}</span>
     } else if (pop > 1000 && pop < 1000000) {
       let result = Math.round((pop / 1000))
       if (result > 999) {
-        return <span><img src={require('../../../assets/images/cityscape.png')} className="stat-icon-lg"/>" 1M"</span>
+        return <span>"1M"</span>
       } else {
           if (result >= 600) {
-            return <span><img src={require('../../../assets/images/cityscape.png')} className="stat-icon-lg"/> {result + "K"}</span>
+            return <span>{result + "K"}</span>
           } else if (result >= 100) {
-            return <span><img src={require('../../../assets/images/skyline.png')} className="stat-icon-lg"/> {result + "K"}</span>
+            return <span>{result + "K"}</span>
           } else if (result >= 20) {
-            return <span><img src={require('../../../assets/images/building.png')} className="stat-icon-lg"/> {result + "K"}</span>
+            return <span>{result + "K"}</span>
           } else if (result >= 8){
-            return <span><img src={require('../../../assets/images/village.png')} className="stat-icon-lg"/> {result + "K"}</span>
+            return <span>{result + "K"}</span>
           } else {
-            return <span><img src={require('../../../assets/images/fields.png')} className="stat-icon-lg"/> {result + "K"}</span>
+            return <span>{result + "K"}</span>
 
           }
       }

@@ -8,6 +8,7 @@ import NameSearchFilter from '../filters/NameSearchFilter'
 const CityFilterContainer = (props) => 
 
     <Aux>
+        <div>.</div>
         <h2>Filters</h2>  {props.activeFilters.length > 0 ? <label onClick={() => props.clearAllFilters()}>clear filters</label> : null }
         <br></br><br></br>
         <br></br>

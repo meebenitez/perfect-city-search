@@ -42,7 +42,7 @@ const Pagination = (props) => {
         
         const renderPageNumbers = pageNumbers.map(number => {
                 if (props.page === number) {
-                    return <li key={number} id={number} onClick={()=>props.pageChange(null, number)}><span style={{color: 'orange'}}>{number}</span></li>
+                    return <li key={number} id={number} onClick={()=>props.pageChange(null, number)}><span style={{color: '#FC4A1A'}}>{number}</span></li>
                 } else {
                     return <li key={number} id={number} onClick={()=>props.pageChange(null, number)}>{number}</li>
                 }

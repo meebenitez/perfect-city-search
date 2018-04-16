@@ -19,7 +19,7 @@
     }
     /* unvisited link */
     a:link {
-      color: rgb(255, 106, 80);
+      color: #FC4A1A;
       text-decoration: none;
     }
 
@@ -35,7 +35,7 @@
     
     /* mouse over link */
     a:hover {
-      color: rgb(255, 179, 80);
+      color: #f5be27;
     }
 
 
@@ -61,7 +61,7 @@
     .navbar {
       position: absolute;
       margin: 0;
-      line-height: 4.4;
+      line-height: 1;
       bottom: 0px;
       right: 7px;
       font-size: 14px;
@@ -73,48 +73,38 @@
     }
     .navlink1 {
       width: 100px;
-      padding: 6px;
-      margin: 0 6px 6px;
+      padding-top: 2px;
+      padding-bottom: 0px;
+      padding-left: 4px;
+      padding-right: 4px;
       text-decoration: none;
-      background-color: white;
-      color: #208386;
-      border: 2px solid #208386;
-      border-radius: 5px;
+      font-family: 'Permanent Marker', cursive;
+      color: black;
     }
 
 
     .navlink1active {
       width: 100px;
-      padding: 6px;
-      margin: 0 6px 6px;
-      background-color: #bceef0;
       text-decoration: none;
-      color: #3c8a8d;
-      border: 2px solid #208386;
-      border-radius: 5px;
+      color: black;
     }
        
 
     .navlink1:hover {
       width: 100px;
-      padding: 6px;
-      margin: 0 6px 6px;
       text-decoration: none;
-      background-color: #bceef0;
-      color: #208386;
-      border: 2px solid #208386;
-      border-radius: 5px;
     }
 
 
     a.navlink1 {
       text-decoration: none;
-      color: #208386;
+      color: black;
+      font-size: 20px;
     }
 
     a.navlink1:hover {
       text-decoration: none;
-      color: #208386;
+      color: #f5be27;
     }
 
     .bold {
@@ -139,7 +129,7 @@
     }
 
     .grey-background {
-      background-color: #f5f5f5;
+      background-color: rgb(244, 240, 248);
     }
 
     .main-container{
@@ -223,9 +213,9 @@
       height:50px;
     }
     .stat-icon-lg {
-      width:20px;
-      height:20px;
+      width:18px;
     }
+    
     .stat-icon-sm {
       width:12px;
       height:12px;
@@ -261,7 +251,7 @@
       flex: 1;
       min-width: 0;
       text-align: center;
-      font-size: 15px;
+      font-size: 25px;
       color: rgb(163, 160, 160);
     }
     
@@ -273,7 +263,7 @@
       width: 100%;
       vertical-align: top;
       font-family: 'Lato', sans-serif;
-      font-size: 12px;
+      font-size: 14px;
     }
     
     .about-container{
@@ -287,8 +277,9 @@
     }
     h1 {
       font-family: 'Permanent Marker', cursive;
-      font-size: 35px;
+      font-size: 40px;
       display:inline;
+      line-height: .6;
     }
     h2 {
       font-family: 'Permanent Marker', cursive;
@@ -297,7 +288,7 @@
     }
     h3 {
       font-family: 'Lato', sans-serif;
-      font-size: 15px;
+      font-size: 20px;
       font-weight: bold;
       display:inline;
       text-align: right;
@@ -386,7 +377,7 @@
       position: relative;
       width: 100%;
       margin: 0px;
-      padding-top: 10px;
+      padding-top: 5px;
       padding-right: 0px;
       padding-bottom: 0px;
       padding-left: 16px;
@@ -456,8 +447,23 @@
       margin: 0;
       padding: 0;
       font-family: 'Lato', sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       background-color: white;
+    }
+
+    .teal-bg {
+      background-color: #4ABDAC;
+    }
+
+    .teal-line {
+      border-top: 1px solid #4ABDAC;
+    }
+
+
+    .logo-icon {
+     height: 60px;
+     vertical-align: bottom;
+     line-height: .6;
     }
 
     .img-city-icon {
@@ -465,6 +471,7 @@
       height: 160px;
       width: 200px;
     }
+
 
     .img-city-icon-lg {
       border-radius: 15px;
@@ -480,9 +487,14 @@
     
     .page-numbers > li {
       margin-right: 0.3em;
-      color: blue;
+      color: rgb(55, 156, 141);
       user-select: none;
       cursor: pointer;
+    }
+
+    .page-numbers > li:hover {
+      color: #f5be27;
+      text-decoration: underline;
     }
     
     .search-box,.close-icon,.search-wrapper {
