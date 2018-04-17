@@ -45,7 +45,14 @@ const cityreducer = (state = initialState, action) => {
     switch(action.type) {
         case 'ON_LOAD':
         const hashArray = action.payload.substr(1).split("&")
-        const newHashArray = hashArray.concat().sort().map((filterName) => {
+        const hashTagArray = hashArray.concat().sort().map((filterName) => {
+            let obj = {}
+            if (PARAMMAP[filterName.split('=').shift()] !== "Page") {
+                obj[PARAMMAP[filterName.split('=').shift()]] = filterName
+                return obj
+            }
+        }).filter(function(i) { return i; })
+        const paramArray = hashArray.concat().sort().map((filterName) => {
         if (HASHMAP[filterName.split('=').shift()].indexOf('&') > -1) {
             let temp1 = HASHMAP[filterName.split('=').shift()].split("&")
             let temp2  = filterName.split('=').pop().split("to")
@@ -54,10 +61,10 @@ const cityreducer = (state = initialState, action) => {
             return [PARAMMAP[filterName.split('=').shift()], HASHMAP[filterName.split('=').shift()] + filterName.split('=').pop()]
             }
         })
-        const page = parseInt(newHashArray.filter((filter)=> {
+        const page = parseInt(paramArray.filter((filter)=> {
             return filter[0] === "Page"
         })[0][1].split('=').pop())
-        const params = newHashArray.map((filter)=> {
+        const params = paramArray.map((filter)=> {
             let obj = {}
             if (filter[0] !== "Page") {
                 obj[filter[0]] = filter[1]
@@ -65,13 +72,15 @@ const cityreducer = (state = initialState, action) => {
             }
         }).filter(function(i) { return i; })
         const inactive = state.inactiveFilters.filter((val) => { return !params.map((filter)=> {return Object.keys(filter)[0]}).includes(val)})
+        const startPage = page > 4 ? (4 * parseInt(page/4)) + 1 : 1
         return {
             ...state,
-            hashTag: hashArray,
+            hashTag: hashTagArray,
             params: params,
             inactiveFilters: inactive,
             activeFilters: params.map((filter)=> {return Object.keys(filter)[0]}),
-            page: page
+            page: page,
+            startPage: startPage
         }
 
         case 'FILTER_CHANGE':
