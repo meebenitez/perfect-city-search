@@ -51,7 +51,7 @@ export const filterUpdate = () => {
 export const updateHash = () => {
     return (dispatch, getState) => {
         if (getState().city.page > 1) {
-            window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&').concat(`&page=${getState().city.page}`)
+            window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&').concat(getState().city.hashTag.length > 0 ? `&page=${getState().city.page}` : `page=${getState().city.page}`)
         } else {
             window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&')
         }
