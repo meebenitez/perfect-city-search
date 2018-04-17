@@ -8,6 +8,42 @@ const FILTERS = [
     "MedianIncomeFilter",
     "NameSearchFilter"]
     
+    
+    const HASHMAP = {
+    "page": "[page]=",
+    "home-price": "[home_price_from]=&[home_price_to]=",
+    "median-income": "[income_from]=&[income_from]="
+}
+
+const PARAMMAP = {
+        "page": "Page",
+        "home-price": "HomePriceFilter",
+        "median-income": "MedianIncomeFilter"
+    }
+
+
+/*    
+const hashString = "#home-price=0to2000000&median-income=0to250000&page=2"
+
+const hashArray = hashString.substr(1).split("&")
+
+const newHashArray = hashArray.concat().sort().map((filterName) => {
+if (HASHMAP[filterName.split('=').shift()].indexOf('&') > -1) {
+    //return "yes"
+    let temp1 = HASHMAP[filterName.split('=').shift()].split("&")
+    let temp2  = filterName.split('=').pop().split("to")
+    let param = PARAMMAP[filterName.split('=').shift()]
+    let hash = temp1[0] + temp2[0] + "&" + temp1[1] + temp2[1]
+    return [PARAMMAP[filterName.split('=').shift()] , temp1[0] + temp2[0] + "&" + temp1[1] + temp2[1]]
+} else {
+    return [PARAMMAP[filterName.split('=').shift()], HASHMAP[filterName.split('=').shift()] + filterName.split('=').pop()]
+}
+})
+*/
+    
+         
+
+    
 const initialState = {
     cities: [],
     params: [],
@@ -29,6 +65,53 @@ const initialState = {
 
 const cityreducer = (state = initialState, action) => {
     switch(action.type) {
+        case 'ON_LOAD':
+        const hashArray = action.payload.substr(1).split("&")
+        const newHashArray = hashArray.concat().sort().map((filterName) => {
+        if (HASHMAP[filterName.split('=').shift()].indexOf('&') > -1) {
+            let temp1 = HASHMAP[filterName.split('=').shift()].split("&")
+            let temp2  = filterName.split('=').pop().split("to")
+            return [PARAMMAP[filterName.split('=').shift()] , temp1[0] + temp2[0] + "&" + temp1[1] + temp2[1]]
+        } else {
+            return [PARAMMAP[filterName.split('=').shift()], HASHMAP[filterName.split('=').shift()] + filterName.split('=').pop()]
+            }
+        })
+        const params = newHashArray.map((filter)=> {
+            let obj = {}
+            if (filter[0] !== "Page") {
+                obj[filter[0]] = filter[1]
+                return obj
+            }
+        }).filter(function(i) { return i; })
+
+        const inactive = state.inactiveFilters.filter((val) => { return !params.map((filter)=> {return Object.keys(filter)[0]}).includes(val)})
+        
+        
+        debugger;
+        return {
+            ...state,
+            hashTag: hashArray,
+            params: params,
+            inactiveFilters: inactive,
+        }
+
+        /*
+        let obj = {}
+                obj[key] = value
+                let hashObj = {}
+                hashObj[key] = hash
+                return {
+                    ...state,
+                    params: state.params.filter(function(item){ return !(key in item)}).concat(obj),
+                    inactiveFilters: inactiveArray.filter(function(item){return key !== item }),
+                    page: 1,
+                    startPage: 1,
+                    hashTag: state.hashTag.filter(function(item){ return !(key in item)}).concat(hashObj)
+                }
+
+        */
+
+
         case 'FILTER_CHANGE':
             const key = action.filterName
             const value = action.filterValue

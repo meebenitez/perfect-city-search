@@ -47,7 +47,8 @@ class HomePriceFilter extends React.Component {
                     <div className="filter-container">
                         <div className="left-filter-col">
                             <label htmlFor="HomePriceFilter"><img src={require('../../assets/images/house_icon.png')} className="stat-icon-sm"/> Median Home Value</label><br></br>
-                            <span className="input-filter">$<input type="text" id= "homeValueMin" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="homeValueMax" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span>                        </div>
+                            <span className="input-filter">$<input type="text" id= "homeValueMin" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="homeValueMax" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span>
+                        </div>
                         <div className="right-filter-col">
                             <div className="center-x">
                                 <label onClick={this.handleClick}>x</label>

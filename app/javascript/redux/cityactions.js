@@ -150,10 +150,18 @@ export const clearHearted = () => {
     }
 }
 
-export const initialFetch = (route) => {
+export const initialFetch = (hash) => {
     return (dispatch) => {
-        dispatch(updateRoute(route))
+        //dispatch(updateRoute(route))
+        dispatch(grabHash(hash))
         dispatch(fetchCities())
+    }
+}
+
+export const grabHash = (hash) => {
+    return {
+        type: 'ON_LOAD',
+        payload: hash
     }
 }
 
