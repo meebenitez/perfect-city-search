@@ -74,10 +74,7 @@ class App extends React.Component {
                   clearAllFilters={this.props.clearAllFilters}
                   unclick={this.props.unclick}
                   showSingleCity={this.props.showSingleCity}
-                  toggleCheck={this.props.toggleCheck}
-                  onSearch={this.props.onSearch}
-                  searchTerm={this.props.searchTerm}
-                  searchCities={this.props.searchCities} />   
+                  toggleCheck={this.props.toggleCheck} />   
             </div>
           </div>
        </Aux>

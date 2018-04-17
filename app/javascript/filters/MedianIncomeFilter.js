@@ -4,11 +4,10 @@ import Aux from '../components/Aux'
 class MedianIncomeFilter extends React.Component {
     constructor(props){
         super(props)
-        this.state = {min: 0, max: 250000}
+        this.state = {min: 0, max: 200000}
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
-
 
     handleClick(){
         if ( this.props.isActive === undefined ) {
@@ -22,6 +21,7 @@ class MedianIncomeFilter extends React.Component {
 
 
     handleChange(event){
+        debugger;
         if (event.target.id === "incomeMin") {
             this.setState({
                 min: event.target.value
@@ -48,7 +48,13 @@ class MedianIncomeFilter extends React.Component {
                     <div className="filter-container">
                         <div className="left-filter-col">
                             <label htmlFor="MedianIncomeFilter">💵 Median Household Income</label><br></br>
-                            <span className="input-filter">$<input type="text" id= "incomeMin" className="input-filter-minmax" onChange={this.handleChange} defaultValue="0" /> to $<input type="text" id="incomeMax" className="input-filter-minmax" onChange={this.handleChange} defaultValue="2000000" /></span>
+                            <span className="input-filter">$
+                                <input type="text" id= "incomeMin" className="input-filter-minmax" 
+                                onChange={this.handleChange} 
+                                defaultValue={Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop()} /> to $
+                                <input type="text" id="incomeMax" className="input-filter-minmax" 
+                                onChange={this.handleChange} 
+                                defaultValue={Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[1].split("=").pop()}/></span>
                         </div>
                         <div className="right-filter-col">
                             <div className="center-x">
