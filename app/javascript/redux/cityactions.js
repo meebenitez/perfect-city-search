@@ -153,8 +153,12 @@ export const clearHearted = () => {
 export const initialFetch = (hash) => {
     return (dispatch) => {
         //dispatch(updateRoute(route))
-        dispatch(grabHash(hash))
-        dispatch(fetchCities())
+        if (hash.indexOf('#') > -1) {
+            dispatch(grabHash(hash))
+            dispatch(fetchCities())
+        } else {
+            dispatch(fetchCities())
+        }
     }
 }
 
