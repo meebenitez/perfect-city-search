@@ -12,13 +12,15 @@ const FILTERS = [
     const HASHMAP = {
     "page": "[page]=",
     "home-price": "[home_price_from]=&[home_price_to]=",
-    "median-income": "[income_from]=&[income_to]="
+    "median-income": "[income_from]=&[income_to]=",
+    "name": "[term]="
 }
 
 const PARAMMAP = {
         "page": "Page",
         "home-price": "HomePriceFilter",
-        "median-income": "MedianIncomeFilter"
+        "median-income": "MedianIncomeFilter",
+        "name": "NameSearchFilter"
     }
          
     
@@ -61,9 +63,10 @@ const cityreducer = (state = initialState, action) => {
             return [PARAMMAP[filterName.split('=').shift()], HASHMAP[filterName.split('=').shift()] + filterName.split('=').pop()]
             }
         })
-        const page = parseInt(paramArray.filter((filter)=> {
+        
+        const page = action.payload.includes("page=") ? parseInt(paramArray.filter((filter)=> {
             return filter[0] === "Page"
-        })[0][1].split('=').pop())
+        })[0][1].split('=').pop()) : 1
         const params = paramArray.map((filter)=> {
             let obj = {}
             if (filter[0] !== "Page") {

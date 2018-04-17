@@ -15,7 +15,7 @@ class NameSearchFilter extends React.Component {
             if (value === "") {
                 this.props.onFilterChange("NameSearchFilter","");
             } else {
-                this.props.onFilterChange("NameSearchFilter",`[term]=${value}`,`[name]=${value}`); 
+                this.props.onFilterChange("NameSearchFilter",`[term]=${value}`,`name=${value}`); 
             }
             }, 300);
         }
