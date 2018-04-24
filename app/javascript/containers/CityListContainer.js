@@ -1,6 +1,5 @@
 import React from 'react';
 import CityList from '../components/CityList';
-import { Route, Link } from 'react-router-dom'
 import Aux from '../components/Aux'
 
 const CityListContainer = (props) => 

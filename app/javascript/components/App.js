@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import Aux from './Aux'
 import Devise from './auth/Devise'
 import CityShow from './CityShow'
+import Test from './Test'
 import SearchContainer from '../containers/SearchContainer'
 import Header from './Header'
 import { connect } from 'react-redux'
 import * as authActions from '../redux/authactions'
 import * as cityActions from '../redux/cityactions'
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom'
+
 
 
 class App extends React.Component {
@@ -16,6 +19,7 @@ class App extends React.Component {
 
   componentDidMount(){
     this.props.checkCurrentUser()
+    //debugger;
     this.props.initialFetch(window.location.hash, location.pathname)
   }
 
@@ -49,7 +53,9 @@ class App extends React.Component {
                     unheartClick={this.props.unheartClick}
                     currentUser = {this.props.currentUser}
                     toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}/> : null }
-                <Route path="/" render={(props) => <SearchContainer {...this.props}/>}/>
+                <Route exact path="/" render={(props) => <SearchContainer {...this.props}/>}/>
+                <Route exact path="/city" render={Test}/>
+                    
                 
                   
             </div>
@@ -141,4 +147,12 @@ export default connect(mapStateToProps, mapDispatchToProps,)(App);
                   clearAllFilters={this.props.clearAllFilters}
                   unclick={this.props.unclick}
                   showSingleCity={this.props.showSingleCity}
-                  toggleCheck={this.props.toggleCheck} /> */
+                  toggleCheck={this.props.toggleCheck} /> 
+
+
+
+                  <CityShow city={this.props.singleCity}
+                              heartedCities = {this.props.heartedCities}
+                              heartClick={this.props.heartClick}
+                              unheartClick={this.props.unheartClick}
+                              currentUser = {this.props.currentUser}/>}/> */
