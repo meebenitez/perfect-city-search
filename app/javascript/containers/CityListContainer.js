@@ -5,10 +5,10 @@ import Aux from '../components/Aux'
 
 const CityListContainer = (props) => 
     <Aux>
-        < Route exact path="/" render={() => ( <CityList {...props} />)} />
-        {props.currentUser !== null ? < Route exact path="/hearted" render={() => ( <CityList {...props} />)} /> : < Route exact path="/hearted" render={() => <div>Looks like you need to sign in.</div>} />}
-        < Route exact path="/popular" render={() => ( <CityList {...props} />)}/>
+        <CityList {...props} />
     </Aux> 
 
 
 export default CityListContainer;
+
+//{props.currentUser !== null ? < Route exact path="/hearted" render={() => ( <CityList {...props} />)} /> : < Route exact path="/hearted" render={() => <div>Looks like you need to sign in.</div>} />}

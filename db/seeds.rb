@@ -13,7 +13,7 @@ require 'csv'
 
 count = 1
 
-csv_text = File.read(Rails.root.join('db', 'test_cities.csv'))
+csv_text = File.read(Rails.root.join('db', 'complete_cities.csv'))
 csv = CSV.parse(csv_text, :headers => false)
     csv.each do |row|
         City.create!({

@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import * as authActions from '../redux/authactions'
 import * as cityActions from '../redux/cityactions'
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 class App extends React.Component {
@@ -16,7 +16,7 @@ class App extends React.Component {
 
   componentDidMount(){
     this.props.checkCurrentUser()
-    this.props.initialFetch(window.location.hash)
+    this.props.initialFetch(window.location.hash, location.pathname)
   }
 
 
@@ -49,32 +49,9 @@ class App extends React.Component {
                     unheartClick={this.props.unheartClick}
                     currentUser = {this.props.currentUser}
                     toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}/> : null }
-                <SearchContainer 
-                  cities={this.props.cities} 
-                  heartedCities={this.props.heartedCities} 
-                  heartClick={this.props.heartClick } 
-                  unheartClick={this.props.unheartClick } 
-                  page={this.props.page} 
-                  pages={this.props.pages}  
-                  handleChangePage={this.props.handleChangePage}
-                  currentUser = {this.props.currentUser}
-                  totalCount = {this.props.totalCount}
-                  totalPages = {this.props.totalPages}
-                  startPage = {this.props.startPage}
-                  perPage = {this.props.perPage}
-                  pageChange = {this.props.pageChange}
-                  toggleAuthPopup = {this.props.toggleAuthPopup}
-                  toggleCityPopup = {this.props.toggleCityPopup}
-                  showCityPopup = {this.props.showCityPopup}
-                  currentRoute = {this.props.currentRoute}
-                  onFilterChange={this.props.onFilterChange} 
-                  params={this.props.params} 
-                  activeFilters={this.props.activeFilters} 
-                  inactiveFilters={this.props.inactiveFilters} 
-                  clearAllFilters={this.props.clearAllFilters}
-                  unclick={this.props.unclick}
-                  showSingleCity={this.props.showSingleCity}
-                  toggleCheck={this.props.toggleCheck} />   
+                <Route path="/" render={(props) => <SearchContainer {...this.props}/>}/>
+                
+                  
             </div>
           </div>
        </Aux>
@@ -113,7 +90,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFilterChange: (filter, value, hash) => dispatch(cityActions.filterChange(filter, value, hash)),
-    initialFetch: (hash) => dispatch(cityActions.initialFetch(hash)),
+    initialFetch: (hash, route) => dispatch(cityActions.initialFetch(hash,route)),
     heartedFetch: () => dispatch(cityActions.heartedFetch()),
     heartClick: (city) => dispatch(cityActions.heartClick(city)),
     unheartClick: (city) => dispatch(cityActions.unheartClick(city)),
@@ -137,3 +114,31 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps,)(App);
+
+/*
+<SearchContainer 
+                  cities={this.props.cities} 
+                  heartedCities={this.props.heartedCities} 
+                  heartClick={this.props.heartClick } 
+                  unheartClick={this.props.unheartClick } 
+                  page={this.props.page} 
+                  pages={this.props.pages}  
+                  handleChangePage={this.props.handleChangePage}
+                  currentUser = {this.props.currentUser}
+                  totalCount = {this.props.totalCount}
+                  totalPages = {this.props.totalPages}
+                  startPage = {this.props.startPage}
+                  perPage = {this.props.perPage}
+                  pageChange = {this.props.pageChange}
+                  toggleAuthPopup = {this.props.toggleAuthPopup}
+                  toggleCityPopup = {this.props.toggleCityPopup}
+                  showCityPopup = {this.props.showCityPopup}
+                  currentRoute = {this.props.currentRoute}
+                  onFilterChange={this.props.onFilterChange} 
+                  params={this.props.params} 
+                  activeFilters={this.props.activeFilters} 
+                  inactiveFilters={this.props.inactiveFilters} 
+                  clearAllFilters={this.props.clearAllFilters}
+                  unclick={this.props.unclick}
+                  showSingleCity={this.props.showSingleCity}
+                  toggleCheck={this.props.toggleCheck} /> */

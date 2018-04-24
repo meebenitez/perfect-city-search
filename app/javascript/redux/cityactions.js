@@ -6,6 +6,7 @@ import {checkCurrentUser, toggleAuthPopup} from './authactions'
 export const fetchCities = () => {
     return (dispatch, getState) => {
         console.log(getState().city.params)
+        debugger;
         return axios.get(`/cities?${getState().city.currentRoute}${getState().city.params !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`)
             .then(response => {
                 dispatch(updateCities(response.data.cities, response.data.total_count, response.data.total_pages, response.data.per_page))
@@ -150,9 +151,10 @@ export const clearHearted = () => {
     }
 }
 
-export const initialFetch = (hash) => {
+export const initialFetch = (hash, route) => {
     return (dispatch) => {
-        //dispatch(updateRoute(route))
+        dispatch(updateRoute(route))
+        debugger;
         if (hash.indexOf('#') > -1 && hash.length > 1) {
             dispatch(grabHash(hash))
             dispatch(fetchCities())
