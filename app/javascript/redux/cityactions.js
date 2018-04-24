@@ -17,12 +17,13 @@ export const fetchCities = () => {
 export const initialFetch = (hash, route) => {
     return (dispatch) => {
         dispatch(updateRoute(route))
-        if (route === "/city") {
-            debugger;
+        if (route === "/city/") {
+            window.location.hash = hash
+            dispatch(fetchSingleCity(hash.replace('#','')))
         }
         else {
             if (hash.indexOf('#') > -1 && hash.length > 1) {
-                //dispatch(grabHash(hash))
+                dispatch(grabHash(hash))
                 dispatch(fetchCities())
             } else {
                 dispatch(fetchCities())
@@ -32,8 +33,14 @@ export const initialFetch = (hash, route) => {
 }
 
 
-export const fetchSingleCity = () => {
-    debugger;
+export const fetchSingleCity = (hash) => {
+    return (dispatch) => {
+        return axios.get(`/cities/${hash}`)
+            .then(response => {
+                dispatch(setSingleCity(response.data))
+            })
+    }
+    
 }
 
 export const onSearch = (value) => {

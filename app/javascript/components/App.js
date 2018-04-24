@@ -53,10 +53,11 @@ class App extends React.Component {
                     currentUser = {this.props.currentUser}
                     toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}/> : null }
                 <Route exact path="/" render={(props) => <SearchContainer {...this.props}/>}/>
-                <Route exact path="/city" render={Test}/>
-                    
-                
-                  
+                <Route exact path="/city/" render={(props) => <CityShow city={this.props.singleCity}
+                              heartedCities = {this.props.heartedCities}
+                              heartClick={this.props.heartClick}
+                              unheartClick={this.props.unheartClick}
+                              currentUser = {this.props.currentUser}/>}/>
             </div>
           </div>
        </Aux>
@@ -149,8 +150,8 @@ export default connect(mapStateToProps, mapDispatchToProps,)(App);
 
 
 
-                  <CityShow city={this.props.singleCity}
+                 <Route exact path="/city/" render={(props) => <CityShow city={this.props.singleCity}
                               heartedCities = {this.props.heartedCities}
                               heartClick={this.props.heartClick}
                               unheartClick={this.props.unheartClick}
-                              currentUser = {this.props.currentUser}/>}/> */
+                              currentUser = {this.props.currentUser}/>}/>*/

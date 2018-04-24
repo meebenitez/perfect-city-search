@@ -147,7 +147,7 @@ const cityreducer = (state = initialState, action) => {
                 filterHolder: state.params
             }
         case 'UPDATE_ROUTE':
-            if (action.currentRoute === "/popular") {
+            if (action.currentRoute.includes("/city")) {
                 return {
                     ...state,
                     currentRoute: "[popular]=mosthearted",
