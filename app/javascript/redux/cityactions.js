@@ -14,6 +14,24 @@ export const fetchCities = () => {
 }
 
 
+export const initialFetch = (hash, route) => {
+    return (dispatch) => {
+        dispatch(updateRoute(route))
+        if (route === "/city") {
+            debugger;
+        }
+        else {
+            if (hash.indexOf('#') > -1 && hash.length > 1) {
+                //dispatch(grabHash(hash))
+                dispatch(fetchCities())
+            } else {
+                dispatch(fetchCities())
+            }
+        }
+    }
+}
+
+
 export const fetchSingleCity = () => {
     debugger;
 }
@@ -155,22 +173,7 @@ export const clearHearted = () => {
     }
 }
 
-export const initialFetch = (hash, route) => {
-    return (dispatch) => {
-        dispatch(updateRoute(route))
-        if (route == "/city") {
-            debugger;
-        }
-        else {
-            if (hash.indexOf('#') > -1 && hash.length > 1) {
-                dispatch(grabHash(hash))
-                dispatch(fetchCities())
-            } else {
-                dispatch(fetchCities())
-            }
-        }
-    }
-}
+
 
 export const grabHash = (hash) => {
     return {

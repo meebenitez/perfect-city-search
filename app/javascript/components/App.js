@@ -19,7 +19,6 @@ class App extends React.Component {
 
   componentDidMount(){
     this.props.checkCurrentUser()
-    //debugger;
     this.props.initialFetch(window.location.hash, location.pathname)
   }
 
@@ -102,7 +101,6 @@ const mapDispatchToProps = dispatch => {
     unheartClick: (city) => dispatch(cityActions.unheartClick(city)),
     toggleCityPopup: () => dispatch(cityActions.toggleCityPopup()),
     pageChange: (direction, page) => dispatch(cityActions.pageChange(direction, page)),
-    initialFetch: (route) => dispatch(cityActions.initialFetch(route)),
     logout: () => dispatch(authActions.logout()),
     clearHearted: () => dispatch(cityActions.clearHearted()),
     clearAllFilters: () => dispatch(cityActions.clearAllFilters()),

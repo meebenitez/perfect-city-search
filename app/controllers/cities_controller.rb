@@ -55,7 +55,9 @@ class CitiesController < ApplicationController
 
 
     def show
-        @city = City.find_by(id: params[:id])
+        search_string = params[:id]
+        @city = City.where(:name => search_string[/[^,]+/]).where(:short_state => search_string.split(", ")[1]).first
+        #@city = City.find_by(id: params[:id])
         render json: @city, status: 200
     end
 
