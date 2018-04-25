@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <Router>
         <Aux>
-          <div className="container">
+          <div className="container white-background">
             <Header 
               toggleAuthPopup={this.props.toggleAuthPopup} 
               currentUser={this.props.currentUser} 
