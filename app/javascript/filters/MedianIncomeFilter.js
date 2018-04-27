@@ -44,7 +44,7 @@ class MedianIncomeFilter extends React.Component {
         return (
             <Aux>
                 {this.props.isActive !== undefined ? 
-                <div className="filter-div filter-on">
+                <div className="filter-div filter-on tooltip-top" data-tooltip="test test yoyo">
                     <div className="filter-container">
                         <div className="left-filter-col">
                             <label htmlFor="MedianIncomeFilter">💵 Median Household Income</label><br></br>
@@ -63,7 +63,7 @@ class MedianIncomeFilter extends React.Component {
                         </div>
                     </div>
                 </div> :
-                <div className="filter-div filter-off" onClick={this.handleClick}>
+                <div className="filter-div filter-off" data-balloon="test test yoyo" data-balloon-pos="up" data-balloon-length="medium" onClick={this.handleClick}>
                     <label htmlFor="MedianIncomeFilter">💵 Median Household Income</label><br></br>
                 </div> }
             </Aux>

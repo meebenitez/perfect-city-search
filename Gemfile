@@ -24,6 +24,7 @@ gem 'active_model_serializers'
 gem 'react-rails'
 gem 'rack-cors'
 gem 'pry'
+gem 'dotenv-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

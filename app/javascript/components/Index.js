@@ -4,6 +4,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import App from './App';
+require('dotenv').config()
 //import {fetchPostsWithRedux} from './Index'
 
 import authreducer from '../redux/authreducer'
@@ -16,12 +17,12 @@ const reducers = combineReducers({
 })
 
 
-const Index = () => {
+const Index = (props) => {
     const store = createStore(reducers,  
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), 
         applyMiddleware(thunk));
         return (
-            <Provider store={store}><App /></Provider>
+            <Provider store={store}><App googleApiKey={props.googleApiKey} /></Provider>
         )
 
         store.subscribe(() => {

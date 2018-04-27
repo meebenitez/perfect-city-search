@@ -8,7 +8,21 @@ const SearchContainer = (props) =>
 
     <Aux>
         <div className="left-col">
-            <CityListContainer 
+        <CityFilterContainer 
+                onFilterChange={props.onFilterChange} 
+                params={props.params} 
+                activeFilters={props.activeFilters} 
+                inactiveFilters={props.inactiveFilters} 
+                filterHolder={props.filterHolder}
+                clearAllFilters={props.clearAllFilters}
+                unclick={props.unclick}
+                onSearch={props.onSearch}
+                searchTerm={props.searchTerm}
+                searchCities={props.searchCities}
+                googleApiKey = {props.googleApiKey}/>
+            </div>
+        <div className="right-col">
+                 <CityListContainer 
                 cities={props.cities} 
                 heartedCities={props.heartedCities} 
                 heartClick={props.heartClick } 
@@ -27,19 +41,6 @@ const SearchContainer = (props) =>
                 showCityPopup = {props.showCityPopup}
                 currentRoute = {props.currentRoute}
                 showSingleCity = {props.showSingleCity} />
-            </div>
-        <div className="right-col">
-            <CityFilterContainer 
-                onFilterChange={props.onFilterChange} 
-                params={props.params} 
-                activeFilters={props.activeFilters} 
-                inactiveFilters={props.inactiveFilters} 
-                filterHolder={props.filterHolder}
-                clearAllFilters={props.clearAllFilters}
-                unclick={props.unclick}
-                onSearch={props.onSearch}
-                searchTerm={props.searchTerm}
-                searchCities={props.searchCities} />
         </div>
     </Aux>
 
