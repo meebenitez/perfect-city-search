@@ -10,7 +10,6 @@ const CityFilterContainer = (props) =>
 
     <Aux>
         <div className="fixed">
-            <MapContainer {...props} />
             <h2><img src={require('../../assets/images/filter.png')} className="stat-icon-lg"/>&nbsp;Filters</h2> {props.activeFilters.length > 0 ? <label onClick={() => props.clearAllFilters()}>clear filters</label> : null }
         
             <div>
@@ -36,7 +35,8 @@ const CityFilterContainer = (props) =>
                     filterHolder={props.filterHolder} 
                     toggleCheck={props.toggleCheck}
                     unclick={props.unclick}/>
-            </div>  
+            </div>
+            <div className="align-bottom"><MapContainer {...props} /></div>  
         </div>
     </Aux>
 

@@ -4,11 +4,27 @@ import React, { Component } from 'react';
 import { GoogleApiWrapper } from 'google-maps-react' 
 // import child component
 import Map from '../components/Map'
+import Marker from '../components/Marker'
+
 class MapContainer extends Component {
   render() {
     return (
       <div>
-        <Map google={this.props.google} />
+        <Map google={this.props.google}>
+          
+        <Marker
+        name="SOMA"
+        position={{ lat: 37.778519, lng: -122.40564 }}
+        title="The marker`s title will appear as a tooltip."
+      />
+
+      <Marker
+        name="Dolores park"
+        position={{ lat: 37.759703, lng: -122.428093 }}
+      />
+
+      <Marker />
+        </Map>
       </div>
     );
   }

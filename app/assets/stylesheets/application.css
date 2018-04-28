@@ -204,7 +204,7 @@
     .navbar {
       position: absolute;
       margin: 0;
-      line-height: 1;
+      line-height: .6;
       bottom: 0px;
       right: 7px;
       font-size: 14px;
@@ -293,18 +293,27 @@
       margin: 0 auto;
     }
     .left-col{
-      width: 55%;
+      width: 45%;
       min-width: 0;
-      z-index: 5;
+      margin-top: 30px;
     }
     .right-col{
-      margin-top: 60px;
-      width: 45%;
+      width: 55%;
+      padding-top: 0px;
       margin-left: 10px;
-      padding-right: 12px;
+      margin-top: 0px;
+      margin-right: 0px;
+      padding-right: 0px;
+      padding-left: 12px;
       overflow-y: hidden;
       min-width: 0;
       overflow: hidden;
+      z-index: 5;
+    }
+
+    .align-bottom {
+      position:fixed;
+      bottom:0;
     }
 
     .popup {
@@ -329,7 +338,6 @@
       margin: auto;
       background: white;
       border-radius: 10px;
-      z-index: 1;
     }
 
     .city-popup {
@@ -354,6 +362,10 @@
       margin: auto;
       background: white;
       border-radius: 10px;
+    }
+
+    .marker {
+      z-index: 999;
     }
     
     .logo {
@@ -425,7 +437,7 @@
     }
     h1 {
       font-family: 'Permanent Marker', cursive;
-      font-size: 40px;
+      font-size: 35px;
       display:inline;
       line-height: .6;
     }
@@ -543,7 +555,7 @@
       position: fixed;
       z-index: 1;
       min-width: 100%;
-      height: 60px;
+      height: 50px;
       margin: 0px;
       top: 0px;
       padding-right: 0px;
@@ -643,7 +655,7 @@
 
 
     .logo-icon {
-     height: 60px;
+     height: 50px;
      vertical-align: bottom;
      line-height: .6;
     }

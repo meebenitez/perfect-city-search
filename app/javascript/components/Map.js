@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
+import Marker from '../components/Marker'
 
 export default class MapContainer extends Component {
 
@@ -11,6 +12,8 @@ export default class MapContainer extends Component {
     if (this.props && this.props.google) { // checks to make sure that props have been passed
       const {google} = this.props; // sets props equal to google
       const maps = google.maps; // sets maps to google maps props
+
+      
 
       const mapRef = this.refs.map; // looks for HTML div ref 'map'. Returned in render below.
       const node = ReactDOM.findDOMNode(mapRef); // finds the 'map' div in the React DOM, names it node
@@ -25,6 +28,9 @@ export default class MapContainer extends Component {
 
       this.map = new maps.Map(node, mapConfig); // creates a new Google map on the specified node (ref='map') with the specified configuration set above.
 
+      
+
+
     }
   }
 
@@ -37,6 +43,7 @@ export default class MapContainer extends Component {
     return ( // in our return function you must return a div with ref='map' and style.
       <div ref="map" style={style}>
         loading map...
+        {this.props.children}
       </div>
     )
   }
