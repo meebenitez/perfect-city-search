@@ -36,7 +36,7 @@ const CityFilterContainer = (props) =>
                     toggleCheck={props.toggleCheck}
                     unclick={props.unclick}/>
             </div>
-            <div className="align-bottom"><MapContainer {...props} /></div>  
+            <div><MapContainer {...props} /></div>  
         </div>
     </Aux>
 

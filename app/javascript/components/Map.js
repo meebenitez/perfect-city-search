@@ -4,6 +4,20 @@ import Marker from '../components/Marker'
 
 export default class MapContainer extends Component {
 
+  renderChildren() {
+    const {children} = this.props;
+    if (!children) return;
+
+    return React.Children.map(children, c => {
+      return React.cloneElement(c, {
+        map: this.map,
+        google: this.props.google,
+        mapCenter: {lat: 38.00, lng: -96.5556}
+      })
+    })
+    //...
+  }
+
   componentDidUpdate() {
     this.loadMap(); // call loadMap function to load the google map
   }
@@ -43,7 +57,7 @@ export default class MapContainer extends Component {
     return ( // in our return function you must return a div with ref='map' and style.
       <div ref="map" style={style}>
         loading map...
-        {this.props.children}
+        {this.renderChildren()}
       </div>
     )
   }
