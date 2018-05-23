@@ -23,6 +23,11 @@ class App extends React.Component {
   }
 
 
+  //componentWillUpdate(){
+  //  console.log("updated")
+  //}
+
+
   render () {
     return (
       <Router>

@@ -19,6 +19,7 @@ class CitiesController < ApplicationController
         #@cities = @cities.where("median_property_value <= ?", params[:home_value]) if params[:home_value].present?
         #@cities = @cities.where("median_household_income >= ?", params[:income]) if params[:income].present?
         @cities = @cities.order(popularity: :desc).page(params[:page])
+        #@cities = @cities.page(params[:page])
         render json: { cities: @cities, total_count: @cities.total_entries.to_i, total_pages: @cities.total_pages.to_i, per_page: City.per_page }
     end
 

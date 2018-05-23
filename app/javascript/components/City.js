@@ -11,7 +11,7 @@ const City = props => {
     return (
         <Aux>
             <div className="city-item">
-                <div className="icon-container"><img className="img-city-icon" src={props.city.img_thumbnail} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/320px-CheyenneWY_downtown.jpg'}} /></div>
+                <div className="icon-container"><img className="img-city-icon" src={props.city.img_thumb} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/320px-CheyenneWY_downtown.jpg'}} /></div>
                     <div className="info-container">
                         <div className="city-name-container">
                             <Link to="#" onClick={props.showSingleCity}><h3>{props.city.name}, {props.city.short_state.toUpperCase()}</h3></Link>  

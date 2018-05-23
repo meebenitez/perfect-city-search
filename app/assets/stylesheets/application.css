@@ -662,8 +662,8 @@
 
     .img-city-icon {
       border-radius: 15px;
-      height: 160px;
       width: 200px;
+      object-fit: cover;
     }
 
 
