@@ -16,10 +16,6 @@ class MapContainer extends Component {
 }
   
 
-  testFunction = () => {
-    console.log("testFunction")
-  }
-
 
 
   shouldComponentUpdate(nextProps) {
@@ -28,7 +24,7 @@ class MapContainer extends Component {
     } else {
       return false
     }
-}
+  }
 
 
 
@@ -43,7 +39,7 @@ class MapContainer extends Component {
     const style = { 
       // MUST specify dimensions of the Google map or it will not work. Also works best when style is specified inside the render function and created as an object
       width: '52vw', // 90vw basically means take up 90% of the width screen. px also works.
-      height: '64vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+      height: '58vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
 
 
@@ -61,7 +57,7 @@ class MapContainer extends Component {
       <div>
         <Map item xs = {12}  style = {style} google={this.props.google}
         initialCenter= {{lat: 38.00, lng: -96.5556}}
-        zoom = { this.state.mapZoom } // sets zoom. Lower numbers are zoomed further out.
+        zoom = { this.props.mapZoom } // sets zoom. Lower numbers are zoomed further out.
         minZoom= {3}
         mapTypeId = {'roadmap'} // optional main map layer. Terrain, satellite, hybrid or roadmap--if unspecified, defaults to roadmap.
         disableDefaultUI = {true}

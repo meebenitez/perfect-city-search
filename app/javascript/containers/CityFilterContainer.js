@@ -25,6 +25,7 @@ const CityFilterContainer = (props) =>
                     onFilterChange={props.onFilterChange} />
             </div>
             <br></br>
+            <button onClick={() => props.changeZoom()}>ChangeZoomTest</button>
             <br></br>
             <div>
                 <InactiveFilterList 

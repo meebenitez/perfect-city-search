@@ -40,7 +40,8 @@ const initialState = {
     singleCity: null,
     hashTag: [],
     searchTerm: "",
-    searchCities: []
+    searchCities: [],
+    mapZoom: 4
 }
 
 const cityreducer = (state = initialState, action) => {
@@ -228,6 +229,11 @@ const cityreducer = (state = initialState, action) => {
             return {
                 ...state,
                 showCityPopup: action.showCityPopup
+            }
+        case 'CHANGE_ZOOM':
+            return {
+                ...state,
+                mapZoom: 3
             }
         default:
             return state;

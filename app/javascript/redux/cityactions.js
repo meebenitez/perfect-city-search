@@ -53,6 +53,12 @@ export const clickSearch = (value) => {
     debugger;
 }
 
+export const changeZoom = () => {
+    return {
+        type: 'CHANGE_ZOOM'
+    }
+}
+
 export const fetchSearchCities = (term) => {
     return (dispatch) => {
         return axios.get(`/cities?${term}`)

@@ -41,7 +41,9 @@ const SearchContainer = (props) =>
                 searchTerm={props.searchTerm}
                 searchCities={props.searchCities}
                 googleApiKey = {props.googleApiKey}
-                cities={props.cities} />
+                cities={props.cities}
+                changeZoom = {props.changeZoom}
+                mapZoom = {props.mapZoom} />
         </div>
     </Aux>
 
