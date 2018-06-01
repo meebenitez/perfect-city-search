@@ -27,6 +27,7 @@ const CityList = (props) => {
             toggleCityPopup = {props.toggleCityPopup}
             showCityPopup = {props.showCityPopup}
             showSingleCity= {() => props.showSingleCity( city )}
+            nameHover = {props.nameHover}
             />
             
     );

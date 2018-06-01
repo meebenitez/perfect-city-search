@@ -26,7 +26,8 @@ const SearchContainer = (props) =>
                 toggleCityPopup = {props.toggleCityPopup}
                 showCityPopup = {props.showCityPopup}
                 currentRoute = {props.currentRoute}
-                showSingleCity = {props.showSingleCity} />
+                showSingleCity = {props.showSingleCity}
+                nameHover = {props.nameHover} />
         </div>
         <div className="right-col">
         <CityFilterContainer 
@@ -43,7 +44,9 @@ const SearchContainer = (props) =>
                 googleApiKey = {props.googleApiKey}
                 cities={props.cities}
                 changeZoom = {props.changeZoom}
-                mapZoom = {props.mapZoom} />
+                mapZoom = {props.mapZoom}
+                mapCenter = {props.mapCenter}
+                nameHover = {props.nameHover} />
         </div>
     </Aux>
 

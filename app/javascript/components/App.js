@@ -95,7 +95,8 @@ const mapStateToProps = state => {
     hashTag: state.city.hashTag,
     searchTerm: state.city.searchTerm,
     searchCities: state.city.searchCities,
-    mapZoom: state.city.mapZoom
+    mapZoom: state.city.mapZoom,
+    mapCenter: state.city.mapCenter
   }
 }
 
@@ -121,7 +122,8 @@ const mapDispatchToProps = dispatch => {
     checkCurrentUser: () => dispatch(authActions.checkCurrentUser()),
     toggleAuthPopup: () => dispatch(authActions.toggleAuthPopup()),
     onSearch: (value) => dispatch(cityActions.onSearch(value)),
-    changeZoom: () => dispatch(cityActions.changeZoom())
+    changeZoom: () => dispatch(cityActions.changeZoom()),
+    nameHover: (city) => dispatch(cityActions.nameHover(city))
   }
 }
 

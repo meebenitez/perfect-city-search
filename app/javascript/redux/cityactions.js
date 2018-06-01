@@ -53,6 +53,12 @@ export const clickSearch = (value) => {
     debugger;
 }
 
+export const nameHover = (city) => {
+    return (dispatch) => {
+        dispatch({type: 'CHANGE_CENTER', lat: city.longitude, lng: city.latitude})
+    }
+}
+
 export const changeZoom = () => {
     return {
         type: 'CHANGE_ZOOM'

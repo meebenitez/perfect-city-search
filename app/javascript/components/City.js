@@ -7,14 +7,18 @@ import Aux from './Aux'
 
 
 const City = props => {
-    
+
+
+  
+
+    //props.showSingleCity
     return (
         <Aux>
             <div className="city-item">
                 <div className="icon-container"><img className="img-city-icon" src={props.city.img_thumb} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/320px-CheyenneWY_downtown.jpg'}} /></div>
                     <div className="info-container">
                         <div className="city-name-container">
-                            <Link to="#" onClick={props.showSingleCity}><h3>{props.listID}. {props.city.name}, {props.city.short_state.toUpperCase()}</h3></Link>  
+                            <Link to="#" onClick= {() => props.showSingleCity()} onMouseEnter={() => props.nameHover(props.city)} ><h3>{props.listID}. {props.city.name}, {props.city.short_state.toUpperCase()}</h3></Link>  
                             { (props.city.popularity >= 20) ? <img src={require('../../assets/images/star.png')} className="stat-icon-lg"/> : null }
                         </div>
                         <div className="stat-container"><span style={{fontWeight: "bold"}}>{formatRegion(props.city.region)}</span> {formatPop(props.city.population)} residents | 👥 {props.city.median_age} median age | 💵 {formatFigure(props.city.median_household_income)} median income </div>

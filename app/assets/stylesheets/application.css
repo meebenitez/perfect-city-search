@@ -462,6 +462,10 @@
       text-align: right;
     }
 
+    h3:hover {
+      text-decoration: underline;
+    }
+
     h4 {
       font-family: 'Lato', sans-serif;
       font-size: 17px;

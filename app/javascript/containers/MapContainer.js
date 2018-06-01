@@ -35,7 +35,7 @@ _reset = () => {
       <div style={style}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: this.props.googleApiKey }}
-          defaultCenter={{lat: 38.00, lng: -96.5556}}
+          center={this.props.mapCenter}
           zoom={this.props.mapZoom}
           mapTypeId = {'roadmap'} // optional main map layer. Terrain, satellite, hybrid or roadmap--if unspecified, defaults to roadmap.
           disableDefaultUI = {true}
