@@ -364,6 +364,14 @@
       border-radius: 10px;
     }
 
+    .map-marker {
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      text-align: center;
+    }
+
     .marker {
       z-index: 999;
     }

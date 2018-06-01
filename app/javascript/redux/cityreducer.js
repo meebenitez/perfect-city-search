@@ -231,10 +231,18 @@ const cityreducer = (state = initialState, action) => {
                 showCityPopup: action.showCityPopup
             }
         case 'CHANGE_ZOOM':
-            return {
-                ...state,
-                mapZoom: 3
+            if (state.mapZoom === 4){
+                return {
+                    ...state,
+                    mapZoom: 3
+                }
+            } else {
+                return {
+                    ...state,
+                    mapZoom: 4
+                }
             }
+            
         default:
             return state;
         

@@ -3,6 +3,7 @@ import City from './City';
 import Pagination from './Pagination';
 
 const CityList = (props) => {
+    let num = 1
 
     const welcomeMessage = () => {
         if (props.currentRoute === "[popular]=mosthearted"){
@@ -16,6 +17,7 @@ const CityList = (props) => {
     const renderCities = props.cities.map( (city) =>
         <City
             city={city}
+            listID = {num++}
             key={city.id}
             heartedCities = {props.heartedCities}
             heartClick={props.heartClick}
