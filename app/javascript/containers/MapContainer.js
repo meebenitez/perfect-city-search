@@ -13,21 +13,56 @@ _reset = () => {
   debugger;
 }
 
+
+getMapOptions = (maps: Maps) => {
+
+    return {
+        streetViewControl: false,
+        scaleControl: true,
+        fullscreenControl: false,
+        styles: [{
+            featureType: "poi.business",
+            elementType: "labels",
+            stylers: [{
+                visibility: "off"
+            }]
+        }],
+        gestureHandling: "greedy",
+        disableDoubleClickZoom: true,
+        minZoom: 2,
+        maxZoom: 18,
+
+        mapTypeControl: true,
+        mapTypeId: maps.MapTypeId.ROADMAP,
+        mapTypeControlOptions: {
+            style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: maps.ControlPosition.BOTTOM_CENTER,
+            mapTypeIds: [
+                maps.MapTypeId.ROADMAP,
+                maps.MapTypeId.SATELLITE,
+                maps.MapTypeId.HYBRID
+            ]
+        },
+
+        zoomControl: true,
+        clickableIcons: false
+    };
+}
   
  
   render() {
 
     const style = { 
       // MUST specify dimensions of the Google map or it will not work. Also works best when style is specified inside the render function and created as an object
-      width: '52vw', // 90vw basically means take up 90% of the width screen. px also works.
-      height: '58vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+      width: '45vw', // 90vw basically means take up 90% of the width screen. px also works.
+      height: '75vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
 
     let num = 1
 
    const renderMarkers = 
         this.props.cities.map((city) => 
-        <CityPin key = {city.id} text = {`${ num++ }`} lat = {city.longitude} lng = {city.latitude} />
+        <CityPin key = {city.id} text = {`${ city.name }`} lat = {city.longitude} lng = {city.latitude} />
       )
 
     return (
@@ -37,9 +72,9 @@ _reset = () => {
           bootstrapURLKeys={{ key: this.props.googleApiKey }}
           center={this.props.mapCenter}
           zoom={this.props.mapZoom}
-          mapTypeId = {'roadmap'} // optional main map layer. Terrain, satellite, hybrid or roadmap--if unspecified, defaults to roadmap.
           disableDefaultUI = {true}
           zoomControl = {true}
+          options={this.getMapOptions}
         >
           {renderMarkers}
         </GoogleMapReact>

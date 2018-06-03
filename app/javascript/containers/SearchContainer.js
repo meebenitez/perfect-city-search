@@ -8,6 +8,25 @@ const SearchContainer = (props) =>
 
     <Aux>
         <div className="left-col">
+        <CityFilterContainer 
+                onFilterChange={props.onFilterChange} 
+                params={props.params} 
+                activeFilters={props.activeFilters} 
+                inactiveFilters={props.inactiveFilters} 
+                filterHolder={props.filterHolder}
+                clearAllFilters={props.clearAllFilters}
+                unclick={props.unclick}
+                onSearch={props.onSearch}
+                searchTerm={props.searchTerm}
+                searchCities={props.searchCities}
+                googleApiKey = {props.googleApiKey}
+                cities={props.cities}
+                changeZoom = {props.changeZoom}
+                mapZoom = {props.mapZoom}
+                mapCenter = {props.mapCenter}
+                nameHover = {props.nameHover} />
+        </div>
+        <div className="right-col">
         <CityListContainer 
                 cities={props.cities} 
                 heartedCities={props.heartedCities} 
@@ -27,25 +46,6 @@ const SearchContainer = (props) =>
                 showCityPopup = {props.showCityPopup}
                 currentRoute = {props.currentRoute}
                 showSingleCity = {props.showSingleCity}
-                nameHover = {props.nameHover} />
-        </div>
-        <div className="right-col">
-        <CityFilterContainer 
-                onFilterChange={props.onFilterChange} 
-                params={props.params} 
-                activeFilters={props.activeFilters} 
-                inactiveFilters={props.inactiveFilters} 
-                filterHolder={props.filterHolder}
-                clearAllFilters={props.clearAllFilters}
-                unclick={props.unclick}
-                onSearch={props.onSearch}
-                searchTerm={props.searchTerm}
-                searchCities={props.searchCities}
-                googleApiKey = {props.googleApiKey}
-                cities={props.cities}
-                changeZoom = {props.changeZoom}
-                mapZoom = {props.mapZoom}
-                mapCenter = {props.mapCenter}
                 nameHover = {props.nameHover} />
         </div>
     </Aux>

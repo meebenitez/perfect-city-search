@@ -247,7 +247,7 @@ const cityreducer = (state = initialState, action) => {
             return {
                 ...state,
                 mapCenter: {lat: parseFloat(action.lat), lng: parseFloat(action.lng)},
-                mapZoom: 7
+                mapZoom: 5
             }
             
         default:

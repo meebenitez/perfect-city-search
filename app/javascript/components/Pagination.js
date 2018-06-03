@@ -11,7 +11,7 @@ const Pagination = (props) => {
             } else if (props.currentRoute === "[hearted]=yourhearted"){
                 return <span> cities that you've "hearted".</span>
             } else {
-                return <span> potentially great places to live.   </span>
+                return <span> cities.   </span>
             }
         }
         

@@ -35,9 +35,9 @@ const CityList = (props) => {
 
     return (
         <div>
+            <div className="city-list">{renderCities}</div>
             {welcomeMessage()}
-            <Pagination count={props.cities.length} totalCount={props.totalCount} totalPages={props.totalPages} startPage={props.startPage} pageChange={props.pageChange} page={props.page} currentRoute={props.currentRoute} perPage={props.perPage}/>
-            {renderCities}              
+            <Pagination count={props.cities.length} totalCount={props.totalCount} totalPages={props.totalPages} startPage={props.startPage} pageChange={props.pageChange} page={props.page} currentRoute={props.currentRoute} perPage={props.perPage}/>              
         </div>
     )
 }

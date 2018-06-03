@@ -66,3 +66,10 @@ export function formatFigure(figure) {
         return <span> ${figure}</span>
     }
 }
+
+//----------------RESIZEIMAGE------------------//
+
+export function resizeThumb(url) {
+    const newString = url.replace("200px", "600px")
+    return newString
+}
