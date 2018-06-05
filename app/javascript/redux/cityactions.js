@@ -55,7 +55,7 @@ export const clickSearch = (value) => {
 
 export const nameHover = (city) => {
     return (dispatch) => {
-        dispatch({type: 'CHANGE_CENTER', lat: city.longitude, lng: city.latitude})
+        dispatch({type: 'CHANGE_CENTER', lat: city.longitude, lng: city.latitude, id: city.id})
     }
 }
 

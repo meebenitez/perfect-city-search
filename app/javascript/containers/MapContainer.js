@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import CityPin from '../components/CityPin'
  
-const CityPin = ({ text }) => <div className="map-marker">{text}</div>;
+
  
 class MapContainer extends Component {
   constructor(props){
@@ -54,15 +55,15 @@ getMapOptions = (maps: Maps) => {
 
     const style = { 
       // MUST specify dimensions of the Google map or it will not work. Also works best when style is specified inside the render function and created as an object
-      width: '45vw', // 90vw basically means take up 90% of the width screen. px also works.
-      height: '75vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+      width: '48vw', // 90vw basically means take up 90% of the width screen. px also works.
+      height: '55vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
 
     let num = 1
 
    const renderMarkers = 
         this.props.cities.map((city) => 
-        <CityPin key = {city.id} text = {`${ city.name }`} lat = {city.longitude} lng = {city.latitude} />
+        <CityPin key = {city.id} text = {`${ city.name }`} city = {city} lat = {city.longitude + 25 } lng = {city.latitude - .009} highlightedCity = {this.props.highlightedCity} />
       )
 
     return (

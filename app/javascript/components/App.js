@@ -98,7 +98,8 @@ const mapStateToProps = state => {
     searchTerm: state.city.searchTerm,
     searchCities: state.city.searchCities,
     mapZoom: state.city.mapZoom,
-    mapCenter: state.city.mapCenter
+    mapCenter: state.city.mapCenter,
+    highlightedCity: state.city.highlightedCity
   }
 }
 

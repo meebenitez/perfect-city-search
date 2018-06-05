@@ -24,7 +24,8 @@ const SearchContainer = (props) =>
                 changeZoom = {props.changeZoom}
                 mapZoom = {props.mapZoom}
                 mapCenter = {props.mapCenter}
-                nameHover = {props.nameHover} />
+                nameHover = {props.nameHover}
+                highlightedCity = {props.highlightedCity} />
         </div>
         <div className="right-col">
         <CityListContainer 
@@ -46,7 +47,8 @@ const SearchContainer = (props) =>
                 showCityPopup = {props.showCityPopup}
                 currentRoute = {props.currentRoute}
                 showSingleCity = {props.showSingleCity}
-                nameHover = {props.nameHover} />
+                nameHover = {props.nameHover}
+                highlightedCity = {props.highlightedCity} />
         </div>
     </Aux>
 

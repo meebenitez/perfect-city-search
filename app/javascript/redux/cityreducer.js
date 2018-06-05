@@ -42,7 +42,8 @@ const initialState = {
     searchTerm: "",
     searchCities: [],
     mapZoom: 4,
-    mapCenter: {lat: 38.00, lng: -96.5556}
+    mapCenter: {lat: 38.00, lng: -96.5556},
+    highlightedCity: null 
 }
 
 const cityreducer = (state = initialState, action) => {
@@ -247,7 +248,8 @@ const cityreducer = (state = initialState, action) => {
             return {
                 ...state,
                 mapCenter: {lat: parseFloat(action.lat), lng: parseFloat(action.lng)},
-                mapZoom: 5
+                mapZoom: 5,
+                highlightedCity: action.id
             }
             
         default:

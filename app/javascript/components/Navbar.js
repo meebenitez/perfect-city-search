@@ -13,23 +13,27 @@ const Navbar = (props) => {
   
     return (
         <Aux>
-          { props.currentUser ?
-              <NavLink
-                to="/hearted"
-                exact
-                className="navlink1"
-                activeClassName="navlink1active"
-                onClick={() => props.initialFetch("/hearted")}
-              ><span style={{color: 'red'}}>♥</span> Saved</NavLink>
-              : null }
-            <img src={require('../../assets/images/teal_trees1.png')} className="logo-icon"/><img src={require('../../assets/images/teal_tree.png')} className="logo-icon"/><NavLink
+          <h5>| Blog | FAQ | About |</h5>
+            <NavLink
               to="#"
               onClick={props.toggleAuthPopup}
               className="navlink1"
-              activeClassName="navlink1active">{ props.currentUser ? "Logout" : "Login" }</NavLink><img src={require('../../assets/images/teal_trees1.png')} className="logo-icon"/>
+              activeClassName="navlink1active">{ props.currentUser ? <h5><img src={require('../../assets/images/logindude.png')} className="login-icon"/></h5> : <h5>Sign up</h5> }</NavLink>
+              
       </Aux>
     )
 }
 
 
 export default Navbar;
+
+/*
+{ props.currentUser ?
+  <NavLink
+    to="/hearted"
+    exact
+    className="navlink1"
+    activeClassName="navlink1active"
+    onClick={() => props.initialFetch("/hearted")}
+  ><span style={{color: 'red'}}>♥</span> Saved</NavLink>
+  : null }*/
