@@ -345,7 +345,7 @@
     }
 
     .img-gem {
-      background-image: url("gem.png");
+      background-image: url(asset_path("gem.png"));
       background-repeat: no-repeat;
       background-size: 115px;
       height: 115px;
