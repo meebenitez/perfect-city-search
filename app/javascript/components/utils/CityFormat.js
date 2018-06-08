@@ -70,6 +70,9 @@ export function formatFigure(figure) {
 //----------------RESIZEIMAGE------------------//
 
 export function resizeThumb(url) {
-    const newString = url.replace("200px", "600px")
+    let newSTring = url
+    if (url !== undefined){
+        newString = url.replace("200px", "600px")
+    }
     return newString
 }
