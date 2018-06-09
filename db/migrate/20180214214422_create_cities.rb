@@ -38,9 +38,9 @@ class CreateCities < ActiveRecord::Migration[5.1]
       t.integer :poverty_total_any
       t.integer :poverty_total_poverty_level
       t.integer :income_median
-      t.real :age_median
-      t.real :age_median_male
-      t.real :age_median_female
+      t.float :age_median
+      t.float :age_median_male
+      t.float :age_median_female
       t.integer :homes2_total
       t.integer :homes2_occupied
       t.integer :homes2_vacant
