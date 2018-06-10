@@ -12,7 +12,11 @@
  *
  @import ‘bootstrap’
  */
- @import "bootstrap";
+
+$grid-columns:      24;
+$grid-gutter-width: 12px;
+
+@import "bootstrap";
 
 
  .gutter{
@@ -278,11 +282,15 @@
     }
 
     .max-width {
-      max-width: 1500px;
+      max-width: 1000px;
     }
 
     .red-background {
       background-color: rgb(209, 43, 13);
+    }
+
+    .zero-padding {
+      padding: 0px;
     }
     .fixed {
       position: fixed;
@@ -292,13 +300,15 @@
       position: relative;
       width: 100%;
       margin: 0px;
-      padding-top: 10px;
-      padding-right: 0px;
-      padding-bottom: 0px;
-      padding-left: 0px;
-      box-sizing: border-box;
-      display: flex;
+      padding: 0px;
     }
+
+    .max-width-container {
+      margin-right: 20px;
+      margin-left: 20px;
+      max-width: 1500px; 
+    }
+
     .col-container{
       position: relative;
       width: 100%;
@@ -677,11 +687,11 @@
       text-decoration: underline;
     }
 
-    .header-wide {
+    .fixed {
       position: fixed;
-      width: 100%;
       z-index: 2;
     }
+
 
     .header-container {
       position: fixed;

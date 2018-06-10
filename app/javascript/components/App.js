@@ -32,15 +32,19 @@ class App extends React.Component {
     return (
       <Router>
         <Aux>
-          <div className="container white-background">
-            <div className="main-container max-width">
+          <div className="col-xs-24 zero-padding white-background">
+            <div className="col-xs-24 red-background">
+             
+              <div className="max-width-container">
                 <Header 
                   toggleAuthPopup={this.props.toggleAuthPopup} 
                   currentUser={this.props.currentUser} 
                   initialFetch={this.props.initialFetch} />   
+              </div>
+              
             </div>
           </div>
-          <div className="container">
+          <div className="col-xs-24 zero-padding">
             <div className="main-container max-width">
                 {this.props.showAuthPopup ? 
                   <Devise 
