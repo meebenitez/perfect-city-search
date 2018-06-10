@@ -16,6 +16,7 @@ module PerfectCitySearch
     end
 
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
