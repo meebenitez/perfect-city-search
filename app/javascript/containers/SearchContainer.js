@@ -7,7 +7,7 @@ import CityListContainer from './CityListContainer'
 const SearchContainer = (props) => 
 
     <Aux>
-        <div className="left-col">
+        <div className="col-md-12 left-margin-top">
         <CityFilterContainer 
                 onFilterChange={props.onFilterChange} 
                 params={props.params} 
@@ -27,7 +27,7 @@ const SearchContainer = (props) =>
                 nameHover = {props.nameHover}
                 highlightedCity = {props.highlightedCity} />
         </div>
-        <div className="right-col">
+        <div className="col-md-12 right-margin-top">
         <CityListContainer 
                 cities={props.cities} 
                 heartedCities={props.heartedCities} 

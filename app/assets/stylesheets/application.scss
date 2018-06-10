@@ -214,13 +214,16 @@ $grid-gutter-width: 12px;
       color: grey;
     }
 
-    .navbar {
-      position: absolute;
-      margin: 0;
-      bottom: 0px;
-      right: 25px;
-      font-size: 14px;
+
+    .left-margin-top {
+      margin-top: 130px;
     }
+
+    .right-margin-top {
+      margin-top: 130px;
+    }
+
+
 
     a.logolink {
       text-decoration: none;
@@ -232,11 +235,6 @@ $grid-gutter-width: 12px;
       text-decoration: none;
     }
     .navlink1 {
-      width: 100px;
-      padding-top: 2px;
-      padding-bottom: 0px;
-      padding-left: 4px;
-      padding-right: 4px;
       text-decoration: none;
       font-family: 'Patrick Hand', cursive;
       color: black;
@@ -244,7 +242,6 @@ $grid-gutter-width: 12px;
 
 
     .navlink1active {
-      width: 100px;
       text-decoration: none;
       color: black;
     }
@@ -739,10 +736,10 @@ $grid-gutter-width: 12px;
     .city-list {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      align-items: right;
-      margin-right: 0px;
-      padding-right: 0px;
+    }
+
+    .list-float-right {
+      float: right;
     }
 
     
