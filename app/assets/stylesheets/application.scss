@@ -13,8 +13,6 @@
  @import ‘bootstrap’
  */
 
-$grid-columns:      24;
-$grid-gutter-width: 12px;
 
 @import "bootstrap";
 
@@ -301,9 +299,9 @@ $grid-gutter-width: 12px;
     }
 
     .max-width-container {
-      margin-right: 20px;
-      margin-left: 20px;
-      max-width: 1500px; 
+      margin-right: 15px;
+      margin-left: 15px;
+      max-width: 1550px; 
     }
 
     .col-container{

@@ -32,8 +32,8 @@ class App extends React.Component {
     return (
       <Router>
         <Aux>
-          <div className="col-xs-24 zero-padding white-background">
-            <div className="col-xs-24 red-background fixed">
+          <div className="col-xs-12 zero-padding white-background">
+            <div className="col-xs-12 red-background fixed">
              
               <div className="max-width-container">
                 <Header 
@@ -44,7 +44,7 @@ class App extends React.Component {
               
             </div>
           </div>
-          <div className="col-xs-24 zero-padding">
+          <div className="col-xs-12 zero-padding">
             <div className="max-width-container">
                 {this.props.showAuthPopup ? 
                   <Devise 

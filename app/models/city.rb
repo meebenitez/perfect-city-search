@@ -12,7 +12,7 @@ class City < ApplicationRecord
 
     class << self
         def per_page
-            25
+            24
         end
 
         def pages(per_page = self.per_page)

@@ -15,7 +15,7 @@ const City = props => {
     return (
         <Aux>
    
-                <div className="icon-container">
+                <div className="list-group-item col-sm-4">
                     <img className="img-city-icon" src={resizeThumb(props.city.img_thumb)} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/320px-CheyenneWY_downtown.jpg'}} />
                     <div className="top-left-city-name">
                         
