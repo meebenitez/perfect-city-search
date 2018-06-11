@@ -4,42 +4,61 @@ import HeartButton from './HeartButton'
 import {formatPop, formatFigure, formatRegion, resizeThumb} from './utils/CityFormat'
 import {formatIncomeHomeCompare} from './utils/MathFunctions'
 import Aux from './Aux'
+import MediaQuery from 'react-responsive';
+
 
 
 const City = props => {
 
 
-  
+    const cityItem = () => {
+        return <div>
+        <img className="img-city-icon" src={resizeThumb(props.city.img_thumb)} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/320px-CheyenneWY_downtown.jpg'}} />
+        <div className="top-left-city-name">
+                    
+        </div>
+        <div className="top-center-city-name">
+            <div className="city-name">
+                <Link className="citynamelink" to="#" onClick= {() => props.showSingleCity()} onMouseEnter={() => props.nameHover(props.city)} >
+                    <h3>{props.city.name}, {props.city.short_state.toUpperCase()}</h3>
+                    { (props.city.popularity >= 20) ? <img src={require('../../assets/images/star.png')} className="stat-icon-lg"/> : null }
+                </Link>
+            </div>
+        </div>
+            <div className="bottom-right-city-name">
+                <HeartButton 
+                    currentUser={props.currentUser} 
+                    heartedCities={props.heartedCities} 
+                    unheartClick={props.unheartClick} 
+                    heartClick={props.heartClick} 
+                    toggleAuthPopup={props.toggleAuthPopup} 
+                    city={props.city}/>
+            </div>
+    </div>
+
+        
+    }
+
 
     //props.showSingleCity
     return (
         <Aux>
-   
-                <div className="list-group-item col-sm-4">
-                    <img className="img-city-icon" src={resizeThumb(props.city.img_thumb)} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/320px-CheyenneWY_downtown.jpg'}} />
-                    <div className="top-left-city-name">
-                        
-                    </div>
-                    <div className="top-center-city-name">
-                        <div className="city-name">
-                            <Link className="citynamelink" to="#" onClick= {() => props.showSingleCity()} onMouseEnter={() => props.nameHover(props.city)} >
-                                <h3>{props.city.name}, {props.city.short_state.toUpperCase()}</h3>
-                                { (props.city.popularity >= 20) ? <img src={require('../../assets/images/star.png')} className="stat-icon-lg"/> : null }
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="bottom-right-city-name">
-                        <HeartButton 
-                            currentUser={props.currentUser} 
-                            heartedCities={props.heartedCities} 
-                            unheartClick={props.unheartClick} 
-                            heartClick={props.heartClick} 
-                            toggleAuthPopup={props.toggleAuthPopup} 
-                            city={props.city}/>
-                    </div>
+            <MediaQuery minWidth={1200}>
+                <div className="list-group-item col-xs-4 noborder">
+                    {cityItem()}
                 </div>
-                    
-                    
+            </MediaQuery>
+            <MediaQuery minWidth={768} maxWidth={1200}>
+                <div className="list-group-item col-xs-6 noborder">
+                    {cityItem()}
+                </div>
+            </MediaQuery>
+            <MediaQuery maxWidth={768}>
+                <div className="list-group-item col-xs-4 noborder">
+                    {cityItem()}
+                </div>
+            </MediaQuery>
+
         </Aux>
     )
     

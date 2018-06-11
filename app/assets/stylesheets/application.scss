@@ -214,11 +214,15 @@
 
 
     .left-margin-top {
-      margin-top: 130px;
+      margin-top: 161px;
     }
 
     .right-margin-top {
-      margin-top: 130px;
+      margin-top: 150px;
+    }
+
+    .noborder {
+      border: none;
     }
 
 
@@ -284,12 +288,36 @@
       background-color: rgb(209, 43, 13);
     }
 
+    .white-background {
+      background-color: white;
+    }
+
+    .bottom-line {
+      border-bottom: rgb(185, 185, 185) 1px solid;
+    }
+
     .zero-padding {
       padding: 0px;
     }
     .fixed {
       position: fixed;
     }
+
+
+    .map {
+      height: 56vh;
+      width: 46vw; 
+    }
+
+    @media screen and (max-width: 700px){
+      .map {
+          height: 20vh;
+          width: 95vw;
+      }
+  }
+
+  
+    
 
     .main-container{
       position: relative;
@@ -299,9 +327,14 @@
     }
 
     .max-width-container {
-      margin-right: 15px;
-      margin-left: 15px;
+      padding-right: 20px;
+      padding-left: 20px;
       max-width: 1550px; 
+    }
+
+    .filter-margin-top {
+      margin-top: 35px;
+      height: 100px;
     }
 
     .col-container{
@@ -374,6 +407,7 @@
       overflow-y: hidden;
       min-width: 0;
       overflow: hidden;
+      z-index: 5;
     }
 
     .align-bottom {

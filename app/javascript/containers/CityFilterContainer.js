@@ -12,7 +12,7 @@ const CityFilterContainer = (props) =>
         <div >
             
             <div>
-                <div className="intro-container fixed" >
+                <div className="intro-container" >
                     <div className="intro-left">
                         <span className="bold">Welcome, City Sleuths!</span><br></br>Filter through our database of 26,931 towns and cities to find hidden gems that perfectly match your priorities and lifestyle.
                         <div className="intro-follow">Follow us for news and updates!&nbsp;<img src={require('../../assets/images/facebook.png')} className="img-social"/>&nbsp;<img src={require('../../assets/images/twitter.png')} className="img-social"/></div>
@@ -21,7 +21,7 @@ const CityFilterContainer = (props) =>
                         <div className="img-gem"> </div>
                     </div>
                 </div>
-                <div className="map-container fixed"><MapContainer {...props} /></div>
+                <div className="map-container"><MapContainer {...props} /></div>
             </div>  
         </div>
     </Aux>

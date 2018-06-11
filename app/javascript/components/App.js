@@ -33,44 +33,46 @@ class App extends React.Component {
       <Router>
         <Aux>
           <div className="col-xs-12 zero-padding white-background">
-            <div className="col-xs-12 red-background fixed">
-             
-              <div className="max-width-container">
-                <Header 
-                  toggleAuthPopup={this.props.toggleAuthPopup} 
-                  currentUser={this.props.currentUser} 
-                  initialFetch={this.props.initialFetch} />   
-              </div>
+              
+                <div className="col-xs-12 red-background fixed">
+                  <div className="max-width-container">
+                    <Header 
+                      toggleAuthPopup={this.props.toggleAuthPopup} 
+                      currentUser={this.props.currentUser} 
+                      initialFetch={this.props.initialFetch} />   
+                  </div>
+                </div>
+              
+              
+                <div className="col-xs-12">
+                  <div>
+                      {this.props.showAuthPopup ? 
+                        <Devise 
+                          updateCurrentUser={this.props.updateCurrentUser} 
+                          currentUser={this.props.currentUser} 
+                          closePopup={this.props.toggleAuthPopup} 
+                          signUp={this.props.signUp} 
+                          login={this.props.login}
+                          logout={this.props.logout}/> : null}
+                      {this.props.showCityPopup ?
+                        <CityShow 
+                          closePopup={this.props.toggleCityPopup} 
+                          city={this.props.singleCity}
+                          heartedCities = {this.props.heartedCities}
+                          heartClick={this.props.heartClick}
+                          unheartClick={this.props.unheartClick}
+                          currentUser = {this.props.currentUser}
+                          toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}/> : null }
+                      <Route exact path="/" render={(props) => <SearchContainer {...this.props}/>}/>
+                      <Route exact path="/city/" render={(props) => <CityShow city={this.props.singleCity}
+                                    heartedCities = {this.props.heartedCities}
+                                    heartClick={this.props.heartClick}
+                                    unheartClick={this.props.unheartClick}
+                                    currentUser = {this.props.currentUser}/>}/>
+                  </div>
+                </div>
               
             </div>
-          </div>
-          <div className="col-xs-12 zero-padding">
-            <div className="max-width-container">
-                {this.props.showAuthPopup ? 
-                  <Devise 
-                    updateCurrentUser={this.props.updateCurrentUser} 
-                    currentUser={this.props.currentUser} 
-                    closePopup={this.props.toggleAuthPopup} 
-                    signUp={this.props.signUp} 
-                    login={this.props.login}
-                    logout={this.props.logout}/> : null}
-                {this.props.showCityPopup ?
-                  <CityShow 
-                    closePopup={this.props.toggleCityPopup} 
-                    city={this.props.singleCity}
-                    heartedCities = {this.props.heartedCities}
-                    heartClick={this.props.heartClick}
-                    unheartClick={this.props.unheartClick}
-                    currentUser = {this.props.currentUser}
-                    toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}/> : null }
-                <Route exact path="/" render={(props) => <SearchContainer {...this.props}/>}/>
-                <Route exact path="/city/" render={(props) => <CityShow city={this.props.singleCity}
-                              heartedCities = {this.props.heartedCities}
-                              heartClick={this.props.heartClick}
-                              unheartClick={this.props.unheartClick}
-                              currentUser = {this.props.currentUser}/>}/>
-            </div>
-          </div>
        </Aux>
       </Router>
         
