@@ -13,12 +13,11 @@ const Navbar = (props) => {
   
     return (
         <Aux>
-          <h5>| Blog | FAQ | About |</h5>
             <NavLink
               to="#"
               onClick={props.toggleAuthPopup}
               className="navlink1"
-              activeClassName="navlink1active">{ props.currentUser ? <h5><img src={require('../../assets/images/logindude.png')} className="login-icon"/></h5> : <h5>Sign up</h5> }</NavLink>
+              activeClassName="navlink1active">{ props.currentUser ? <h5>{props.currentUser}&nbsp;<img src={require('../../assets/images/logindude.png')} className="login-icon"/></h5> : <h5>Sign up</h5> }</NavLink>
               
       </Aux>
     )

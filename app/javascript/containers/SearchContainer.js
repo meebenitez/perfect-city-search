@@ -1,6 +1,6 @@
 import React from 'react';
 import Aux from '../components/Aux'
-import CityFilterContainer from './CityFilterContainer'
+import FixedMapContainer from './FixedMapContainer'
 import CityListContainer from './CityListContainer'
 import MediaQuery from 'react-responsive';
 
@@ -11,14 +11,13 @@ const SearchContainer = (props) =>
     <Aux>
             <div className="row zero-padding content">
                 <div className="col-xs-12 zero-padding filter-margin-top fixed white-background bottom-line">
-                    I amslkdfmlskdjflskdjflskjdfl slkdjflskdjf s slkdjflskdjf lskdjfklsdj f I amslkdfmlskdjflskdjflskjdfl slkdjflskdjf s slkdjflskdjf lskdjfklsdj f I amslkdfmlskdjflskdjflskjdfl slkdjflskdjf s slkdjflskdjf lskdjfklsdj f I amslkdfmlskdjflskdjflskjdfl slkdjflskdjf s slkdjflskdjf lskdjfklsdj f
                 </div>
                 <div className="max-width-container">
                     
                 <MediaQuery minWidth={768}>
                     <div className="col-xs-6 zero-padding left-margin-top">
-                        <div className="affix">
-                            <CityFilterContainer 
+                        <div className="left-width affix">
+                            <FixedMapContainer 
                                 onFilterChange={props.onFilterChange} 
                                 params={props.params} 
                                 activeFilters={props.activeFilters} 
@@ -64,7 +63,7 @@ const SearchContainer = (props) =>
                 </MediaQuery>
                 <MediaQuery maxWidth={768}>
                 <div className="col-xs-12 zero-padding left-margin-top">
-                        <CityFilterContainer 
+                        <FixedMapContainer 
                                 onFilterChange={props.onFilterChange} 
                                 params={props.params} 
                                 activeFilters={props.activeFilters} 
@@ -83,7 +82,7 @@ const SearchContainer = (props) =>
                                 nameHover = {props.nameHover}
                                 highlightedCity = {props.highlightedCity} />
                     </div>
-                    <div className="col-xs-12 zero-padding right-margin-top">
+                    <div className="col-xs-12 zero-padding">
                         <CityListContainer 
                                 cities={props.cities} 
                                 heartedCities={props.heartedCities} 

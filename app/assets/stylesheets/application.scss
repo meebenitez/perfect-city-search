@@ -216,9 +216,12 @@
     .left-margin-top {
       margin-top: 161px;
     }
+    .left-width {
+      width: 100%;
+    }
 
     .right-margin-top {
-      margin-top: 150px;
+      margin-top: 143px;
     }
 
     .noborder {
@@ -238,7 +241,7 @@
     }
     .navlink1 {
       text-decoration: none;
-      font-family: 'Patrick Hand', cursive;
+      font-family: 'Lato', sans-serif;
       color: black;
     }
 
@@ -280,6 +283,14 @@
       display: flex;
     }
 
+    .star {
+      font-family: 'Lato', sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      display:inline;
+      color: gold;
+    }
+
     .max-width {
       max-width: 1000px;
     }
@@ -288,8 +299,22 @@
       background-color: rgb(209, 43, 13);
     }
 
+    .blue-background {
+      background-color: rgb(90, 171, 176);
+    }
+
+    .orange-background {
+      background-color: rgb(230, 95, 42);
+    }
+
+
+
     .white-background {
       background-color: white;
+    }
+
+    .text-background {
+      background-color: rgba(73, 73, 73, 0.5)
     }
 
     .bottom-line {
@@ -298,6 +323,20 @@
 
     .zero-padding {
       padding: 0px;
+    }
+
+    .bottom-padding {
+      padding-bottom: 15px;
+    }
+
+    .header-left-padding {
+      padding-left: 0px;
+    }
+
+    .header-height {
+      margin-top: 10px;
+      padding: 0px;
+      height: 50px;
     }
     .fixed {
       position: fixed;
@@ -333,7 +372,7 @@
     }
 
     .filter-margin-top {
-      margin-top: 35px;
+      margin-top: 50px;
       height: 100px;
     }
 
@@ -348,19 +387,13 @@
     }
 
     .map-container{
-      margin-top: 170px;
+      margin-top: 45px;
     }
 
     .intro-container{
-      border-radius: 10px;
-      border-style: solid;
-      border-width: 1px;
-      border-color:  rgba(112, 111, 111, 0.5);
-      margin-bottom: 20px;
-      height: 130px;
-      padding: 15px;
-      width: 46%;
-      font-size: 17px;
+      
+      font-size: 15px;
+      width: 100%;
     }
 
     .intro-left {
@@ -385,7 +418,9 @@
 
     .img-gem {
       background-image: url(asset_path("gem.png"));
-      background-repeat: no-repeat;
+      background-size:     cover;                      /* <------ */
+      background-repeat:   no-repeat;
+      background-position: center center; 
       background-size: 115px;
       height: 115px;
     }
@@ -519,7 +554,20 @@
       flex: 1;
       min-width: 0;
       text-align: center;
-      font-size: 25px;      
+      font-size: 15px;
+      color: grey;      
+    }
+
+    .heart-color-off{
+      color: rgb(219, 216, 216);
+      -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+    }
+
+    .heart-color-onn{
+      color: red;
+      -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
     }
 
     .top-left-city-name {
@@ -536,8 +584,16 @@
     .bottom-right-city-name {
       position: absolute;
       bottom: 8px;
-      right: 16px;
+      right: 20px;
   }
+
+  @media (min-width: 768px) and (max-width: 1200px) {
+    .bottom-right-city-name {
+      position: absolute;
+      bottom: 8px;
+      right: 30px;
+  }
+}
 
   .top-center-city-name {
     left: 0;
@@ -555,7 +611,7 @@
 
 .city-name {
   position:absolute;
-  width: 90%;
+  width: auto;
   text-align:center;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -572,9 +628,7 @@
       border: none;
       padding: 0;
       background: none;
-      font-size: 30px;
-      -webkit-text-stroke-width: 2px;
-      -webkit-text-stroke-color: rgb(0, 0, 0);
+      font-size: 20px;
     }
     
     .city-name-container{
@@ -584,7 +638,7 @@
     .stat-container{
       width: 100%;
       vertical-align: top;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 14px;
     }
     
@@ -598,10 +652,9 @@
       margin-top: 4px;
     }
     h1 {
-      font-family: 'IBM Plex Sans', sans-serif;
+      font-family: 'Fredoka One', cursive;
       font-size: 30px;
       display:inline;
-      line-height: .6;
       color: white;
     }
     h2 {
@@ -610,10 +663,12 @@
       display:inline;
     }
     h3 {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 20px;
       font-weight: bold;
       display:inline;
+      background-color: rgba(73, 73, 73, 0.5);
+      border-radius: 10px;
     }
 
     h3:hover {
@@ -621,15 +676,15 @@
     }
 
     h4 {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 17px;
       font-weight: bold;
       display:inline;
     }
 
     h5 {
-      font-family: 'Roboto', sans-serif;
-      font-size: 18px;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
       color: white;
       display:inline;
     }
@@ -813,7 +868,7 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 15px;
       background-color: white;
     }

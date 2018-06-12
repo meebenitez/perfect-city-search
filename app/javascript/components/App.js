@@ -34,8 +34,8 @@ class App extends React.Component {
         <Aux>
           <div className="col-xs-12 zero-padding white-background">
               
-                <div className="col-xs-12 red-background fixed">
-                  <div className="max-width-container">
+                <div className="col-xs-12 orange-background fixed">
+                  <div className="max-width-container header-height">
                     <Header 
                       toggleAuthPopup={this.props.toggleAuthPopup} 
                       currentUser={this.props.currentUser} 
