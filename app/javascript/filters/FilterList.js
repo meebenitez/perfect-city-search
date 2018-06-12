@@ -16,18 +16,25 @@ import NameSearchFilter from './NameSearchFilter'
 const FilterList = (props) => {
 
     const componentListByString = [
+        MedianIncomeFilter,
         PopulationFilter,
         AgeFilter,
         RegionFilter,
         HomePriceFilter,
-        MedianIncomeFilter,
         NameSearchFilter
     ]
 
+    const checkActive = (filterName) => {
+        if (props.activeFilters.includes(filterName)) {
+            return true
+        } else {
+            return false
+        }
+    }
 
 
     const renderFilters = componentListByString.map( (Filter) => {
-        return <Filter onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder}/>
+        return <Filter onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)}/>
     });
 
 

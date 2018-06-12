@@ -9,8 +9,9 @@ class MedianIncomeFilter extends React.Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
+
     handleClick(){
-        if ( this.props.isActive === undefined ) {
+        if ( this.props.isActive === false ) {
             this.props.onFilterChange("MedianIncomeFilter", `[income_from]=${this.state.min}&[income_to]=${this.state.max}`, `median-income=${this.state.min}to${this.state.max}`)
         } else {
             this.props.onFilterChange("MedianIncomeFilter", "")
@@ -42,7 +43,7 @@ class MedianIncomeFilter extends React.Component {
 
         return (
             <Aux>
-                {this.props.isActive !== undefined ? 
+                {this.props.isActive === true ? 
                 <div className="filter-div filter-on tooltip-top" data-tooltip="test test yoyo">
                     <div className="filter-container">
                         <div className="left-filter-col">
