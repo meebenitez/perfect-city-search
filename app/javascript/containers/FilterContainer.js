@@ -2,6 +2,7 @@ import React from 'react';
 import ActiveFilterList from '../filters/ActiveFilterList'
 import InactiveFilterList from '../filters/InactiveFilterList'
 import Aux from '../components/Aux'
+import FilterList from '../filters/FilterList'
 import NameSearchFilter from '../filters/NameSearchFilter'
 
 
@@ -9,7 +10,7 @@ const FilterContainer = (props) =>
 
     <Aux>
         <div className="col-xs-12 row">
-            
+            <FilterList {...props} />
         </div>
             
     </Aux>

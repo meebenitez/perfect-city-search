@@ -3,10 +3,10 @@ class City < ApplicationRecord
     has_many :users, through: :cities_users
     
 
-    scope :by_population, -> (from, to) { where("population >= ? AND population <= ?", from, to)}
-    scope :by_age, -> (from, to) { where("median_age >= ? AND median_age <= ?", from, to)}
-    scope :by_home_price, -> (from, to) { where("median_property_value >= ? AND median_property_value <= ?", from, to)}
-    scope :by_median_income, -> (from, to) { where("median_household_income >= ? AND median_household_income <= ?", from, to)}
+    scope :by_population, -> (from, to) { where("pop_total >= ? AND pop_total <= ?", from, to)}
+    scope :by_age, -> (from, to) { where("age_median >= ? AND age_median <= ?", from, to)}
+    scope :by_home_price, -> (from, to) { where("homes_median_value >= ? AND homes_median_value <= ?", from, to)}
+    scope :by_median_income, -> (from, to) { where("income_median >= ? AND income_median <= ?", from, to)}
     scope :by_region, -> (region) { where(region: region)}
 
 

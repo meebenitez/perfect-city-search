@@ -3,6 +3,7 @@ import Aux from '../components/Aux'
 import FixedMapContainer from './FixedMapContainer'
 import CityListContainer from './CityListContainer'
 import MediaQuery from 'react-responsive';
+import FilterContainer from './FilterContainer'
 
 
 
@@ -11,6 +12,7 @@ const SearchContainer = (props) =>
     <Aux>
             <div className="row zero-padding content">
                 <div className="col-xs-12 zero-padding filter-margin-top fixed white-background bottom-line">
+                <FilterContainer {...props}/>
                 </div>
                 <div className="max-width-container">
                     

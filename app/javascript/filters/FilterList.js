@@ -13,23 +13,23 @@ import HighEmploymentFilter from './HighEmploymentFilter'
 import NameSearchFilter from './NameSearchFilter'
 
 
-const InactiveFilterList = (props) => {
+const FilterList = (props) => {
 
-    const componentListByString = {
-        PopulationFilter: PopulationFilter,
-        AgeFilter: AgeFilter,
-        RegionFilter: RegionFilter,
-        HomePriceFilter: HomePriceFilter,
-        MedianIncomeFilter: MedianIncomeFilter,
-        NameSearchFilter: NameSearchFilter
-    }
+    const componentListByString = [
+        PopulationFilter,
+        AgeFilter,
+        RegionFilter,
+        HomePriceFilter,
+        MedianIncomeFilter,
+        NameSearchFilter
+    ]
 
     const componentArray = props.inactiveFilters.concat().sort().map((Filter) => {
         return componentListByString[Filter]
     })
 
 
-    const renderFilters = componentArray.filter(val => val !== NameSearchFilter).map( (Filter) =>
+    const renderFilters = componentListByString.map( (Filter) =>
         <Filter onFilterChange={props.onFilterChange} key={Filter} filterHolder={props.filterHolder}/>
     );
 
@@ -43,4 +43,4 @@ const InactiveFilterList = (props) => {
 }
 
 
-export default InactiveFilterList;
+export default FilterList;

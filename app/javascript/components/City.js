@@ -20,8 +20,8 @@ const City = props => {
         <div className="top-center-city-name">
             <div className="text-center pagination-centered">
                 <Link className="citynamelink" to="#" onClick= {() => props.showSingleCity()} onMouseEnter={() => props.nameHover(props.city)} >
-                    <h3>&nbsp;&nbsp;{props.city.name}, {props.city.short_state.toUpperCase()}&nbsp;&nbsp;</h3>
-                    { (props.city.popularity >= 20) ? <span className="star">★</span> : null }
+                    <h3>&nbsp;&nbsp;{props.city.name}, {props.city.short_state.toUpperCase()}&nbsp;&nbsp;
+                    { (props.city.popularity >= 20) ? <span className="star">★&nbsp;&nbsp;</span> : null }</h3>
                 </Link>
             </div>
         </div>

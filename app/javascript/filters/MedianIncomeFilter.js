@@ -21,7 +21,6 @@ class MedianIncomeFilter extends React.Component {
 
 
     handleChange(event){
-        debugger;
         if (event.target.id === "incomeMin") {
             this.setState({
                 min: event.target.value
