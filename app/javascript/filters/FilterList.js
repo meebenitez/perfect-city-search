@@ -24,14 +24,11 @@ const FilterList = (props) => {
         NameSearchFilter
     ]
 
-    const componentArray = props.inactiveFilters.concat().sort().map((Filter) => {
-        return componentListByString[Filter]
-    })
 
 
-    const renderFilters = componentListByString.map( (Filter) =>
-        <Filter onFilterChange={props.onFilterChange} key={Filter} filterHolder={props.filterHolder}/>
-    );
+    const renderFilters = componentListByString.map( (Filter) => {
+        return <Filter onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder}/>
+    });
 
 
     return (
