@@ -12,7 +12,9 @@ const SearchContainer = (props) =>
     <Aux>
             <div className="row zero-padding content">
                 <div className="col-xs-12 zero-padding filter-margin-top fixed white-background bottom-line">
-                <FilterContainer {...props}/>
+                <div className="max-width-container">
+                    <FilterContainer {...props}/>
+                </div>
                 </div>
                 <div className="max-width-container">
                     

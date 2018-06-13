@@ -1,14 +1,91 @@
 import React from 'react';
+import Aux from '../components/Aux'
 
-const RegionFilter = (props) => {
-    return (
-        <div className="filter-div">
-            <label htmlFor="RegionFilter"><img src={require('../../assets/images/region.png')} className="stat-icon-sm"/> Region:</label>
-        </div>
-    )
+class RegionFilter extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {region: 'pacific_coast', open: false}
+        this.handleClick = this.handleClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+
+    handleClick(){
+        if ( this.props.isActive === false ) {
+            this.props.onFilterChange("RegionFilter", `[region]=${this.state.region}`)
+        } else {
+            this.props.onFilterChange("RegionFilter", "")
+        }
+
+    }
+
+
+
+    handleChange(event){
+            this.setState({
+                region: event.target.value
+            }, () => {
+                this.props.onFilterChange("RegionFilter", `[region]=${this.state.region}`)
+            })
+        
+    }
+    
+
+    render(){    
+
+
+        return (
+            <Aux>
+                {this.props.isActive === true ? 
+                <div className="filter-div filter-on tooltip-top" data-tooltip="test test yoyo">
+                    <div className="filter-container">
+                        <div className="left-filter-col">
+                        <img src={require('../../assets/images/bluehouse.png')} className="filter-icon"/>&nbsp;Region<label htmlFor="Region"></label><br></br>
+                        <select value={this.state.region} defaultValue={this.props.filterHolder} id= "RegionFilter" onChange={(event) => this.props.onFilterChange(event)}>
+                            <option value="[region]=pacific_coast">Pacific Coast</option>
+                            <option value="[region]=mountain">Mountain</option>
+                            <option value="[region]=southwest">Southwest</option>
+                            <option value="[region]=heartland">Heartland</option>
+                            <option value="[region]=midwest">Midwest</option>
+                            <option value="[region]=southeast">Southeast</option>
+                            <option value="[region]=appalachian_highlands">Appaliachia</option>
+                            <option value="[region]=mid_atlantic">Mid-Atlantic</option>
+                            <option value="[region]=new_england">New England</option>
+                            </select>
+                        </div>
+                        <div className="right-filter-col">
+                            <div className="center-x">
+                                <label onClick={this.handleClick}>x</label>
+                            </div>
+                        </div>
+                    </div>
+                </div> :
+                <div className="filter-div filter-off" data-balloon="test test yoyo" data-balloon-pos="up" data-balloon-length="medium" onClick={this.handleClick}>
+                    <img src={require('../../assets/images/greyhouse.png')} className="filter-icon"/>&nbsp;Region<label htmlFor="RegionFilter"></label><br></br>
+                </div> }
+            </Aux>
+            )
+        }
+
+
+
 }
 
 export default RegionFilter;
+
+
+
+
+
+//const RegionFilter = (props) => {
+//    return (
+//        <div className="filter-div">
+//            <label htmlFor="RegionFilter"><img src={require('../../assets/images/region.png')} className="stat-icon-sm"/> Region:</label>
+//        </div>
+//    )
+//}
+
+//export default RegionFilter;
 
 
 

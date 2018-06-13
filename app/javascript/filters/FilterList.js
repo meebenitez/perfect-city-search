@@ -16,12 +16,13 @@ import NameSearchFilter from './NameSearchFilter'
 const FilterList = (props) => {
 
     const componentListByString = [
-        MedianIncomeFilter,
-        PopulationFilter,
-        AgeFilter,
+        NameSearchFilter,
         RegionFilter,
-        HomePriceFilter,
-        NameSearchFilter
+        MedianIncomeFilter,
+        //PopulationFilter,
+        //AgeFilter,
+        //HomePriceFilter,
+        //NameSearchFilter
     ]
 
     const checkActive = (filterName) => {
@@ -39,7 +40,7 @@ const FilterList = (props) => {
 
 
     return (
-    <div>
+    <div className="filter-container">
         <br></br>
         {renderFilters}
     </div>

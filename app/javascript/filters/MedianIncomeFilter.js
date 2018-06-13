@@ -4,7 +4,7 @@ import Aux from '../components/Aux'
 class MedianIncomeFilter extends React.Component {
     constructor(props){
         super(props)
-        this.state = {min: 0, max: 200000}
+        this.state = {min: 0, max: 200000, open: false}
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
@@ -47,7 +47,7 @@ class MedianIncomeFilter extends React.Component {
                 <div className="filter-div filter-on tooltip-top" data-tooltip="test test yoyo">
                     <div className="filter-container">
                         <div className="left-filter-col">
-                            <label htmlFor="MedianIncomeFilter">💵 Median Household Income</label><br></br>
+                        <img src={require('../../assets/images/bluehouse.png')} className="filter-icon"/>&nbsp;Median Household Income<label htmlFor="MedianIncomeFilter"></label><br></br>
                             <span className="input-filter">$
                                 <input type="text" id= "incomeMin" className="input-filter-minmax" 
                                 onChange={this.handleChange} 
@@ -64,7 +64,7 @@ class MedianIncomeFilter extends React.Component {
                     </div>
                 </div> :
                 <div className="filter-div filter-off" data-balloon="test test yoyo" data-balloon-pos="up" data-balloon-length="medium" onClick={this.handleClick}>
-                    <label htmlFor="MedianIncomeFilter">💵 Median Household Income</label><br></br>
+                    <img src={require('../../assets/images/greyhouse.png')} className="filter-icon"/>&nbsp;Median Household Income<label htmlFor="MedianIncomeFilter"></label><br></br>
                 </div> }
             </Aux>
             )

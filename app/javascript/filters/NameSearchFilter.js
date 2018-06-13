@@ -26,8 +26,7 @@ class NameSearchFilter extends React.Component {
 
         return (
             <Aux>
-                <input type="search" id="seachbox" name="focus" required className="search-box" onChange={this.handleChange} placeholder="Search by city name..."/>
-                <br></br>
+                <input type="search" id="seachbox" name="focus" required className="search-box" onChange={this.handleChange} placeholder="Filter by city name..."/>
             </Aux>
             )
         }
