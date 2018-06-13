@@ -13,14 +13,16 @@ const FILTERS = [
     "page": "[page]=",
     "home-price": "[home_price_from]=&[home_price_to]=",
     "median-income": "[income_from]=&[income_to]=",
-    "name": "[term]="
+    "name": "[term]=",
+    "region": "[region]="
 }
 
 const PARAMMAP = {
         "page": "Page",
         "home-price": "HomePriceFilter",
         "median-income": "MedianIncomeFilter",
-        "name": "NameSearchFilter"
+        "name": "NameSearchFilter",
+        "region": "RegionFilter"
     }
          
     

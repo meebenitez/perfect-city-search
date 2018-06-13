@@ -12,7 +12,7 @@ class RegionFilter extends React.Component {
 
     handleClick(){
         if ( this.props.isActive === false ) {
-            this.props.onFilterChange("RegionFilter", `[region]=${this.state.region}`)
+            this.props.onFilterChange("RegionFilter", `[region]=${this.state.region}`, `region=${this.state.region}` )
         } else {
             this.props.onFilterChange("RegionFilter", "")
         }
@@ -25,7 +25,7 @@ class RegionFilter extends React.Component {
             this.setState({
                 region: event.target.value
             }, () => {
-                this.props.onFilterChange("RegionFilter", `[region]=${this.state.region}`)
+                this.props.onFilterChange("RegionFilter", `[region]=${this.state.region}`, `region=${this.state.region}`)
             })
         
     }
@@ -41,16 +41,16 @@ class RegionFilter extends React.Component {
                     <div className="filter-container">
                         <div className="left-filter-col">
                         <img src={require('../../assets/images/bluehouse.png')} className="filter-icon"/>&nbsp;Region<label htmlFor="Region"></label><br></br>
-                        <select value={this.state.region} defaultValue={this.props.filterHolder} id= "RegionFilter" onChange={(event) => this.props.onFilterChange(event)}>
-                            <option value="[region]=pacific_coast">Pacific Coast</option>
-                            <option value="[region]=mountain">Mountain</option>
-                            <option value="[region]=southwest">Southwest</option>
-                            <option value="[region]=heartland">Heartland</option>
-                            <option value="[region]=midwest">Midwest</option>
-                            <option value="[region]=southeast">Southeast</option>
-                            <option value="[region]=appalachian_highlands">Appaliachia</option>
-                            <option value="[region]=mid_atlantic">Mid-Atlantic</option>
-                            <option value="[region]=new_england">New England</option>
+                        <select defaultValue={Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop()} id= "RegionFilter" onChange={this.handleChange}>
+                            <option value="pacific_coast">Pacific Coast</option>
+                            <option value="mountain">Mountain</option>
+                            <option value="southwest">Southwest</option>
+                            <option value="heartland">Heartland</option>
+                            <option value="midwest">Midwest</option>
+                            <option value="southeast">Southeast</option>
+                            <option value="appalachian_highlands">Appaliachia</option>
+                            <option value="mid_atlantic">Mid-Atlantic</option>
+                            <option value="new_england">New England</option>
                             </select>
                         </div>
                         <div className="right-filter-col">
