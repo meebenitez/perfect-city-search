@@ -8,6 +8,7 @@ class RegionFilter extends React.Component {
         this.state = {region: 'pacific_coast', regionPopup: false}
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.handleClear = this.handleClear.bind(this)
         this.regionRef = null;
 
         this.setRegionRef = element => {
@@ -24,6 +25,15 @@ class RegionFilter extends React.Component {
         // autofocus the input on mount
       //  this.focusRegionRef();
       //}
+
+
+    handleClear(){
+        this.setState({
+            regionPopup: false
+        }, () => {
+            this.props.onFilterChange("RegionFilter", "")
+        })
+    }
 
     handleClick(){
         console.log(`popup is ${this.state.regionPopup}`)
@@ -75,7 +85,7 @@ class RegionFilter extends React.Component {
             <Aux>
                 
                     <div className={this.props.isActive === true ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick}>
-                        {this.props.isActive === true ? <img src={require('../../assets/images/bluehouse.png')} className="filter-icon"/> : <img src={require('../../assets/images/greyhouse.png')} className="filter-icon"/>}&nbsp;Region<label onClick={this.handleClick}>x</label><label htmlFor="Region"></label>
+                        {this.props.isActive === true ? <img src={require('../../assets/images/bluehouse.png')} className="filter-icon"/> : <img src={require('../../assets/images/greyhouse.png')} className="filter-icon"/>}&nbsp;Region<label onClick={this.handleClear}>x</label><label htmlFor="Region"></label>
                             {this.state.regionPopup === true ? 
                                 <div className="region-div" ref="region-node">
                                     <span className="bold">Regions:</span>
