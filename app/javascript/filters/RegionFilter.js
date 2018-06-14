@@ -26,6 +26,7 @@ class RegionFilter extends React.Component {
       //}
 
     handleClick(){
+        console.log(`popup is ${this.state.regionPopup}`)
         if ( this.props.isActive === false ) {
             if (this.state.regionPopup === false) {
                 this.setState({
@@ -45,7 +46,7 @@ class RegionFilter extends React.Component {
                 })
             } else {
                 this.setState({
-                    regionPopup: true
+                    regionPopup: false
                 })
             }
             
@@ -56,6 +57,7 @@ class RegionFilter extends React.Component {
 
 
     handleChange(event){
+        
             this.setState({
                 region: event.target.value
             }, () => {
