@@ -66,11 +66,13 @@ class RegionFilter extends React.Component {
   
 
     handleClear() {
-        this.setState({
-            regionPopup: false
-        }, () => {
-            this.props.onFilterChange("RegionFilter", "")
-        })
+  
+            this.props.onFilterChange("RegionFilter", ""), () => {
+                this.setState({
+                    regionPopup: false
+                })
+            }
+         
     }
 
     //this.setState({
@@ -112,7 +114,7 @@ class RegionFilter extends React.Component {
                             <div className="region-div" ref={this.setRegionPopupRef}>
                                 <span className="bold">Regions:</span>
                                 <br></br>
-                                <select defaultValue={this.props.isActive ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop() : null} id= "RegionFilter" onChange={this.handleChange}>
+                                <select defaultValue={this.props.isActive ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop() : ""} id= "RegionFilter" onChange={this.handleChange}>
                                     <option value="">All</option>
                                     <option value="pacific_coast">Pacific Coast</option>
                                     <option value="mountain">Mountain</option>
