@@ -6,6 +6,7 @@ class NameSearchFilter extends React.Component {
         super(props)
         this.state = {timeout: 0}
         this.handleChange = this.handleChange.bind(this)
+        this.defaultVal = this.defaultVal.bind(this)
     }
     handleChange = (event) => {
     
@@ -19,14 +20,33 @@ class NameSearchFilter extends React.Component {
             }
             }, 300);
         }
+
+        defaultVal = () => {
+            if (this.props.isActive) {
+                return "true"
+            } else {
+                return "false"
+            }
+
+        
+        }
+
+
+    componentDidMount(){
+        console.log(this.props.isActive)
+    }
+
+    
        
     
 
-    render(){    
-
+    render(){  
+        
+       
         return (
-            <Aux>
-                <input type="search" id="seachbox" name="focus" required className="search-box" onChange={this.handleChange} placeholder="Filter by city name..."/>
+            <Aux>{this.props.isActive ? <span>true</span> : <span>false</span>}
+                <input type="search" id="seachbox" name="focus" required className="search-box" onChange={this.handleChange} defaultValue={this.defaultVal} placeholder="Filter by city name..."/>
+                {this.props.isActive ? <span>true</span> : <span>false</span>}
             </Aux>
             )
         }
