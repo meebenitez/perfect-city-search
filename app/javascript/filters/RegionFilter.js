@@ -9,31 +9,50 @@ class RegionFilter extends React.Component {
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleClear = this.handleClear.bind(this)
-        this.regionRef = null;
+        this.handleOuterClick = this.handleOuterClick.bind(this)
 
-        this.setRegionRef = element => {
-        this.regionRef = element;
-        };
-
+        this.setRegionPopupRef = this.setRegionPopupRef.bind(this);
+        this.setRegionButtonRef = this.setRegionButtonRef.bind(this);
         //this.focusRegionRef = () => {
         //    if (this.regionRef) this.regionRef.focus();
         //}
     }
 
- 
-    //componentDidMount() {
-        // autofocus the input on mount
-      //  this.focusRegionRef();
-      //}
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleOuterClick);
+      }
+    
+      componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleOuterClick);
+      }
 
+      setRegionPopupRef(node) {
+        this.regionPopupRef = node;
+      }
+      
+      setRegionButtonRef(node) {
+        this.regionButtonRef = node;
+      }
 
-    handleClear(){
+      handleOuterClick(event) {
+        if (this.regionPopupRef && !this.regionPopupRef.contains(event.target) && !this.regionButtonRef.contains(event.target)) {
+            this.setState({
+                regionPopup: false
+            })
+        }
+      }
+
+  
+
+    handleClear() {
         this.setState({
             regionPopup: false
         }, () => {
             this.props.onFilterChange("RegionFilter", "")
         })
     }
+
+  
 
     handleClick(){
         console.log(`popup is ${this.state.regionPopup}`)
@@ -84,25 +103,30 @@ class RegionFilter extends React.Component {
         return (
             <Aux>
                 
-                    <div className={this.props.isActive === true ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick}>
-                        {this.props.isActive === true ? <img src={require('../../assets/images/bluehouse.png')} className="filter-icon"/> : <img src={require('../../assets/images/greyhouse.png')} className="filter-icon"/>}&nbsp;Region<label onClick={this.handleClear}>x</label><label htmlFor="Region"></label>
-                            {this.state.regionPopup === true ? 
-                                <div className="region-div" ref="region-node">
-                                    <span className="bold">Regions:</span>
-                                    <br></br>
-                                    <select defaultValue={this.props.params.length > 0 ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop() : "pacific_coast" } id= "RegionFilter" onChange={this.handleChange}>
-                                        <option value="pacific_coast">Pacific Coast</option>
-                                        <option value="mountain">Mountain</option>
-                                        <option value="southwest">Southwest</option>
-                                        <option value="heartland">Heartland</option>
-                                        <option value="midwest">Midwest</option>
-                                        <option value="southeast">Southeast</option>
-                                        <option value="appalachian_highlands">Appaliachia</option>
-                                        <option value="mid_atlantic">Mid-Atlantic</option>
-                                        <option value="new_england">New England</option>
-                                    </select>
-                                </div>    
-                                 : null }                       
+                    <div className="filter-popup-parent">
+                        <div className={this.props.isActive === true ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setRegionButtonRef}>
+                            {this.props.isActive === true ? <img src={require('../../assets/images/bluehouse.png')} className="filter-icon"/> : <img src={require('../../assets/images/greyhouse.png')} className="filter-icon"/>}&nbsp;Region<label onClick={this.handleClear}>x</label><label htmlFor="Region"></label>
+                        </div>
+                        {this.state.regionPopup === true ?
+                        <span> 
+                            <div className="region-div" ref={this.setRegionPopupRef}>
+                                <span className="bold">Regions:</span>
+                                <br></br>
+                                <select defaultValue={this.props.params.length > 0 ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop() : "pacific_coast" } id= "RegionFilter" onChange={this.handleChange}>
+                                    <option value="pacific_coast">Pacific Coast</option>
+                                    <option value="mountain">Mountain</option>
+                                    <option value="southwest">Southwest</option>
+                                    <option value="heartland">Heartland</option>
+                                    <option value="midwest">Midwest</option>
+                                    <option value="southeast">Southeast</option>
+                                    <option value="appalachian_highlands">Appaliachia</option>
+                                    <option value="mid_atlantic">Mid-Atlantic</option>
+                                    <option value="new_england">New England</option>
+                                </select>
+                            </div>
+                        </span>
+                            : null }                       
+                        
                     </div>
                 
             </Aux>
