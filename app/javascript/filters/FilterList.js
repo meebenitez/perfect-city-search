@@ -34,8 +34,10 @@ const FilterList = (props) => {
     }
 
 
+
+
     const renderFilters = componentListByString.map( (Filter) => {
-        return <Filter onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)}/>
+        return <Filter onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)} searchTerm={props.searchTerm}/>
     });
 
 

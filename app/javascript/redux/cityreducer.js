@@ -81,6 +81,7 @@ const cityreducer = (state = initialState, action) => {
         }).filter(function(i) { return i; })
         const inactive = state.inactiveFilters.filter((val) => { return !params.map((filter)=> {return Object.keys(filter)[0]}).includes(val)})
         const startPage = page > 4 ? (4 * parseInt(page/4)) + 1 : 1
+        const searchTerm = action.payload.includes("name=") ? params[0]["NameSearchFilter"].split("[term]=")[1] : ""
         return {
             ...state,
             hashTag: hashTagArray,
@@ -88,7 +89,8 @@ const cityreducer = (state = initialState, action) => {
             inactiveFilters: inactive,
             activeFilters: params.map((filter)=> {return Object.keys(filter)[0]}),
             page: page,
-            startPage: startPage
+            startPage: startPage,
+            searchTerm: searchTerm
         }
 
         case 'FILTER_CHANGE':
@@ -96,6 +98,7 @@ const cityreducer = (state = initialState, action) => {
             const value = action.filterValue
             const hash = action.hashValue
             const inactiveArray = [...state.inactiveFilters]
+            const searchString = action.filterName === "NameSearchFilter" ? action.filterValue : ""
             console.log("updated params")
             if (value === ""){ //condition for deactivating
                 inactiveArray.push(key)
@@ -105,7 +108,8 @@ const cityreducer = (state = initialState, action) => {
                     inactiveFilters: inactiveArray,
                     page: 1,
                     startPage: 1,
-                    hashTag: state.hashTag.filter(function(item){ return !(key in item)})
+                    hashTag: state.hashTag.filter(function(item){ return !(key in item)}),
+                    searchTerm: searchString
                 }
             } else {
                 let obj = {}
@@ -118,14 +122,9 @@ const cityreducer = (state = initialState, action) => {
                     inactiveFilters: inactiveArray.filter(function(item){return key !== item }),
                     page: 1,
                     startPage: 1,
-                    hashTag: state.hashTag.filter(function(item){ return !(key in item)}).concat(hashObj)
+                    hashTag: state.hashTag.filter(function(item){ return !(key in item)}).concat(hashObj),
+                    searchTerm: searchTerm
                 }
-            }
-        case 'ADD_SEARCH_TERM':
-            return {
-                ...state,
-                searchTerm: action.searchTerm,
-                searchCities: action.cities
             }
         case 'UNCHECK':
             const id = action.payload

@@ -7,7 +7,18 @@ class NameSearchFilter extends React.Component {
         this.state = {timeout: 0}
         this.handleChange = this.handleChange.bind(this)
         this.defaultVal = this.defaultVal.bind(this)
+        this.didSwitchParentObject = true;
     }
+
+    componentDidUpdate ()
+	{
+	    if (this.didSwitchParentObject)
+	    {
+	        this.didSwitchParentObject= false;
+	        this.refs.myTextInput.value = this.props.searchTerm;
+	    }
+	}
+
     handleChange = (event) => {
     
         var value = event.target.value; // this is the search text
@@ -23,13 +34,18 @@ class NameSearchFilter extends React.Component {
 
         defaultVal = () => {
             if (this.props.isActive) {
-                return "true"
+                this.setState({
+                    filterValue: "true"
+                })
             } else {
-                return "false"
+                this.setState({
+                    filterValue: "false"
+                })
             }
 
         
         }
+
 
 
     componentDidMount(){
@@ -44,9 +60,11 @@ class NameSearchFilter extends React.Component {
         
        
         return (
-            <Aux>{this.props.isActive ? <span>true</span> : <span>false</span>}
-                <input type="search" id="seachbox" name="focus" required className="search-box" onChange={this.handleChange} defaultValue={this.defaultVal} placeholder="Filter by city name..."/>
-                {this.props.isActive ? <span>true</span> : <span>false</span>}
+            <Aux>
+            <div>
+                <input type="search" id="seachbox" name="focus" required className="search-box" onChange={this.handleChange} placeholder="Filter by city name..." ref = "myTextInput"/>
+            </div>
+                
             </Aux>
             )
         }

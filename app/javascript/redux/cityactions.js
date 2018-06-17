@@ -14,6 +14,7 @@ export const fetchCities = () => {
 }
 
 
+
 export const initialFetch = (hash, route) => {
     return (dispatch) => {
         dispatch(updateRoute(route))
