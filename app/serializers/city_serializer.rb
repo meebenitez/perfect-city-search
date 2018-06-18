@@ -1,5 +1,5 @@
 class CitySerializer < ActiveModel::Serializer
-  attributes :name,:short_state, :census_id, :long_state,
+  attributes :id, :name,:short_state, :census_id, :long_state,
   :region, :county, :longitude, :latitude,
   :place_id, :pop_total_by_sex, :pop_total,
   :pop_white, :pop_black, :pop_native,

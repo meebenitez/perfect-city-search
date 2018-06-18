@@ -584,12 +584,16 @@
       color: rgb(219, 216, 216);
       -webkit-transform: scaleX(0.5);
     transform: scaleX(0.5);
+    outline : none;
+    border:0;
     }
 
-    .heart-color-onn{
+    .heart-color-on{
       color: red;
       -webkit-transform: scaleX(0.5);
     transform: scaleX(0.5);
+    outline : none;
+    border:0;
     }
 
     .top-left-city-name {

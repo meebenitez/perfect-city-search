@@ -178,6 +178,13 @@ const cityreducer = (state = initialState, action) => {
                 totalPages: action.totalPages,
                 perPage: action.perPage
             }
+        case 'ADD_HEARTED':
+            const updatedHeartedList = [...state.heartedCities]
+            updatedHeartedList.push(action.city)
+            return {
+                ...state,
+                heartedCities: updatedHeartedList
+            }
 
         case 'UPDATE_HEARTED':
             return {

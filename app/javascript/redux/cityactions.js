@@ -161,13 +161,16 @@ export const heartClick = (city) => {
     return (dispatch) => {
         axios.get(`/cities/add_heart/${city.id}`)
         .then(response => {
+            dispatch({type: 'ADD_HEARTED', city: city})
             console.log(`hearted ${city.name}`)
-            dispatch(heartedFetch())
         }) 
         .catch(error => console.log(error))
     }
     
 }
+
+//(dispatch, getState) => {
+//    if (getState().city.page 
 
 export const unheartClick = (city) => {
     return (dispatch) => {
