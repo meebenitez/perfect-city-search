@@ -23,6 +23,14 @@
     width: 100%;
     }
     /* unvisited link */
+    img{ border:0 }
+
+    a{
+      outline: none !important;
+   }
+
+   button:focus {outline:0;}
+    
     a:link {
       color: #FC4A1A;
       text-decoration: none;
@@ -579,6 +587,7 @@
       font-size: 15px;
       color: grey;      
     }
+
 
     .heart-color-off{
       color: rgb(219, 216, 216);
