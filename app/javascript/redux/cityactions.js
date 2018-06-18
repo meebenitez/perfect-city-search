@@ -176,7 +176,8 @@ export const unheartClick = (city) => {
     return (dispatch) => {
         axios.get(`/cities/remove_heart/${city.id}`)
         .then(response => {
-            dispatch(heartedFetch())
+            dispatch({type: 'REMOVE_HEARTED', city: city})
+            console.log(`removed ${city.name} from hearted`)
         })
         .catch(error => console.log(error))
     }

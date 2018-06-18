@@ -185,6 +185,17 @@ const cityreducer = (state = initialState, action) => {
                 ...state,
                 heartedCities: updatedHeartedList
             }
+        case 'REMOVE_HEARTED':
+            const copyHeartedList = [...state.heartedCities]
+           // get index of object with id:37
+            var removeIndex = copyHeartedList.map(function(city) { return city.id; }).indexOf(action.city.id);
+
+            // remove object
+            copyHeartedList.splice(removeIndex, 1);
+            return {
+                ...state,
+                heartedCities: copyHeartedList
+            }
 
         case 'UPDATE_HEARTED':
             return {
