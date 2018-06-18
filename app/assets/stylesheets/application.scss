@@ -521,12 +521,20 @@
     }
     .filter-icon {
       width: 20px;
-      vertical-align: text-bottom;
+      vertical-align: middle;
     }
     .filter-icon-lg {
       width: 30px;
-      vertical-align: text-top;
+      vertical-align: middle;
     }
+
+    .filter-icon-sm {
+      width: 10px;
+      vertical-align: middle;
+    }
+
+    
+
     .plus-minus {
       width: 15px;
       vertical-align: middle;
@@ -738,7 +746,7 @@
       margin-top: 10px;
       margin-left: 0px;
       top: 35;
-      left: 0;
+      left: 0%;
       width: 150px;
       height: 100px;
       border-style: solid;
@@ -789,6 +797,21 @@
       background-color: rgba(136, 207, 255, .5);
       z-index: 1000;
     }
+
+    /*
+    .filter-div:after {
+      border-top: 10px solid #0099CC;
+      border-left: 5px solid transparent; 
+      border-right: 5px solid transparent; 
+      bottom: -10px;
+      content: "";
+      position: absolute;
+      left: 50%;
+      margin-left: 0%;
+      width: 0; 
+      height: 0;
+  }
+  */
 
     .filter-child {
       position: absolute;

@@ -98,7 +98,6 @@ const cityreducer = (state = initialState, action) => {
             const value = action.filterValue
             const hash = action.hashValue
             const inactiveArray = [...state.inactiveFilters]
-            const searchString = action.filterName === "NameSearchFilter" ? action.filterValue : ""
             console.log("updated params")
             if (value === ""){ //condition for deactivating
                 inactiveArray.push(key)
@@ -109,7 +108,6 @@ const cityreducer = (state = initialState, action) => {
                     page: 1,
                     startPage: 1,
                     hashTag: state.hashTag.filter(function(item){ return !(key in item)}),
-                    searchTerm: searchString
                 }
             } else {
                 let obj = {}
