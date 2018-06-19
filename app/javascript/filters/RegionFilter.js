@@ -92,7 +92,7 @@ class RegionFilter extends React.Component {
                     </div>
                     {this.state.regionPopup ?
                     <span> 
-                        <div className="region-div" ref={this.setRegionPopupRef}>
+                        <div className="filter-popup-div region-div" ref={this.setRegionPopupRef}>
                             <span className="bold">Regions:</span>
                             <br></br>
                             <select defaultValue={this.props.isActive ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop() : ""} id= "RegionFilter" onChange={this.handleChange}>

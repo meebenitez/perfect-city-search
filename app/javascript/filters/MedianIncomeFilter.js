@@ -1,5 +1,6 @@
 import React from 'react';
 import Aux from '../components/Aux'
+import {withCommas} from '../components/utils/filterFunctions'
 
 class MedianIncomeFilter extends React.Component {
     constructor(props){
@@ -76,13 +77,15 @@ class MedianIncomeFilter extends React.Component {
                             <img src={require('../../assets/images/bluehouse.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greyhouse.png')} className="filter-icon"/>}
                         {this.props.isActive === true ?
-                            <span>&nbsp;&nbsp;<span className="bold">>= {Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop()}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
+                            <span>&nbsp;&nbsp;<span className="bold">>= ${withCommas(Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop())}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
                             : <span>&nbsp;Median Household Income</span>}<label htmlFor="MedianHouseholdIncome"></label>
                     </div>
                     {this.state.incomePopup ?
                     <span> 
-                        <div className="region-div" ref={this.setIncomePopupRef}>
+                        <div className="filter-popup-div income-div" ref={this.setIncomePopupRef}>
                             <span className="bold">Median Household Income:</span>
+                            <br></br>
+                            <span className="average">US Average: $59,039</span>
                             <br></br>
                             <select defaultValue={this.props.isActive ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop() : "" } id="incomeMin" onChange={this.handleChange}>
                                 <option value="">>= $0</option>
@@ -115,10 +118,11 @@ class MedianIncomeFilter extends React.Component {
                                 <option value="270000">>= $270,000</option>
                                 <option value="280000">>= $280,000</option>
                                 <option value="290000">>= $290,000</option>
-                                <option value="300000">>= $300,000</option>
-
-                                
+                                <option value="300000">>= $300,000</option>        
                             </select>
+                            <br></br>
+                            <br></br>
+                            <span className="source">(source: 2016 US Census ACS)</span>
                         </div>
                     </span> : null }                       
                 </div>

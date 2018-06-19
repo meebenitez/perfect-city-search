@@ -753,27 +753,47 @@
       width: auto;
       max-height: 35px;
     }
-    .region-div{
+
+    .source {
+      font-size: 12px;
+    }
+
+    .average {
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .filter-popup-div {
       position: absolute;
       text-align: left;
       margin-top: 10px;
       margin-left: 0px;
-      top: 35;
-      left: 0%;
-      width: 200px;
-      height: 100px;
+      top: 25px;
+      left: 10px;
+      height: auto;
       border-style: solid;
       border-width: 1px;
       border-color: #88cfff;
       background-color: rgb(182, 224, 253);
       padding-left: 15px;
+      padding-right: 15px;
       padding-top: 20px;
+      padding-bottom: 20px;
       border-radius: 10px;
       cursor: initial;
       z-index: 1000;
       &.open {
         display: block;
       }
+
+    }
+
+    .region-div{
+      width: auto;
+    }
+
+    .income-div{
+      width: 215px;
     }
 
     .outer-handler{
