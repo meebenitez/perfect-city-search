@@ -13,7 +13,7 @@ const FixedMapContainer = (props) =>
                     <div className="intro-container zero-padding" style={{border: '5px'}}>
                         <div className="col-xs-9">
                             <span className="bold">Welcome, Happy Burg Hunter!</span>
-                            <br></br>Filter through our database of 26,931 US towns and cities to find hidden gems that perfectly match your priorities and lifestyle. 
+                            <br></br>Filter through our database of 26,931 US towns and cities to find hidden gems that perfectly match your priorities and lifestyle.  We source the majority of our data from the 2016 US Census ACS. 
                             <br></br>
                             <br></br>
                             Be sure to follow us for news and updates!&nbsp;

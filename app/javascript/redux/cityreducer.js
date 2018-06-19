@@ -15,7 +15,7 @@ const FILTERS = [
     "median-income-greater-than": "[income_from]=",
     "name": "[term]=",
     "region": "[region]=",
-    "population": "[prop_from]=&[pop_to]=",
+    "population": "[pop_from]=&[pop_to]=",
 
 }
 
