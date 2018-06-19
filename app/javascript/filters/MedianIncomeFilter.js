@@ -120,9 +120,6 @@ class MedianIncomeFilter extends React.Component {
                                 <option value="290000">>= $290,000</option>
                                 <option value="300000">>= $300,000</option>        
                             </select>
-                            <br></br>
-                            <br></br>
-                            <span className="source">(source: 2016 US Census ACS)</span>
                         </div>
                     </span> : null }                       
                 </div>

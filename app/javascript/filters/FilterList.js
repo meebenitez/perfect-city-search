@@ -18,8 +18,8 @@ const FilterList = (props) => {
     const componentListByString = [
         NameSearchFilter,
         RegionFilter,
+        PopulationFilter,
         MedianIncomeFilter,
-        //PopulationFilter,
         //AgeFilter,
         //HomePriceFilter,
         //NameSearchFilter

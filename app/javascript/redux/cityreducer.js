@@ -14,7 +14,9 @@ const FILTERS = [
     "home-price": "[home_price_from]=&[home_price_to]=",
     "median-income-greater-than": "[income_from]=",
     "name": "[term]=",
-    "region": "[region]="
+    "region": "[region]=",
+    "population": "[prop_from]=&[pop_to]=",
+
 }
 
 const PARAMMAP = {
@@ -22,7 +24,8 @@ const PARAMMAP = {
         "home-price": "HomePriceFilter",
         "median-income-greater-than": "MedianIncomeFilter",
         "name": "NameSearchFilter",
-        "region": "RegionFilter"
+        "region": "RegionFilter",
+        "population": "PopulationFilter"
     }
          
     
