@@ -4,6 +4,141 @@ import Aux from '../components/Aux'
 class MedianIncomeFilter extends React.Component {
     constructor(props){
         super(props)
+        this.state = {incomePopup:false}
+
+        this.handleClick = this.handleClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleClear = this.handleClear.bind(this)
+        this.handleOuterClick = this.handleOuterClick.bind(this)
+
+        this.setIncomePopupRef = this.setIncomePopupRef.bind(this);
+        this.setIncomeButtonRef = this.setIncomeButtonRef.bind(this);
+    }
+
+    
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleOuterClick);
+        
+      }
+    
+      componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleOuterClick);
+      }
+
+      setIncomePopupRef(node) {
+        this.incomePopupRef = node;
+      }
+      
+      setIncomeButtonRef(node) {
+        this.incomeButtonRef = node;
+      }
+
+      handleOuterClick(event) {
+        if (this.incomePopupRef && !this.incomePopupRef.contains(event.target) && !this.incomeButtonRef.contains(event.target)) {
+            this.setState({
+                incomePopup: false
+            })
+        }
+      }
+
+  
+
+    handleClear() {
+  
+            this.props.onFilterChange("MedianIncomeFilter", ""), () => {
+                this.setState({
+                    incomePopup: false
+                })
+            }
+         
+    }
+
+    handleClick(){
+        this.setState({
+            incomePopup: !this.state.incomePopup
+        })
+
+    }
+
+
+    handleChange(event){
+        this.props.onFilterChange("MedianIncomeFilter", `[income_from]=${event.target.value}`, `median-income-greater-than=${event.target.value}`)
+    }
+
+    render(){ 
+             
+        return (
+            <Aux>
+                <div className="filter-popup-parent">
+                    <div className={this.props.isActive ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setIncomeButtonRef}>
+                        {this.props.isActive ? 
+                            <img src={require('../../assets/images/bluehouse.png')} className="filter-icon"/> 
+                            : <img src={require('../../assets/images/greyhouse.png')} className="filter-icon"/>}
+                        {this.props.isActive === true ?
+                            <span>&nbsp;&nbsp;<span className="bold">>= {Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop()}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
+                            : <span>&nbsp;Median Household Income</span>}<label htmlFor="MedianHouseholdIncome"></label>
+                    </div>
+                    {this.state.incomePopup ?
+                    <span> 
+                        <div className="region-div" ref={this.setIncomePopupRef}>
+                            <span className="bold">Median Household Income:</span>
+                            <br></br>
+                            <select defaultValue={this.props.isActive ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop() : "" } id="incomeMin" onChange={this.handleChange}>
+                                <option value="">> $0</option>
+                                <option value="10000">>= $10,000</option>
+                                <option value="20000">>= $20,000</option>
+                                <option value="30000">>= $30,000</option>
+                                <option value="40000">>= $40,000</option>
+                                <option value="50000">>= $50,000</option>
+                                <option value="60000">>= $60,000</option>
+                                <option value="70000">>= $70,000</option>
+                                <option value="80000">>= $80,000</option>
+                                <option value="90000">>= $90,000</option>
+                                <option value="100000">>= $100,000</option>
+                                <option value="110000">>= $110,000</option>
+                                <option value="120000">>= $120,000</option>
+                                <option value="130000">>= $130,000</option>
+                                <option value="140000">>= $140,000</option>
+                                <option value="150000">>= $150,000</option>
+                                <option value="160000">>= $160,000</option>
+                                <option value="170000">>= $170,000</option>
+                                <option value="180000">>= $180,000</option>
+                                <option value="190000">>= $190,000</option>
+                                <option value="110000">>= $200,000</option>
+
+                                
+                            </select>
+                        </div>
+                    </span> : null }                       
+                </div>
+            </Aux>
+            )
+        }
+}
+
+export default MedianIncomeFilter;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+import React from 'react';
+import Aux from '../components/Aux'
+
+class MedianIncomeFilter extends React.Component {
+    constructor(props){
+        super(props)
         this.state = {min: 0, max: 200000, open: false}
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -75,3 +210,4 @@ class MedianIncomeFilter extends React.Component {
 }
 
 export default MedianIncomeFilter;
+*/

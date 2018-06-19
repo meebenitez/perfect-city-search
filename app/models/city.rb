@@ -6,7 +6,7 @@ class City < ApplicationRecord
     scope :by_population, -> (from, to) { where("pop_total >= ? AND pop_total <= ?", from, to)}
     scope :by_age, -> (from, to) { where("age_median >= ? AND age_median <= ?", from, to)}
     scope :by_home_price, -> (from, to) { where("homes_median_value >= ? AND homes_median_value <= ?", from, to)}
-    scope :by_median_income, -> (from, to) { where("income_median >= ? AND income_median <= ?", from, to)}
+    scope :by_median_income, -> (from) { where("income_median >= ?", from)}
     scope :by_region, -> (region) { where(region: region)}
 
 

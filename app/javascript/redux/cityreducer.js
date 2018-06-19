@@ -12,7 +12,7 @@ const FILTERS = [
     const HASHMAP = {
     "page": "[page]=",
     "home-price": "[home_price_from]=&[home_price_to]=",
-    "median-income": "[income_from]=&[income_to]=",
+    "median-income-greater-than": "[income_from]=",
     "name": "[term]=",
     "region": "[region]="
 }
@@ -20,7 +20,7 @@ const FILTERS = [
 const PARAMMAP = {
         "page": "Page",
         "home-price": "HomePriceFilter",
-        "median-income": "MedianIncomeFilter",
+        "median-income-greater-than": "MedianIncomeFilter",
         "name": "NameSearchFilter",
         "region": "RegionFilter"
     }

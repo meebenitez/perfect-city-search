@@ -528,8 +528,8 @@
       width:18px;
     }
     .filter-icon {
-      width: 20px;
-      vertical-align: middle;
+      height: 20px;
+      vertical-align: bottom;
     }
     .filter-icon-lg {
       width: 30px;
@@ -800,7 +800,7 @@
     }
 
     .filter-off:hover {
-      border-color:  #f5be27;
+      border-color:  #88cfff;
     }
 
     .filter-on {

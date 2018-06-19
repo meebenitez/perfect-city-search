@@ -75,7 +75,7 @@ class RegionFilter extends React.Component {
             "heartland":"Heartland",
             "midwest":"Midwest",
             "southeast":"Southeast",
-            "appalachian_dhighlands":"Appalachia",
+            "appalachian_highlands":"Appalachia",
             "mid_atlantic":"Mid-Atlantic",
             "new_england":"New England"
         }       
