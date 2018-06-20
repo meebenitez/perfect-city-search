@@ -11,16 +11,13 @@ const FixedMapContainer = (props) =>
 
                 <div className="col-xs-6 row">
                     <div className="intro-container zero-padding" style={{border: '5px'}}>
-                        <div className="col-xs-9">
-                            <span className="bold">Welcome, Happy Burg Hunter!</span>
-                            <br></br>Filter through our database of 26,931 US towns and cities to find hidden gems that perfectly match your priorities and lifestyle.  We source the majority of our data from the 2016 US Census ACS. 
+                        <div className="col-xs-12">
+                            <span className="bold">Welcome Data Miners!</span>
+                            <br></br>Filter through our database of <span className="bold">26,931 US towns and cities</span> to find hidden gems that perfectly match your priorities and lifestyle.  We source the majority of our data from the 2016 US Census.  You can view a full list of our sources and learn more about our site at our FAQ page. 
                             <br></br>
                             <br></br>
                             Be sure to follow us for news and updates!&nbsp;
                             <img src={require('../../assets/images/facebook.png')} className="img-social"/>&nbsp;<img src={require('../../assets/images/twitter.png')} className="img-social"/>
-                        </div>
-                        <div className="col-xs-3">
-                            <div className="img-gem"> </div>
                         </div>
                     </div>
                     <div className="col-xs-12 zero-padding">

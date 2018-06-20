@@ -16,6 +16,7 @@ const FILTERS = [
     "name": "[term]=",
     "region": "[region]=",
     "population": "[pop_from]=&[pop_to]=",
+    "median-age":"[age_from]=&[age_to]="
 
 }
 
@@ -25,7 +26,8 @@ const PARAMMAP = {
         "median-income-greater-than": "MedianIncomeFilter",
         "name": "NameSearchFilter",
         "region": "RegionFilter",
-        "population": "PopulationFilter"
+        "population": "PopulationFilter",
+        "median-age": "AgeFilter"
     }
          
     

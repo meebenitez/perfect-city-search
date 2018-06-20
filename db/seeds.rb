@@ -13,7 +13,7 @@ require 'csv'
 
 count = 1
 
-csv_text = File.read(Rails.root.join('db', 'new_upload2.csv'))
+csv_text = File.read(Rails.root.join('db', 'new_upload_voters2.csv'))
 csv = CSV.parse(csv_text, :headers => false)
     csv.each do |row|
         City.create!({
@@ -69,7 +69,15 @@ csv = CSV.parse(csv_text, :headers => false)
           :img_artist => row[58],
           :img_source => row[59],
           :img_license => row[60],
-          :popularity => row[61]    
+          :popularity => row[61],
+          :dem_vote_count => row[62],
+          :gop_vote_count => row[63],
+          :ind_vote_count => row[64],
+          :total_vote_count => row[65],
+          :dem_vote_perc => row[66],
+          :gop_vote_perc => row[67],
+          :ind_vote_perc => row[68]
+
         })
         puts "Row #{count} added!"
         puts row[61]
