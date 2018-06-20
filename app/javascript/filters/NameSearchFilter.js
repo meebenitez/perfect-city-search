@@ -62,7 +62,7 @@ class NameSearchFilter extends React.Component {
         return (
             <Aux>
             
-                <input type="search" id="seachbox" name="focus" required className="search-box" onChange={this.handleChange} placeholder="Filter by city name..." ref = "myTextInput"/>
+                <input type="search" id="seachbox" name="focus" required className={this.props.activeFilters.includes("NameSearchFilter") ? "search-box blue-background" : "search-box"} onChange={this.handleChange} placeholder="Filter by city name..." ref = "myTextInput"/>
          
                 
             </Aux>

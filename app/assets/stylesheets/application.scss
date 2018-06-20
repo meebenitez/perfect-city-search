@@ -205,7 +205,9 @@
     /*tool tips END */
 
 
-
+    .filter-container {
+      margin-top: 30px;
+    }
 
     .input-filter {
       vertical-align: top;
@@ -222,7 +224,7 @@
 
 
     .left-margin-top {
-      margin-top: 161px;
+      margin-top: 142px;
     }
     .left-width {
       width: 100%;
@@ -308,7 +310,7 @@
     }
 
     .blue-background {
-      background-color: rgb(90, 171, 176);
+      background-color: rgba(136, 207, 255, .5);
     }
 
     .orange-background {
@@ -395,11 +397,11 @@
     }
 
     .map-container{
-      margin-top: 45px;
+      margin-top: 25px;
     }
 
     .intro-container{
-      
+      margin-top: 20px;
       font-size: 15px;
       width: 100%;
     }

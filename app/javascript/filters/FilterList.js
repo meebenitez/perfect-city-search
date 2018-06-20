@@ -46,7 +46,6 @@ const FilterList = (props) => {
 
     return (
     <div className="filter-container">
-        <br></br>
         {renderFilters}
     </div>
     )
