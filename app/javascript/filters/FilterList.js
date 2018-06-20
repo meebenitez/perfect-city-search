@@ -17,10 +17,20 @@ import NameSearchFilter from './NameSearchFilter'
 
 const FilterList = (props) => {
 
-    const componentListByString = [
+
+// Creating two different lists so I can later offer registered users special filters
+    const filterList = props.currentUser ? [
         NameSearchFilter,
         PopularFilter,
         HeartedFilter,
+        RegionFilter,
+        PopulationFilter,
+        MedianIncomeFilter,
+        AgeFilter
+        //HomePriceFilter,
+    ] : [
+        NameSearchFilter,
+        PopularFilter,
         RegionFilter,
         PopulationFilter,
         MedianIncomeFilter,
@@ -39,7 +49,7 @@ const FilterList = (props) => {
 
 
 
-    const renderFilters = componentListByString.map( (Filter) => {
+    const renderFilters = filterList.map( (Filter) => {
         return <Filter activeFilters={props.activeFilters} onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)} searchTerm={props.searchTerm} currentUser={props.currentUser} toggleAuthPopup={props.toggleAuthPopup}/>
     });
 

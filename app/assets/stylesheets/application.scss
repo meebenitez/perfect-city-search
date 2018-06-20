@@ -1063,6 +1063,11 @@
     .search-box,.close-icon,.search-wrapper {
       padding: 10px;
     }
+    
+    input[type=search]::-webkit-search-cancel-button {
+      -webkit-appearance: searchfield-cancel-button;
+    }
+
     .search-box {
       display:inline-block;
       width: 250px;
