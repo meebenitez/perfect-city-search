@@ -79,11 +79,11 @@ class PopulationFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={this.props.isActive ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setPopulationButtonRef}>
-                        {this.props.isActive ? 
+                    <div className={this.props.activeFilters.includes("PopulationFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setPopulationButtonRef}>
+                        {this.props.activeFilters.includes("PopulationFilter") ? 
                             <img src={require('../../assets/images/bluepop.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greypop.png')} className="filter-icon"/>}
-                        {this.props.isActive === true ?
+                        {this.props.activeFilters.includes("PopulationFilter") ?
                             <span>&nbsp;&nbsp;<span className="bold">{POPULATIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "PopulationFilter"})[0])[0]]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
                             : <span>&nbsp;Population Size</span>}<label htmlFor="Population"></label>
                     </div>
@@ -92,7 +92,7 @@ class PopulationFilter extends React.Component {
                         <div className="filter-popup-div income-div" ref={this.setPopulationPopupRef}>
                             <span className="bold">Population Size:</span>
                             <br></br>
-                            <select defaultValue={this.props.isActive ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "PopulationFilter"})[0])[0].split("&")[0].split("=").pop() : "" } id="PopulationFilter" onChange={this.handleChange}>
+                            <select defaultValue={this.props.activeFilters.includes("PopulationFilter")? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "PopulationFilter"})[0])[0].split("&")[0].split("=").pop() : "" } id="PopulationFilter" onChange={this.handleChange}>
                                 <option value="">Any</option>
                                 <option value="[pop_from]=400000&[pop_to]=100000000">Big (400K to 2M+)</option>
                                 <option value="[pop_from]=50000&[pop_to]=400000">Medium (50K to 400K)</option>

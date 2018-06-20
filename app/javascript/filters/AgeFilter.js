@@ -79,11 +79,11 @@ class AgeFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={this.props.isActive ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setAgeButtonRef}>
-                        {this.props.isActive ? 
+                    <div className={this.props.activeFilters.includes("AgeFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setAgeButtonRef}>
+                        {this.props.activeFilters.includes("AgeFilter") ? 
                             <img src={require('../../assets/images/ageblue.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/agegrey.png')} className="filter-icon"/>}
-                        {this.props.isActive === true ?
+                        {this.props.activeFilters.includes("AgeFilter") === true ?
                             <span>&nbsp;&nbsp;<span className="bold">{AGEMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "AgeFilter"})[0])[0]]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
                             : <span>&nbsp;Median Age</span>}<label htmlFor="Age"></label>
                     </div>
@@ -92,7 +92,7 @@ class AgeFilter extends React.Component {
                         <div className="filter-popup-div income-div" ref={this.setAgePopupRef}>
                             <span className="bold">Median Age:</span>
                             <br></br>
-                            <select defaultValue={this.props.isActive ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "AgeFilter"})[0])[0].split("&")[0].split("=").pop() : "" } id="AgeFilter" onChange={this.handleChange}>
+                            <select defaultValue={this.props.activeFilters.includes("AgeFilter") ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "AgeFilter"})[0])[0].split("&")[0].split("=").pop() : "" } id="AgeFilter" onChange={this.handleChange}>
                                 <option value="">Any</option>
                                 <option value="[age_from]=0&[age_to]=20">Gen Z</option>
                                 <option value="[age_from]=21&[age_to]=39">Millenial</option>

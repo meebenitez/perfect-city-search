@@ -82,11 +82,11 @@ class RegionFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={this.props.isActive ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setRegionButtonRef}>
-                        {this.props.isActive ? 
+                    <div className={this.props.activeFilters.includes("RegionFilter")  ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setRegionButtonRef}>
+                        {this.props.activeFilters.includes("RegionFilter") ? 
                             <img src={require('../../assets/images/blueusmap.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greyusmap.png')} className="filter-icon"/>}
-                        {this.props.isActive === true ?
+                        {this.props.activeFilters.includes("RegionFilter") === true ?
                             <span>&nbsp;&nbsp;<span className="bold">{REGIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop()]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
                             : <span>&nbsp;Region</span>}<label htmlFor="Region"></label>
                     </div>
@@ -95,7 +95,7 @@ class RegionFilter extends React.Component {
                         <div className="filter-popup-div region-div" ref={this.setRegionPopupRef}>
                             <span className="bold">Regions:</span>
                             <br></br>
-                            <select defaultValue={this.props.isActive ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop() : ""} id= "RegionFilter" onChange={this.handleChange}>
+                            <select defaultValue={this.props.activeFilters.includes("RegionFilter") ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop() : ""} id= "RegionFilter" onChange={this.handleChange}>
                                 <option value="">All</option>
                                 <option value="pacific_coast">Pacific Coast</option>
                                 <option value="mountain">Mountain</option>

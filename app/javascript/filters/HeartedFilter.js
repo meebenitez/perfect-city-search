@@ -22,7 +22,7 @@ class HeartedFilter extends React.Component {
 
     handleClick(){
         if (this.props.currentUser) {
-            if (this.props.isActive){
+            if (this.props.activeFilters.includes("HeartedFilter")){
                 this.props.onFilterChange("HeartedFilter", "")
             } else {
                 this.props.onFilterChange("HeartedFilter", "[hearted]=true", "hearted=true" )
@@ -38,11 +38,11 @@ class HeartedFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={this.props.isActive ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick}>
-                        {this.props.isActive ? 
+                    <div className={this.props.activeFilters.includes("HeartedFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick}>
+                        {this.props.activeFilters.includes("HeartedFilter") ? 
                             <img src={require('../../assets/images/redheart.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greyheart.png')} className="filter-icon"/>}
-                        {this.props.isActive === true ?
+                        {this.props.activeFilters.includes("HeartedFilter") ?
                             <span>&nbsp;&nbsp;<span className="bold">Hearted</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
                             : <span>&nbsp;Hearted</span>}<label htmlFor="hearted"></label>
                     </div>                
