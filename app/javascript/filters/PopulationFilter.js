@@ -85,12 +85,12 @@ class PopulationFilter extends React.Component {
                             : <img src={require('../../assets/images/greypop.png')} className="filter-icon"/>}
                         {this.props.isActive === true ?
                             <span>&nbsp;&nbsp;<span className="bold">{POPULATIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "PopulationFilter"})[0])[0]]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
-                            : <span>&nbsp;Population</span>}<label htmlFor="Population"></label>
+                            : <span>&nbsp;Population Size</span>}<label htmlFor="Population"></label>
                     </div>
                     {this.state.populationPopup ?
                     <span> 
                         <div className="filter-popup-div income-div" ref={this.setPopulationPopupRef}>
-                            <span className="bold">Population:</span>
+                            <span className="bold">Population Size:</span>
                             <br></br>
                             <select defaultValue={this.props.isActive ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "PopulationFilter"})[0])[0].split("&")[0].split("=").pop() : "" } id="PopulationFilter" onChange={this.handleChange}>
                                 <option value="">Any</option>

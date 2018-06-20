@@ -1,6 +1,7 @@
 import React from 'react';
 import PopulationFilter from './PopulationFilter'
 import PopularFilter from './PopularFilter'
+import HeartedFilter from './HeartedFilter'
 import AgeFilter from './AgeFilter'
 import RegionFilter from './RegionFilter'
 import HomePriceFilter from './HomePriceFilter'
@@ -19,6 +20,7 @@ const FilterList = (props) => {
     const componentListByString = [
         NameSearchFilter,
         PopularFilter,
+        HeartedFilter,
         RegionFilter,
         PopulationFilter,
         MedianIncomeFilter,
@@ -38,7 +40,7 @@ const FilterList = (props) => {
 
 
     const renderFilters = componentListByString.map( (Filter) => {
-        return <Filter onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)} searchTerm={props.searchTerm}/>
+        return <Filter onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)} searchTerm={props.searchTerm} currentUser={props.currentUser} toggleAuthPopup={props.toggleAuthPopup}/>
     });
 
 

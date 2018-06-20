@@ -7,7 +7,8 @@ const FILTERS = [
     "HomePriceFilter", 
     "MedianIncomeFilter",
     "NameSearchFilter",
-    "PopularFilter"
+    "PopularFilter",
+    "HeartedFilter"
 ]
     
     
@@ -19,7 +20,8 @@ const FILTERS = [
     "region": "[region]=",
     "population": "[pop_from]=&[pop_to]=",
     "median-age":"[age_from]=&[age_to]=",
-    "popular":"[popular]"
+    "popular":"[popular]",
+    "hearted":"[hearted]"
 
 }
 
@@ -31,7 +33,8 @@ const PARAMMAP = {
         "region": "RegionFilter",
         "population": "PopulationFilter",
         "median-age": "AgeFilter",
-        "popular": "PopularFilter"
+        "popular": "PopularFilter",
+        "hearted": "HeartedFilter"
     }
          
     
