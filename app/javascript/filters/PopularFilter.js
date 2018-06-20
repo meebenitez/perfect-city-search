@@ -15,7 +15,7 @@ class PopularFilter extends React.Component {
     }
 
     handleClick(){
-        console.log(click)
+        console.log("click")
         if (this.props.isActive){
             this.props.onFilterChange("PopularFilter", "")
         } else {
