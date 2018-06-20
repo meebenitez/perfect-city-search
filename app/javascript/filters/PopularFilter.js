@@ -10,17 +10,12 @@ class PopularFilter extends React.Component {
         
     }
 
-    
-
-    
-
-     
-
     handleClear() {
         this.props.onFilterChange("PopularFilter", "")    
     }
 
     handleClick(){
+        console.log(click)
         if (this.props.isActive){
             this.props.onFilterChange("PopularFilter", "")
         } else {
