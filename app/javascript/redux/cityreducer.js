@@ -6,7 +6,9 @@ const FILTERS = [
     "RegionFilter", 
     "HomePriceFilter", 
     "MedianIncomeFilter",
-    "NameSearchFilter"]
+    "NameSearchFilter",
+    "PopularFilter"
+]
     
     
     const HASHMAP = {
@@ -28,7 +30,8 @@ const PARAMMAP = {
         "name": "NameSearchFilter",
         "region": "RegionFilter",
         "population": "PopulationFilter",
-        "median-age": "AgeFilter"
+        "median-age": "AgeFilter",
+        "popular": "PopularFilter"
     }
          
     
