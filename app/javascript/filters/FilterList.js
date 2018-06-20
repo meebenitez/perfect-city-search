@@ -40,7 +40,7 @@ const FilterList = (props) => {
 
 
     const renderFilters = componentListByString.map( (Filter) => {
-        return <Filter onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)} searchTerm={props.searchTerm} currentUser={props.currentUser} toggleAuthPopup={props.toggleAuthPopup}/>
+        return <Filter activeFilters={props.activeFilters} onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)} searchTerm={props.searchTerm} currentUser={props.currentUser} toggleAuthPopup={props.toggleAuthPopup}/>
     });
 
 
