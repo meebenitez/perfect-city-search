@@ -5,8 +5,6 @@ class CitiesController < ApplicationController
     def index
         if params[:hearted].present? #Search Only Hearted Cities
             @cities = current_user.cities
-        elsif params[:popular].present? #Search Only Popular Cities
-            @cities = City.where("popularity > ?", 15)
         else
             @cities = City.where(nil) #All City Search
         end
@@ -16,6 +14,7 @@ class CitiesController < ApplicationController
         @cities = @cities.by_home_price(params[:home_price_from], params[:home_price_to]) if params[:home_price_from].present?
         @cities = @cities.by_median_income(params[:income_from]) if params[:income_from].present?
         @cities = @cities.where("LOWER(name) LIKE ?", "#{params[:term].downcase}%") if params[:term].present?
+        @cities = @cities.where("popularity > ?", 25) if params[:popular].present?
         #@cities = @cities.where("median_property_value <= ?", params[:home_value]) if params[:home_value].present?
         #@cities = @cities.where("median_household_income >= ?", params[:income]) if params[:income].present?
         @cities = @cities.order(popularity: :desc).page(params[:page])

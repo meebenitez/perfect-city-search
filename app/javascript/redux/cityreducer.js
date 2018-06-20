@@ -16,7 +16,8 @@ const FILTERS = [
     "name": "[term]=",
     "region": "[region]=",
     "population": "[pop_from]=&[pop_to]=",
-    "median-age":"[age_from]=&[age_to]="
+    "median-age":"[age_from]=&[age_to]=",
+    "popular":"[popular]"
 
 }
 

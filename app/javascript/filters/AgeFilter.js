@@ -81,8 +81,8 @@ class AgeFilter extends React.Component {
                 <div className="filter-popup-parent">
                     <div className={this.props.isActive ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setAgeButtonRef}>
                         {this.props.isActive ? 
-                            <img src={require('../../assets/images/bluepop.png')} className="filter-icon"/> 
-                            : <img src={require('../../assets/images/greypop.png')} className="filter-icon"/>}
+                            <img src={require('../../assets/images/ageblue.png')} className="filter-icon"/> 
+                            : <img src={require('../../assets/images/agegrey.png')} className="filter-icon"/>}
                         {this.props.isActive === true ?
                             <span>&nbsp;&nbsp;<span className="bold">{AGEMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "AgeFilter"})[0])[0]]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
                             : <span>&nbsp;Median Age</span>}<label htmlFor="Age"></label>

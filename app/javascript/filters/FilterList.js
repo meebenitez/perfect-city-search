@@ -1,5 +1,6 @@
 import React from 'react';
 import PopulationFilter from './PopulationFilter'
+import PopularFilter from './PopularFilter'
 import AgeFilter from './AgeFilter'
 import RegionFilter from './RegionFilter'
 import HomePriceFilter from './HomePriceFilter'
@@ -17,6 +18,7 @@ const FilterList = (props) => {
 
     const componentListByString = [
         NameSearchFilter,
+        PopularFilter,
         RegionFilter,
         PopulationFilter,
         MedianIncomeFilter,
