@@ -26,16 +26,16 @@ const FilterList = (props) => {
         RegionFilter,
         PopulationFilter,
         MedianIncomeFilter,
-        AgeFilter
-        //HomePriceFilter,
+        AgeFilter,
+        HomePriceFilter,
     ] : [
         NameSearchFilter,
         PopularFilter,
         RegionFilter,
         PopulationFilter,
         MedianIncomeFilter,
-        AgeFilter
-        //HomePriceFilter,
+        AgeFilter,
+        HomePriceFilter,
     ]
 
     const checkActive = (filterName) => {
