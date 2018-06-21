@@ -78,7 +78,7 @@ class MedianIncomeFilter extends React.Component {
                             : <img src={require('../../assets/images/greypaycheck.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("MedianIncomeFilter") ?
                             <span>&nbsp;&nbsp;<span className="bold">>= ${withCommas(Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop())}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
-                            : <span>&nbsp;Median Household Income</span>}<label htmlFor="MedianHouseholdIncome"></label>
+                            : <span>&nbsp;Income</span>}<label htmlFor="MedianHouseholdIncome"></label>
                     </div>
                     {this.state.incomePopup ?
                     <span> 

@@ -9,8 +9,10 @@ import NameSearchFilter from '../filters/NameSearchFilter'
 const FilterContainer = (props) => 
 
     <Aux>
-        <div className="col-xs-12 row">
-            <FilterList {...props} />
+        <div className="row">
+            <div className="col-xs-12">
+                <FilterList {...props} />
+            </div>
         </div>
             
     </Aux>

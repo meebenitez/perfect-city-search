@@ -19,9 +19,11 @@ const City = props => {
         backgroundSize:     'cover',                      /* <------ */
         backgroundRepeat:   'no-repeat',
         backgroundPosition: 'center center', 
+        backgroundColor: 'rgba(236, 234, 234, 0.25)',
         WebkitTransition: 'all', // note the capital 'W' here
         msTransition: 'all', // 'ms' is the only lowercase vendor prefix
-        borderRadius: '10px'
+        borderRadius: '10px',
+        border: '1px solid rgba(206, 205, 205, 0.10)'
     };
        
 
