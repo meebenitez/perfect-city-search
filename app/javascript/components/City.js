@@ -10,21 +10,34 @@ import MediaQuery from 'react-responsive';
 
 const City = props => {
 
+    //<img className="img-city-icon" src={resizeThumb(props.city.img_thumb)} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/320px-CheyenneWY_downtown.jpg'}} />
+
+    const bgStyle = {  
+        width: '100%',
+        height: '150px',
+        backgroundImage: 'url(' + resizeThumb(props.city.img_thumb) + ')',
+        backgroundSize:     'cover',                      /* <------ */
+        backgroundRepeat:   'no-repeat',
+        backgroundPosition: 'center center', 
+        WebkitTransition: 'all', // note the capital 'W' here
+        msTransition: 'all', // 'ms' is the only lowercase vendor prefix
+        borderRadius: '10px'
+    };
+       
 
     const cityItem = () => {
-        return <div>
-        <img className="img-city-icon" src={resizeThumb(props.city.img_thumb)} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/320px-CheyenneWY_downtown.jpg'}} />
-        <div className="top-left-city-name">
+        return <div className="row inner">
+                    <div style={bgStyle}>
                     
-        </div>
-        <div className="top-center-city-name">
-            <div className="text-center pagination-centered">
-                <Link className="citynamelink" to="#" onClick= {() => props.showSingleCity()} onMouseEnter={() => props.nameHover(props.city)} >
-                    <h3>&nbsp;&nbsp;{props.city.name}, {props.city.short_state.toUpperCase()}&nbsp;&nbsp;
-                    { (props.city.popularity >= 25) ? <span className="star">★&nbsp;&nbsp;</span> : null }</h3>
-                </Link>
-            </div>
-        </div>
+                        <div className="dead-center">
+                            <Link className="citynamelink" to="#" onClick= {() => props.showSingleCity()} onMouseEnter={() => props.nameHover(props.city)} >
+                                <h3>&nbsp;&nbsp;{props.city.name}, {props.city.short_state.toUpperCase()}&nbsp;&nbsp;
+                                { (props.city.popularity >= 25) ? <span className="star">★&nbsp;&nbsp;</span> : null }</h3>
+                            </Link>
+                        </div>
+                    </div>
+
+       
             <div className="bottom-right-city-name">
                 <HeartButton 
                     currentUser={props.currentUser} 
@@ -49,8 +62,8 @@ const City = props => {
                 </div>
             </MediaQuery>
             <MediaQuery minWidth={768} maxWidth={1200}>
-                <div className="list-group-item col-xs-6 noborder">
-                    {cityItem()}
+                <div className="list-group-item col-xs-2 noborder zero-padding">
+                        {cityItem()}
                 </div>
             </MediaQuery>
             <MediaQuery maxWidth={768}>

@@ -72,7 +72,7 @@ class MedianIncomeFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={this.props.activeFilters.includes("MedianIncomeFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" data-balloon="test test yoyo" data-balloon-pos="up" data-balloon-length="medium" onClick={this.handleClick} ref={this.setIncomeButtonRef}>
+                    <div className={this.props.activeFilters.includes("MedianIncomeFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="Median Household Income based on 2016 Census American Community Survey data" data-balloon="Median Household Income based on 2016 Census American Community Survey data" data-balloon-pos="up" data-balloon-length="large" onClick={this.handleClick} ref={this.setIncomeButtonRef}>
                         {this.props.isActive ? 
                             <img src={require('../../assets/images/bluepaycheck.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greypaycheck.png')} className="filter-icon"/>}
