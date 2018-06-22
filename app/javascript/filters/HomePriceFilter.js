@@ -28,7 +28,7 @@ class HomePriceFilter extends React.Component {
                 this.refs.homeValueMaxRef.value = Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[0].split("=").pop().split("[pop_from]=").join("").split("&[pop_to]=")[1]
             } else {
                 this.refs.homeValueMinRef.value = "0"
-                this.refs.homeValueMaxRef.value = "10000000"
+                this.refs.homeValueMaxRef.value = "5000000"
                 
             }
 	    }
@@ -105,16 +105,17 @@ class HomePriceFilter extends React.Component {
                     </div>
                     {this.state.homePricePopup ?
                     <span> 
-                        <div className="filter-popup-div homePrice-div" ref={this.setHomePricePopupRef}>
+                        <div className="filter-popup-div home-value-div" ref={this.setHomePricePopupRef}>
                             <span className="bold">Median Home Value:</span>
-                            <br></br>
-                            <span className="average">US Average: $59,039</span>
-                            <br></br>
+                            <br></br>                            
                             <span className="input-filter">$
-                                <input type="text" id="homeValueMin" name="focus" required className="input-filter-minmax" onChange={this.handleChange} placeholder="min..." ref = "homeValueMinRef"/>                              
-                                to $
-                                <input type="text" id="homeValueMax" name="focus" required className="input-filter-minmax" onChange={this.handleChange} placeholder="min..." ref = "homeValueMaxRef"/>
+                                <input type="text" id="homeValueMin" name="focus" required className="input-filter-minmax" onChange={this.handleChange} placeholder="min" ref = "homeValueMinRef"/>                              
+                                &nbsp;to $
+                                <input type="text" id="homeValueMax" name="focus" required className="input-filter-minmax" onChange={this.handleChange} placeholder="max" ref = "homeValueMaxRef"/>
                             </span>
+                            <br></br>
+                            <br></br>
+                            <span className="average">US Average: $215,600</span>
                         </div>
                     </span> : null }                       
                 </div>

@@ -85,8 +85,6 @@ class MedianIncomeFilter extends React.Component {
                         <div className="filter-popup-div income-div" ref={this.setIncomePopupRef}>
                             <span className="bold">Median Household Income:</span>
                             <br></br>
-                            <span className="average">US Average: $59,039</span>
-                            <br></br>
                             <select defaultValue={this.props.activeFilters.includes("MedianIncomeFilter") ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop() : "" } id="incomeMin" onChange={this.handleChange}>
                                 <option value="">>= $0</option>
                                 <option value="10000">>= $10,000</option>
@@ -120,6 +118,9 @@ class MedianIncomeFilter extends React.Component {
                                 <option value="290000">>= $290,000</option>
                                 <option value="300000">>= $300,000</option>        
                             </select>
+                            <br></br>
+                            <br></br>
+                            <span className="average">US Average: $59,039</span>
                         </div>
                     </span> : null }                       
                 </div>
