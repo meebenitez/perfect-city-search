@@ -26,10 +26,6 @@ class HomePriceFilter extends React.Component {
             if (this.props.activeFilters.includes("HomePriceFilter")){
                 this.refs.homeValueMinRef.value = Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[0].split("=").pop().split("[pop_from]=").join("").split("&[pop_to]=")[0]
                 this.refs.homeValueMaxRef.value = Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[0].split("=").pop().split("[pop_from]=").join("").split("&[pop_to]=")[1]
-            } else {
-                this.refs.homeValueMinRef.value = "0"
-                this.refs.homeValueMaxRef.value = "5000000"
-                
             }
 	    }
 	}
@@ -87,7 +83,11 @@ class HomePriceFilter extends React.Component {
 
 
     handleChange(event){
-        this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${this.state.min}&[home_price_to]=${this.state.max}`, `home-price=${this.state.min}to${this.state.max}`)
+        if (this.refs.homeValueMinRef.value && this.refs.homeValueMaxRef.value){
+            this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${this.refs.homeValueMinRef.value}&[home_price_to]=${this.refs.homeValueMaxRef.value}`, `home-price=${this.refs.homeValueMinRef.value}to${this.refs.homeValueMaxRef.value}`)
+        } else {
+            console.log ("empty value")
+        }
     }
 
     render(){ 

@@ -64,7 +64,7 @@ const City = props => {
                 </div>
             </MediaQuery>
             <MediaQuery minWidth={768} maxWidth={1200}>
-                <div className="list-group-item col-xs-2 noborder zero-padding">
+                <div className="list-group-item col-xs-6 noborder">
                         {cityItem()}
                 </div>
             </MediaQuery>
