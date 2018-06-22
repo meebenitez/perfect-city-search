@@ -5,7 +5,7 @@ import {withCommas} from '../components/utils/filterFunctions'
 class HomePriceFilter extends React.Component {
     constructor(props){
         super(props)
-        this.state = {homePricePopup:false, min: 0, max: 300000}
+        this.state = {homePricePopup:false, min: "", max: ""}
 
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -14,23 +14,10 @@ class HomePriceFilter extends React.Component {
 
         this.setHomePricePopupRef = this.setHomePricePopupRef.bind(this);
         this.setHomePriceButtonRef = this.setHomePriceButtonRef.bind(this);
-        this.didSwitchParentObject = true;
         
     }
 
-    componentDidUpdate ()
-	{
-        if (this.didSwitchParentObject && this.state.homePricePopup)
-	    {
-            this.didSwitchParentObject= false;
-            if (this.props.activeFilters.includes("HomePriceFilter")){
-                this.refs.homeValueMinRef.value = Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[0].split("=").pop().split("[pop_from]=").join("").split("&[pop_to]=")[0]
-                this.refs.homeValueMaxRef.value = Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[0].split("=").pop().split("[pop_from]=").join("").split("&[pop_to]=")[1]
-            }
-	    }
-	}
 
-    
 
     componentDidMount() {
         document.addEventListener('mousedown', this.handleOuterClick);
@@ -59,6 +46,7 @@ class HomePriceFilter extends React.Component {
             this.setState({
                 homePricePopup: false
             })
+            
         }
       }
 
@@ -77,6 +65,11 @@ class HomePriceFilter extends React.Component {
     handleClick(){
         this.setState({
             homePricePopup: !this.state.homePricePopup
+        }, () => {
+            if (this.props.activeFilters.includes("HomePriceFilter") && this.state.homePricePopup){
+                this.refs.homeValueMinRef.value = Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[0].split("=")[1]
+                this.refs.homeValueMaxRef.value = Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[1].split("=")[1]
+            }
         })
 
     }
