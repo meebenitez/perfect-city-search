@@ -5,12 +5,13 @@ import {withCommas} from '../components/utils/filterFunctions'
 class HomePriceFilter extends React.Component {
     constructor(props){
         super(props)
-        this.state = {homePricePopup:false, min: "", max: ""}
+        this.state = {homePricePopup:false}
 
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleClear = this.handleClear.bind(this)
         this.handleOuterClick = this.handleOuterClick.bind(this)
+        this.grabParamValues = this.grabParamValues.bind(this)
 
         this.setHomePricePopupRef = this.setHomePricePopupRef.bind(this);
         this.setHomePriceButtonRef = this.setHomePriceButtonRef.bind(this);
@@ -22,33 +23,38 @@ class HomePriceFilter extends React.Component {
     componentDidMount() {
         document.addEventListener('mousedown', this.handleOuterClick);
         
-      }
+    }
     
-      componentWillUnmount() {
+    componentWillUnmount() {
         document.removeEventListener('mousedown', this.handleOuterClick);
-      }
+    }
 
-      setHomePricePopupRef(node) {
-        this.homePricePopupRef = node;
-      }
+    setHomePricePopupRef(node) {
+    this.homePricePopupRef = node;
+    }
       
-      setHomePriceButtonRef(node) {
-        this.homePriceButtonRef = node;
-      }
+    setHomePriceButtonRef(node) {
+    this.homePriceButtonRef = node;
+    }
 
        
-      setHomeValueMin(node) {
-        this.setHomeValueMin = node;
-      }
+    setHomeValueMin(node) {
+    this.setHomeValueMin = node;
+    }
 
-      handleOuterClick(event) {
+    grabParamValues(index){
+        return Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[index].split("=")[1]
+    }
+
+
+    handleOuterClick(event) {
         if (this.homePricePopupRef && !this.homePricePopupRef.contains(event.target) && !this.homePriceButtonRef.contains(event.target)) {
             this.setState({
                 homePricePopup: false
             })
             
         }
-      }
+    }
 
   
 
@@ -67,8 +73,8 @@ class HomePriceFilter extends React.Component {
             homePricePopup: !this.state.homePricePopup
         }, () => {
             if (this.props.activeFilters.includes("HomePriceFilter") && this.state.homePricePopup){
-                this.refs.homeValueMinRef.value = Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[0].split("=")[1]
-                this.refs.homeValueMaxRef.value = Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[1].split("=")[1]
+                this.refs.homeValueMinRef.value = withCommas(parseInt(this.grabParamValues(0)))
+                this.refs.homeValueMaxRef.value = withCommas(parseInt(this.grabParamValues(1)))
             }
         })
 
@@ -84,6 +90,7 @@ class HomePriceFilter extends React.Component {
     }
 
     render(){ 
+
              
         return (
             <Aux>
@@ -93,7 +100,7 @@ class HomePriceFilter extends React.Component {
                             <img src={require('../../assets/images/bluehome.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greyhome.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("HomePriceFilter") ?
-                            <span>&nbsp;&nbsp;<span className="bold">>= ${withCommas(Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "HomePriceFilter"})[0])[0].split("&")[0].split("=").pop())}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
+                            <span>&nbsp;&nbsp;<span className="bold">Home Values ${withCommas(parseInt(this.grabParamValues(0)))} to ${withCommas(parseInt(this.grabParamValues(1)))}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
                             : <span>&nbsp;Home Values</span>}<label htmlFor="HomeValues"></label>
                     </div>
                     {this.state.homePricePopup ?

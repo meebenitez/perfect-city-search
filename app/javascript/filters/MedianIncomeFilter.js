@@ -5,7 +5,7 @@ import {withCommas} from '../components/utils/filterFunctions'
 class MedianIncomeFilter extends React.Component {
     constructor(props){
         super(props)
-        this.state = {incomePopup:false}
+        this.state = {incomePopup:false, xOut:false}
 
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -14,6 +14,8 @@ class MedianIncomeFilter extends React.Component {
 
         this.setIncomePopupRef = this.setIncomePopupRef.bind(this);
         this.setIncomeButtonRef = this.setIncomeButtonRef.bind(this);
+        this.setIncomeXRef = this.setIncomeXRef.bind(this);
+
     }
 
     
@@ -35,6 +37,10 @@ class MedianIncomeFilter extends React.Component {
         this.incomeButtonRef = node;
       }
 
+      setIncomeXRef(node) {
+        this.incomeXRef = node;
+      }
+
       handleOuterClick(event) {
         if (this.incomePopupRef && !this.incomePopupRef.contains(event.target) && !this.incomeButtonRef.contains(event.target)) {
             this.setState({
@@ -45,21 +51,20 @@ class MedianIncomeFilter extends React.Component {
 
   
 
-    handleClear() {
-  
-            this.props.onFilterChange("MedianIncomeFilter", ""), () => {
-                this.setState({
-                    incomePopup: false
-                })
-            }
-         
+    handleClear() {   
+        this.props.onFilterChange("MedianIncomeFilter", "")
     }
 
-    handleClick(){
-        this.setState({
-            incomePopup: !this.state.incomePopup
-        })
-
+    handleClick(event){
+        if (this.props.activeFilters.includes("MedianIncomeFilter") && this.incomeXRef.contains(event.target)){
+            this.setState({
+                incomePopup: false
+            })
+        } else {
+            this.setState({
+                incomePopup: !this.state.incomePopup,
+            })
+        }
     }
 
 
@@ -77,7 +82,7 @@ class MedianIncomeFilter extends React.Component {
                             <img src={require('../../assets/images/bluepaycheck.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greypaycheck.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("MedianIncomeFilter") ?
-                            <span>&nbsp;&nbsp;<span className="bold">>= ${withCommas(Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop())}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
+                            <span>&nbsp;&nbsp;<span className="bold">Income >= ${withCommas(Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop())}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm" ref={this.setIncomeXRef}/></span></span>
                             : <span>&nbsp;Income</span>}<label htmlFor="MedianHouseholdIncome"></label>
                     </div>
                     {this.state.incomePopup ?
@@ -133,93 +138,3 @@ export default MedianIncomeFilter;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*
-import React from 'react';
-import Aux from '../components/Aux'
-
-class MedianIncomeFilter extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {min: 0, max: 200000, open: false}
-        this.handleClick = this.handleClick.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-    }
-
-
-    handleClick(){
-        if ( this.props.isActive === false ) {
-            this.props.onFilterChange("MedianIncomeFilter", `[income_from]=${this.state.min}&[income_to]=${this.state.max}`, `median-income=${this.state.min}to${this.state.max}`)
-        } else {
-            this.props.onFilterChange("MedianIncomeFilter", "")
-        }
-
-    }
-
-
-
-    handleChange(event){
-        if (event.target.id === "incomeMin") {
-            this.setState({
-                min: event.target.value
-            }, () => {
-                this.props.onFilterChange("MedianIncomeFilter", `[income_from]=${this.state.min}&[income_to]=${this.state.max}`, `median-income=${this.state.min}to${this.state.max}`)
-            })
-        } else if (event.target.id === "incomeMax") {
-            this.setState({
-                max: event.target.value
-            }, () => {
-                this.props.onFilterChange("MedianIncomeFilter", `[income_from]=${this.state.min}&[income_to]=${this.state.max}`, `median-income=${this.state.min}to${this.state.max}`)
-            })
-        }
-    }
-    
-
-    render(){    
-
-
-        return (
-            <Aux>
-                {this.props.isActive === true ? 
-                <div className="filter-div filter-on tooltip-top" data-tooltip="test test yoyo">
-                    <div className="filter-container">
-                        <div className="left-filter-col">
-                        <img src={require('../../assets/images/bluehouse.png')} className="filter-icon"/>&nbsp;Median Household Income<label htmlFor="MedianIncomeFilter"></label><br></br>
-                            <span className="input-filter">$
-                                <input type="text" id= "incomeMin" className="input-filter-minmax" 
-                                onChange={this.handleChange} 
-                                defaultValue={Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[0].split("=").pop()} /> to $
-                                <input type="text" id="incomeMax" className="input-filter-minmax" 
-                                onChange={this.handleChange} 
-                                defaultValue={Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "MedianIncomeFilter"})[0])[0].split("&")[1].split("=").pop()}/></span>
-                        </div>
-                        <div className="right-filter-col">
-                            <div className="center-x">
-                                <label onClick={this.handleClick}>x</label>
-                            </div>
-                        </div>
-                    </div>
-                </div> :
-                <div className="filter-div filter-off" data-balloon="test test yoyo" data-balloon-pos="up" data-balloon-length="medium" onClick={this.handleClick}>
-                    <img src={require('../../assets/images/greyhouse.png')} className="filter-icon"/>&nbsp;Median Household Income<label htmlFor="MedianIncomeFilter"></label><br></br>
-                </div> }
-            </Aux>
-            )
-        }
-
-
-
-}
-
-export default MedianIncomeFilter;
-*/
