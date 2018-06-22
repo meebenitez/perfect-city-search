@@ -5,8 +5,8 @@ import {checkCurrentUser, toggleAuthPopup} from './authactions'
 
 export const fetchCities = () => {
     return (dispatch, getState) => {
-        console.log(`/cities?${getState().city.currentRoute}${getState().city.params !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`)
-        return axios.get(`/cities?${getState().city.currentRoute}${getState().city.params !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`)
+        
+        return axios.get(`/cities?${getState().city.currentRoute}${getState().city.params !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`, { headers: {"Authorization" : `Bearer ${token}`} })
             .then(response => {
                 dispatch(updateCities(response.data.cities, response.data.total_count, response.data.total_pages, response.data.per_page))
             })

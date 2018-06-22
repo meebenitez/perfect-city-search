@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'user_token' => 'user_token#create'
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions'}
   root to: "dashboard#home"
   get '/hearted', to: 'dashboard#home'

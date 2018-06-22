@@ -2,6 +2,10 @@ require 'pry'
 
 class CitiesController < ApplicationController
 
+    before_action :restrict_access
+    respond_to :json
+
+
     def index
         if params[:hearted].present? #Search Only Hearted Cities
             @cities = current_user.cities
@@ -63,6 +67,11 @@ class CitiesController < ApplicationController
 
 
     private
+    def restrict_access
+        authenticate_or_request_with_http_token do |token, options|
+            ApiKey.exists?(access_token: token)
+        end
+    end
 
     def city_params
         params.require(:city).permit(
