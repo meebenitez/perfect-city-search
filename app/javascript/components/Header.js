@@ -9,6 +9,7 @@ const Header = (props) => {
             
                
             <div className="row nav">
+                
                 <div className="col-xs-10 header-left-padding">
                     <NavLink to="/" exact className="logolink"><h1>MyChoiceCity&nbsp;<img src={require('../../assets/images/white_pin.png')} className="logo-icon"/></h1></NavLink>
                 </div>
