@@ -14,6 +14,7 @@ class RegionFilter extends React.Component {
 
         this.setRegionPopupRef = this.setRegionPopupRef.bind(this);
         this.setRegionButtonRef = this.setRegionButtonRef.bind(this);
+        this.setRegionXRef = this.setRegionXRef.bind(this);
     }
 
     
@@ -21,44 +22,52 @@ class RegionFilter extends React.Component {
     componentDidMount() {
         document.addEventListener('mousedown', this.handleOuterClick);
         
-      }
+    }
     
-      componentWillUnmount() {
-        document.removeEventListener('mousedown', this.handleOuterClick);
-      }
+    componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleOuterClick);
+    }
 
-      setRegionPopupRef(node) {
-        this.regionPopupRef = node;
-      }
-      
-      setRegionButtonRef(node) {
+    setRegionPopupRef(node) {
+    this.regionPopupRef = node;
+    }
+    
+    setRegionButtonRef(node) {
+    this.regionButtonRef = node;
+    }
+
+    setRegionButtonRef(node) {
         this.regionButtonRef = node;
-      }
+    }
 
-      handleOuterClick(event) {
-        if (this.regionPopupRef && !this.regionPopupRef.contains(event.target) && !this.regionButtonRef.contains(event.target)) {
-            this.setState({
-                regionPopup: false
-            })
-        }
-      }
+    setRegionXRef(node) {
+        this.regionXRef = node;
+    }
+
+    handleOuterClick(event) {
+    if (this.regionPopupRef && !this.regionPopupRef.contains(event.target) && !this.regionButtonRef.contains(event.target)) {
+        this.setState({
+            regionPopup: false
+        })
+    }
+    }
 
   
 
     handleClear() {
-  
-            this.props.onFilterChange("RegionFilter", ""), () => {
-                this.setState({
-                    regionPopup: false
-                })
-            }
-         
+        this.props.onFilterChange("RegionFilter", "")
     }
 
-    handleClick(){
-        this.setState({
-            regionPopup: !this.state.regionPopup
-        })
+    handleClick(event){
+        if (this.props.activeFilters.includes("RegionFilter") && this.regionXRef.contains(event.target)){
+            this.setState({
+                regionPopup: false
+            })
+        } else {
+            this.setState({
+                regionPopup: !this.state.regionPopup
+            })
+        }
 
     }
 
@@ -87,7 +96,7 @@ class RegionFilter extends React.Component {
                             <img src={require('../../assets/images/blueusmap.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greyusmap.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("RegionFilter") === true ?
-                            <span>&nbsp;&nbsp;<span className="bold">{REGIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop()]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
+                            <span>&nbsp;&nbsp;<span className="bold">{REGIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop()]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm" ref={this.setRegionXRef}/></span></span>
                             : <span>&nbsp;Region</span>}<label htmlFor="Region"></label>
                     </div>
                     {this.state.regionPopup ?
