@@ -13,9 +13,9 @@ import CollegeGradFilter from './CollegeGradFilter'
 import LowCrimeFilter from './LowCrimeFilter'
 import HighEmploymentFilter from './HighEmploymentFilter'
 import NameSearchFilter from './NameSearchFilter'
-import FilterPopup from './FilterPopup'
 
-const FilterList = (props) => {
+
+const FilterPopup = (props) => {
 
 
 // Creating two different lists so I can later offer registered users special filters
@@ -55,11 +55,13 @@ const FilterList = (props) => {
 
 
     return (
-    <div className="filter-container">
-        {renderFilters}  .. <span onClick={props.toggleExtendedFiltersPopup}>toggle filters</span>
+    <div className="extended-filters-popup">
+        <div className="extended-filters-popup-inner">
+            {renderFilters}
+        </div>
     </div>
     )
 }
 
 
-export default FilterList;
+export default FilterPopup;

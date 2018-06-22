@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Aux from './Aux'
 import Devise from './auth/Devise'
 import CityShow from './CityShow'
+import FilterPopup from '../filters/FilterPopup'
 import Test from './Test'
 import SearchContainer from '../containers/SearchContainer'
 import Header from './Header'
@@ -63,6 +64,8 @@ class App extends React.Component {
                           unheartClick={this.props.unheartClick}
                           currentUser = {this.props.currentUser}
                           toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}/> : null }
+                      {this.props.extendedFiltersPopup ? 
+                      <FilterPopup {...this.props} /> : null}
                       <Route exact path="/" render={(props) => <SearchContainer {...this.props}/>}/>
                       <Route exact path="/city/" render={(props) => <CityShow city={this.props.singleCity}
                                     heartedCities = {this.props.heartedCities}
@@ -105,7 +108,8 @@ const mapStateToProps = state => {
     searchCities: state.city.searchCities,
     mapZoom: state.city.mapZoom,
     mapCenter: state.city.mapCenter,
-    highlightedCity: state.city.highlightedCity
+    highlightedCity: state.city.highlightedCity,
+    extendedFiltersPopup: state.city.extendedFiltersPopup
   }
 }
 
@@ -132,44 +136,10 @@ const mapDispatchToProps = dispatch => {
     toggleAuthPopup: () => dispatch(authActions.toggleAuthPopup()),
     onSearch: (value) => dispatch(cityActions.onSearch(value)),
     changeZoom: () => dispatch(cityActions.changeZoom()),
-    nameHover: (city) => dispatch(cityActions.nameHover(city))
+    nameHover: (city) => dispatch(cityActions.nameHover(city)),
+    toggleExtendedFiltersPopup: () => dispatch(cityActions.toggleExtendedFiltersPopup())
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps,)(App);
 
-/*
-<SearchContainer 
-                  cities={this.props.cities} 
-                  heartedCities={this.props.heartedCities} 
-                  heartClick={this.props.heartClick } 
-                  unheartClick={this.props.unheartClick } 
-                  page={this.props.page} 
-                  pages={this.props.pages}  
-                  handleChangePage={this.props.handleChangePage}
-                  currentUser = {this.props.currentUser}
-                  totalCount = {this.props.totalCount}
-                  totalPages = {this.props.totalPages}
-                  startPage = {this.props.startPage}
-                  perPage = {this.props.perPage}
-                  pageChange = {this.props.pageChange}
-                  toggleAuthPopup = {this.props.toggleAuthPopup}
-                  toggleCityPopup = {this.props.toggleCityPopup}
-                  showCityPopup = {this.props.showCityPopup}
-                  currentRoute = {this.props.currentRoute}
-                  onFilterChange={this.props.onFilterChange} 
-                  params={this.props.params} 
-                  activeFilters={this.props.activeFilters} 
-                  inactiveFilters={this.props.inactiveFilters} 
-                  clearAllFilters={this.props.clearAllFilters}
-                  unclick={this.props.unclick}
-                  showSingleCity={this.props.showSingleCity}
-                  toggleCheck={this.props.toggleCheck} /> 
-
-
-
-                 <Route exact path="/city/" render={(props) => <CityShow city={this.props.singleCity}
-                              heartedCities = {this.props.heartedCities}
-                              heartClick={this.props.heartClick}
-                              unheartClick={this.props.unheartClick}
-                              currentUser = {this.props.currentUser}/>}/>*/

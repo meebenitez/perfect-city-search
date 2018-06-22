@@ -243,6 +243,16 @@ export const toggleCityPopup = () => {
     }
 }
 
+export const toggleExtendedFiltersPopup = () => {
+    return (dispatch, getState) => {
+        const filtersPopupStatus = getState().city.extendedFiltersPopup
+        dispatch({
+            type: 'TOGGLE_FILTERS_POPUP',
+            extendedFiltersPopup: !filtersPopupStatus
+        })
+    }
+}
+
 export const toggleSingleCityAuthPopup = () => {
     return (dispatch) => {
         dispatch(toggleCityPopup())        

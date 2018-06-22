@@ -94,7 +94,7 @@ class AgeFilter extends React.Component {
                     </div>
                     {this.state.agePopup ?
                     <span> 
-                        <div className="filter-popup-div income-div" ref={this.setAgePopupRef}>
+                        <div className="filter-popup-div region-div" ref={this.setAgePopupRef}>
                             <span className="bold">Median Age:</span>
                             <br></br>
                             <select defaultValue={this.props.activeFilters.includes("AgeFilter") ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "AgeFilter"})[0])[0].split("&")[0].split("=").pop() : "" } id="AgeFilter" onChange={this.handleChange}>

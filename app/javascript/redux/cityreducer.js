@@ -57,7 +57,8 @@ const initialState = {
     searchCities: [],
     mapZoom: 4,
     mapCenter: {lat: 38.00, lng: -96.5556},
-    highlightedCity: null 
+    highlightedCity: null,
+    extendedFiltersPopup: false 
 }
 
 const cityreducer = (state = initialState, action) => {
@@ -260,6 +261,11 @@ const cityreducer = (state = initialState, action) => {
             return {
                 ...state,
                 showCityPopup: action.showCityPopup
+            }
+        case 'TOGGLE_FILTERS_POPUP':
+            return {
+                ...state,
+                extendedFiltersPopup: action.extendedFiltersPopup
             }
         case 'CHANGE_ZOOM':
             if (state.mapZoom === 4){
