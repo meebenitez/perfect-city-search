@@ -14,6 +14,8 @@ class AgeFilter extends React.Component {
 
         this.setAgePopupRef = this.setAgePopupRef.bind(this);
         this.setAgeButtonRef = this.setAgeButtonRef.bind(this);
+        this.setAgeXRef = this.setAgeXRef.bind(this);
+
     }
 
     
@@ -34,6 +36,9 @@ class AgeFilter extends React.Component {
       setAgeButtonRef(node) {
         this.ageButtonRef = node;
       }
+      setAgeXRef(node) {
+        this.ageXRef = node;
+      }
 
       handleOuterClick(event) {
         if (this.agePopupRef && !this.agePopupRef.contains(event.target) && !this.ageButtonRef.contains(event.target)) {
@@ -46,19 +51,19 @@ class AgeFilter extends React.Component {
   
 
     handleClear() {
-  
-            this.props.onFilterChange("AgeFilter", ""), () => {
-                this.setState({
-                    agePopup: false
-                })
-            }
-         
+        this.props.onFilterChange("AgeFilter", "")
     }
 
-    handleClick(){
-        this.setState({
-            agePopup: !this.state.agePopup
-        })
+    handleClick(event){
+        if (this.props.activeFilters.includes("AgeFilter") && this.ageXRef.contains(event.target)){
+            this.setState({
+                agePopup: false
+            })
+        } else {
+            this.setState({
+                agePopup: !this.state.agePopup
+            })
+        }
 
     }
 
@@ -84,7 +89,7 @@ class AgeFilter extends React.Component {
                             <img src={require('../../assets/images/ageblue.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/agegrey.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("AgeFilter") === true ?
-                            <span>&nbsp;&nbsp;<span className="bold">{AGEMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "AgeFilter"})[0])[0]]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
+                            <span>&nbsp;&nbsp;<span className="bold">{AGEMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "AgeFilter"})[0])[0]]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm" ref={this.setAgeXRef}/></span></span>
                             : <span>&nbsp;Median Age</span>}<label htmlFor="Age"></label>
                     </div>
                     {this.state.agePopup ?
@@ -116,26 +121,3 @@ export default AgeFilter;
 
 
 
-
-/*import React from 'react';
-import {filterHolderFinder} from '../components/utils/filterFunctions'
-
-const AgeFilter = (props) => {
-    return (
-        <div className="filter-div">
-            <label htmlFor="AgeFilter">👥 Median Age:</label>
-        </div>
-    )
-}
-
-export default AgeFilter;
-
-         //   <select value={props.value} defaultValue={filterHolderFinder("AgeFilter", props.params, props.activeFilters)} id= "AgeFilter" onChange={(event) => props.onFilterChange(event)}>
-         //           <option value="">Deactivate</option>
-
-                    <option value="[age_from]=0&[age_to]=20">Gen Z</option>
-                    <option value="[age_from]=21&[age_to]=39">Millenial</option>
-                    <option value="[age_from]=40&[age_to]=51">Gen X</option>
-                    <option value="[age_from]=52&[age_to]=70">Baby Boomer</option>
-                    <option value="[age_from]=71&[age_to]=150">Silent Age</option>
-         //   </select>*/

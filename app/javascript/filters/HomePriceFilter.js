@@ -65,13 +65,7 @@ class HomePriceFilter extends React.Component {
   
 
     handleClear() {
-  
-            this.props.onFilterChange("HomePriceFilter", ""), () => {
-                this.setState({
-                    homePricePopup: false
-                })
-            }
-         
+        this.props.onFilterChange("HomePriceFilter", "")
     }
 
     handleClick(event){
