@@ -4,7 +4,7 @@ import Aux from '../components/Aux'
 
 const CityListContainer = (props) => 
     <Aux>
-        <div className="intro-container teal-bg row">
+        <div className="intro-container row">
                         <div className="col-xs-12 zero-padding">
                             <span className="bold">Welcome City Sleuths!</span>
                             <br></br>Filter through our database of <span className="bold">26,931 US towns and cities</span> to find hidden gems that perfectly match your priorities and lifestyle.  

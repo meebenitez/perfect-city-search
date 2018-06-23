@@ -2,7 +2,7 @@
 import React from 'react';
 import Aux from '../components/Aux'
 import AgeFilter from './AgeFilter'
-import {checkDivClass} from '../components/utils/filterFunctions'
+import {checkDivClass, findOne} from '../components/utils/filterFunctions'
 
 
 class DemographicsFilter extends React.Component {
@@ -89,6 +89,10 @@ class DemographicsFilter extends React.Component {
         const filterList = [
             AgeFilter
         ]
+
+        const filterListStrings = [
+            "AgeFilter"
+        ]
         const renderFilters = filterList.map( (Filter) => {
             return <Filter activeFilters={this.props.activeFilters} onFilterChange={this.props.onFilterChange} key={Filter.name} filterHolder={this.props.filterHolder} params={this.props.params} isActive={checkActive(Filter.name)} currentUser={this.props.currentUser}/>
         });
@@ -97,7 +101,7 @@ class DemographicsFilter extends React.Component {
             <Aux>
                 <div className="filter-popup-parent">
                     <div className={checkDivClass(this.props.activeFilters, "DemographicsFilter", this.state.demographicsPopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setDemographicsButtonRef}>
-                        {this.props.activeFilters.includes("DemographicsFilter") ? 
+                        {findOne(filterListStrings, this.props.activeFilters) ? 
                             <img src={require('../../assets/images/statsblue.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/statsgrey.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("DemographicsFilter") === true ?

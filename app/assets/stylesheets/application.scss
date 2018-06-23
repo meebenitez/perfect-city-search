@@ -323,6 +323,8 @@
       background-color: rgba(136, 207, 255, .5);
     }
 
+
+
     .orange-background {
       background-color: rgb(230, 95, 42);
     }
@@ -420,8 +422,8 @@
     .intro-container{
       font-size: 15px;
       border-radius: 10px;
-      color: white;
       padding: 8px;
+      border:1px solid rgb(177, 174, 174);
     }
 
     .intro-left {
@@ -444,14 +446,7 @@
       position: absolute;
     }
 
-    .img-gem {
-      background-image: url(asset_path("gem.png"));
-      background-size:     cover;                      /* <------ */
-      background-repeat:   no-repeat;
-      background-position: center center; 
-      background-size: 115px;
-      height: 115px;
-    }
+
 
     .img-social {
       height: 20px;
@@ -834,7 +829,7 @@
       border-style: solid;
       border-width: 1px;
       border-color: #88cfff;
-      background-color: rgb(182, 224, 253);
+      background-color: rgb(243, 245, 245);
       padding-left: 15px;
       padding-right: 15px;
       padding-top: 20px;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Aux from '../components/Aux'
-import {withCommas} from '../components/utils/filterFunctions'
+import {withCommas, checkParamValues, checkDivClass} from '../components/utils/filterFunctions'
 
 class PopulationFilter extends React.Component {
     constructor(props){
@@ -85,7 +85,7 @@ class PopulationFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={this.props.activeFilters.includes("PopulationFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setPopulationButtonRef}>
+                    <div className={checkDivClass(this.props.activeFilters, "PopulationFilter", this.state.populationPopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setPopulationButtonRef}>
                         {this.props.activeFilters.includes("PopulationFilter") ? 
                             <img src={require('../../assets/images/bluepop.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greypop.png')} className="filter-icon"/>}
@@ -95,100 +95,88 @@ class PopulationFilter extends React.Component {
                     </div>
                     {this.state.populationPopup ?
                     <span> 
-                        <div className="filter-popup-div income-div" ref={this.setPopulationPopupRef}>
-                            <span className="bold">Population Size:</span>
+                        <div className="filter-popup-div demographics-div" ref={this.setPopulationPopupRef}>
+                            
+                        <span> 
+                        <div>
+                            <span className="underline">Population Size</span>
                             <br></br>
-                            <select defaultValue={this.props.activeFilters.includes("PopulationFilter")? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "PopulationFilter"})[0])[0].split("&")[0].split("=").pop() : "" } id="PopulationFilter" onChange={this.handleChange}>
-                                <option value="">Any</option>
-                                <option value="[pop_from]=400000&[pop_to]=100000000">Big (400K to 2M+)</option>
-                                <option value="[pop_from]=50000&[pop_to]=400000">Medium (50K to 400K)</option>
-                                <option value="[pop_from]=10000&[pop_to]=50000">Small (10K to 50K)</option>
-                                <option value="[pop_from]=1000&[pop_to]=10000">Very Small (1K to 10K)</option>
-                                <option value="[pop_from]=100&[pop_to]=1000">Tiny (100 to 1K)</option>
-                            </select>
+                            <form>
+
+                                    <div className="filter-button">
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            value=""
+                                            name="toggle"
+                                            checked={!this.props.activeFilters.includes("PopulationFilter")}
+                                            onChange={this.handleClear}
+                                            />
+                                            <span>Any</span>
+                                        </label>
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            value="[pop_from]=400000&[pop_to]=100000000"
+                                            name="toggle"
+                                            checked={this.props.activeFilters.includes("PopulationFilter") && checkParamValues(this.props.params, "PopulationFilter", "[pop_from]=400000&[pop_to]=100000000")}
+                                            onChange={this.handleChange}
+                                            />
+                                            <span>Big (400K to 2M+)</span>
+                                        </label>
+                                        <label>    
+                                            <input
+                                            type="radio"
+                                            value="[pop_from]=50000&[pop_to]=400000"
+                                            name="toggle"
+                                            checked={this.props.activeFilters.includes("PopulationFilter") && checkParamValues(this.props.params, "PopulationFilter", "[pop_from]=50000&[pop_to]=400000")}
+                                            onChange={this.handleChange}
+                                            />
+                                            <span>Medium (50K to 400K)</span>
+                                        </label>
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            value="[pop_from]=10000&[pop_to]=50000"
+                                            checked={this.props.activeFilters.includes("PopulationFilter") && checkParamValues(this.props.params, "PopulationFilter", "[pop_from]=10000&[pop_to]=50000")}
+                                            onChange={this.handleChange}
+                                            />
+                                            <span>Small (10K to 50K)</span>
+                                        </label>
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            value="[pop_from]=1000&[pop_to]=10000"
+                                            checked={this.props.activeFilters.includes("PopulationFilter") && checkParamValues(this.props.params, "PopulationFilter", "[pop_from]=1000&[pop_to]=10000")}
+                                            onChange={this.handleChange}
+                                            />
+                                            <span>Very Small (1K to 10K)</span>
+                                        </label>
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            value="[pop_from]=100&[pop_to]=1000"
+                                            checked={this.props.activeFilters.includes("PopulationFilter") && checkParamValues(this.props.params, "PopulationFilter", "[pop_from]=100&[pop_to]=1000")}
+                                            onChange={this.handleChange}
+                                            />
+                                            <span>Tiny (100 to 1K)</span>
+                                        </label>
+                                    </div>                                    
+                                    
+                                
+                            </form>
+                         
+                            
                         </div>
-                    </span> : null }                       
-                </div>
+                    </span>
+                            
+                        
+                </div> 
+            </span> : null }
+            </div>
             </Aux>
             )
         }
 }
 
 export default PopulationFilter;
-
-/*
-import React from 'react';
-
-class PopulationFilter extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = this.props.isActive !== undefined ? {checked: true} : {checked: false}
-        this.handleClick = this.handleClick.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-    }
-
-
-    handleClick(){
-        this.setState({
-            checked: !this.state.checked
-        },() => {
-            if (this.state.checked === true ) {
-                debugger;
-                this.props.onFilterChange("PopulationFilter", `[home_price_from]=${this.state.min}&[home_price_to]=${this.state.max}`, `home-price=${this.state.min}to${this.state.max}`)
-            } else {
-                debugger;
-                this.props.onFilterChange("HomePriceFilter", "")
-            }
-        });
-
-    }
-
-    handleChange(event){
-        debugger;
-    }
-
-    
-
-    render(){    
-
-        return (
-            <div className="filter-div">
-                <input type="checkbox" id= "PopulationFilter" onChange={this.handleClick} checked={this.state.checked} />
-                <label htmlFor="PopulationFilter"><img src={require('../../assets/images/skyline.png')} className="stat-icon-sm"/> Population</label><span className="question-mark"><sup>?</sup></span><br></br>
-                {this.state.checked ? 
-                    <div className="radio">
-                        <label>
-                        Big (400K+)<input type="radio" value="[pop_from]=400000&[pop_to]=10000000" checked={true} onChange={this.handleChange}/>
-                        </label>
-                        <label>
-                        Medium City (50K - 400K)<input type="radio" value="[pop_from]=75000&[pop_to]=400000" onChange={this.handleChange}/>
-                        </label>
-
-                    </div>
-                    : null}
-            </div>
-            )
-        }
-}
-
-export default PopulationFilter;
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    //<option value="[pop_from]=400000&[pop_to]=10000000">Big City (400K+)</option>
-                    //<option value="[pop_from]=75000&[pop_to]=400000">Medium City (50K - 400K)</option>
-                    //<option value="[pop_from]=5000&[pop_to]=50000">Small City (5K - 50K)</option>
-                    //<option value="[pop_from]=50&[pop_to]=5000">Small Town (50 - 5K)</option>
-*/

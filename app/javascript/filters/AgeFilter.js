@@ -1,6 +1,6 @@
 import React from 'react';
 import Aux from '../components/Aux'
-import {withCommas, checkParamValues} from '../components/utils/filterFunctions'
+import {checkParamValues} from '../components/utils/filterFunctions'
 
 class AgeFilter extends React.Component {
     constructor(props){
@@ -26,13 +26,6 @@ class AgeFilter extends React.Component {
 
 
     render(){ 
-        const AGEMAPPING = {
-            "[age_from]=0&[age_to]=20": "Gen Z",
-            "[age_from]=21&[age_to]=39": "Millenial",
-            "[age_from]=40&[age_to]=51": "Gen X",
-            "[age_from]=52&[age_to]=70": "Baby Boomer",
-            "[age_from]=71&[age_to]=150": "Silent Age"
-        }
 
         return (
             <Aux>

@@ -13,15 +13,15 @@ export function filterHolderFinder(filterName, params) {
 }
 
 export function withCommas (x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
 
-  export function checkDivClass (activeFilters, filterName, popupValue) {
-    if (activeFilters.includes("filterName")) {
+export function checkDivClass (activeFilters, filterName, popupValue) {
+    if (activeFilters.includes(filterName)) {
         return "filter-div filter-on tooltip-top"
     } else if (popupValue) {
-        return "filter-div filter-off blue-border"
+        return "filter-div filter-on blue-border"
     } else {
         return "filter-div filter-off"
     }
@@ -29,4 +29,11 @@ export function withCommas (x) {
 
 export function checkParamValues(params, filterName, filterValue){
     return Object.values(params.filter((filter) => {return Object.keys(filter)[0] === filterName})[0])[0] === filterValue
+}
+
+
+export function findOne (filterArray, activeFilters) {
+    return activeFilters.some(function (filter) {
+        return filterArray.indexOf(filter) >= 0
+    })
 }
