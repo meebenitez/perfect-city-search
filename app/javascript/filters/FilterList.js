@@ -14,6 +14,7 @@ import LowCrimeFilter from './LowCrimeFilter'
 import HighEmploymentFilter from './HighEmploymentFilter'
 import NameSearchFilter from './NameSearchFilter'
 import FilterPopup from './FilterPopup'
+import DemographicsFilter from './DemographicsFilter'
 
 const FilterList = (props) => {
 
@@ -25,16 +26,18 @@ const FilterList = (props) => {
         HeartedFilter,
         RegionFilter,
         PopulationFilter,
-        MedianIncomeFilter,
-        AgeFilter,
+        DemographicsFilter,
+        //MedianIncomeFilter,
+        //AgeFilter,
         HomePriceFilter,
     ] : [
         NameSearchFilter,
         PopularFilter,
         RegionFilter,
         PopulationFilter,
-        MedianIncomeFilter,
-        AgeFilter,
+        DemographicsFilter,
+        //MedianIncomeFilter,
+        //AgeFilter,
         HomePriceFilter,
     ]
 

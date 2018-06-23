@@ -75,11 +75,11 @@ class PopulationFilter extends React.Component {
 
     render(){ 
         const POPULATIONMAPPING = {
-            "[pop_from]=400000&[pop_to]=100000000":"Big City",
-            "[pop_from]=50000&[pop_to]=400000":"Medium City",
-            "[pop_from]=10000&[pop_to]=50000":"Small City",
-            "[pop_from]=1000&[pop_to]=10000":"Very Small Town",
-            "[pop_from]=100&[pop_to]=1000":"Tiny Town"
+            "[pop_from]=400000&[pop_to]=100000000":"Big Pop",
+            "[pop_from]=50000&[pop_to]=400000":"Medium Pop",
+            "[pop_from]=10000&[pop_to]=50000":"Small Pop",
+            "[pop_from]=1000&[pop_to]=10000":"Very Small Pop",
+            "[pop_from]=100&[pop_to]=1000":"Tiny Pop"
         }    
 
         return (
@@ -91,7 +91,7 @@ class PopulationFilter extends React.Component {
                             : <img src={require('../../assets/images/greypop.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("PopulationFilter") ?
                             <span>&nbsp;&nbsp;<span className="bold">{POPULATIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "PopulationFilter"})[0])[0]]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm" ref={this.setPopulationXRef}/></span></span>
-                            : <span>&nbsp;Population Size</span>}<label htmlFor="Population"></label>
+                            : <span>&nbsp;Pop Size</span>}<label htmlFor="Population"></label>
                     </div>
                     {this.state.populationPopup ?
                     <span> 
