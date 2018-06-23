@@ -1,6 +1,8 @@
 
 import React from 'react';
 import Aux from '../components/Aux'
+import {checkParamValues, checkDivClass} from '../components/utils/filterFunctions'
+
 
 class RegionFilter extends React.Component {
     constructor(props){
@@ -14,7 +16,6 @@ class RegionFilter extends React.Component {
 
         this.setRegionPopupRef = this.setRegionPopupRef.bind(this);
         this.setRegionButtonRef = this.setRegionButtonRef.bind(this);
-        this.setRegionXRef = this.setRegionXRef.bind(this);
     }
 
     
@@ -40,9 +41,7 @@ class RegionFilter extends React.Component {
         this.regionButtonRef = node;
     }
 
-    setRegionXRef(node) {
-        this.regionXRef = node;
-    }
+
 
     handleOuterClick(event) {
     if (this.regionPopupRef && !this.regionPopupRef.contains(event.target) && !this.regionButtonRef.contains(event.target)) {
@@ -59,21 +58,14 @@ class RegionFilter extends React.Component {
     }
 
     handleClick(event){
-        if (this.props.activeFilters.includes("RegionFilter") && this.regionXRef.contains(event.target)){
-            this.setState({
-                regionPopup: false
-            })
-        } else {
-            this.setState({
-                regionPopup: !this.state.regionPopup
-            })
-        }
-
+        this.setState({
+            regionPopup: !this.state.regionPopup
+        })
     }
 
 
     handleChange(event){
-        this.props.onFilterChange("RegionFilter", `[region]=${event.target.value}`, `region=${event.target.value}`)
+        this.props.onFilterChange("RegionFilter", `${event.target.value}`, `region=${event.target.value.split("[region]=").join("")}`)
     }
 
     render(){ 
@@ -91,33 +83,130 @@ class RegionFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={this.props.activeFilters.includes("RegionFilter")  ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setRegionButtonRef}>
+                    <div className={checkDivClass(this.props.activeFilters, "RegionFilter", this.state.regionPopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setRegionButtonRef}>
                         {this.props.activeFilters.includes("RegionFilter") ? 
                             <img src={require('../../assets/images/blueusmap.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greyusmap.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("RegionFilter") === true ?
-                            <span>&nbsp;&nbsp;<span className="bold">{REGIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop()]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm" ref={this.setRegionXRef}/></span></span>
-                            : <span>&nbsp;Region</span>}<label htmlFor="Region"></label>
+                            <span>&nbsp;&nbsp;<span className="bold">{REGIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop()]}</span></span>
+                            : <span>&nbsp;Region</span>}&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="Region"></label>
                     </div>
                     {this.state.regionPopup ?
                     <span> 
-                        <div className="filter-popup-div region-div" ref={this.setRegionPopupRef}>
-                            <span className="bold">Regions:</span>
-                            <br></br>
-                            <select defaultValue={this.props.activeFilters.includes("RegionFilter") ? Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop() : ""} id= "RegionFilter" onChange={this.handleChange}>
-                                <option value="">All</option>
-                                <option value="pacific_coast">Pacific Coast</option>
-                                <option value="mountain">Mountain</option>
-                                <option value="southwest">Southwest</option>
-                                <option value="heartland">Heartland</option>
-                                <option value="midwest">Midwest</option>
-                                <option value="southeast">Southeast</option>
-                                <option value="appalachian_highlands">Appalachia</option>
-                                <option value="mid_atlantic">Mid-Atlantic</option>
-                                <option value="new_england">New England</option>
-                            </select>
-                        </div>
-                    </span> : null }                       
+                    <div className="filter-popup-div demographics-div" ref={this.setRegionPopupRef}>
+                        
+                    <span> 
+                    <div>
+                        <span className="underline">Region</span>
+                        <br></br>
+                        <form>
+
+                                <div className="filter-button">
+                                    <label>
+                                        <input
+                                        type="radio"
+                                        value=""
+                                        name="toggle"
+                                        checked={!this.props.activeFilters.includes("RegionFilter")}
+                                        onChange={this.handleClear}
+                                        />
+                                        <span>Any</span>
+                                    </label>
+                                    <label>
+                                        <input
+                                        type="radio"
+                                        value="[region]=pacific_coast"
+                                        name="toggle"
+                                        checked={this.props.activeFilters.includes("RegionFilter") && checkParamValues(this.props.params, "RegionFilter", "[region]=pacific_coast")}
+                                        onChange={this.handleChange}
+                                        />
+                                        <span>Pacific Coast</span>
+                                    </label>
+                                    <label>    
+                                        <input
+                                        type="radio"
+                                        value="[region]=mountain"
+                                        name="toggle"
+                                        checked={this.props.activeFilters.includes("RegionFilter") && checkParamValues(this.props.params, "RegionFilter", "[region]=mountain")}
+                                        onChange={this.handleChange}
+                                        />
+                                        <span>Mountain</span>
+                                    </label>
+                                    <label>
+                                        <input
+                                        type="radio"
+                                        value="[region]=southwest"
+                                        checked={this.props.activeFilters.includes("RegionFilter") && checkParamValues(this.props.params, "RegionFilter", "[region]=southwest")}
+                                        onChange={this.handleChange}
+                                        />
+                                        <span>Southwest</span>
+                                    </label>
+                                    <label>
+                                        <input
+                                        type="radio"
+                                        value="[region]=heartland"
+                                        checked={this.props.activeFilters.includes("RegionFilter") && checkParamValues(this.props.params, "RegionFilter", "[region]=heartland")}
+                                        onChange={this.handleChange}
+                                        />
+                                        <span>Heartland</span>
+                                    </label>
+                                    <label>
+                                        <input
+                                        type="radio"
+                                        value="[region]=midwest"
+                                        checked={this.props.activeFilters.includes("RegionFilter") && checkParamValues(this.props.params, "RegionFilter", "[region]=midwest")}
+                                        onChange={this.handleChange}
+                                        />
+                                        <span>Midwest</span>
+                                    </label>
+                                    <label>
+                                        <input
+                                        type="radio"
+                                        value="[region]=southeast"
+                                        checked={this.props.activeFilters.includes("RegionFilter") && checkParamValues(this.props.params, "RegionFilter", "[region]=southeast")}
+                                        onChange={this.handleChange}
+                                        />
+                                        <span>Southeast</span>
+                                    </label>
+                                    <label>
+                                        <input
+                                        type="radio"
+                                        value="[region]=appalachian_highlands"
+                                        checked={this.props.activeFilters.includes("RegionFilter") && checkParamValues(this.props.params, "RegionFilter", "[region]=appalachian_highlands")}
+                                        onChange={this.handleChange}
+                                        />
+                                        <span>Appalachia Highlands</span>
+                                    </label>
+                                    <label>
+                                        <input
+                                        type="radio"
+                                        value="[region]=mid_atlantic"
+                                        checked={this.props.activeFilters.includes("RegionFilter") && checkParamValues(this.props.params, "RegionFilter", "[region]=mid_atlantic")}
+                                        onChange={this.handleChange}
+                                        />
+                                        <span>Mid-Atlantic</span>
+                                    </label>
+                                    <label>
+                                        <input
+                                        type="radio"
+                                        value="[region]=new_england"
+                                        checked={this.props.activeFilters.includes("RegionFilter") && checkParamValues(this.props.params, "RegionFilter", "[region]=new_england")}
+                                        onChange={this.handleChange}
+                                        />
+                                        <span>New England</span>
+                                    </label>
+                                </div>                                    
+                                
+                            
+                        </form>
+                     
+                        
+                    </div>
+                </span>
+                        
+                    
+            </div> 
+        </span> : null }                       
                 </div>
             </Aux>
             )

@@ -14,7 +14,6 @@ class PopulationFilter extends React.Component {
 
         this.setPopulationPopupRef = this.setPopulationPopupRef.bind(this);
         this.setPopulationButtonRef = this.setPopulationButtonRef.bind(this);
-        this.setPopulationXRef = this.setPopulationXRef.bind(this);
 
     }
 
@@ -37,9 +36,7 @@ class PopulationFilter extends React.Component {
         this.populationButtonRef = node;
       }
 
-      setPopulationXRef(node) {
-        this.populationXRef = node;
-      }
+   
 
       handleOuterClick(event) {
         if (this.populationPopupRef && !this.populationPopupRef.contains(event.target) && !this.populationButtonRef.contains(event.target)) {
@@ -56,15 +53,9 @@ class PopulationFilter extends React.Component {
     }
 
     handleClick(event){
-        if (this.props.activeFilters.includes("PopulationFilter") && this.populationXRef.contains(event.target)){
-            this.setState({
-                populationPopup: false
-            })
-        } else {
             this.setState({
                 populationPopup: !this.state.populationPopup
             })
-        }
 
     }
 
@@ -90,8 +81,8 @@ class PopulationFilter extends React.Component {
                             <img src={require('../../assets/images/bluepop.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greypop.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("PopulationFilter") ?
-                            <span>&nbsp;&nbsp;<span className="bold">{POPULATIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "PopulationFilter"})[0])[0]]}</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm" ref={this.setPopulationXRef}/></span></span>
-                            : <span>&nbsp;Pop Size</span>}<label htmlFor="Population"></label>
+                            <span>&nbsp;&nbsp;<span className="bold">{POPULATIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "PopulationFilter"})[0])[0]]}</span><span onClick={this.handleClear}></span></span>
+                            : <span>&nbsp;Pop Size</span>}&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="Population"></label>
                     </div>
                     {this.state.populationPopup ?
                     <span> 

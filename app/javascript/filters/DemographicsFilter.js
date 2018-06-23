@@ -58,16 +58,9 @@ class DemographicsFilter extends React.Component {
     }
 
     handleClick(event){
-        if (this.props.activeFilters.includes("DemographicsFilter") && this.demographicsXRef.contains(event.target)){
-            this.setState({
-                demographicsPopup: false
-            })
-        } else {
             this.setState({
                 demographicsPopup: !this.state.demographicsPopup
             })
-        }
-
     }
 
 
@@ -104,9 +97,7 @@ class DemographicsFilter extends React.Component {
                         {findOne(filterListStrings, this.props.activeFilters) ? 
                             <img src={require('../../assets/images/statsblue.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/statsgrey.png')} className="filter-icon"/>}
-                        {this.props.activeFilters.includes("DemographicsFilter") === true ?
-                            <span>&nbsp;&nbsp;<span className="bold">{REGIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "DemographicsFilter"})[0])[0].split("&")[0].split("=").pop()]}</span></span>
-                            : <span>&nbsp;Pop Stats</span>}<label htmlFor="Demographics"></label>
+                        <span>&nbsp;Pop Stats</span>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="Demographics"></label>
                     </div>
                     {this.state.demographicsPopup ?
                     <span> 
