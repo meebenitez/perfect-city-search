@@ -2,6 +2,8 @@
 import React from 'react';
 import Aux from '../components/Aux'
 import AgeFilter from './AgeFilter'
+import {checkDivClass} from '../components/utils/filterFunctions'
+
 
 class DemographicsFilter extends React.Component {
     constructor(props){
@@ -83,6 +85,7 @@ class DemographicsFilter extends React.Component {
                 return false
             }
         }
+
         const filterList = [
             AgeFilter
         ]
@@ -93,7 +96,7 @@ class DemographicsFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={this.props.activeFilters.includes("DemographicsFilter")  ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setDemographicsButtonRef}>
+                    <div className={checkDivClass(this.props.activeFilters, "DemographicsFilter", this.state.demographicsPopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setDemographicsButtonRef}>
                         {this.props.activeFilters.includes("DemographicsFilter") ? 
                             <img src={require('../../assets/images/statsblue.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/statsgrey.png')} className="filter-icon"/>}

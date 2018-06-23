@@ -288,6 +288,10 @@
     .bold {
       font-weight: bold;
     }
+
+    .underline {
+      text-decoration: underline;
+    }
     
     .container {
       position: relative;
@@ -852,6 +856,10 @@
       width: 215px;
     }
 
+    .demographics-div{
+      width: 400px;
+    }
+
     .home-value-div{
       width: 230px;
     }
@@ -879,6 +887,11 @@
       background-color: #f5f7f7;
     }
 
+    .blue-border {
+      border-width: 1px;
+      border-color: #88cfff;
+    }
+
     .filter-off:hover {
       border-color:  #88cfff;
     }
@@ -890,6 +903,45 @@
       background-color: rgba(136, 207, 255, .5);
       z-index: 1000;
     }
+
+    /* RADIO BUTTON STYLING*/
+
+    .filter-button {
+      margin:4px;
+      float:left;
+    }
+
+    .filter-button label {
+      float:left;
+      width:auto;
+      margin-right:3px;
+      background-color: rgb(243, 245, 245);
+      border:1px solid rgb(36, 35, 35);
+      overflow:none;
+      border-radius: 5px;
+      font-weight: normal;
+         
+    }
+
+    .filter-button label span {
+      text-align:center;
+      font-size: 12px;
+      padding:5px;
+      display:block;
+  }
+  
+  .filter-button label input {
+      position:absolute;
+      top:-400px;
+  }
+  
+  .filter-button input:checked + span {
+      border-radius: 5px;
+      background-color: rgb(66, 178, 206);
+      font-weight: bold;
+  }
+
+  
 
     /*
     .filter-div:after {
