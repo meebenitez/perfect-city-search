@@ -58,7 +58,8 @@ const initialState = {
     mapZoom: 4,
     mapCenter: {lat: 38.00, lng: -96.5556},
     highlightedCity: null,
-    extendedFiltersPopup: false 
+    extendedFiltersPopup: false,
+    key: ""
 }
 
 const cityreducer = (state = initialState, action) => {
@@ -180,6 +181,11 @@ const cityreducer = (state = initialState, action) => {
                     currentRoute: "",
                     page: 1
                 }
+            }
+        case 'UPDATE_KEY':
+            return {
+                ...state,
+                key: action.key                
             }
             
         case 'UPDATE_CITIES':

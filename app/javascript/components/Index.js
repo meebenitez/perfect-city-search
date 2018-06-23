@@ -22,7 +22,7 @@ const Index = (props) => {
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), 
         applyMiddleware(thunk));
         return (
-            <Provider store={store}><App googleApiKey={props.googleApiKey} /></Provider>
+            <Provider store={store}><App googleApiKey={props.googleApiKey} citiesKey={props.citiesApiKey} /></Provider>
         )
 
         store.subscribe(() => {

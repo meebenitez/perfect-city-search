@@ -20,7 +20,7 @@ class App extends React.Component {
 
   componentDidMount(){
     this.props.checkCurrentUser()
-    this.props.initialFetch(window.location.hash, location.pathname)
+    this.props.initialFetch(window.location.hash, location.pathname, this.props.citiesKey)
   }
 
 
@@ -118,7 +118,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFilterChange: (filter, value, hash) => dispatch(cityActions.filterChange(filter, value, hash)),
-    initialFetch: (hash, route) => dispatch(cityActions.initialFetch(hash,route)),
+    initialFetch: (hash, route, key) => dispatch(cityActions.initialFetch(hash,route, key)),
     heartedFetch: () => dispatch(cityActions.heartedFetch()),
     heartClick: (city) => dispatch(cityActions.heartClick(city)),
     unheartClick: (city) => dispatch(cityActions.unheartClick(city)),
@@ -139,9 +139,11 @@ const mapDispatchToProps = dispatch => {
     onSearch: (value) => dispatch(cityActions.onSearch(value)),
     changeZoom: () => dispatch(cityActions.changeZoom()),
     nameHover: (city) => dispatch(cityActions.nameHover(city)),
-    toggleExtendedFiltersPopup: () => dispatch(cityActions.toggleExtendedFiltersPopup())
+    toggleExtendedFiltersPopup: () => dispatch(cityActions.toggleExtendedFiltersPopup()),
   }
 }
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps,)(App);
 
