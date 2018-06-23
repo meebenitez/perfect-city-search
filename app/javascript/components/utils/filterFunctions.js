@@ -27,6 +27,16 @@ export function checkDivClass (activeFilters, filterName, popupValue) {
     }
 } 
 
+export function checkDivClassGroup (activeFilters, filterArray, popupValue) {
+    if (findOne(filterArray, activeFilters)) {
+        return "filter-div filter-on tooltip-top"
+    } else if (popupValue) {
+        return "filter-div filter-on blue-border"
+    } else {
+        return "filter-div filter-off"
+    }
+} 
+
 export function checkParamValues(params, filterName, filterValue){
     return Object.values(params.filter((filter) => {return Object.keys(filter)[0] === filterName})[0])[0] === filterValue
 }

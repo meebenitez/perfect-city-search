@@ -2,7 +2,7 @@
 import React from 'react';
 import Aux from '../components/Aux'
 import AgeFilter from './AgeFilter'
-import {checkDivClass, findOne} from '../components/utils/filterFunctions'
+import {checkDivClassGroup, findOne} from '../components/utils/filterFunctions'
 
 
 class DemographicsFilter extends React.Component {
@@ -100,7 +100,7 @@ class DemographicsFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={checkDivClass(this.props.activeFilters, "DemographicsFilter", this.state.demographicsPopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setDemographicsButtonRef}>
+                    <div className={checkDivClassGroup(this.props.activeFilters, filterListStrings, this.state.demographicsPopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setDemographicsButtonRef}>
                         {findOne(filterListStrings, this.props.activeFilters) ? 
                             <img src={require('../../assets/images/statsblue.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/statsgrey.png')} className="filter-icon"/>}
