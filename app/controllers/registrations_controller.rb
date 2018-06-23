@@ -1,3 +1,4 @@
+require 'pry'
 class RegistrationsController < Devise::RegistrationsController
 
   def create
@@ -5,8 +6,8 @@ class RegistrationsController < Devise::RegistrationsController
     if @user.save
       render json: @user
     else
-      warden.custom_failure!
-      render json: { error: 'signup error' }, status: :unprocessable_entity
+      #warden.custom_failure!
+      render json: { error: @user.errors.messages }, status: :unprocessable_entity
     end
   end
 

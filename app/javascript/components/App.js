@@ -54,6 +54,7 @@ class App extends React.Component {
                           closePopup={this.props.toggleAuthPopup} 
                           signUp={this.props.signUp} 
                           login={this.props.login}
+                          loginError={this.props.loginError}
                           logout={this.props.logout}/> : null}
                       {this.props.showCityPopup ?
                         <CityShow 
@@ -109,7 +110,8 @@ const mapStateToProps = state => {
     mapZoom: state.city.mapZoom,
     mapCenter: state.city.mapCenter,
     highlightedCity: state.city.highlightedCity,
-    extendedFiltersPopup: state.city.extendedFiltersPopup
+    extendedFiltersPopup: state.city.extendedFiltersPopup,
+    loginError: state.auth.loginError
   }
 }
 

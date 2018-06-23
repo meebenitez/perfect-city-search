@@ -3,7 +3,8 @@ import * as actionTypes from './authactions'
 
 const initialState = {
     currentUser: null,
-    showAuthPopup: false
+    showAuthPopup: false,
+    loginError: null,
     
 }
 
@@ -18,6 +19,11 @@ const authreducer = (state = initialState, action) => {
         return {
             ...state,
             showAuthPopup: action.showAuthPopup
+        }
+        case 'UPDATE_ERROR':
+        return {
+            ...state,
+            loginError: action.errorMessage
         }
         default:
             return state;

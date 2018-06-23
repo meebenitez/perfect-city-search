@@ -6,7 +6,7 @@ import {checkCurrentUser, toggleAuthPopup} from './authactions'
 export const fetchCities = () => {
     return (dispatch, getState) => {
         
-        return axios.get(`/cities?${getState().city.currentRoute}${getState().city.params !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`, { headers: {"Authorization" : `Bearer ${token}`} })
+        return axios.get(`/cities?${getState().city.currentRoute}${getState().city.params !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`, { headers: {"Authorization" : `Bearer key`} })
             .then(response => {
                 dispatch(updateCities(response.data.cities, response.data.total_count, response.data.total_pages, response.data.per_page))
             })
@@ -159,7 +159,7 @@ export const updateCities = (cities, totalCount, totalPages, perPage) => {
 
 export const heartClick = (city) => {
     return (dispatch) => {
-        axios.get(`/cities/add_heart/${city.id}`)
+        axios.get(`/cities/add_heart/${city.id}`, { headers: {"Authorization" : `Bearer key`} })
         .then(response => {
             dispatch({type: 'ADD_HEARTED', city: city})
             console.log(`hearted ${city.name}`)
@@ -174,7 +174,7 @@ export const heartClick = (city) => {
 
 export const unheartClick = (city) => {
     return (dispatch) => {
-        axios.get(`/cities/remove_heart/${city.id}`)
+        axios.get(`/cities/remove_heart/${city.id}`, { headers: {"Authorization" : `Bearer key`} })
         .then(response => {
             dispatch({type: 'REMOVE_HEARTED', city: city})
             console.log(`removed ${city.name} from hearted`)
@@ -210,7 +210,7 @@ export const grabHash = (hash) => {
 export const heartedFetch = () => {
 
     return (dispatch) => {
-        axios.get("/cities/hearted")
+        axios.get("/cities/hearted", { headers: {"Authorization" : `Bearer key`} })
         .then(response => {  
             dispatch(updateHearted(response.data))
         })

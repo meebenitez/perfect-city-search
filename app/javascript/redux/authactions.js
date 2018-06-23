@@ -44,6 +44,29 @@ export const signUp = (formData) => {
         //automatically login after signup
         .then(response => {
             dispatch(login(formData))
+            dispatch({
+                type: 'UPDATE_ERROR',
+                errorMessage: null
+            })
+        })
+        .catch(error => {
+            if (error.response.data.error.email) {
+                dispatch({
+                    type: 'UPDATE_ERROR',
+                    errorMessage: `The email address you entered ${error.response.data.error.email[0]}`
+                })
+            } else if (error.response.data.error.password){
+                dispatch({
+                    type: 'UPDATE_ERROR',
+                    errorMessage: `The password you entered ${error.response.data.error.password[0]}`
+                })
+            } else {
+                dispatch({
+                    type: 'UPDATE_ERROR',
+                    errorMessage: "There was a problem in signing you up.  Please try again!"
+                })
+            }
+            
         })
     }
     
@@ -60,6 +83,10 @@ export const login = (formData) => {
         //update the current user email once logged in
         .then(response => {
             dispatch(updateCurrentUser(formData.user.email))
+            dispatch({
+                type: 'UPDATE_ERROR',
+                errorMessage: null
+            })
         })
         //close the popup
         .then(()=> {
@@ -68,6 +95,12 @@ export const login = (formData) => {
         //grab the user's hearted cities
         .then(() => {
             dispatch(heartedFetch())
+        })
+        .catch(error => {
+            dispatch({
+                type: 'UPDATE_ERROR',
+                errorMessage: `The was a problem with your login credentials. Please try again.`
+            })
         })
     }
 }

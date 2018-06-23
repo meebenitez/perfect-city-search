@@ -40,6 +40,7 @@ class Devise extends React.Component {
                                 <br></br>
                                 <br></br>
                                 <center>
+                                    <div className="error-message">{this.props.loginError}</div>
                                     <Signup 
                                         changePage={this.changePage} 
                                         updateCurrentUser={this.props.updateCurrentUser} 
@@ -75,6 +76,7 @@ class Devise extends React.Component {
                                 <br></br>
                                 <br></br>
                                 <center>
+                                    <div className="error-message">{this.props.loginError}</div>
                                     <Login 
                                         changePage={this.changePage} 
                                         updateCurrentUser={this.props.updateCurrentUser} 
