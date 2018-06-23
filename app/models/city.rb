@@ -10,6 +10,7 @@ class City < ApplicationRecord
     scope :by_region, -> (region) { where(region: region)}
 
 
+
     class << self
         def per_page
             24

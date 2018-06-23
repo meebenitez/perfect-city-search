@@ -15,6 +15,9 @@ import HighEmploymentFilter from './HighEmploymentFilter'
 import NameSearchFilter from './NameSearchFilter'
 import FilterPopup from './FilterPopup'
 import DemographicsFilter from './DemographicsFilter'
+import HousingStatsFilter from './HousingStatsFilter'
+import EconomyFilter from './EconomyFilter'
+import MoreFilter from './MoreFilter'
 
 const FilterList = (props) => {
 
@@ -25,20 +28,24 @@ const FilterList = (props) => {
         PopularFilter,
         HeartedFilter,
         RegionFilter,
-        PopulationFilter,
         DemographicsFilter,
+        HousingStatsFilter,
+        EconomyFilter,
+        MoreFilter,
         //MedianIncomeFilter,
         //AgeFilter,
-        HomePriceFilter,
+        //HomePriceFilter,
     ] : [
         NameSearchFilter,
         PopularFilter,
         RegionFilter,
-        PopulationFilter,
         DemographicsFilter,
+        HousingStatsFilter,
+        EconomyFilter,
+        MoreFilter,
         //MedianIncomeFilter,
         //AgeFilter,
-        HomePriceFilter,
+        //HomePriceFilter,
     ]
 
     const checkActive = (filterName) => {

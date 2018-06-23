@@ -5,18 +5,18 @@ import AgeFilter from './AgeFilter'
 import {checkDivClassGroup, findOne} from '../components/utils/filterFunctions'
 
 
-class DemographicsFilter extends React.Component {
+class HousingStatsFilter extends React.Component {
     constructor(props){
         super(props)
-        this.state = {demographicsPopup:false}
+        this.state = {housingStatsPopup:false}
 
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleClear = this.handleClear.bind(this)
         this.handleOuterClick = this.handleOuterClick.bind(this)
 
-        this.setDemographicsPopupRef = this.setDemographicsPopupRef.bind(this);
-        this.setDemographicsButtonRef = this.setDemographicsButtonRef.bind(this);
+        this.setHousingStatsPopupRef = this.setHousingStatsPopupRef.bind(this);
+        this.setHousingStatsButtonRef = this.setHousingStatsButtonRef.bind(this);
     }
 
     
@@ -30,23 +30,23 @@ class DemographicsFilter extends React.Component {
     document.removeEventListener('mousedown', this.handleOuterClick);
     }
 
-    setDemographicsPopupRef(node) {
-    this.demographicsPopupRef = node;
+    setHousingStatsPopupRef(node) {
+    this.housingStatsPopupRef = node;
     }
     
-    setDemographicsButtonRef(node) {
-    this.demographicsButtonRef = node;
+    setHousingStatsButtonRef(node) {
+    this.housingStatsButtonRef = node;
     }
 
-    setDemographicsButtonRef(node) {
-        this.demographicsButtonRef = node;
+    setHousingStatsButtonRef(node) {
+        this.housingStatsButtonRef = node;
     }
 
 
     handleOuterClick(event) {
-    if (this.demographicsPopupRef && !this.demographicsPopupRef.contains(event.target) && !this.demographicsButtonRef.contains(event.target)) {
+    if (this.housingStatsPopupRef && !this.housingStatsPopupRef.contains(event.target) && !this.housingStatsButtonRef.contains(event.target)) {
         this.setState({
-            demographicsPopup: false
+            housingStatsPopup: false
         })
     }
     }
@@ -54,18 +54,18 @@ class DemographicsFilter extends React.Component {
   
 
     handleClear() {
-        this.props.onFilterChange("DemographicsFilter", "")
+        this.props.onFilterChange("HousingStatsFilter", "")
     }
 
     handleClick(event){
             this.setState({
-                demographicsPopup: !this.state.demographicsPopup
+                housingStatsPopup: !this.state.housingStatsPopup
             })
     }
 
 
     handleChange(event){
-        this.props.onFilterChange("DemographicsFilter", `[demographics]=${event.target.value}`, `demographics=${event.target.value}`)
+        this.props.onFilterChange("HousingStatsFilter", `[housingStats]=${event.target.value}`, `housingStats=${event.target.value}`)
     }
 
     
@@ -93,15 +93,15 @@ class DemographicsFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={checkDivClassGroup(this.props.activeFilters, filterListStrings, this.state.demographicsPopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setDemographicsButtonRef}>
+                    <div className={checkDivClassGroup(this.props.activeFilters, filterListStrings, this.state.housingStatsPopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setHousingStatsButtonRef}>
                         {findOne(filterListStrings, this.props.activeFilters) ? 
-                            <img src={require('../../assets/images/statsblue.png')} className="filter-icon"/> 
-                            : <img src={require('../../assets/images/statsgrey.png')} className="filter-icon"/>}
-                        <span>&nbsp;&nbsp;Population</span>&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="Demographics"></label>
+                            <img src={require('../../assets/images/bluehouse2.png')} className="filter-icon"/> 
+                            : <img src={require('../../assets/images/greyhouse2.png')} className="filter-icon"/>}
+                        <span>&nbsp;&nbsp;Housing</span>&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="HousingStats"></label>
                     </div>
-                    {this.state.demographicsPopup ?
+                    {this.state.housingStatsPopup ?
                     <span> 
-                        <div className="filter-popup-div demographics-div" ref={this.setDemographicsPopupRef}>
+                        <div className="filter-popup-div demographics-div" ref={this.setHousingStatsPopupRef}>
                             {renderFilters}
                         </div>
                     </span> : null }                       
@@ -111,4 +111,4 @@ class DemographicsFilter extends React.Component {
         }
 }
 
-export default DemographicsFilter;
+export default HousingStatsFilter;

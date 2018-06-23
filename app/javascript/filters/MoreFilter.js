@@ -5,18 +5,18 @@ import AgeFilter from './AgeFilter'
 import {checkDivClassGroup, findOne} from '../components/utils/filterFunctions'
 
 
-class DemographicsFilter extends React.Component {
+class MoreFilter extends React.Component {
     constructor(props){
         super(props)
-        this.state = {demographicsPopup:false}
+        this.state = {morePopup:false}
 
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleClear = this.handleClear.bind(this)
         this.handleOuterClick = this.handleOuterClick.bind(this)
 
-        this.setDemographicsPopupRef = this.setDemographicsPopupRef.bind(this);
-        this.setDemographicsButtonRef = this.setDemographicsButtonRef.bind(this);
+        this.setMorePopupRef = this.setMorePopupRef.bind(this);
+        this.setMoreButtonRef = this.setMoreButtonRef.bind(this);
     }
 
     
@@ -30,23 +30,23 @@ class DemographicsFilter extends React.Component {
     document.removeEventListener('mousedown', this.handleOuterClick);
     }
 
-    setDemographicsPopupRef(node) {
-    this.demographicsPopupRef = node;
+    setMorePopupRef(node) {
+    this.morePopupRef = node;
     }
     
-    setDemographicsButtonRef(node) {
-    this.demographicsButtonRef = node;
+    setMoreButtonRef(node) {
+    this.moreButtonRef = node;
     }
 
-    setDemographicsButtonRef(node) {
-        this.demographicsButtonRef = node;
+    setMoreButtonRef(node) {
+        this.moreButtonRef = node;
     }
 
 
     handleOuterClick(event) {
-    if (this.demographicsPopupRef && !this.demographicsPopupRef.contains(event.target) && !this.demographicsButtonRef.contains(event.target)) {
+    if (this.morePopupRef && !this.morePopupRef.contains(event.target) && !this.moreButtonRef.contains(event.target)) {
         this.setState({
-            demographicsPopup: false
+            morePopup: false
         })
     }
     }
@@ -54,18 +54,18 @@ class DemographicsFilter extends React.Component {
   
 
     handleClear() {
-        this.props.onFilterChange("DemographicsFilter", "")
+        this.props.onFilterChange("MoreFilter", "")
     }
 
     handleClick(event){
             this.setState({
-                demographicsPopup: !this.state.demographicsPopup
+                morePopup: !this.state.morePopup
             })
     }
 
 
     handleChange(event){
-        this.props.onFilterChange("DemographicsFilter", `[demographics]=${event.target.value}`, `demographics=${event.target.value}`)
+        this.props.onFilterChange("MoreFilter", `[more]=${event.target.value}`, `more=${event.target.value}`)
     }
 
     
@@ -93,15 +93,15 @@ class DemographicsFilter extends React.Component {
         return (
             <Aux>
                 <div className="filter-popup-parent">
-                    <div className={checkDivClassGroup(this.props.activeFilters, filterListStrings, this.state.demographicsPopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setDemographicsButtonRef}>
+                    <div className={checkDivClassGroup(this.props.activeFilters, filterListStrings, this.state.morePopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setMoreButtonRef}>
                         {findOne(filterListStrings, this.props.activeFilters) ? 
-                            <img src={require('../../assets/images/statsblue.png')} className="filter-icon"/> 
-                            : <img src={require('../../assets/images/statsgrey.png')} className="filter-icon"/>}
-                        <span>&nbsp;&nbsp;Population</span>&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="Demographics"></label>
+                            <img src={require('../../assets/images/bluemore.png')} className="filter-icon"/> 
+                            : <img src={require('../../assets/images/greymore.png')} className="filter-icon"/>}
+                        <span>&nbsp;&nbsp;More</span>&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="More"></label>
                     </div>
-                    {this.state.demographicsPopup ?
+                    {this.state.morePopup ?
                     <span> 
-                        <div className="filter-popup-div demographics-div" ref={this.setDemographicsPopupRef}>
+                        <div className="filter-popup-div demographics-div" ref={this.setMorePopupRef}>
                             {renderFilters}
                         </div>
                     </span> : null }                       
@@ -111,4 +111,4 @@ class DemographicsFilter extends React.Component {
         }
 }
 
-export default DemographicsFilter;
+export default MoreFilter;

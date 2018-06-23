@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180622195514) do
+ActiveRecord::Schema.define(version: 20180623203023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,26 @@ ActiveRecord::Schema.define(version: 20180622195514) do
     t.float "dem_vote_perc"
     t.float "gop_vote_perc"
     t.float "ind_vote_perc"
+    t.float "vets_perc"
+    t.float "poverty_perc"
+    t.float "education_perc"
+    t.float "homes2_occupied_perc"
+    t.float "homes2_vacant_perc"
+    t.float "homes_renter_occupied_perc"
+    t.float "homes_owner_occupied_perc"
+    t.float "homes_solar_perc"
+    t.float "commuters_drivers_perc"
+    t.float "commuters_carpoolers_perc"
+    t.float "commuters_pubtrans_perc"
+    t.float "commuters_walkers_perc"
+    t.float "commuters_tele_perc"
+    t.float "pop_white_perc"
+    t.float "pop_black_perc"
+    t.float "pop_native_perc"
+    t.float "pop_asian_perc"
+    t.float "pop_pacific_perc"
+    t.float "pop_mixed_race_perc"
+    t.float "pop_other_race_perc"
   end
 
   create_table "cities_users", force: :cascade do |t|

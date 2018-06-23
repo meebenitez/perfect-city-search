@@ -89,7 +89,7 @@ class RegionFilter extends React.Component {
                             : <img src={require('../../assets/images/greyusmap.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("RegionFilter") === true ?
                             <span>&nbsp;&nbsp;<span className="bold">{REGIONMAPPING[Object.values(this.props.params.filter((filter) => {return Object.keys(filter)[0] === "RegionFilter"})[0])[0].split("&")[0].split("=").pop()]}</span></span>
-                            : <span>&nbsp;Region</span>}&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="Region"></label>
+                            : <span>&nbsp;&nbsp;Region</span>}&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="Region"></label>
                     </div>
                     {this.state.regionPopup ?
                     <span> 
