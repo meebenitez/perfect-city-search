@@ -23,7 +23,7 @@ const City = props => {
         WebkitTransition: 'all', // note the capital 'W' here
         msTransition: 'all', // 'ms' is the only lowercase vendor prefix
         borderRadius: '10px',
-        border: '1px solid rgba(206, 205, 205, 0.10)'
+        border: '1px solid #929494'
     };
        
 
@@ -82,23 +82,3 @@ const City = props => {
 
 export default City;
 
-
-/*
-<div className="info-container">
-                        <div className="city-name-container">
-                            <Link to="#" onClick= {() => props.showSingleCity()} onMouseEnter={() => props.nameHover(props.city)} ><h3>{props.listID}. {props.city.name}, {props.city.short_state.toUpperCase()}</h3></Link>  
-                            { (props.city.popularity >= 20) ? <img src={require('../../assets/images/star.png')} className="stat-icon-lg"/> : null }
-                        </div>
-                        <div className="stat-container"><span style={{fontWeight: "bold"}}>{formatRegion(props.city.region)}</span> {formatPop(props.city.population)} residents | 👥 {props.city.median_age} median age | 💵 {formatFigure(props.city.median_household_income)} median income </div>
-                        <div className="stat-container"><span><img src={require('../../assets/images/house_icon.png')} className="stat-icon-sm"/>{formatFigure(props.city.median_property_value)} median home price</span> | {formatIncomeHomeCompare(props.city.median_household_income, props.city.median_property_value)} home prices vs incomes</div>
-                    </div>
-
-                    <div className="heart-container">
-                        <HeartButton 
-                            currentUser={props.currentUser} 
-                            heartedCities={props.heartedCities} 
-                            unheartClick={props.unheartClick} 
-                            heartClick={props.heartClick} 
-                            toggleAuthPopup={props.toggleAuthPopup} 
-                            city={props.city}/>
-                    </div>*/

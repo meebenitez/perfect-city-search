@@ -30,7 +30,7 @@ class RentOwnFilter extends React.Component {
 
                         <span> 
                         <div className="filter-nested">
-                            <span className="underline">Owners vs Renters</span>
+                            <span className="underline">Own vs Rent</span>
                             <div className="input-filter">
                                 <form>
                                     <div className="filter-button">

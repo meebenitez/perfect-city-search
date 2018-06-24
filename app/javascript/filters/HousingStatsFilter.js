@@ -104,7 +104,7 @@ class HousingStatsFilter extends React.Component {
                     </div>
                     {this.state.housingStatsPopup ?
                     <span> 
-                        <div className="filter-popup-div demographics-div" ref={this.setHousingStatsPopupRef}>
+                        <div className="filter-popup-div housing-div" ref={this.setHousingStatsPopupRef}>
                             {renderFilters}
                         </div>
                     </span> : null }                       
