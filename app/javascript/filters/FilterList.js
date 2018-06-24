@@ -56,9 +56,6 @@ const FilterList = (props) => {
         }
     }
 
-
-
-
     const renderFilters = filterList.map( (Filter) => {
         return <Filter activeFilters={props.activeFilters} onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)} searchTerm={props.searchTerm} currentUser={props.currentUser} toggleAuthPopup={props.toggleAuthPopup}/>
     });
@@ -66,10 +63,12 @@ const FilterList = (props) => {
 
     return (
     <div className="filter-container">
-        {renderFilters}  .. <span onClick={props.toggleExtendedFiltersPopup}>toggle filters</span>
+        {renderFilters} 
     </div>
     )
 }
 
 
 export default FilterList;
+
+// .. <span onClick={props.toggleExtendedFiltersPopup}>toggle filters</span>

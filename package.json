@@ -9,6 +9,7 @@
     "google-map-react": "^1.0.3",
     "google-maps-react": "^2.0.2",
     "prop-types": "^15.6.0",
+    "rc-slider": "^8.6.1",
     "react": "^16.2.0",
     "react-autosuggest": "^9.3.4",
     "react-dom": "^16.2.0",
@@ -19,10 +20,12 @@
     "react-responsive": "^4.1.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "react-slider": "^0.11.2",
     "react-waypoint": "^8.0.1",
     "react_ujs": "^2.4.4",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "style-loader": "^0.21.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.11.1"

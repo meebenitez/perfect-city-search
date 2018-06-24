@@ -241,7 +241,7 @@
     .signup {
       padding: 0px;
       border: white 2px solid;
-      border-radius: 10px;
+      border-radius: 5px;
     }
 
 
@@ -421,7 +421,7 @@
 
     .intro-container{
       font-size: 15px;
-      border-radius: 10px;
+      border-radius: 5px;
       padding: 8px;
       border:1px solid rgb(177, 174, 174);
     }
@@ -494,7 +494,7 @@
       bottom: 30%;
       margin: auto;
       background: white;
-      border-radius: 10px;
+      border-radius: 5px;
     }
 
     .extended-filters-popup {
@@ -518,7 +518,7 @@
       bottom: 30%;
       margin: auto;
       background: white;
-      border-radius: 10px;
+      border-radius: 5px;
     }
 
     
@@ -544,7 +544,7 @@
       bottom: 10%;
       margin: auto;
       background: white;
-      border-radius: 10px;
+      border-radius: 5px;
     }
 
     .map-marker {
@@ -757,7 +757,7 @@
       font-weight: bold;
       display:inline;
       background-color: rgba(73, 73, 73, 0.5);
-      border-radius: 10px;
+      border-radius: 5px;
       text-align: center;
     }
 
@@ -798,13 +798,13 @@
       text-align: center;
       padding-top: 5px;
       padding-bottom: 5px;
-      padding-right: 10px;
+      padding-right:10px;
       padding-left: 10px;
-      margin-left: 10px;
-      margin-right: 5px;
+      margin-left: 5px;
+      margin-right: 0px;
       margin-bottom: 5px;
       font-size: 14px;
-      border-radius:10px;
+      border-radius:5px;
       user-select: none;
       z-index: 1000;
     }
@@ -817,6 +817,13 @@
       width: auto;
       max-height: 35px;
     }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
 
     .source {
       font-size: 12px;
@@ -843,7 +850,7 @@
       padding-right: 15px;
       padding-top: 20px;
       padding-bottom: 20px;
-      border-radius: 10px;
+      border-radius: 5px;
       cursor: initial;
       z-index: 1000;
       &.open {
@@ -1127,7 +1134,7 @@
 
     .intro {
       padding: 5px;
-      border-radius: 10px;
+      border-radius: 5px;
       margin-bottom: 10px;
     }
 
@@ -1209,7 +1216,7 @@
       height: 35px;
       border: 1px solid #ccc;
       outline: 0;
-      border-radius: 10px;
+      border-radius: 5px;
     }
     .search-box:focus {
       border: 1px solid #88cfff;
