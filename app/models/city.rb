@@ -14,7 +14,7 @@ class City < ApplicationRecord
     class << self
 
         def occupant_majority(type)
-            if type = "owner"
+            if type == "owner"
                 return where("homes_owner_occupied_perc >= homes_renter_occupied_perc")
             else
                 return where("homes_renter_occupied_perc >= homes_owner_occupied_perc")

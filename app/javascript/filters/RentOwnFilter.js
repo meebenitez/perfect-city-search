@@ -19,7 +19,7 @@ class RentOwnFilter extends React.Component {
 
 
     handleChange(event){
-        this.props.onFilterChange("RentOwnFilter", `${event.target.value}`, `majority-home-occupants=${event.target.value.split("[majority_occupant]=").join("")}`)
+        this.props.onFilterChange("RentOwnFilter", `${event.target.value}`, `own-vs-rent=${event.target.value.split("[majority_occupant]=").join("")}`)
     }
 
     render(){ 
@@ -52,7 +52,7 @@ class RentOwnFilter extends React.Component {
                                             checked={this.props.activeFilters.includes("RentOwnFilter") && checkParamValues(this.props.params, "RentOwnFilter", "[majority_occupant]=owner")}
                                             onChange={this.handleChange}
                                             />
-                                            <span>Majority Owners</span>
+                                            <span>Mostly Owners</span>
                                         </label>
                                         <label>    
                                             <input
@@ -62,7 +62,7 @@ class RentOwnFilter extends React.Component {
                                             checked={this.props.activeFilters.includes("RentOwnFilter") && checkParamValues(this.props.params, "RentOwnFilter", "[majority_occupant]=renter")}
                                             onChange={this.handleChange}
                                             />
-                                            <span>Majority Renters</span>
+                                            <span>Mostly Renters</span>
                                         </label>
                                     </div>                                    
                                 </form>

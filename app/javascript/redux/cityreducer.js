@@ -21,7 +21,8 @@ const FILTERS = [
     "population": "[pop_from]=&[pop_to]=",
     "median-age":"[age_from]=&[age_to]=",
     "popular":"[popular]",
-    "hearted":"[hearted]"
+    "hearted":"[hearted]",
+    "own-vs-rent": "[majority_occupant]="
 
 }
 
@@ -34,7 +35,8 @@ const PARAMMAP = {
         "population": "PopulationFilter",
         "median-age": "AgeFilter",
         "popular": "PopularFilter",
-        "hearted": "HeartedFilter"
+        "hearted": "HeartedFilter",
+        "own-vs-rent": "RentOwnFilter"
     }
          
     
