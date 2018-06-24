@@ -95,7 +95,10 @@ class AgeFilter extends React.Component {
                                         </label>
                                     </div>                                    
                                 </form>
-                            </div>                     
+                            </div>
+                            <br></br>
+                            <br></br>
+                            <br></br>                     
                 </Aux>
             )
         }
