@@ -29,75 +29,75 @@ class AgeFilter extends React.Component {
 
         return (
             <Aux>
-                <div >
-                    <span className="underline">Median Age</span>
-                    <br></br>
-                    <form>
-
-                            <div className="filter-button">
-                                <label>
-                                    <input
-                                    type="radio"
-                                    value=""
-                                    name="toggle"
-                                    checked={!this.props.activeFilters.includes("AgeFilter")}
-                                    onChange={this.handleClear}
-                                    />
-                                    <span>Any</span>
-                                </label>
-                                <label>
-                                    <input
-                                    type="radio"
-                                    value="[age_from]=0&[age_to]=20"
-                                    name="toggle"
-                                    checked={this.props.activeFilters.includes("AgeFilter") && checkParamValues(this.props.params, "AgeFilter", "[age_from]=0&[age_to]=20")}
-                                    onChange={this.handleChange}
-                                    />
-                                    <span>Gen Z</span>
-                                </label>
-                                <label>    
-                                    <input
-                                    type="radio"
-                                    value="[age_from]=21&[age_to]=39"
-                                    name="toggle"
-                                    checked={this.props.activeFilters.includes("AgeFilter") && checkParamValues(this.props.params, "AgeFilter", "[age_from]=21&[age_to]=39")}
-                                    onChange={this.handleChange}
-                                    />
-                                    <span>Millenial</span>
-                                </label>
-                                <label>
-                                    <input
-                                    type="radio"
-                                    value="[age_from]=40&[age_to]=51"
-                                    checked={this.props.activeFilters.includes("AgeFilter") && checkParamValues(this.props.params, "AgeFilter", "[age_from]=40&[age_to]=51")}
-                                    onChange={this.handleChange}
-                                    />
-                                    <span>Gen X</span>
-                                </label>
-                                <label>
-                                    <input
-                                    type="radio"
-                                    value="[age_from]=52&[age_to]=70"
-                                    checked={this.props.activeFilters.includes("AgeFilter") && checkParamValues(this.props.params, "AgeFilter", "[age_from]=52&[age_to]=70")}
-                                    onChange={this.handleChange}
-                                    />
-                                    <span>Baby Boomer</span>
-                                </label>
-                                <label>
-                                    <input
-                                    type="radio"
-                                    value="[age_from]=71&[age_to]=150"
-                                    checked={this.props.activeFilters.includes("AgeFilter") && checkParamValues(this.props.params, "AgeFilter", "[age_from]=71&[age_to]=150")}
-                                    onChange={this.handleChange}
-                                    />
-                                    <span>Silent Age</span>
-                                </label>
-                            </div>                                    
-                            
-                        
-                        </form>
+          
+                    <div className="underline">Median Age</div>
                     
-                    </div>                     
+                        <div className="input-filter">
+                            <form>
+
+                                    <div className="filter-button">
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            value=""
+                                            name="toggle"
+                                            checked={!this.props.activeFilters.includes("AgeFilter")}
+                                            onChange={this.handleClear}
+                                            />
+                                            <span>Any</span>
+                                        </label>
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            value="[age_from]=0&[age_to]=20"
+                                            name="toggle"
+                                            checked={this.props.activeFilters.includes("AgeFilter") && checkParamValues(this.props.params, "AgeFilter", "[age_from]=0&[age_to]=20")}
+                                            onChange={this.handleChange}
+                                            />
+                                            <span>Gen Z</span>
+                                        </label>
+                                        <label>    
+                                            <input
+                                            type="radio"
+                                            value="[age_from]=21&[age_to]=39"
+                                            name="toggle"
+                                            checked={this.props.activeFilters.includes("AgeFilter") && checkParamValues(this.props.params, "AgeFilter", "[age_from]=21&[age_to]=39")}
+                                            onChange={this.handleChange}
+                                            />
+                                            <span>Millenial</span>
+                                        </label>
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            value="[age_from]=40&[age_to]=51"
+                                            checked={this.props.activeFilters.includes("AgeFilter") && checkParamValues(this.props.params, "AgeFilter", "[age_from]=40&[age_to]=51")}
+                                            onChange={this.handleChange}
+                                            />
+                                            <span>Gen X</span>
+                                        </label>
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            value="[age_from]=52&[age_to]=70"
+                                            checked={this.props.activeFilters.includes("AgeFilter") && checkParamValues(this.props.params, "AgeFilter", "[age_from]=52&[age_to]=70")}
+                                            onChange={this.handleChange}
+                                            />
+                                            <span>Baby Boomer</span>
+                                        </label>
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            value="[age_from]=71&[age_to]=150"
+                                            checked={this.props.activeFilters.includes("AgeFilter") && checkParamValues(this.props.params, "AgeFilter", "[age_from]=71&[age_to]=150")}
+                                            onChange={this.handleChange}
+                                            />
+                                            <span>Silent Age</span>
+                                        </label>
+                                    </div>                                    
+                                    
+                                
+                                </form>
+                            </div>                     
                 </Aux>
             )
         }

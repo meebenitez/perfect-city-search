@@ -212,6 +212,7 @@
     .input-filter {
       vertical-align: top;
       display: inline-block;
+      margin: 5px;
     }
 
     .input-filter-minmax {
@@ -785,10 +786,6 @@
     .error-message {
       color: red;
       font-size: 15px;
-    }
-
-    .filter-nested {
-      margin-bottom: 30px;
     }
 
     .filter-div{

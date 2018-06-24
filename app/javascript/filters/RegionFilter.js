@@ -97,9 +97,9 @@ class RegionFilter extends React.Component {
                         
                     <span> 
                     <div>
-                        <span className="underline">Region</span>
-                        <br></br>
-                        <form>
+                        <div className="underline">Region</div>
+                        <div className="input-filter">
+                            <form>
 
                                 <div className="filter-button">
                                     <label>
@@ -196,9 +196,10 @@ class RegionFilter extends React.Component {
                                         <span>New England</span>
                                     </label>
                                 </div>                                    
-                                
+                            
                             
                         </form>
+                        </div>
                      
                         
                     </div>
