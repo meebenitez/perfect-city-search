@@ -53,6 +53,10 @@ class HomePriceFilter extends React.Component {
                     </span>
                     <br></br>
                     <span className="average">US Average: $215,600</span>
+                    <br></br>
+                    <br></br>   
+                    <br></br>                         
+
                 
             </Aux>
             )

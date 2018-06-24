@@ -12,6 +12,15 @@ class City < ApplicationRecord
     scope :by_renter_majority, -> where{"homes_renter_occupied_perc >= homes_owner_occupied_perc"}
 
     class << self
+
+        def occupant_majority(type)
+            if type = "owner"
+                return where("homes_owner_occupied_perc >= homes_renter_occupied_perc")
+            else
+                return where("homes_renter_occupied_perc >= homes_owner_occupied_perc")
+            end
+        end
+
         def per_page
             24
         end

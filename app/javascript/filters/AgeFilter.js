@@ -94,8 +94,6 @@ class AgeFilter extends React.Component {
                                             <span>Silent Age</span>
                                         </label>
                                     </div>                                    
-                                    
-                                
                                 </form>
                             </div>                     
                 </Aux>

@@ -19,6 +19,9 @@ class CitiesController < ApplicationController
         @cities = @cities.by_median_income(params[:income_from]) if params[:income_from].present?
         @cities = @cities.where("LOWER(name) LIKE ?", "#{params[:term].downcase}%") if params[:term].present?
         @cities = @cities.where("popularity > ?", 25) if params[:popular].present?
+        @cities = @cities.occupant_majority(params[:majority_occupant]) if params[:majority_occupant].present?
+        #@cities = @cities.by_owner_majority(params[:maj_owner]) if params[:maj_owner].present?
+        #@cities = @cities.by_renter_majority(params[:maj_renter]) if params[:maj_renter].present?
         #@cities = @cities.where("median_property_value <= ?", params[:home_value]) if params[:home_value].present?
         #@cities = @cities.where("median_household_income >= ?", params[:income]) if params[:income].present?
         @cities = @cities.order(popularity: :desc).page(params[:page])

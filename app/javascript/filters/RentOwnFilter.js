@@ -2,7 +2,7 @@ import React from 'react';
 import Aux from '../components/Aux'
 import {withCommas, checkParamValues, checkDivClass} from '../components/utils/filterFunctions'
 
-class PopulationFilter extends React.Component {
+class RentOwnFilter extends React.Component {
     constructor(props){
         super(props)
 
@@ -14,12 +14,12 @@ class PopulationFilter extends React.Component {
    
 
     handleClear() {
-        this.props.onFilterChange("PopulationFilter", "")
+        this.props.onFilterChange("RentOwnFilter", "")
     }
 
 
     handleChange(event){
-        this.props.onFilterChange("PopulationFilter", `${event.target.value}`, `population=${event.target.value.split("[pop_from]=").join("").split("&[pop_to]=")[0]}to${event.target.value.split("[pop_from]=").join("").split("&[pop_to]=")[1]}`)
+        this.props.onFilterChange("RentOwnFilter", `${event.target.value}`, `majority-home-occupants=${event.target.value.split("[majority_occupant]=").join("")}`)
     }
 
     render(){ 
@@ -30,17 +30,16 @@ class PopulationFilter extends React.Component {
 
                         <span> 
                         <div className="filter-nested">
-                            <span className="underline">Number of Residents</span>
-                            <br></br>
-                            <form>
-
+                            <span className="underline">Owners vs Renters</span>
+                            <div className="input-filter">
+                                <form>
                                     <div className="filter-button">
                                         <label>
                                             <input
                                             type="radio"
                                             value=""
                                             name="toggle"
-                                            checked={!this.props.activeFilters.includes("PopulationFilter")}
+                                            checked={!this.props.activeFilters.includes("RentOwnFilter")}
                                             onChange={this.handleClear}
                                             />
                                             <span>Any</span>
@@ -48,54 +47,26 @@ class PopulationFilter extends React.Component {
                                         <label>
                                             <input
                                             type="radio"
-                                            value="[pop_from]=400000&[pop_to]=100000000"
+                                            value="[majority_occupant]=owner"
                                             name="toggle"
-                                            checked={this.props.activeFilters.includes("PopulationFilter") && checkParamValues(this.props.params, "PopulationFilter", "[pop_from]=400000&[pop_to]=100000000")}
+                                            checked={this.props.activeFilters.includes("RentOwnFilter") && checkParamValues(this.props.params, "RentOwnFilter", "[majority_occupant]=owner")}
                                             onChange={this.handleChange}
                                             />
-                                            <span>Large (400K to 2M+)</span>
+                                            <span>Majority Owners</span>
                                         </label>
                                         <label>    
                                             <input
                                             type="radio"
-                                            value="[pop_from]=50000&[pop_to]=400000"
+                                            value="[majority_occupant]=renter"
                                             name="toggle"
-                                            checked={this.props.activeFilters.includes("PopulationFilter") && checkParamValues(this.props.params, "PopulationFilter", "[pop_from]=50000&[pop_to]=400000")}
+                                            checked={this.props.activeFilters.includes("RentOwnFilter") && checkParamValues(this.props.params, "RentOwnFilter", "[majority_occupant]=renter")}
                                             onChange={this.handleChange}
                                             />
-                                            <span>Medium (50K to 400K)</span>
-                                        </label>
-                                        <label>
-                                            <input
-                                            type="radio"
-                                            value="[pop_from]=10000&[pop_to]=50000"
-                                            checked={this.props.activeFilters.includes("PopulationFilter") && checkParamValues(this.props.params, "PopulationFilter", "[pop_from]=10000&[pop_to]=50000")}
-                                            onChange={this.handleChange}
-                                            />
-                                            <span>Small (10K to 50K)</span>
-                                        </label>
-                                        <label>
-                                            <input
-                                            type="radio"
-                                            value="[pop_from]=1000&[pop_to]=10000"
-                                            checked={this.props.activeFilters.includes("PopulationFilter") && checkParamValues(this.props.params, "PopulationFilter", "[pop_from]=1000&[pop_to]=10000")}
-                                            onChange={this.handleChange}
-                                            />
-                                            <span>Very Small (1K to 10K)</span>
-                                        </label>
-                                        <label>
-                                            <input
-                                            type="radio"
-                                            value="[pop_from]=100&[pop_to]=1000"
-                                            checked={this.props.activeFilters.includes("PopulationFilter") && checkParamValues(this.props.params, "PopulationFilter", "[pop_from]=100&[pop_to]=1000")}
-                                            onChange={this.handleChange}
-                                            />
-                                            <span>Tiny (100 to 1K)</span>
+                                            <span>Majority Renters</span>
                                         </label>
                                     </div>                                    
-                                    
-                                
-                            </form>
+                                </form>
+                            </div>
                             <br></br>
                             <br></br>
                             <br></br>
@@ -108,4 +79,4 @@ class PopulationFilter extends React.Component {
         }
 }
 
-export default PopulationFilter;
+export default RentOwnFilter;
