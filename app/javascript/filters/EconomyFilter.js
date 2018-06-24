@@ -97,7 +97,7 @@ class EconomyFilter extends React.Component {
                         {findOne(filterListStrings, this.props.activeFilters) ? 
                             <img src={require('../../assets/images/bluepaycheck.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greypaycheck.png')} className="filter-icon"/>}
-                        <span>&nbsp;&nbsp;Economy</span>&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="Economy"></label>
+                        <span>&nbsp;&nbsp;Economy</span>&nbsp;&nbsp;{this.state.economyPopup ? <img src={require('../../assets/images/greyuparrow.png')} className="filter-icon-md"/> : <img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/>}<label htmlFor="Economy"></label>
                     </div>
                     {this.state.economyPopup ?
                     <span> 

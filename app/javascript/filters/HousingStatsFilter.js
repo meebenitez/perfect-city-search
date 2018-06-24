@@ -100,7 +100,7 @@ class HousingStatsFilter extends React.Component {
                         {findOne(filterListStrings, this.props.activeFilters) ? 
                             <img src={require('../../assets/images/bluehouse2.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greyhouse2.png')} className="filter-icon"/>}
-                        <span>&nbsp;&nbsp;Housing</span>&nbsp;&nbsp;<img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/><label htmlFor="HousingStats"></label>
+                        <span>&nbsp;&nbsp;Housing</span>&nbsp;&nbsp;{this.state.housingStatsPopup ? <img src={require('../../assets/images/greyuparrow.png')} className="filter-icon-md"/> : <img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/>}<label htmlFor="HousingStats"></label>
                     </div>
                     {this.state.housingStatsPopup ?
                     <span> 
