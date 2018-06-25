@@ -1,5 +1,5 @@
 import React from 'react';
-import HeartButton from './HeartButton'
+import HeartButtonLg from './HeartButtonLg'
 import {formatPop, formatFigure, formatRegion} from './utils/CityFormat'
 import {formatIncomeHomeCompare} from './utils/MathFunctions'
 
@@ -19,6 +19,15 @@ const CityShow = (props) => {
                         <div className="col-xs-12 row zero-padding">
                             <div className="city-show-border-container row">
                                 <div className="col-xs-5 city-img-container">
+                                    <div className="top-left">
+                                    <HeartButtonLg
+                                        currentUser={props.currentUser} 
+                                        heartedCities={props.heartedCities} 
+                                        unheartClick={props.unheartClick} 
+                                        heartClick={props.heartClick} 
+                                        toggleAuthPopup={props.toggleAuthPopup} 
+                                        city={props.city}/>
+                                    </div>
                                     <img className="img-city-icon-lg" src={props.city.img} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/1024px-CheyenneWY_downtown.jpg'}} />
                                     
                                 </div>
@@ -26,7 +35,7 @@ const CityShow = (props) => {
                                     <div className="top-right2" onClick={props.closePopup}><img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/> </div>
                                     <h1>{props.city.name}, {props.city.long_state}</h1>
                                     <br></br>
-                                    <span style={{fontWeight: "bold", fontSize: "17px"}}>{formatRegion(props.city.region)}</span>
+                                    <span style={{fontWeight: "bold", fontSize: "17px"}}>Region: {formatRegion(props.city.region)}</span>
                                 </div>
                             </div>
                         
@@ -42,13 +51,7 @@ const CityShow = (props) => {
                                         {formatIncomeHomeCompare(props.city.median_household_income, props.city.median_property_value)} home prices vs incomes
                                     </p>
                                     <br></br>
-                                    <HeartButton 
-                                        currentUser={props.currentUser} 
-                                        heartedCities={props.heartedCities} 
-                                        unheartClick={props.unheartClick} 
-                                        heartClick={props.heartClick} 
-                                        toggleAuthPopup={props.toggleAuthPopup} 
-                                        city={props.city}/>
+                                    
                                 </div>
                         </div>
                     </div>        
