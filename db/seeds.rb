@@ -47,6 +47,7 @@ csv = CSV.parse(csv_text, :headers => false)
           :pop_mixed_race => row[24],
           :pop_mixed_race_perc => percent_calc(row[24],row[17]),#(row[24] * 100 / row[17] ),
           :pop_latin_hispanic => row[25],
+          :pop_latin_hispanic_perc => percent_calc(row[25],row[17]),
           :commuters_total => row[26],
           :commuters_drivers => row[27],
           :commuters_drivers_perc => percent_calc(row[27],row[26]),#(row[27] * 100 / row[26] ), #new

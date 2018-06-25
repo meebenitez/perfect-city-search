@@ -3,6 +3,7 @@ import React from 'react';
 import Aux from '../components/Aux'
 import HomePriceFilter from './HomePriceFilter'
 import RentOwnFilter from './RentOwnFilter'
+import SolarFilter from './SolarFilter'
 import {checkDivClassGroup, findOne} from '../components/utils/filterFunctions'
 
 
@@ -82,12 +83,14 @@ class HousingStatsFilter extends React.Component {
 
         const filterList = [
             HomePriceFilter,
-            RentOwnFilter
+            RentOwnFilter,
+            SolarFilter
         ]
 
         const filterListStrings = [
             "HomePriceFilter",
-            "RentOwnFilter"
+            "RentOwnFilter",
+            "SolarFilter"
         ]
         const renderFilters = filterList.map( (Filter) => {
             return <Filter activeFilters={this.props.activeFilters} onFilterChange={this.props.onFilterChange} key={Filter.name} filterHolder={this.props.filterHolder} params={this.props.params} isActive={checkActive(Filter.name)} currentUser={this.props.currentUser}/>

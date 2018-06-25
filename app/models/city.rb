@@ -16,10 +16,45 @@ class City < ApplicationRecord
         def occupant_majority(type)
             if type == "owner"
                 return where("homes_owner_occupied_perc >= homes_renter_occupied_perc")
-            else
+            elsif type == "renter"
                 return where("homes_renter_occupied_perc >= homes_owner_occupied_perc")
+            else
+                return nil
             end
         end
+
+        def poverty_rate(type)
+            if type == "low"
+                return where("poverty_perc <= ?", 7)
+            elsif type == "high"
+                return where("poverty_perc >= ?", 14)
+            else
+                return nil
+            end
+        end
+
+        def racial_diversity(type)
+            if type == "no"
+                return where("pop_white_perc >= ?", 70).or(where("pop_black_perc >= ?", 70))
+                .or(where("pop_native_perc >= ?", 70)).or(where("pop_asian_perc >= ?", 70))
+                .or(where("pop_pacific_perc >= ?", 70)).or(where("pop_other_race_perc >= ?", 70))
+                .or(where("pop_latin_hispanic_perc >= ?", 70))
+            else type == "yes"
+                return where("pop_white_perc <= ?", 40).where("pop_black_perc <= ?", 40)
+                .where("pop_native_perc <= ?", 40).where("pop_asian_perc <= ?", 40)
+                .where("pop_pacific_perc <= ?", 40).where("pop_other_race_perc <= ?", 40)
+                .where("pop_latin_hispanic_perc <= ?", 40)
+            end
+        end
+
+
+        #:pop_white => row[18],
+        #:pop_black => row[19],
+        #:pop_native => row[20],
+        #:pop_asian => row[21],
+        #:pop_pacific => row[22],
+        #:pop_other_race => row[23],
+        #:pop_latin_hispanic => row[25],
 
         def per_page
             24

@@ -4,6 +4,7 @@ import Aux from '../components/Aux'
 import AgeFilter from './AgeFilter'
 import PopulationFilter from './PopulationFilter'
 import VetFilter from './VetFilter'
+import DiversityFilter from './DiversityFilter'
 import {checkDivClassGroup, findOne} from '../components/utils/filterFunctions'
 
 
@@ -84,12 +85,14 @@ class DemographicsFilter extends React.Component {
         const filterList = [
             PopulationFilter,
             AgeFilter,
+            DiversityFilter,
             VetFilter
         ]
 
         const filterListStrings = [
             "PopulationFilter",
             "AgeFilter",
+            "DiversityFilter",
             "VetFilter"
         ]
         const renderFilters = filterList.map( (Filter) => {

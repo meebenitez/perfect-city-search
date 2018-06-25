@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180623203023) do
+ActiveRecord::Schema.define(version: 20180625015232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20180623203023) do
     t.float "pop_pacific_perc"
     t.float "pop_mixed_race_perc"
     t.float "pop_other_race_perc"
+    t.float "pop_latin_hispanic_perc"
   end
 
   create_table "cities_users", force: :cascade do |t|

@@ -9,7 +9,9 @@ const FILTERS = [
     "NameSearchFilter",
     "PopularFilter",
     "HeartedFilter",
-    "VetFilter"
+    "VetFilter",
+    "DiversityFilter",
+    "SolarFilter"
 ]
     
     
@@ -24,7 +26,9 @@ const FILTERS = [
     "popular":"[popular]",
     "hearted":"[hearted]",
     "own-vs-rent": "[majority_occupant]=",
-    "vet-population": "[vet_pop]"
+    "vet-population": "[vet_pop]",
+    "high-diversity": "[diversity]",
+    "solar-friendly" : "[solar]"
 
 }
 
@@ -39,7 +43,9 @@ const PARAMMAP = {
         "popular": "PopularFilter",
         "hearted": "HeartedFilter",
         "own-vs-rent": "RentOwnFilter",
-        "vet-population": "VetFilter"
+        "vet-population": "VetFilter",
+        "high-diversity": "DiversityFilter",
+        "solar-friendly" : "SolarFilter"
     }
          
     

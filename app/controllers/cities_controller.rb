@@ -21,6 +21,8 @@ class CitiesController < ApplicationController
         @cities = @cities.where("popularity > ?", 25) if params[:popular].present?
         @cities = @cities.occupant_majority(params[:majority_occupant]) if params[:majority_occupant].present?
         @cities = @cities.where("vets_perc > ?", 10) if params[:vet_pop].present?
+        @cities = @cities.where("homes_solar_perc >= ?", 5).where("homes_solar_powered > ?", 10) if params[:solar].present?
+        @cities = @cities.racial_diversity(params[:diversity]) if params[:diversity].present?
         #@cities = @cities.by_owner_majority(params[:maj_owner]) if params[:maj_owner].present?
         #@cities = @cities.by_renter_majority(params[:maj_renter]) if params[:maj_renter].present?
         #@cities = @cities.where("median_property_value <= ?", params[:home_value]) if params[:home_value].present?
