@@ -16,16 +16,18 @@ const CityShow = (props) => {
                 <div className='city-popup-inner'>
                     <div className="row">
 
-                        <div className="col-xs-12 row">
-                            <div className="col-xs-5 city-img-container">
-                                <img className="img-city-icon-lg" src={props.city.img} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/1024px-CheyenneWY_downtown.jpg'}} />
-                                
-                            </div>
-                            <div className="cols-xs-7 city-stat-container">
-                                <div className="top-right" onClick={props.closePopup}><img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/> </div>
-                                <h1>{props.city.name}, {props.city.long_state}</h1>
-                                <br></br>
-                                <span style={{fontWeight: "bold", fontSize: "17px"}}>{formatRegion(props.city.region)}</span>
+                        <div className="col-xs-12 row zero-padding">
+                            <div className="city-show-border-container row">
+                                <div className="col-xs-5 city-img-container">
+                                    <img className="img-city-icon-lg" src={props.city.img} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/1024px-CheyenneWY_downtown.jpg'}} />
+                                    
+                                </div>
+                                <div className="cols-xs-7 city-stat-container">
+                                    <div className="top-right2" onClick={props.closePopup}><img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/> </div>
+                                    <h1>{props.city.name}, {props.city.long_state}</h1>
+                                    <br></br>
+                                    <span style={{fontWeight: "bold", fontSize: "17px"}}>{formatRegion(props.city.region)}</span>
+                                </div>
                             </div>
                         
                         

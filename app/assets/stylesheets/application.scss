@@ -565,12 +565,25 @@
     }
 
     .city-img-container {
-      padding: 20px;
+      padding: 10px;
     }
 
     .city-stat-container {
-      padding-left: 15px;
-      padding-top: 20px;
+      padding-left: 20px;
+      padding-top: 10px;
+    }
+
+    .city-show-border-container {
+      position: absolute;
+      left: 0px;
+      top: -10px;
+      font-size: 15px;
+      border-radius: 5px;
+      padding: 8px;
+      margin-left: 20px;
+      margin-top: 0px;
+      width: 99%;
+      border:1px solid rgb(177, 174, 174);
     }
 
 
@@ -677,7 +690,7 @@
     border:0;
     }
 
-    .top-left-city-name {
+    .top-left {
       position: absolute;
       top: 8px;
       left: 16px;
@@ -692,6 +705,12 @@
       position: absolute;
       top: -10px;
       right: 0%;
+    }
+
+    .top-right2 {
+      position: absolute;
+      top: 0px;
+      right: 1%;
     }
 
     .bottom-right {
@@ -752,6 +771,13 @@
       padding: 0;
       background: none;
       font-size: 20px;
+    }
+
+    .noborder-button-lg {
+      border: none;
+      padding: 0;
+      background: none;
+      font-size: 30px;
     }
     
     .city-name-container{
