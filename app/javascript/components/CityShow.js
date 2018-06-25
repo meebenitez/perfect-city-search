@@ -22,7 +22,7 @@ const CityShow = (props) => {
                                 
                             </div>
                             <div className="cols-xs-7 city-stat-container">
-                                <div className="top-right" onClick={this.closePopup}><img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/> </div>
+                                <div className="top-right" onClick={props.closePopup}><img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/> </div>
                                 <h1>{props.city.name}, {props.city.long_state}</h1>
                                 <br></br>
                                 <span style={{fontWeight: "bold", fontSize: "17px"}}>{formatRegion(props.city.region)}</span>
