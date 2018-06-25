@@ -11,7 +11,8 @@ const FILTERS = [
     "HeartedFilter",
     "VetFilter",
     "DiversityFilter",
-    "SolarFilter"
+    "SolarFilter",
+    "PovertyFilter"
 ]
     
     
@@ -27,8 +28,9 @@ const FILTERS = [
     "hearted":"[hearted]",
     "own-vs-rent": "[majority_occupant]=",
     "vet-population": "[vet_pop]",
-    "high-diversity": "[diversity]",
-    "solar-friendly" : "[solar]"
+    "high-diversity": "[diversity]=",
+    "solar-friendly" : "[solar]",
+    "poverty-rate" : "[poverty_rate]="
 
 }
 
@@ -45,7 +47,8 @@ const PARAMMAP = {
         "own-vs-rent": "RentOwnFilter",
         "vet-population": "VetFilter",
         "high-diversity": "DiversityFilter",
-        "solar-friendly" : "SolarFilter"
+        "solar-friendly" : "SolarFilter",
+        "poverty-rate": "PovertyFilter"
     }
          
     

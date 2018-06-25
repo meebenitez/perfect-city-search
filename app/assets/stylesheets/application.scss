@@ -555,14 +555,25 @@
     .city-popup-inner {
       position: absolute;
       padding: 20px;
-      left: 25%;
-      right: 25%;
+      left: 20%;
+      right: 20%;
       top: 10%;
       bottom: 10%;
       margin: auto;
       background: white;
       border-radius: 5px;
     }
+
+    .city-img-container {
+      padding: 20px;
+    }
+
+    .city-stat-container {
+      padding-left: 15px;
+      padding-top: 20px;
+    }
+
+
 
     .map-marker {
       width: 20px;
@@ -1193,8 +1204,8 @@
     }
 
     .img-city-icon-lg {
-      height: 150px;
-      width: 210px;
+      height: auto;
+      width: 300px;
       object-fit: cover;
       border-radius: 10px;
     }
@@ -1202,10 +1213,6 @@
     
 
 
-    .img-city-icon-lg {
-      border-radius: 15px;
-      height: 150px;
-    }
 
     .page-numbers {
       padding-left: 0;

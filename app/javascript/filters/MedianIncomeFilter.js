@@ -53,6 +53,10 @@ class MedianIncomeFilter extends React.Component {
                     </div>
                     <br></br>
                     <span className="average">US Average: $59,039</span>
+
+                    <br></br>
+                    <br></br>
+                    <br></br>
                 
             </Aux>
             )

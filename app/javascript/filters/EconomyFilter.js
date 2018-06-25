@@ -3,6 +3,7 @@ import React from 'react';
 import Aux from '../components/Aux'
 import {checkDivClassGroup, findOne} from '../components/utils/filterFunctions'
 import MedianIncomeFilter from './MedianIncomeFilter';
+import PovertyFilter from './PovertyFilter'
 
 
 class EconomyFilter extends React.Component {
@@ -80,11 +81,13 @@ class EconomyFilter extends React.Component {
         }
 
         const filterList = [
-            MedianIncomeFilter
+            MedianIncomeFilter,
+            PovertyFilter
         ]
 
         const filterListStrings = [
-            "MedianIncomeFilter"
+            "MedianIncomeFilter",
+            "PovertyFilter"
         ]
         const renderFilters = filterList.map( (Filter) => {
             return <Filter activeFilters={this.props.activeFilters} onFilterChange={this.props.onFilterChange} key={Filter.name} filterHolder={this.props.filterHolder} params={this.props.params} isActive={checkActive(Filter.name)} currentUser={this.props.currentUser}/>
