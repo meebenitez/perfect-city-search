@@ -67,6 +67,11 @@ export function formatFigure(figure) {
     }
 }
 
+export function withCommas (x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
+
+
 //----------------RESIZEIMAGE------------------//
 
 export function resizeThumb(url) {
