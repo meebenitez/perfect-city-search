@@ -61,6 +61,11 @@ getMapOptions = (maps: Maps) => {
       height: '79vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
 
+    const styleDesktopSmall = {
+      width: '45vw', // 90vw basically means take up 90% of the width screen. px also works.
+      height: '79vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+    }
+
     const styleMobile = {
       width: '94vw', // 90vw basically means take up 90% of the width screen. px also works.
       height: '40vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
@@ -78,7 +83,7 @@ getMapOptions = (maps: Maps) => {
 
     return (
       <Aux>
-        <MediaQuery minWidth={768}>
+        <MediaQuery minWidth={1400}>
           <div style={styleDesktop}>
             <GoogleMapReact
               bootstrapURLKeys={{ key: this.props.googleApiKey }}
@@ -94,8 +99,8 @@ getMapOptions = (maps: Maps) => {
         </MediaQuery>
       
     
-        <MediaQuery maxWidth={768}>
-        <div style={styleMobile}>
+        <MediaQuery maxWidth={1400}>
+        <div style={styleDesktopSmall}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: this.props.googleApiKey }}
             center={this.props.mapCenter}
