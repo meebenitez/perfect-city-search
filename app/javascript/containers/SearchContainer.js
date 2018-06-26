@@ -20,7 +20,7 @@ const SearchContainer = (props) =>
                     
                 <MediaQuery minWidth={768}>
                     <div className="col-xs-6 zero-padding left-margin-top">
-                        <div>
+                        <div className="left-width affix">
                             <FixedMapContainer {...props} />
                         </div>
                     </div>

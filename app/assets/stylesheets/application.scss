@@ -369,6 +369,16 @@
     .yellow-background {
       background-color: rgb(255, 246, 122);
     }
+    
+    .left-block{
+      float: left;
+      max-width: 50%;
+    }
+
+    .right-block{
+      float:right;
+      max-width: 50%;
+    }
 
 
 
@@ -438,7 +448,6 @@
     .max-width-container {
       padding-right: 20px;
       padding-left: 20px;
-      max-width: 1550px; 
     }
 
     .filter-margin-top {
