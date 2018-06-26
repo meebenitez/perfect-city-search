@@ -58,12 +58,12 @@ getMapOptions = (maps: Maps) => {
     const styleDesktop = { 
       // MUST specify dimensions of the Google map or it will not work. Also works best when style is specified inside the render function and created as an object
       width: '47vw', // 90vw basically means take up 90% of the width screen. px also works.
-      height: '79vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+      height: '84vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
 
     const styleDesktopSmall = {
       width: '45vw', // 90vw basically means take up 90% of the width screen. px also works.
-      height: '79vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+      height: '84vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
 
     const styleMobile = {
