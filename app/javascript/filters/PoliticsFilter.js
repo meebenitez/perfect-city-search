@@ -26,8 +26,6 @@ class PoliticsFilter extends React.Component {
 
         return (
             <Aux>                     
-                <br></br>
-                <br></br>
                     <div className="underline">2016 County Election Results</div>
                     
                         <div className="input-filter">

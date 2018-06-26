@@ -86,17 +86,17 @@ class DemographicsFilter extends React.Component {
         const filterList = [
             PopulationFilter,
             AgeFilter,
+            PoliticsFilter,
             DiversityFilter,
             VetFilter,
-            PoliticsFilter
         ]
 
         const filterListStrings = [
             "PopulationFilter",
             "AgeFilter",
+            "PoliticsFilter",
             "DiversityFilter",
             "VetFilter",
-            "PoliticsFilter"
         ]
         const renderFilters = filterList.map( (Filter) => {
             return <Filter activeFilters={this.props.activeFilters} onFilterChange={this.props.onFilterChange} key={Filter.name} filterHolder={this.props.filterHolder} params={this.props.params} isActive={checkActive(Filter.name)} currentUser={this.props.currentUser}/>

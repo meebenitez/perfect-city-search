@@ -102,7 +102,16 @@ class MoreFilter extends React.Component {
                     {this.state.morePopup ?
                     <span> 
                         <div className="filter-popup-div demographics-div" ref={this.setMorePopupRef}>
-                            {renderFilters}
+                            <span style={{fontWeight: "bold"}}>Coming Soon!</span>
+                            <br></br>
+                            Climate Filter
+                            <br></br>
+                            Transportation Filter
+                            <br></br>
+                            Crime and Safety Filter
+                            <br></br>
+                            Education Filter
+
                         </div>
                     </span> : null }                       
                 </div>

@@ -259,8 +259,9 @@
     .navlink1 {
       text-decoration: none;
       font-family: 'Lato', sans-serif;
-      color: black;
-      display: inline-block;
+      font-size: 15px;
+      color: red;
+      display:inline;
     }
 
     .link-box{
@@ -288,25 +289,24 @@
 
     .navlink1active {
       text-decoration: none;
-      color: black;
     }
        
 
     .navlink1:hover {
-      width: 100px;
-      text-decoration: none;
+      text-decoration: underline;
     }
 
 
     a.navlink1 {
       text-decoration: none;
-      color: black;
-      font-size: 20px;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      color: red;
+      display:inline;
     }
 
     a.navlink1:hover {
-      text-decoration: none;
-      color: #f5be27;
+      text-decoration: underline;
     }
 
 
@@ -355,6 +355,10 @@
 
     .green-background {
       background-color: rgb(146, 219, 162);
+    }
+
+    .purple-background {
+      background-color: rgb(187, 147, 206);
     }
 
 
@@ -807,6 +811,11 @@
       position: absolute;
       bottom: 5%;
       right: 10%;
+    }
+
+    .photo-credit {
+      font-size: 12px;
+      max-width: 300px;
     }
 
   

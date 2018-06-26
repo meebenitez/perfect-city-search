@@ -28,6 +28,7 @@ const CityList = (props) => {
             showCityPopup = {props.showCityPopup}
             showSingleCity= {() => props.showSingleCity( city )}
             nameHover = {props.nameHover}
+            hashTag = {props.hashTag}
             />
             
     );
