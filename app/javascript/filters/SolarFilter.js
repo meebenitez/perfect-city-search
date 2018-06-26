@@ -34,8 +34,8 @@ class SolarFilter extends React.Component {
                             <img src={require('../../assets/images/star.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greystar.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("SolarFilter") ?
-                            <span>&nbsp;&nbsp;<span className="bold">Solar</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
-                            : <span>&nbsp;Solar</span>}<label htmlFor="solar"></label>
+                            <span>&nbsp;&nbsp;<span className="bold">High % Solar Homes</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
+                            : <span>&nbsp;High % Solar Homes</span>}<label htmlFor="solar"></label>
                     </div>                
                 </div>
             </Aux>

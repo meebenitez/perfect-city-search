@@ -74,7 +74,7 @@ const CityShow = (props) => {
                                         <br></br>
                                         <br></br>
                                         <span style={{fontWeight: "bold"}}>Veteran Population: </span>
-                                        <br></br>{props.city.vets_perc}% (US avg. is 6%)
+                                        <br></br>{props.city.vets_perc}<span style={{fontSize: "13px"}}>% - (US avg: 6%)</span>
                                         <br></br>
                                         <br></br>
                                         <span style={{fontWeight: "bold"}}>2016 Presidential Election Votes for {props.city.county}</span>

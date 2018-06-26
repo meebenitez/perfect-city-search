@@ -49,6 +49,18 @@ class City < ApplicationRecord
             end
         end
 
+        def politics(party)
+            if party == "democrat"
+                return where("dem_vote_perc > gop_vote_perc AND dem_vote_perc > ind_vote_perc ")
+            elsif party == "republican"
+                return where("gop_vote_perc > dem_vote_perc AND gop_vote_perc > ind_vote_perc ")
+            elsif party == "independent"
+                return where("ind_vote_perc > dem_vote_perc AND ind_vote_perc > gop_vote_perc ")
+            else
+                return nil
+            end
+        end
+
 
         #:pop_white => row[18],
         #:pop_black => row[19],
