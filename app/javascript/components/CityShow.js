@@ -46,7 +46,7 @@ const CityShow = (props) => {
                                     <img className="img-city-icon-lg" src={props.city.img} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/1024px-CheyenneWY_downtown.jpg'}} />
                                 </div>
                                 <div className="col-xs-12 zero-padding">
-                                    <span style={{fontSize: "12px"}}>Credit: <Link to={props.city.img_wiki_src} target="_blank">"{props.city.img_title}" by {props.city.img_artist}</Link> - {props.city.img_license}
+                                    <span style={{fontSize: "12px"}}>Credit: <Link to={props.city.img_wiki_src} target="_blank">"{props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "")}" by {props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "")}</Link> - {props.city.img_license}
                                     </span>
                                 </div>
                                 
