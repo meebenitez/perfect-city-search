@@ -1,6 +1,6 @@
 import React from 'react';
 import HeartButton from './HeartButton'
-import {formatPop, formatFigure, formatRegion, withCommas, highlights} from './utils/CityFormat'
+import {formatPop, formatFigure, formatRegion, withCommas, highlights, resizeThumb} from './utils/CityFormat'
 import {formatIncomeHomeCompare} from './utils/MathFunctions'
 import { Route, Link } from 'react-router-dom'
 
@@ -43,7 +43,7 @@ const CityShow = (props) => {
                                             toggleAuthPopup={props.toggleAuthPopup} 
                                             city={props.city}/>
                                     </div>
-                                    <img className="img-city-icon-lg" src={props.city.img} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/1024px-CheyenneWY_downtown.jpg'}} />
+                                    <img className="img-city-icon-lg" src={resizeThumb(props.city.img_thumb)} onError={(e)=>{e.target.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/1024px-CheyenneWY_downtown.jpg'}} />
                                 </div>
                                 <div className="col-xs-12 zero-padding">
                                     <div className="photo-credit zero-padding">Credit: <Link to={props.city.img_wiki_src} target="_blank">"{props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "")}" by {props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "")}</Link>
