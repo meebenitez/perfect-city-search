@@ -341,22 +341,29 @@
     }
 
     .red-background {
-      background-color: rgb(209, 43, 13);
+      background-color: rgb(247, 125, 103);
     }
 
     .blue-background {
-      background-color: rgb(35, 164, 250);
+      background-color: rgb(108, 193, 250);
     }
 
     .grey-background {
-      background-color: rgb(173, 173, 173);
+      background-color: rgb(216, 212, 212);
 
     }
 
+    .green-background {
+      background-color: rgb(146, 219, 162);
+    }
 
 
     .orange-background {
       background-color: rgb(230, 95, 42);
+    }
+
+    .yellow-background {
+      background-color: rgb(255, 246, 122);
     }
 
 
@@ -525,6 +532,7 @@
       margin: auto;
       background: white;
       border-radius: 5px;
+      z-index: 1500;
     }
 
     .extended-filters-popup {
@@ -568,13 +576,15 @@
     .city-popup-inner {
       position: absolute;
       padding: 20px;
-      left: 20%;
-      right: 20%;
+      left: 15%;
+      right: 15%;
       top: 10%;
       bottom: 10%;
       margin: auto;
       background: white;
       border-radius: 5px;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
 
@@ -716,6 +726,10 @@
       1px 1px 0 #000;      
     }
 
+    .heart-inline{
+      display: inline-block;   
+    }
+
     .city-stats-full {
       margin-top: 25px;
     }
@@ -728,16 +742,16 @@
 
 
     .heart-color-off{
-      color: rgb(219, 216, 216);
+      color: white;
       -webkit-transform: scaleX(0.5);
     transform: scaleX(0.5);
     outline : none;
     border:0;
     text-shadow:
-      -1px -1px 0 #000,
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-      1px 1px 0 #000;
+      -2px -2px 0 #000,
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      2px 2px 0 #000;
     }
 
     .heart-color-on{
@@ -775,6 +789,12 @@
       position: absolute;
       top: -15px;
       right: -10px;
+    }
+
+    .top-right-heart {
+      position: absolute;
+      top: 5px;
+      right: 85px; 
     }
 
     .bottom-right {

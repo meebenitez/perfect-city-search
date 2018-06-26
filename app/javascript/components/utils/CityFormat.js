@@ -50,6 +50,8 @@ export function formatPop(pop) {
       return <span><img src={require('../../../assets/images/fields.png')} className="stat-icon-lg"/>{pop}</span>
     }
 }
+//---------------------Popular---------------------------//
+
 
 //------------------Formatting Figures--------------------/
 export function formatFigure(figure) {
@@ -80,4 +82,34 @@ export function resizeThumb(url) {
         newString = url.replace("200px", "600px")
     }
     return newString
+}
+//-------------highlights---------------//
+
+function diversity(raceGroup){
+    let resultArray = raceGroup.filter((race)=> {
+        return race >= 40
+    })
+    return resultArray
+}
+
+export function highlights(city){
+    let list = []
+    if (city.popularity >= 25){
+        list.push(<div className="stat-border yellow-background" key="popular-highlight">Popular City</div>)
+    }
+    if (city.vets_perc >= 10) {
+        list.push(<div className="stat-border blue-background" key="veteran-highlight">Large Veteran Population</div>)
+    }
+    if (city.poverty_perc <= 7) {
+        list.push(<div className="stat-border orange-background" key="poverty-highlight">Low Poverty Rate</div>)
+    }
+    if (diversity([city.pop_white_perc, city.pop_native_perc, city.pop_pacific_perc, 
+                    city.pop_latin_hispanic_perc, city.pop_asian_perc, city.pop_black_perc, 
+                    city.pop_other_race_perc]).length === 0){
+                        list.push(<div className="stat-border green-background" key="diversity-highlight">Racially Diverse</div>)
+                    }
+    if (Math.abs(city.dem_vote_perc - city.gop_vote_perc) <= 15) {
+        list.push(<div className="stat-border red-background" key="swing-city-highlight">Swing City</div>)
+    }
+    return list
 }

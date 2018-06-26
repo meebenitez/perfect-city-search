@@ -6,12 +6,12 @@ const HeartButton = props => {
     const heartButton = () => {
         if (props.currentUser) {
             if (props.heartedCities.find(function(city) {return city.id === props.city.id})) {
-                return <button className="noborder-button" onClick={() => props.unheartClick(props.city)}><span className="heart-color-on">♥</span></button>
+                return <div className="heart-inline" onClick={() => props.unheartClick(props.city)}><img src={require('../../assets/images/red_heart.png')} className="filter-icon-lg"/></div> 
             } else {
-                return <button className="noborder-button" onClick={() => props.heartClick(props.city)}><span className="heart-color-off">♥</span></button>
+                return <div className="heart-inline" onClick={() => props.heartClick(props.city)}><img src={require('../../assets/images/white_heart.png')} className="filter-icon-lg"/></div> 
             }
         } else {
-            return <button className="noborder-button" onClick={props.toggleAuthPopup}><span className="heart-color-off">♥</span></button>
+                return <div className="heart-inline" onClick={props.toggleAuthPopup}><img src={require('../../assets/images/white_heart.png')} className="filter-icon-lg"/></div> 
         }
     }
 

@@ -67,12 +67,8 @@ class App extends React.Component {
                           toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}/> : null }
                       {this.props.extendedFiltersPopup ? 
                       <FilterPopup {...this.props} /> : null}
-                      <Route exact path="/" render={(props) => <SearchContainer {...this.props}/>}/>
-                      <Route exact path="/city/" render={(props) => <CityShow city={this.props.singleCity}
-                                    heartedCities = {this.props.heartedCities}
-                                    heartClick={this.props.heartClick}
-                                    unheartClick={this.props.unheartClick}
-                                    currentUser = {this.props.currentUser}/>}/>
+                      <SearchContainer {...this.props}/>
+                      
                   </div>
                 </div>
               
@@ -147,3 +143,10 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(mapStateToProps, mapDispatchToProps,)(App);
 
+/*
+<Route exact path="/" render={(props) => <SearchContainer {...this.props}/>}/>
+                      <Route exact path="/city/" render={(props) => <CityShow city={this.props.singleCity}
+                                    heartedCities = {this.props.heartedCities}
+                                    heartClick={this.props.heartClick}
+                                    unheartClick={this.props.unheartClick}
+                                    currentUser = {this.props.currentUser}/>}/>*/
