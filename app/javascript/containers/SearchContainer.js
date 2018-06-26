@@ -24,7 +24,7 @@ const SearchContainer = (props) =>
                             <FixedMapContainer {...props} />
                         </div>
                     </div>
-                    <div className="col-xs-6 zero-padding right-margin-top">
+                    <div className="col-xs-6 right-margin-top">
                         <CityListContainer {...props} />
                     </div>
                 </MediaQuery>

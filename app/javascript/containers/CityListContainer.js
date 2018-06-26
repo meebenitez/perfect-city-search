@@ -23,7 +23,7 @@ class CityListContainer extends React.Component {
    render(){
         return ( <Aux>
                 { this.state.introPopup ? <div className="intro-container row">
-                                <div className="col-xs-12 zero-padding" >
+                                <div className="col-xs-12" >
                                 <div className="top-right" onClick={this.closePopup}><img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/> </div>
                                     <span className="bold">Welcome City Sleuths!</span>
                                     <br></br>Filter through our database of <span className="bold">26,931 US towns and cities</span> to find hidden gems that perfectly match your priorities and lifestyle.  
