@@ -12,17 +12,14 @@ const Navbar = (props) => {
 
             <NavLink
                 to={`${window.location.hash}`}
-                onClick={props.toggleAuthPopup}
                 className="navlink1 link-div"
                 activeClassName="navlink1active">Advertise With Us</NavLink>
             <NavLink
                 to={`${window.location.hash}`}
-                onClick={props.toggleAuthPopup}
                 className="navlink1 link-div"
                 activeClassName="navlink1active">Faqs</NavLink>
             <NavLink
                 to={`${window.location.hash}`}
-                onClick={props.toggleAuthPopup}
                 className="navlink1 link-div"
                 activeClassName="navlink1active">Developer Blog</NavLink>
             <NavLink
