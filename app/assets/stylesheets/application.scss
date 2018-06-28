@@ -16,19 +16,6 @@
 
 @import "bootstrap";
 
-
- .gutter{
-    margin: 0;
-    background-color: white;
-    width: 100%;
-    }
-    /* unvisited link */
-    img{ border:0 }
-
-    a{
-      outline: none !important;
-   }
-
    button:focus {outline:0;}
     
     a:link {
@@ -219,11 +206,6 @@
       width: 75px;
     }
 
-    .question-mark {
-      color: grey;
-    }
-
-
     .left-margin-top {
       margin-top: 105px;
     }
@@ -241,31 +223,12 @@
       border: none;
     }
 
-    .signup {
-      padding: 0px;
-      border: white 2px solid;
-      border-radius: 5px;
-    }
-
-
-
-
-    a.logolink {
-      text-decoration: none;
-      color: black;
-    }
 
     a.citynamelink{
       color: white;
       text-decoration: none;
     }
-    .navlink1 {
-      text-decoration: none;
-      font-family: 'Lato', sans-serif;
-      font-size: 15px;
-      color: red;
-      display:inline;
-    }
+   
 
     .link-box{
       border: red 1px solid;
@@ -277,28 +240,10 @@
       float: right;
     }
 
-    .advertise-box{
-      border: red 1px solid;
-      padding: 0px 5px 5px 5px;
-      border-radius: 5px;
-      max-width: 100px;
-      text-align: center;
-    }
-
     .link-div{ 
       padding: 0px 5px 5px 5px;
       margin-left: 15px;
     }
-
-    .navlink1active {
-      text-decoration: none;
-    }
-       
-
-    .navlink1:hover {
-      text-decoration: underline;
-    }
-
 
     a.navlink1 {
       text-decoration: none;
@@ -321,15 +266,6 @@
       text-decoration: underline;
     }
     
-    .container {
-      position: relative;
-      width: 100%;
-      margin: 0px;
-      box-sizing: border-box;
-      background-color: white;
-      padding: 0px;
-      display: flex;
-    }
 
     .star {
       font-family: 'Lato', sans-serif;
