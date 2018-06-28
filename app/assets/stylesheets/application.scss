@@ -192,19 +192,7 @@
     /*tool tips END */
 
 
-    .filter-container {
-      margin-top: 20px;
-    }
-
-    .input-filter {
-      vertical-align: top;
-      display: inline-block;
-      margin: 5px;
-    }
-
-    .input-filter-minmax {
-      width: 75px;
-    }
+    
 
     .left-margin-top {
       margin-top: 105px;
@@ -224,61 +212,16 @@
     }
 
 
-    a.citynamelink{
-      color: white;
-      text-decoration: none;
-    }
+
+
+  
+
+
    
 
-    .link-box{
-      border: red 1px solid;
-      padding: 0px 5px 5px 5px;
-      border-radius: 5px;
-      margin-left: 15px;
-      max-width: auto;
-      text-align: center;
-      float: right;
-    }
-
-    .link-div{ 
-      padding: 0px 5px 5px 5px;
-      margin-left: 15px;
-    }
-
-    a.navlink1 {
-      text-decoration: none;
-      font-family: 'Lato', sans-serif;
-      font-size: 15px;
-      color: red;
-      display:inline;
-    }
-
-    a.navlink1:hover {
-      text-decoration: underline;
-    }
 
 
-    .bold {
-      font-weight: bold;
-    }
-
-    .underline {
-      text-decoration: underline;
-    }
-    
-
-    .star {
-      font-family: 'Lato', sans-serif;
-      font-size: 20px;
-      font-weight: bold;
-      display:inline;
-      color: gold;
-    }
-
-    .max-width {
-      max-width: 1000px;
-    }
-
+    //BACKGROUND COLORS//
     .red-background {
       background-color: rgb(247, 125, 103);
     }
@@ -308,31 +251,37 @@
     .yellow-background {
       background-color: rgb(255, 246, 122);
     }
-    
-    .left-block{
-      float: left;
-      max-width: 50%;
-    }
-
-    .right-block{
-      float:right;
-      max-width: 50%;
-    }
-
-
 
     .white-background {
       background-color: white;
     }
 
-    .text-background {
-      background-color: rgba(73, 73, 73, 0.5)
-    }
-
+    //////////HELPERS
+    
+    
     .bottom-line {
       border-bottom: rgb(185, 185, 185) 1px solid;
     }
 
+    .zero-padding {
+      padding: 0px;
+    }
+
+    .fixed {
+      position: fixed;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+    
+
+
+    /////////////CITY COMPONENT
     .inner {
       padding-left: 10px;
       padding-right: 10px;
@@ -340,14 +289,25 @@
       padding-bottom: 0px;
     }
 
-    .zero-padding {
-      padding: 0px;
+
+    .star {
+      font-family: 'Lato', sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      display:inline;
+      color: gold;
     }
 
-    .bottom-padding {
-      padding-bottom: 15px;
+    a.citynamelink{
+      color: white;
+      text-decoration: none;
     }
+   
 
+
+    ///////////HEADER COMPONENT
+
+  
     .header-left-padding {
       padding-left: 0px;
     }
@@ -357,26 +317,39 @@
       padding: 0px;
       height: 50px;
     }
-    .fixed {
-      position: fixed;
+
+    .link-box{
+      border: red 1px solid;
+      padding: 0px 5px 5px 5px;
+      border-radius: 5px;
+      margin-left: 15px;
+      max-width: auto;
+      text-align: center;
+      float: right;
     }
 
-
-    .map {
-      height: 56vh;
-      width: 46vw; 
+    .link-div{ 
+      padding: 0px 5px 5px 5px;
+      margin-left: 15px;
     }
 
-    @media screen and (max-width: 700px){
-      .map {
-          height: 20vh;
-          width: 95vw;
-      }
-  }
+    a.navlink1 {
+      text-decoration: none;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      color: red;
+      display:inline;
+    }
+
+    a.navlink1:hover {
+      text-decoration: underline;
+    }
 
   
-    
 
+    ////////PARENT CONTAINER SIZING
+
+  
     .main-container{
       position: relative;
       width: 100%;
@@ -389,20 +362,29 @@
       padding-left: 20px;
     }
 
+    /////////////FILTER CONTAINER & COMPONENTS
+
     .filter-margin-top {
       margin-top: 50px;
       height: 75px;
     }
 
-    .col-container{
-      position: relative;
-      width: 100%;
-      margin: 0 auto;
+    .filter-container {
+      margin-top: 20px;
     }
 
-    .bold {
-      font-weight: bold;
+    .input-filter {
+      vertical-align: top;
+      display: inline-block;
+      margin: 5px;
     }
+
+    .input-filter-minmax {
+      width: 75px;
+    }
+
+    ///////////MAP CONTAINER AND COMPONENTS
+
 
     .map-container{
       margin-top: 25px;
