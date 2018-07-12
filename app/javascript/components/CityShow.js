@@ -5,13 +5,27 @@ import {formatIncomeHomeCompare} from './utils/MathFunctions'
 import { Route, Link } from 'react-router-dom'
 
 
+
+
 const CityShow = (props) => {
 
-    const closePopup = () => {
-        debugger;
-    }
-    //debugger;
-    //return (<div>Test</div>)
+    const RACES = [
+        props.city.pop_black_perc,
+        props.city.pop_white_perc,
+        props.city.pop_native_perc,
+        props.city.pop_asian_perc,
+        props.city.pop_pacific_perc,
+        props.city.pop_latin_hispanic_perc,
+        props.pop_other_race_perc,
+        props.pop_mixed_race_perc
+    ]
+
+    const renderRacesPercents = RACES.map((race) => {
+        return <div className="stat-border">{Math.floor(race)}% African-American</div>
+    })
+
+
+
     if (props.city !== null) {
         return (
             <div className="city-popup">
@@ -51,8 +65,7 @@ const CityShow = (props) => {
                                     <div className="photo-credit zero-padding">Credit: <Link to={props.city.img_wiki_src} target="_blank">"{props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "")}" by {props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "")}</Link>
                                     <br></br>License: {props.city.img_license}
                                 </div>
-                                </div>
-                                
+                                </div>   
                             </div>
                             <div className="col-xs-7 zero-padding">
                                 <div className="top-right2"><Link to={`${props.hashString}`} onClick={props.closePopup} ><img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></Link></div>
@@ -66,14 +79,7 @@ const CityShow = (props) => {
                                     <br></br>
                                     <span style={{fontWeight: "bold"}}>Racial Diversity:</span>
                                         <br></br>
-                                        <div className="stat-border">{Math.floor(props.city.pop_black_perc)}% African-American</div>
-                                        <div className="stat-border">{Math.floor(props.city.pop_white_perc)}% Caucasian</div>
-                                        <div className="stat-border">{Math.floor(props.city.pop_native_perc)}% Native American</div>
-                                        <div className="stat-border">{Math.floor(props.city.pop_asian_perc)}% Asian</div>
-                                        <div className="stat-border">{Math.floor(props.city.pop_pacific_perc)}% Pacific Islander</div>
-                                        <div className="stat-border">{Math.floor(props.city.pop_latin_hispanic_perc)}% Latin/Hispanic</div>
-                                        <div className="stat-border">{Math.floor(props.city.pop_other_race_perc)}% Other Race</div>
-                                        <div className="stat-border">{Math.floor(props.city.pop_mixed_race_perc)}% Mixed Race</div>
+                                        {renderRacesPercents}
                                         <br></br>
                                         <br></br>
                                         <span style={{fontWeight: "bold"}}>Veteran Population: </span>
@@ -115,10 +121,7 @@ const CityShow = (props) => {
                         </div>
                         <div className="col-xs-12 left-push zero-padding row">
                         <br></br>
-                        
                         </div>
-
-    
                     </div>        
                 </div>
             </div>

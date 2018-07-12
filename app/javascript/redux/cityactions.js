@@ -29,10 +29,10 @@ export const initialFetch = (hash, route, key) => {
         dispatch({type: 'UPDATE_KEY', key: key})
         dispatch(updateRoute(route))
         if (hash.indexOf('#') > -1 && hash.length > 1) {
-            if (hash.includes('city=')) { // IF SINGLE CITY HASH EXISTS
+            if (hash.includes('city=')) {
                 dispatch(fetchSingleCity(hash.match(/_\d+/)[0].split("_").join("")))
                 dispatch(fetchCities())
-            } else { // IF SEARCH QUERY HASH EXISTS
+            } else {
                 dispatch(grabHash(hash))
                 dispatch(fetchCities())
             }
@@ -80,8 +80,6 @@ export const changeZoom = () => {
         type: 'CHANGE_ZOOM'
     }
 }
-//
-
 
 
 // FILTER CHANGE

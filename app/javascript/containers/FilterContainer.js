@@ -44,5 +44,4 @@ export default FilterContainer;
                     inactiveFilters={props.inactiveFilters} 
                     filterHolder={props.filterHolder} 
                     toggleCheck={props.toggleCheck}
-                    unclick={props.unclick}/>
             </div>*/

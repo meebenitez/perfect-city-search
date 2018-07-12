@@ -52,7 +52,7 @@ const PARAMMAP = {
         "solar-friendly" : "SolarFilter",
         "poverty-rate": "PovertyFilter",
         "majority-party" : "PoliticsFilter"
-}
+    }
          
     
 const initialState = {
@@ -83,6 +83,7 @@ const initialState = {
 const cityreducer = (state = initialState, action) => {
     switch(action.type) {
         case 'ON_LOAD':
+        //need to add in singleCityCase
         if (!action.payload.includes('city=')) {
             const hashArray = action.payload.substr(1).split("&")
             const hashTagArray = hashArray.concat().sort().map((filterName) => {
@@ -227,7 +228,6 @@ const cityreducer = (state = initialState, action) => {
             }
         case 'REMOVE_HEARTED':
             const copyHeartedList = [...state.heartedCities]
-           // get index of object with id:37
             var removeIndex = copyHeartedList.map(function(city) { return city.id; }).indexOf(action.city.id);
 
             // remove object
