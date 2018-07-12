@@ -9,19 +9,19 @@ import { Route, Link } from 'react-router-dom'
 
 const CityShow = (props) => {
 
-    const RACES = [
-        props.city.pop_black_perc,
-        props.city.pop_white_perc,
-        props.city.pop_native_perc,
-        props.city.pop_asian_perc,
-        props.city.pop_pacific_perc,
-        props.city.pop_latin_hispanic_perc,
-        props.pop_other_race_perc,
-        props.pop_mixed_race_perc
+    const races = [
+        ["African-American" , props.city.pop_black_perc],
+        ["Caucasian" , props.city.pop_white_perc],
+        ["Native-American" , props.city.pop_native_perc],
+        ["Asian" , props.city.pop_asian_perc],
+        ["Pacific Islander" , props.city.pop_pacific_perc],
+        ["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
+        ["Other Race" , props.city.pop_other_race_perc],
+        ["Mixed Race" , props.city.pop_mixed_race_perc]
     ]
 
-    const renderRacesPercents = RACES.map((race) => {
-        return <div className="stat-border">{Math.floor(race)}% African-American</div>
+    const renderRacesPercents = races.map((race) => {
+        return <div className="stat-border">{Math.floor(race[1])}% {race[0]}</div>
     })
 
 
