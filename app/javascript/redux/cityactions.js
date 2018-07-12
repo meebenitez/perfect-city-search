@@ -42,6 +42,30 @@ export const initialFetch = (hash, route, key) => {
     }
 }
 
+export const updateRoute = (route) => {
+    return {
+        type: 'UPDATE_ROUTE',
+        currentRoute: route
+    }
+}
+
+export const grabHash = (hash) => {
+    return {
+        type: 'ON_LOAD',
+        payload: hash
+    }
+}
+
+
+export const heartedFetch = () => {
+    return (dispatch, getState) => {
+        axios.get("/cities/hearted", { headers: {"Authorization" : `Bearer ${getState().city.key}`} })
+        .then(response => {  
+            dispatch(updateHearted(response.data))
+        })
+    }
+    
+}
 
 
 // MAP FUNCTIONS
@@ -90,48 +114,6 @@ export const clearParams = () => {
     }
 }
 
-
-// HASH FUNCTIONS
-export const updateHash = () => {
-    return (dispatch, getState) => {
-        if (getState().city.page > 1) {
-            window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&').concat(getState().city.hashTag.length > 0 ? `&page=${getState().city.page}` : `page=${getState().city.page}`)
-            dispatch({type: 'UPDATE_HASH_STRING', hashString: window.location.hash})
-        } else {
-            window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&')
-            dispatch({type: 'UPDATE_HASH_STRING', hashString: window.location.hash})
-        }
-    }
-}
-
-
-
-
-
-export const pageChange = (direction = null, page = null) => {
-    return (dispatch) => {
-        
-        dispatch(pageUpdate(direction, page))
-        dispatch(fetchCities())
-        dispatch(updateHash())
-    }  
-}
-
-export const pageUpdate = (direction, page = null) => {
-    return {
-        type: 'PAGE_UPDATE',
-        direction: direction, 
-        page: page
-    }
-}
-
-export const updateRoute = (route) => {
-    return {
-        type: 'UPDATE_ROUTE',
-        currentRoute: route
-    }
-}
-
 export const updateActiveFilters = (params) => {
     return {
         type: 'UPDATE_ACTIVE_FILTERS',
@@ -150,6 +132,40 @@ export const updateCities = (cities, totalCount, totalPages, perPage) => {
 }
 
 
+// HASH FUNCTIONS
+export const updateHash = () => {
+    return (dispatch, getState) => {
+        if (getState().city.page > 1) {
+            window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&').concat(getState().city.hashTag.length > 0 ? `&page=${getState().city.page}` : `page=${getState().city.page}`)
+            dispatch({type: 'UPDATE_HASH_STRING', hashString: window.location.hash})
+        } else {
+            window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&')
+            dispatch({type: 'UPDATE_HASH_STRING', hashString: window.location.hash})
+        }
+    }
+}
+
+
+
+// PAGINATION FUNCTIONS
+export const pageChange = (direction = null, page = null) => {
+    return (dispatch) => {
+        dispatch(pageUpdate(direction, page))
+        dispatch(fetchCities())
+        dispatch(updateHash())
+    }  
+}
+
+export const pageUpdate = (direction, page = null) => {
+    return {
+        type: 'PAGE_UPDATE',
+        direction: direction, 
+        page: page
+    }
+}
+
+// HEART FUNCTIONS
+
 export const heartClick = (city) => {
     return (dispatch, getState) => {
         axios.get(`/cities/add_heart/${city.id}`, { headers: {"Authorization" : `Bearer ${getState().city.key}`} })
@@ -161,9 +177,6 @@ export const heartClick = (city) => {
     }
     
 }
-
-//(dispatch, getState) => {
-//    if (getState().city.page 
 
 export const unheartClick = (city) => {
     return (dispatch, getState) => {
@@ -191,25 +204,7 @@ export const clearHearted = () => {
 }
 
 
-
-export const grabHash = (hash) => {
-    return {
-        type: 'ON_LOAD',
-        payload: hash
-    }
-}
-
-
-export const heartedFetch = () => {
-
-    return (dispatch, getState) => {
-        axios.get("/cities/hearted", { headers: {"Authorization" : `Bearer ${getState().city.key}`} })
-        .then(response => {  
-            dispatch(updateHearted(response.data))
-        })
-    }
-    
-}
+// SINGLE CITY FUNCTIONS
 
 export const showSingleCity = (city) => {
     return (dispatch) => {
@@ -218,7 +213,6 @@ export const showSingleCity = (city) => {
 
     }
 }
-
 
 export const setSingleCity = (city) => {
     return {
@@ -237,15 +231,6 @@ export const toggleCityPopup = () => {
     }
 }
 
-export const toggleExtendedFiltersPopup = () => {
-    return (dispatch, getState) => {
-        const filtersPopupStatus = getState().city.extendedFiltersPopup
-        dispatch({
-            type: 'TOGGLE_FILTERS_POPUP',
-            extendedFiltersPopup: !filtersPopupStatus
-        })
-    }
-}
 
 export const toggleSingleCityAuthPopup = () => {
     return (dispatch) => {
@@ -254,10 +239,14 @@ export const toggleSingleCityAuthPopup = () => {
     }
 }
 
-/// post-assessment
-export const unclick = (id) => {
-    return {
-        type: 'UNCHECK',
-        payload: id
+//EXTRA FILTERS POPUP
+
+export const toggleExtendedFiltersPopup = () => {
+    return (dispatch, getState) => {
+        const filtersPopupStatus = getState().city.extendedFiltersPopup
+        dispatch({
+            type: 'TOGGLE_FILTERS_POPUP',
+            extendedFiltersPopup: !filtersPopupStatus
+        })
     }
 }

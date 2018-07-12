@@ -125,7 +125,6 @@ const mapDispatchToProps = dispatch => {
     logout: () => dispatch(authActions.logout()),
     clearHearted: () => dispatch(cityActions.clearHearted()),
     clearAllFilters: () => dispatch(cityActions.clearAllFilters()),
-    unclick: (id) => dispatch(cityActions.unclick(id)),
     setSingleCity: (city) => dispatch(cityActions.setSingleCity(city)),
     showSingleCity: (city) => dispatch(cityActions.showSingleCity(city)),
     toggleSingleCityAuthPopup: () => dispatch(cityActions.toggleSingleCityAuthPopup()),
