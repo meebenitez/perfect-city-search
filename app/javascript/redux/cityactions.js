@@ -2,7 +2,7 @@ import axios from 'axios'
 import { store } from '../components/Index'
 import {checkCurrentUser, toggleAuthPopup} from './authactions'
 
-
+// FETCHES
 export const fetchCities = () => {
     return (dispatch, getState) => {
         return axios.get(`/cities?${getState().city.currentRoute}${getState().city.params !== `undefined` ? `&` : null}${getState().city.params.map(el => Object.values(el)).join('&')}&[page]=${getState().city.page}`, { headers: {"Authorization" : `Bearer ${getState().city.key}`} })
@@ -11,32 +11,6 @@ export const fetchCities = () => {
             })
     }
 }
-
-export const initialFetch = (hash, route, key) => {
-    return (dispatch) => {
-        dispatch({type: 'UPDATE_KEY', key: key})
-        dispatch(updateRoute(route))
-        //if (window.location.hash) {
-        //    window.location.hash = hash
-        //    dispatch(fetchSingleCity(hash.replace('#','')))
-        //}
-        //else {
-            if (hash.indexOf('#') > -1 && hash.length > 1) {
-                if (hash.includes('city=')) {
-                    dispatch(fetchSingleCity(hash.match(/_\d+/)[0].split("_").join("")))
-                    dispatch(fetchCities())
-                } else {
-                    dispatch(grabHash(hash))
-                    dispatch(fetchCities())
-                }
-            } else {
-                dispatch(fetchCities())
-            }
-        //}
-        
-    }
-}
-
 
 export const fetchSingleCity = (id) => {
     return (dispatch, getState) => {
@@ -48,15 +22,26 @@ export const fetchSingleCity = (id) => {
     
 }
 
-export const onSearch = (value) => {
+
+// INITIAL FETCH ON PAGE LOAD
+export const initialFetch = (hash, route, key) => {
     return (dispatch) => {
-        dispatch(fetchSearchCities(value))
-    }    
+        dispatch({type: 'UPDATE_KEY', key: key})
+        dispatch(updateRoute(route))
+        if (hash.indexOf('#') > -1 && hash.length > 1) {
+            if (hash.includes('city=')) { // IF SINGLE CITY HASH EXISTS
+                dispatch(fetchSingleCity(hash.match(/_\d+/)[0].split("_").join("")))
+                dispatch(fetchCities())
+            } else { // IF SEARCH QUERY HASH EXISTS
+                dispatch(grabHash(hash))
+                dispatch(fetchCities())
+            }
+        } else {
+            dispatch(fetchCities())
+        }
+    }
 }
 
-export const clickSearch = (value) => {
-    debugger;
-}
 
 export const nameHover = (city) => {
     return (dispatch) => {

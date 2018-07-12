@@ -134,7 +134,6 @@ const mapDispatchToProps = dispatch => {
     updateCurrentUser: (email) => dispatch(authActions.updateCurrentUser(email)),
     checkCurrentUser: () => dispatch(authActions.checkCurrentUser()),
     toggleAuthPopup: () => dispatch(authActions.toggleAuthPopup()),
-    onSearch: (value) => dispatch(cityActions.onSearch(value)),
     changeZoom: () => dispatch(cityActions.changeZoom()),
     nameHover: (city) => dispatch(cityActions.nameHover(city)),
     toggleExtendedFiltersPopup: () => dispatch(cityActions.toggleExtendedFiltersPopup()),
