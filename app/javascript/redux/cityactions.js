@@ -43,6 +43,8 @@ export const initialFetch = (hash, route, key) => {
 }
 
 
+
+// MAP FUNCTIONS
 export const nameHover = (city) => {
     return (dispatch) => {
         dispatch({type: 'CHANGE_CENTER', lat: city.longitude, lng: city.latitude, id: city.id})
@@ -54,17 +56,11 @@ export const changeZoom = () => {
         type: 'CHANGE_ZOOM'
     }
 }
+//
 
-export const fetchSearchCities = (term) => {
-    return (dispatch) => {
-        return axios.get(`/cities?${term}`)
-            .then(response => {
-                dispatch({type: 'ADD_SEARCH_TERM', searchTerm: term, cities: response.data.cities})
-            })
-    }
 
-}
 
+// FILTER CHANGE
 export const filterChange = (filter, value, hash = null) => {
     return (dispatch, getState) => {
         dispatch({type: 'FILTER_CHANGE', filterName: filter, filterValue: value, hashValue: hash})
@@ -77,18 +73,6 @@ export const filterUpdate = () => {
         dispatch(fetchCities())
         dispatch(updateActiveFilters(getState().city.params))
         dispatch(updateHash())
-    }
-}
-
-export const updateHash = () => {
-    return (dispatch, getState) => {
-        if (getState().city.page > 1) {
-            window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&').concat(getState().city.hashTag.length > 0 ? `&page=${getState().city.page}` : `page=${getState().city.page}`)
-            dispatch({type: 'UPDATE_HASH_STRING', hashString: window.location.hash})
-        } else {
-            window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&')
-            dispatch({type: 'UPDATE_HASH_STRING', hashString: window.location.hash})
-        }
     }
 }
 
@@ -105,6 +89,24 @@ export const clearParams = () => {
         type: 'CLEAR_ALL_FILTERS'
     }
 }
+
+
+// HASH FUNCTIONS
+export const updateHash = () => {
+    return (dispatch, getState) => {
+        if (getState().city.page > 1) {
+            window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&').concat(getState().city.hashTag.length > 0 ? `&page=${getState().city.page}` : `page=${getState().city.page}`)
+            dispatch({type: 'UPDATE_HASH_STRING', hashString: window.location.hash})
+        } else {
+            window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&')
+            dispatch({type: 'UPDATE_HASH_STRING', hashString: window.location.hash})
+        }
+    }
+}
+
+
+
+
 
 export const pageChange = (direction = null, page = null) => {
     return (dispatch) => {
