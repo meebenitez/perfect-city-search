@@ -70,6 +70,7 @@ const initialState = {
     showCityPopup: false,
     singleCity: null,
     hashTag: [],
+    hashString: null,
     searchTerm: "",
     searchCities: [],
     mapZoom: 4,
@@ -82,46 +83,49 @@ const initialState = {
 const cityreducer = (state = initialState, action) => {
     switch(action.type) {
         case 'ON_LOAD':
-        const hashArray = action.payload.substr(1).split("&")
-        const hashTagArray = hashArray.concat().sort().map((filterName) => {
-            let obj = {}
-            if (PARAMMAP[filterName.split('=').shift()] !== "Page") {
-                obj[PARAMMAP[filterName.split('=').shift()]] = filterName
-                return obj
+        //need to add in singleCityCase
+        if (!action.payload.includes('city=')) {
+            const hashArray = action.payload.substr(1).split("&")
+            const hashTagArray = hashArray.concat().sort().map((filterName) => {
+                let obj = {}
+                if (PARAMMAP[filterName.split('=').shift()] !== "Page") {
+                    obj[PARAMMAP[filterName.split('=').shift()]] = filterName
+                    return obj
+                }
+            }).filter(function(i) { return i; })
+            const paramArray = hashArray.concat().sort().map((filterName) => {
+            if (HASHMAP[filterName.split('=').shift()].indexOf('&') > -1) {
+                let temp1 = HASHMAP[filterName.split('=').shift()].split("&")
+                let temp2  = filterName.split('=').pop().split("to")
+                return [PARAMMAP[filterName.split('=').shift()] , temp1[0] + temp2[0] + "&" + temp1[1] + temp2[1]]
+            } else {
+                return [PARAMMAP[filterName.split('=').shift()], HASHMAP[filterName.split('=').shift()] + filterName.split('=').pop()]
+                }
+            })
+            
+            const page = action.payload.includes("page=") ? parseInt(paramArray.filter((filter)=> {
+                return filter[0] === "Page"
+            })[0][1].split('=').pop()) : 1
+            const params = paramArray.map((filter)=> {
+                let obj = {}
+                if (filter[0] !== "Page") {
+                    obj[filter[0]] = filter[1]
+                    return obj
+                }
+            }).filter(function(i) { return i; })
+            //const inactive = state.inactiveFilters.filter((val) => { return !params.map((filter)=> {return Object.keys(filter)[0]}).includes(val)})
+            const startPage = page > 4 ? (4 * parseInt(page/4)) + 1 : 1
+            const searchTerm = action.payload.includes("name=") ? params[0]["NameSearchFilter"].split("[term]=")[1] : ""
+            return {
+                ...state,
+                hashTag: hashTagArray,
+                params: params,
+                //inactiveFilters: inactive,
+                activeFilters: params.map((filter)=> {return Object.keys(filter)[0]}),
+                page: page,
+                startPage: startPage,
+                searchTerm: searchTerm
             }
-        }).filter(function(i) { return i; })
-        const paramArray = hashArray.concat().sort().map((filterName) => {
-        if (HASHMAP[filterName.split('=').shift()].indexOf('&') > -1) {
-            let temp1 = HASHMAP[filterName.split('=').shift()].split("&")
-            let temp2  = filterName.split('=').pop().split("to")
-            return [PARAMMAP[filterName.split('=').shift()] , temp1[0] + temp2[0] + "&" + temp1[1] + temp2[1]]
-        } else {
-            return [PARAMMAP[filterName.split('=').shift()], HASHMAP[filterName.split('=').shift()] + filterName.split('=').pop()]
-            }
-        })
-        
-        const page = action.payload.includes("page=") ? parseInt(paramArray.filter((filter)=> {
-            return filter[0] === "Page"
-        })[0][1].split('=').pop()) : 1
-        const params = paramArray.map((filter)=> {
-            let obj = {}
-            if (filter[0] !== "Page") {
-                obj[filter[0]] = filter[1]
-                return obj
-            }
-        }).filter(function(i) { return i; })
-        const inactive = state.inactiveFilters.filter((val) => { return !params.map((filter)=> {return Object.keys(filter)[0]}).includes(val)})
-        const startPage = page > 4 ? (4 * parseInt(page/4)) + 1 : 1
-        const searchTerm = action.payload.includes("name=") ? params[0]["NameSearchFilter"].split("[term]=")[1] : ""
-        return {
-            ...state,
-            hashTag: hashTagArray,
-            params: params,
-            inactiveFilters: inactive,
-            activeFilters: params.map((filter)=> {return Object.keys(filter)[0]}),
-            page: page,
-            startPage: startPage,
-            searchTerm: searchTerm
         }
 
         case 'FILTER_CHANGE':
@@ -279,6 +283,12 @@ const cityreducer = (state = initialState, action) => {
                     }
                 }
 
+            }
+        case 'UPDATE_HASH_STRING':
+        debugger;
+            return {
+                ...state,
+                hashString: action.hashString
             }
         case 'TOGGLE_CITY_POPUP':
             return {

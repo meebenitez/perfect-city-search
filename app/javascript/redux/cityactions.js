@@ -16,28 +16,33 @@ export const initialFetch = (hash, route, key) => {
     return (dispatch) => {
         dispatch({type: 'UPDATE_KEY', key: key})
         dispatch(updateRoute(route))
-        if (route === "/city/") {
-            window.location.hash = hash
-            dispatch(fetchSingleCity(hash.replace('#','')))
-        }
-        else {
+        //if (window.location.hash) {
+        //    window.location.hash = hash
+        //    dispatch(fetchSingleCity(hash.replace('#','')))
+        //}
+        //else {
             if (hash.indexOf('#') > -1 && hash.length > 1) {
-                dispatch(grabHash(hash))
-                dispatch(fetchCities())
+                if (hash.includes('city=')) {
+                    dispatch(fetchSingleCity(hash.match(/_\d+/)[0].split("_").join("")))
+                    dispatch(fetchCities())
+                } else {
+                    dispatch(grabHash(hash))
+                    dispatch(fetchCities())
+                }
             } else {
                 dispatch(fetchCities())
             }
-        }
+        //}
         
     }
 }
 
 
-export const fetchSingleCity = (hash) => {
+export const fetchSingleCity = (id) => {
     return (dispatch) => {
-        return axios.get(`/cities/${hash}`)
+        return axios.get(`/cities/${id}`)
             .then(response => {
-                dispatch(setSingleCity(response.data))
+                dispatch(showSingleCity(response.data))
             })
     }
     
@@ -94,8 +99,10 @@ export const updateHash = () => {
     return (dispatch, getState) => {
         if (getState().city.page > 1) {
             window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&').concat(getState().city.hashTag.length > 0 ? `&page=${getState().city.page}` : `page=${getState().city.page}`)
+            dispatch({type: 'UPDATE_HASH_STRING', hashString: window.location.hash})
         } else {
             window.location.hash = getState().city.hashTag.map(el => Object.values(el)).join('&')
+            dispatch({type: 'UPDATE_HASH_STRING', hashString: window.location.hash})
         }
     }
 }
@@ -221,9 +228,10 @@ export const showSingleCity = (city) => {
     return (dispatch) => {
         dispatch(setSingleCity(city))
         dispatch(toggleCityPopup())
-        
+
     }
 }
+
 
 export const setSingleCity = (city) => {
     return {
