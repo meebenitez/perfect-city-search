@@ -240,8 +240,6 @@ export const setSingleCity = (city) => {
     }
 }
 
-
-
 export const toggleCityPopup = () => {
     return (dispatch, getState) => {
         const popupStatus = getState().city.showCityPopup
