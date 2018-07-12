@@ -17,7 +17,7 @@ const FILTERS = [
 ]
     
     
-    const HASHMAP = {
+const HASHMAP = {
     "page": "[page]=",
     "home-price": "[home_price_from]=&[home_price_to]=",
     "median-income-greater-than": "[income_from]=",
@@ -52,7 +52,7 @@ const PARAMMAP = {
         "solar-friendly" : "SolarFilter",
         "poverty-rate": "PovertyFilter",
         "majority-party" : "PoliticsFilter"
-    }
+}
          
     
 const initialState = {
@@ -83,7 +83,6 @@ const initialState = {
 const cityreducer = (state = initialState, action) => {
     switch(action.type) {
         case 'ON_LOAD':
-        //need to add in singleCityCase
         if (!action.payload.includes('city=')) {
             const hashArray = action.payload.substr(1).split("&")
             const hashTagArray = hashArray.concat().sort().map((filterName) => {

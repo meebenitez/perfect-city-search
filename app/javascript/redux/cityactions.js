@@ -39,8 +39,8 @@ export const initialFetch = (hash, route, key) => {
 
 
 export const fetchSingleCity = (id) => {
-    return (dispatch) => {
-        return axios.get(`/cities/${id}`)
+    return (dispatch, getState) => {
+        return axios.get(`/cities/${id}`, { headers: {"Authorization" : `Bearer ${getState().city.key}`}})
             .then(response => {
                 dispatch(showSingleCity(response.data))
             })
