@@ -7,7 +7,9 @@ import { Route, Link } from 'react-router-dom'
 
 const CityShow = (props) => {
 
-
+    const closePopup = () => {
+        debugger;
+    }
     //debugger;
     //return (<div>Test</div>)
     if (props.city !== null) {
@@ -53,7 +55,7 @@ const CityShow = (props) => {
                                 
                             </div>
                             <div className="col-xs-7 zero-padding">
-                                <div className="top-right2" onClick={props.closePopup}><img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/> </div>
+                                <div className="top-right2"><Link to={`${props.hashString}`} onClick={props.closePopup} ><img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></Link></div>
                                 <h2>City Stats</h2>
                                     <br></br>
                                     <br></br>

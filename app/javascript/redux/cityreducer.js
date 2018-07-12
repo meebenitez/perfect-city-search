@@ -70,7 +70,7 @@ const initialState = {
     showCityPopup: false,
     singleCity: null,
     hashTag: [],
-    hashString: null,
+    hashString: "",
     searchTerm: "",
     searchCities: [],
     mapZoom: 4,
@@ -143,6 +143,7 @@ const cityreducer = (state = initialState, action) => {
                     page: 1,
                     startPage: 1,
                     hashTag: state.hashTag.filter(function(item){ return !(key in item)}),
+                    hashString: window.location.hash
                 }
             } else {
                 let obj = {}
@@ -156,7 +157,7 @@ const cityreducer = (state = initialState, action) => {
                     page: 1,
                     startPage: 1,
                     hashTag: state.hashTag.filter(function(item){ return !(key in item)}).concat(hashObj),
-                    searchTerm: searchTerm
+                    //searchTerm: searchTerm
                 }
             }
         case 'UNCHECK':
@@ -285,7 +286,6 @@ const cityreducer = (state = initialState, action) => {
 
             }
         case 'UPDATE_HASH_STRING':
-        debugger;
             return {
                 ...state,
                 hashString: action.hashString
