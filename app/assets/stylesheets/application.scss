@@ -712,8 +712,8 @@
     .city-popup-inner {
       position: absolute;
       padding: 20px;
-      left: 15%;
-      right: 15%;
+      left: 10%;
+      right: 10%;
       top: 10%;
       bottom: 10%;
       margin: auto;
@@ -742,15 +742,24 @@
 
     .photo-credit {
       font-size: 12px;
-      max-width: 95%;
+      max-width: 90%;
+      text-overflow: ellipsis;
     }
-
 
     .img-city-icon-lg {
       height: 220px;
       width: 320px;
       object-fit: cover;
       border-radius: 10px;
+    }
+
+    .highlights-container {
+      padding: 0px;
+      max-width: 80%;
+    }
+
+    .main-detail {
+      padding-top: 20px;
     }
 
     //////////HEART COMPONENT

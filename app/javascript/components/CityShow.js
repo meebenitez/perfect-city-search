@@ -47,9 +47,10 @@ const CityShow = (props) => {
                     <div className="row">
                         <div className="col-xs-12 left-push row">
                             <div className="top-right2"><Link to={`${props.hashString}`} onClick={props.closePopup} >x close</Link></div>
-                            <div className="col-md-5 col-xs-12 zero-padding">
+                            <div className="col-md-4 col-xs-12 zero-padding">
                                 <div className="col-xs-12 zero-padding">
-                                    <div style={bgStyle}>
+                                
+                                <div style={bgStyle}>
                                         <div className="top-right-heart">
                                             <HeartButton
                                                 currentUser={props.currentUser} 
@@ -62,32 +63,30 @@ const CityShow = (props) => {
                                     </div>
                                 </div>
                                 <div className="col-xs-12 zero-padding">
+                                    <div className="photo-credit zero-padding"><Link to={props.city.img_wiki_src} target="_blank">{props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "")}</Link> by {props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "")} - {props.city.img_license}
+                                    </div>
+                                </div>   
+                                <div className="col-xs-12 zero-padding main-detail">
                                     <h1>{props.city.name}, {props.city.short_state}{ (props.city.popularity >= 25) ? <span className="star">★&nbsp;&nbsp;</span> : null }</h1>
                                     <br></br>
-                                    <span style={{fontWeight: "bold", fontSize: "17px", color: "red"}}>{props.city.county} </span>
-                                    <span style={{fontWeight: "bold", fontSize: "17px"}}>&nbsp;({formatRegion(props.city.region)})</span>
+                                    <span style={{fontWeight: "bold", fontSize: "17px"}}>{formatRegion(props.city.region)}</span>
                                     <br></br>
-                                    <span style={{fontStyle: "italic", fontSize: "12px"}}>{props.city.latitude}, {props.city.longitude}</span>
-                                    <br></br>
+                                    <span style={{fontStyle: "italic", fontSize: "15px"}}>{props.city.county}</span>
                                     <br></br>
                                     <br></br>
-                                    {highlights(props.city).length > 0 ? <div className="zero-padding"><span style={{fontWeight: "bold"}}>Highlights: </span>
+                                    {highlights(props.city).length > 0 ? <div className="highlights-container"><span style={{fontWeight: "bold"}}>Highlights: </span>
                                     <br></br>
                                     {highlights(props.city).map( (city) => city)}</div> : null}
                                     <br></br>
                                     <br></br>
                                 </div> 
-                                <div className="col-xs-12 zero-padding">
-                                    <div className="photo-credit zero-padding">Photo Credit: <Link to={props.city.img_wiki_src} target="_blank">"{props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "")}" by {props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "")}</Link>
-                                        <br></br>
-                                        License: {props.city.img_license}
-                                    </div>
-                                </div>   
+                                
                             </div>
-                            <div className="col-xs-7 zero-padding">
+                            <div className="col-md-8 zero-padding">
                                 <h2>City Stats</h2>
                                 <br></br>
                                 <br></br>
+
                                 <span style={{fontWeight: "bold"}}>Population: </span><span>{withCommas(props.city.pop_total)} residents</span>
                                 <br></br>
                                 <span style={{fontWeight: "bold"}}>Median Age: </span><span>{props.city.age_median}</span>
