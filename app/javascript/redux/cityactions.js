@@ -20,6 +20,10 @@ export const fetchSingleCity = (id, key= null) => {
                 console.log("passing response")
                 dispatch(showSingleCity(response.data))
             })
+            .catch(function(error){
+                console.log(error);
+                debugger;
+              })
     }
     
 }
