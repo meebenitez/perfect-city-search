@@ -36,7 +36,7 @@ export const initialFetch = (hash, route, key) => {
             } else {
                 dispatch(grabHash(hash))
             }
-            dispatch(fetchCities())
+            //dispatch(fetchCities())
         } else {
             dispatch(fetchCities())
         }
