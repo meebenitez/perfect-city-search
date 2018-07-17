@@ -206,6 +206,7 @@ export const clearHearted = () => {
 
 export const showSingleCity = (city) => {
     return (dispatch) => {
+        console.log("made it to showSingleCity")
         dispatch(setSingleCity(city))
         dispatch(toggleCityPopup())
 
@@ -213,6 +214,7 @@ export const showSingleCity = (city) => {
 }
 
 export const setSingleCity = (city) => {
+    console.log("made it to setSingleCity")
     return {
         type: 'SET_SINGLE_CITY',
         payload: city
@@ -221,6 +223,7 @@ export const setSingleCity = (city) => {
 
 export const toggleCityPopup = () => {
     return (dispatch, getState) => {
+        console.log("made it to toggle city")
         const popupStatus = getState().city.showCityPopup
         dispatch({
             type: 'TOGGLE_CITY_POPUP',
