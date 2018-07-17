@@ -14,6 +14,7 @@ export const fetchCities = () => {
 
 export const fetchSingleCity = (id) => {
     return (dispatch, getState) => {
+        debugger;
         return axios.get(`/cities/${id}`, { headers: {"Authorization" : `Bearer ${getState().city.key}`}})
             .then(response => {
                 dispatch(showSingleCity(response.data))
@@ -31,11 +32,10 @@ export const initialFetch = (hash, route, key) => {
         if (hash.indexOf('#') > -1 && hash.length > 1) {
             if (hash.includes('city=')) {
                 dispatch(fetchSingleCity(hash.match(/_\d+/)[0].split("_").join("")))
-                dispatch(fetchCities())
             } else {
                 dispatch(grabHash(hash))
-                dispatch(fetchCities())
             }
+            dispatch(fetchCities())
         } else {
             dispatch(fetchCities())
         }
