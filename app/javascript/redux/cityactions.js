@@ -12,10 +12,9 @@ export const fetchCities = () => {
     }
 }
 
-export const fetchSingleCity = (id) => {
+export const fetchSingleCity = (id, key= null) => {
     return (dispatch, getState) => {
-        debugger;
-        return axios.get(`/cities/${id}`, { headers: {"Authorization" : `Bearer ${getState().city.key}`}})
+        return axios.get(`/cities/${id}`, { headers: {"Authorization" : `Bearer ${!key ? getState().city.key : key}`}})
             .then(response => {
                 dispatch(showSingleCity(response.data))
             })
@@ -31,7 +30,7 @@ export const initialFetch = (hash, route, key) => {
         dispatch(updateRoute(route))
         if (hash.indexOf('#') > -1 && hash.length > 1) {
             if (hash.includes('city=')) {
-                dispatch(fetchSingleCity(hash.match(/_\d+/)[0].split("_").join("")))
+                dispatch(fetchSingleCity(hash.match(/_\d+/)[0].split("_").join("")), key)
             } else {
                 dispatch(grabHash(hash))
             }
