@@ -17,6 +17,7 @@ export const fetchSingleCity = (id, key= null) => {
         console.log("made it to the single city")
         return axios.get(`/cities/${id}`, { headers: {"Authorization" : `Bearer ${!key ? getState().city.key : key}`}})
             .then(response => {
+                console.log("passing response")
                 dispatch(showSingleCity(response.data))
             })
     }
