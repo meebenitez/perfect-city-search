@@ -104,7 +104,8 @@ export function highlights(city){
         list.push(<div className="stat-border purple-background" key="poverty-highlight">Low Poverty Rate</div>)
     }
     if (diversity([city.pop_white_perc, city.pop_native_perc, city.pop_pacific_perc, 
-                    city.pop_latin_hispanic_perc, city.pop_asian_perc, city.pop_black_perc, 
+                    //city.pop_latin_hispanic_perc, 
+                    city.pop_asian_perc, city.pop_black_perc, 
                     city.pop_other_race_perc]).length === 0){
                         list.push(<div className="stat-border green-background" key="diversity-highlight">Racially Diverse</div>)
                     }
