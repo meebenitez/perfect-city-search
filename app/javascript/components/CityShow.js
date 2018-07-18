@@ -15,7 +15,7 @@ const CityShow = (props) => {
         ["Native-American" , props.city.pop_native_perc],
         ["Asian" , props.city.pop_asian_perc],
         ["Pacific Islander" , props.city.pop_pacific_perc],
-        ["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
+        //["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
         ["Other Race" , props.city.pop_other_race_perc],
         ["Mixed Race" , props.city.pop_mixed_race_perc]
     ]
