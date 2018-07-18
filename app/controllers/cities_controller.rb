@@ -61,6 +61,7 @@ class CitiesController < ApplicationController
     end
 
     def hearted
+        puts "hearted cities"
         @cities = current_user.cities
         render json: @cities, status: 200 
     end

@@ -22,7 +22,6 @@ export const fetchSingleCity = (id, key= null) => {
             })
             .catch(function(error){
                 console.log(error);
-                debugger;
               })
     }
     
