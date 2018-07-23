@@ -3,6 +3,10 @@ import HeartButton from './HeartButton'
 import {formatPop, formatFigure, formatRegion, withCommas, highlights, resizeThumb} from './utils/CityFormat'
 import {formatIncomeHomeCompare} from './utils/MathFunctions'
 import { Route, Link } from 'react-router-dom'
+//import {PieChart} from 'react-easy-chart';
+//import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, HorizontalBarSeries} from 'react-vis';
+import {Doughnut as DoughnutChart} from 'react-chartjs-2';
+
 
 
 
@@ -20,9 +24,13 @@ const CityShow = (props) => {
         ["Mixed Race" , props.city.pop_mixed_race_perc]
     ]
 
+   
+
     const renderRacesPercents = races.map((race) => {
-        return <div className="stat-border">{Math.floor(race[1])}% {race[0]}</div>
+        return  <div className="stat-border">{Math.floor(race[1])}% {race[0]}</div>
     })
+
+    
 
     const bgStyle = {  
         width: '90%',
@@ -38,6 +46,35 @@ const CityShow = (props) => {
         border: '1px solid #929494'
     };
 
+
+    const data = {
+        labels: [
+            "Red",
+            "Blue",
+            "Yellow"
+        ],
+        datasets: [
+            {
+                data: [300, 50, 100],
+                backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                ],
+                hoverBackgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                ]
+            }]
+       };
+
+    const styles = {
+     graphContainer: {
+      border: '1px solid black',
+      padding: '15px'
+     }
+    }
 
 
     if (props.city !== null) {
@@ -96,6 +133,8 @@ const CityShow = (props) => {
                                 <br></br>
                                 {renderRacesPercents}
                                 <br></br>
+                              
+                                <DoughnutChart data={data} />
                                 <br></br>
                                 <span style={{fontWeight: "bold"}}>Veteran Population: </span>
                                 <br></br>{props.city.vets_perc}%<span style={{fontSize: "13px"}}> - (US avg: 6%)</span>
@@ -152,3 +191,48 @@ const CityShow = (props) => {
 
 
 export default CityShow;
+
+
+/*<PieChart
+                                    labels
+                                    size={300}
+                                    data={[
+                                        {key: "African-American" , value: props.city.pop_black_perc},
+                                        {key: "Caucasian" , value: props.city.pop_white_perc},
+                                        {key: "Native-American" , value: props.city.pop_native_perc},
+                                        {key: "Asian" , value: props.city.pop_asian_perc},
+                                        {key: "Pacific Islander" , value: props.city.pop_pacific_perc},
+                                        //["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
+                                        {key: "Other Race" , value: props.city.pop_other_race_perc},
+                                        {key: "Mixed Race" , value: props.city.pop_mixed_race_perc}
+                                    ]}
+                                    styles={{
+                                        '.chart_text': {
+                                          fontSize: '1em',
+                                          fill: '#fff'
+                                        }
+                                      }}
+                                />*/
+
+
+/*
+  <XYPlot
+                                    yType="ordinal"
+                                    xType="linear"
+                                    width={450}
+                                    height={300}>
+                                    <HorizontalBarSeries
+                                    data={[
+                                        {x: props.city.pop_black_perc, y: 'African-American'},
+                                        {x: props.city.pop_white_perc, y: 'Caucasian'},
+                                        {x: props.city.pop_native_perc, y: 'Native-American'},
+                                        {x: props.city.pop_asian_perc, y: 'Asian'},
+                                        {x: props.city.pop_pacific_perc, y: 'Pacific Islander'},
+                                        {x: props.city.pop_other_race_perc, y: 'Other Race'},
+                                        {x: props.city.pop_mixed_race_perc, y: 'Mixed Race'}
+                                    ]}
+                                    onValueMouseOver={(d) => {console.log(d);}} />
+                                    <XAxis />
+                                    <YAxis />
+                                </XYPlot>
+                                */
