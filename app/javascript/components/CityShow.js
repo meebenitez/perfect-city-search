@@ -6,6 +6,9 @@ import { Route, Link } from 'react-router-dom'
 //import {PieChart} from 'react-easy-chart';
 //import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, HorizontalBarSeries} from 'react-vis';
 import {Doughnut as DoughnutChart} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
+import 'chartjs-plugin-datalabels';
+
 
 
 
@@ -20,7 +23,6 @@ const CityShow = (props) => {
         ["Asian" , props.city.pop_asian_perc],
         ["Pacific Islander" , props.city.pop_pacific_perc],
         //["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
-        ["Other Race" , props.city.pop_other_race_perc],
         ["Mixed Race" , props.city.pop_mixed_race_perc]
     ]
 
@@ -47,27 +49,56 @@ const CityShow = (props) => {
     };
 
 
-    const data = {
+    const dataBar = {
         labels: [
-            "Red",
-            "Blue",
-            "Yellow"
+        "White",
+        "Black", 
+        "Native",
+        "Asian",
+        "Islander",
+        //["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
+        "Mixed"
         ],
         datasets: [
-            {
-                data: [300, 50, 100],
-                backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ],
-                hoverBackgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ]
-            }]
-       };
+          {
+            label: `${props.city.name}, ${props.city.short_state}`,
+            backgroundColor: 'rgba(251,209,40,1)',
+            borderColor: 'rgba(251,209,40,1)',
+            borderWidth: 1,
+            hoverBackgroundColor: 'rgba(251,209,40,1)',
+            hoverBorderColor: 'rgba(251,209,40,1)',
+            data: [
+                props.city.pop_white_perc,
+                props.city.pop_black_perc,
+                props.city.pop_native_perc,
+                props.city.pop_asian_perc,
+                props.city.pop_pacific_perc,
+                //props.city.pop_latin_hispanic_perc],
+                props.city.pop_mixed_race_perc
+            ]
+          },
+          {
+            label: 'United States',
+            backgroundColor: 'rgba(219,219,219,0.2)',
+            borderColor: 'rgba(219,219,219,0.2)',
+            borderWidth: 1,
+            hoverBackgroundColor: 'rgba(219,219,219,0.2)',
+            hoverBorderColor: 'rgba(219,219,219,0.2)',
+            data: [
+                76.6,
+                13.4,
+                1.3,
+                5.8,
+                .2,
+                //props.city.pop_latin_hispanic_perc],
+                2.7
+            ]
+          }
+        ]
+      };
+    
+    
+   
 
     const styles = {
      graphContainer: {
@@ -75,6 +106,29 @@ const CityShow = (props) => {
       padding: '15px'
      }
     }
+
+    const options = {
+        plugins: {
+            datalabels: {
+               display: true,
+               color: 'black',
+               align: 'end',
+               anchor: 'end'
+            }
+         },
+         scales: {
+            xAxes: [{
+                        gridLines: {
+                            display:false
+                        }
+                    }],
+            yAxes: [{
+                        gridLines: {
+                            display:false
+                        }   
+                    }]
+            }
+    };
 
 
     if (props.city !== null) {
@@ -129,12 +183,8 @@ const CityShow = (props) => {
                                 <span style={{fontWeight: "bold"}}>Median Age: </span><span>{props.city.age_median}</span>
                                 <br></br>
                                 <br></br>
-                                <span style={{fontWeight: "bold"}}>Racial Diversity:</span>
-                                <br></br>
-                                {renderRacesPercents}
-                                <br></br>
-                              
-                                <DoughnutChart data={data} />
+                                <center><span style={{fontWeight: "bold"}}>Racial Diversity (% of population)</span></center>
+                                <Bar data={dataBar} options={options} width={300} height={150} />
                                 <br></br>
                                 <span style={{fontWeight: "bold"}}>Veteran Population: </span>
                                 <br></br>{props.city.vets_perc}%<span style={{fontSize: "13px"}}> - (US avg: 6%)</span>
