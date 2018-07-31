@@ -1,8 +1,9 @@
 import React from 'react';
 import HeartButton from './HeartButton'
-import {formatPop, formatFigure, formatRegion, withCommas, highlights, resizeThumb} from './utils/CityFormat'
+import {formatPop, formatFigure, formatRegion, withCommas, highlights, resizeCityShow} from './utils/CityFormat'
 import {formatIncomeHomeCompare} from './utils/MathFunctions'
 import { Route, Link } from 'react-router-dom'
+import RacialDiversityStat from './cityShow/RacialDiversityStat'
 //import {PieChart} from 'react-easy-chart';
 //import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, HorizontalBarSeries} from 'react-vis';
 import {Doughnut as DoughnutChart} from 'react-chartjs-2';
@@ -16,28 +17,10 @@ import 'chartjs-plugin-datalabels';
 
 const CityShow = (props) => {
 
-    const races = [
-        ["African-American" , props.city.pop_black_perc],
-        ["Caucasian" , props.city.pop_white_perc],
-        ["Native-American" , props.city.pop_native_perc],
-        ["Asian" , props.city.pop_asian_perc],
-        ["Pacific Islander" , props.city.pop_pacific_perc],
-        //["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
-        ["Mixed Race" , props.city.pop_mixed_race_perc]
-    ]
-
-   
-
-    const renderRacesPercents = races.map((race) => {
-        return  <div className="stat-border">{Math.floor(race[1])}% {race[0]}</div>
-    })
-
-    
-
     const bgStyle = {  
-        width: '90%',
-        height: '225px',
-        backgroundImage: 'url(' + resizeThumb(props.city.img_thumb) + ')',
+        width: '100%',
+        height: '350px',
+        backgroundImage: 'url(' + resizeCityShow(props.city.img_thumb) + ')',
         backgroundSize:     'cover',                      /* <------ */
         backgroundRepeat:   'no-repeat',
         backgroundPosition: 'center center', 
@@ -48,58 +31,6 @@ const CityShow = (props) => {
         border: '1px solid #929494'
     };
 
-
-    const dataBar = {
-        labels: [
-        "White",
-        "Black", 
-        "Native",
-        "Asian",
-        "Islander",
-        //["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
-        "Mixed"
-        ],
-        datasets: [
-          {
-            label: `${props.city.name}, ${props.city.short_state}`,
-            backgroundColor: 'rgba(251,209,40,1)',
-            borderColor: 'rgba(251,209,40,1)',
-            borderWidth: 1,
-            hoverBackgroundColor: 'rgba(251,209,40,1)',
-            hoverBorderColor: 'rgba(251,209,40,1)',
-            data: [
-                props.city.pop_white_perc,
-                props.city.pop_black_perc,
-                props.city.pop_native_perc,
-                props.city.pop_asian_perc,
-                props.city.pop_pacific_perc,
-                //props.city.pop_latin_hispanic_perc],
-                props.city.pop_mixed_race_perc
-            ]
-          },
-          {
-            label: 'United States',
-            backgroundColor: 'rgba(219,219,219,0.2)',
-            borderColor: 'rgba(219,219,219,0.2)',
-            borderWidth: 1,
-            hoverBackgroundColor: 'rgba(219,219,219,0.2)',
-            hoverBorderColor: 'rgba(219,219,219,0.2)',
-            data: [
-                76.6,
-                13.4,
-                1.3,
-                5.8,
-                .2,
-                //props.city.pop_latin_hispanic_perc],
-                2.7
-            ]
-          }
-        ]
-      };
-    
-    
-   
-
     const styles = {
      graphContainer: {
       border: '1px solid black',
@@ -107,87 +38,85 @@ const CityShow = (props) => {
      }
     }
 
-    const options = {
-        plugins: {
-            datalabels: {
-               display: true,
-               color: 'black',
-               align: 'end',
-               anchor: 'end'
-            }
-         },
-         scales: {
-            xAxes: [{
-                        gridLines: {
-                            display:false
-                        }
-                    }],
-            yAxes: [{
-                        gridLines: {
-                            display:false
-                        }   
-                    }]
-            }
-    };
-
-
     if (props.city !== null) {
         return (
             <div className="city-popup">
                 <div className='city-popup-inner'>
                     <div className="row">
                         <div className="col-xs-12 left-push row">
-                            <div className="top-right2"><Link to={`${props.hashString}`} onClick={props.closePopup} >x close</Link></div>
-                            <div className="col-md-4 col-xs-12 zero-padding">
+                            <div className="top-right2"><Link to={`${props.hashString}`} onClick={props.closePopup}>x close</Link></div>
+                            
                                 <div className="col-xs-12 zero-padding">
-                                
-                                <div style={bgStyle}>
-                                        <div className="top-right-heart">
-                                            <HeartButton
-                                                currentUser={props.currentUser} 
-                                                heartedCities={props.heartedCities} 
-                                                unheartClick={props.unheartClick} 
-                                                heartClick={props.heartClick} 
-                                                toggleAuthPopup={props.toggleAuthPopup} 
-                                                city={props.city}/>
+                                    <div className="col-xs-12 bottom-line zero-padding">
+                                        <div className="name-container">
+                                            <h6>{props.city.name}, {props.city.long_state}&nbsp;</h6>
                                         </div>
+                                        {highlights(props.city).length > 0 ? <div className="highlights-container">{highlights(props.city).map( (city) => city)}</div> : null}
+                                    </div>
+                                    <div className="col-xs-12 details zero-padding">
+                                    <div className="col-md-7 col-xs-12 zero-padding">
+                                                <div className="col-xs-12 facts-container">
+                                                    <div className="col-xs-4">
+                                                        <div className="stats-title-big">Region</div>
+                                                        <div className="stats-detail-big">{formatRegion(props.city.region)}</div>
+                                                    </div>
+                                                    <div className="col-xs-4">
+                                                        <div className="stats-title-big">County</div>
+                                                        <div className="stats-detail-big">{props.city.county}</div>
+                                                    </div>
+                                                    <div className="col-xs-4">
+                                                        <div className="stats-title-big">Population</div>
+                                                        <div className="stats-detail-big">{withCommas(props.city.pop_total)}</div>
+                                                    </div>
+                                                   
+                                                
+                                                </div>
+                                                
+                                        </div>
+                                        <div className="col-md-5 col-xs-12 zero-padding">
+                                            <div className="col-xs-12 zero-padding">
+                                                <div className="top-right-heart">
+                                                    <HeartButton
+                                                        currentUser={props.currentUser} 
+                                                        heartedCities={props.heartedCities} 
+                                                        unheartClick={props.unheartClick} 
+                                                        heartClick={props.heartClick} 
+                                                        toggleAuthPopup={props.toggleAuthPopup} 
+                                                        city={props.city}/>
+                                                </div>
+                                                <div style={bgStyle} title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + props.city.img_license}>
+                                                    </div>
+                                                    <div className="col-xs-12 zero-padding">
+                                                    <div className="photo-credit zero-padding" title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + props.city.img_license}><center><Link to={props.city.img_wiki_src} target="_blank">Click for Photo Credit Info</Link></center>
+                                                </div>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
-                                <div className="col-xs-12 zero-padding">
-                                    <div className="photo-credit zero-padding"><Link to={props.city.img_wiki_src} target="_blank">{props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "")}</Link> by {props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "")} - {props.city.img_license}
+                            
+                             
+                            
+                            
+                            
+                                <div className="col-xs-12">
+                                    <div className="col-md-6 col-xs-12">
+                                        <RacialDiversityStat city={props.city} />
                                     </div>
-                                </div>   
-                                <div className="col-xs-12 zero-padding main-detail">
-                                    <h1>{props.city.name}, {props.city.short_state}{ (props.city.popularity >= 25) ? <span className="star">★&nbsp;&nbsp;</span> : null }</h1>
-                                    <br></br>
-                                    <span style={{fontWeight: "bold", fontSize: "17px"}}>{formatRegion(props.city.region)}</span>
-                                    <br></br>
-                                    <span style={{fontStyle: "italic", fontSize: "15px"}}>{props.city.county}</span>
-                                    <br></br>
-                                    <br></br>
-                                    {highlights(props.city).length > 0 ? <div className="highlights-container"><span style={{fontWeight: "bold"}}>Highlights: </span>
-                                    <br></br>
-                                    {highlights(props.city).map( (city) => city)}</div> : null}
-                                    <br></br>
-                                    <br></br>
-                                </div> 
-                                
-                            </div>
-                            <div className="col-md-8 zero-padding">
-                                <h2>City Stats</h2>
-                                <br></br>
-                                <br></br>
+                                    <div className="col-md-6 col-xs-12">
+                                        <span style={{fontWeight: "bold"}}>Veteran Population: </span>
+                                        <br></br>{props.city.vets_perc}%<span style={{fontSize: "13px"}}> - (US avg: 6%)</span>
+                                    </div>
 
-                                <span style={{fontWeight: "bold"}}>Population: </span><span>{withCommas(props.city.pop_total)} residents</span>
+
+                                </div>
+                            
                                 <br></br>
-                                <span style={{fontWeight: "bold"}}>Median Age: </span><span>{props.city.age_median}</span>
                                 <br></br>
+                                
                                 <br></br>
-                                <center><span style={{fontWeight: "bold"}}>Racial Diversity (% of population)</span></center>
-                                <Bar data={dataBar} options={options} width={300} height={150} />
-                                <br></br>
-                                <span style={{fontWeight: "bold"}}>Veteran Population: </span>
-                                <br></br>{props.city.vets_perc}%<span style={{fontSize: "13px"}}> - (US avg: 6%)</span>
+                                
                                 <br></br>
                                 <br></br>
                                 <span style={{fontWeight: "bold"}}>2016 Presidential Election Results for {props.city.county}</span>
@@ -227,7 +156,6 @@ const CityShow = (props) => {
                         <br></br>
                         </div>
                     </div>        
-                </div>
             </div>
         )
     } else {
@@ -243,46 +171,42 @@ const CityShow = (props) => {
 export default CityShow;
 
 
-/*<PieChart
-                                    labels
-                                    size={300}
-                                    data={[
-                                        {key: "African-American" , value: props.city.pop_black_perc},
-                                        {key: "Caucasian" , value: props.city.pop_white_perc},
-                                        {key: "Native-American" , value: props.city.pop_native_perc},
-                                        {key: "Asian" , value: props.city.pop_asian_perc},
-                                        {key: "Pacific Islander" , value: props.city.pop_pacific_perc},
-                                        //["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
-                                        {key: "Other Race" , value: props.city.pop_other_race_perc},
-                                        {key: "Mixed Race" , value: props.city.pop_mixed_race_perc}
-                                    ]}
-                                    styles={{
-                                        '.chart_text': {
-                                          fontSize: '1em',
-                                          fill: '#fff'
-                                        }
-                                      }}
-                                />*/
 
 
-/*
-  <XYPlot
-                                    yType="ordinal"
-                                    xType="linear"
-                                    width={450}
-                                    height={300}>
-                                    <HorizontalBarSeries
-                                    data={[
-                                        {x: props.city.pop_black_perc, y: 'African-American'},
-                                        {x: props.city.pop_white_perc, y: 'Caucasian'},
-                                        {x: props.city.pop_native_perc, y: 'Native-American'},
-                                        {x: props.city.pop_asian_perc, y: 'Asian'},
-                                        {x: props.city.pop_pacific_perc, y: 'Pacific Islander'},
-                                        {x: props.city.pop_other_race_perc, y: 'Other Race'},
-                                        {x: props.city.pop_mixed_race_perc, y: 'Mixed Race'}
-                                    ]}
-                                    onValueMouseOver={(d) => {console.log(d);}} />
-                                    <XAxis />
-                                    <YAxis />
-                                </XYPlot>
-                                */
+                            /*
+                               <div className="col-md-4 col-xs-12 zero-padding">
+                               <div className="col-xs-12 zero-padding">
+                               
+                               <div style={bgStyle}>
+                                       <div className="top-right-heart">
+                                           <HeartButton
+                                               currentUser={props.currentUser} 
+                                               heartedCities={props.heartedCities} 
+                                               unheartClick={props.unheartClick} 
+                                               heartClick={props.heartClick} 
+                                               toggleAuthPopup={props.toggleAuthPopup} 
+                                               city={props.city}/>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div className="col-xs-12 zero-padding">
+                                   <div className="photo-credit zero-padding"><Link to={props.city.img_wiki_src} target="_blank">{props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "")}</Link> by {props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "")} - {props.city.img_license}
+                                   </div>
+                               </div>   
+                               <div className="col-xs-12 zero-padding main-detail">
+                                   <h1>{props.city.name}, {props.city.short_state}{ (props.city.popularity >= 25) ? <span className="star">★&nbsp;&nbsp;</span> : null }</h1>
+                                   <br></br>
+                                   <span style={{fontWeight: "bold", fontSize: "17px"}}>{formatRegion(props.city.region)}</span>
+                                   <br></br>
+                                   <span style={{fontStyle: "italic", fontSize: "15px"}}>{props.city.county}</span>
+                                   <br></br>
+                                   <br></br>
+                                   {highlights(props.city).length > 0 ? <div className="highlights-container"><span style={{fontWeight: "bold"}}>Highlights: </span>
+                                   <br></br>
+                                   {highlights(props.city).map( (city) => city)}</div> : null}
+                                   <br></br>
+                                   <br></br>
+                               </div> 
+                               
+                           </div>
+                           */

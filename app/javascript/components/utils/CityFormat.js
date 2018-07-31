@@ -83,6 +83,14 @@ export function resizeThumb(url) {
     }
     return newString
 }
+
+export function resizeCityShow(url) {
+    let newString = url
+    if (url !== undefined){
+        newString = url.replace("200px", "800px")
+    }
+    return newString
+}
 //-------------highlights---------------//
 
 function diversity(raceGroup){

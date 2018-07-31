@@ -234,6 +234,8 @@
       border-bottom: rgb(185, 185, 185) 1px solid;
     }
 
+   
+
     .zero-padding {
       padding: 0px;
     }
@@ -740,6 +742,21 @@
       border-radius: 5px;
     }
 
+    .image-container {
+      border: 1px solid rgb(36, 35, 35);
+      border-radius: 5px;
+      padding-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    .details {
+      margin-top: 10px;
+    }
+
+    .facts-container {
+      height: 100%;
+    }
+
     .photo-credit {
       font-size: 12px;
       max-width: 90%;
@@ -753,14 +770,40 @@
       border-radius: 10px;
     }
 
-    .highlights-container {
+    .name-container{
+      display: inline-block;
       padding: 0px;
-      max-width: 80%;
+      margin: 0px;
+      vertical-align: bottom;
+    }
+
+    .highlights-container {
+      margin-left: 15px;
+      margin-bottom: 5px;
+      display: inline-block;
     }
 
     .main-detail {
       padding-top: 20px;
     }
+
+    .stats-title-big {
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .stats-detail-big {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .fixed-column {
+      max-width: 100%;
+      background-color: red;
+    }
+
+    
 
     //////////HEART COMPONENT
 
@@ -788,6 +831,12 @@
       right: 15%; 
     }
 
+    .center-right-heart {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+    }
+
     ///////////HEADINGS
 
     h1 {
@@ -796,6 +845,7 @@
       display:inline;
       color: red;
     }
+
     h2 {
       font-family: 'Lato', sans-serif;
       font-size: 20px;
@@ -829,6 +879,21 @@
       font-size: 16px;
       color: red;
       display:inline;
+    }
+
+    h6 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 30px;
+      display:inline;
+      color: red;
+    }
+
+    h7 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 30px;
+      display:inline;
+      color: red;
+      line-height: 1.6;
     }
 
 
