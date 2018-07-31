@@ -1,5 +1,5 @@
 import React from 'react';
-import HeartButton from './HeartButton'
+import HeartButtonLg from './HeartButtonLg'
 import {formatPop, formatFigure, formatRegion, withCommas, highlights, resizeCityShow} from './utils/CityFormat'
 import {formatIncomeHomeCompare} from './utils/MathFunctions'
 import { Route, Link } from 'react-router-dom'
@@ -75,8 +75,8 @@ const CityShow = (props) => {
                                         </div>
                                         <div className="col-md-5 col-xs-12 zero-padding">
                                             <div className="col-xs-12 zero-padding">
-                                                <div className="top-right-heart">
-                                                    <HeartButton
+                                                <div className="top-right-heart-show-page">
+                                                    <HeartButtonLg
                                                         currentUser={props.currentUser} 
                                                         heartedCities={props.heartedCities} 
                                                         unheartClick={props.unheartClick} 
@@ -84,10 +84,10 @@ const CityShow = (props) => {
                                                         toggleAuthPopup={props.toggleAuthPopup} 
                                                         city={props.city}/>
                                                 </div>
-                                                <div style={bgStyle} title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + props.city.img_license}>
+                                                <div style={bgStyle} title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + "-" + props.city.img_license}>
                                                     </div>
                                                     <div className="col-xs-12 zero-padding">
-                                                    <div className="photo-credit zero-padding" title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + props.city.img_license}><center><Link to={props.city.img_wiki_src} target="_blank">Click for Photo Credit Info</Link></center>
+                                                    <div className="photo-credit zero-padding" title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + "-" + props.city.img_license}><center><Link to={props.city.img_wiki_src} target="_blank">---- Photo Credit ----</Link></center>
                                                 </div>
                                                 </div> 
                                             </div>
