@@ -754,6 +754,12 @@
     }
 
     .facts-container {
+      margin-top: 10px;
+      height: 100%;
+    }
+
+    .home-price-container {
+      margin-top: 20px;
       height: 100%;
     }
 
@@ -801,6 +807,10 @@
     .fixed-column {
       max-width: 100%;
       background-color: red;
+    }
+
+    .graph-container {
+      margin-top: 15px;
     }
 
     
@@ -896,10 +906,8 @@
 
     h7 {
       font-family: 'Fredoka One', cursive;
-      font-size: 30px;
+      font-size: 20px;
       display:inline;
-      color: red;
-      line-height: 1.6;
     }
 
 

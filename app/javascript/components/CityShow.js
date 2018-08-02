@@ -4,15 +4,13 @@ import {formatPop, formatFigure, formatRegion, withCommas, highlights, resizeCit
 import {formatIncomeHomeCompare} from './utils/MathFunctions'
 import { Route, Link } from 'react-router-dom'
 import RacialDiversityStat from './cityShow/RacialDiversityStat'
+import HomeValueCompare from './cityShow/HomeValueCompare'
+import IncomeCompare from './cityShow/IncomeCompare'
 //import {PieChart} from 'react-easy-chart';
 //import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, HorizontalBarSeries} from 'react-vis';
 import {Doughnut as DoughnutChart} from 'react-chartjs-2';
 import {Bar} from 'react-chartjs-2';
 import 'chartjs-plugin-datalabels';
-
-
-
-
 
 
 const CityShow = (props) => {
@@ -57,19 +55,23 @@ const CityShow = (props) => {
                                     <div className="col-md-7 col-xs-12 zero-padding">
                                                 <div className="col-xs-12 facts-container">
                                                     <div className="col-xs-4">
-                                                        <div className="stats-title-big">Region</div>
+                                                        <div className="stats-title-big"><h7>US Region</h7></div>
                                                         <div className="stats-detail-big">{formatRegion(props.city.region)}</div>
                                                     </div>
                                                     <div className="col-xs-4">
-                                                        <div className="stats-title-big">County</div>
+                                                        <div className="stats-title-big"><h7>County</h7></div>
                                                         <div className="stats-detail-big">{props.city.county}</div>
                                                     </div>
                                                     <div className="col-xs-4">
-                                                        <div className="stats-title-big">Population</div>
+                                                        <div className="stats-title-big"><h7>Population</h7></div>
                                                         <div className="stats-detail-big">{withCommas(props.city.pop_total)}</div>
                                                     </div>
-                                                   
+                                                </div>
                                                 
+                                                <div className="col-xs-12 graph-container">
+                                                        <div className="stats-title-big"><h7>Median Home Value</h7></div>
+                                                        <div className="stats-detail-big">${withCommas(props.city.homes_median_value)}</div>
+                                                        <HomeValueCompare city={props.city} />
                                                 </div>
                                                 
                                         </div>
@@ -210,3 +212,27 @@ export default CityShow;
                                
                            </div>
                            */
+
+
+/*
+<div className="col-xs-12 facts-container">
+                                                
+                                                <div className="col-xs-6">
+                                                <center>
+                                                        <div className="stats-title-big">
+                                                            <h7>Median Home Value</h7>
+                                                        </div>
+                                                    </center>
+                                                    <div className="stats-detail-big">{props.city.homes_median_value > 100 ? "$" + withCommas(props.city.homes_median_value) : "no data" }</div>
+                                                </div>
+                                                <div className="col-xs-6">
+                                                <center>
+                                                        <div className="stats-title-big">
+                                                            <h7>Household Income</h7>
+                                                        </div>
+                                                    </center>
+                                                    <div className="stats-detail-big">{props.city.income_median > 100 ? "$" + withCommas(props.city.income_median) : "no data" }</div>
+                                                
+                                                </div>
+                                              
+                                            </div>*/
