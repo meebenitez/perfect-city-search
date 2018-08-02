@@ -41,11 +41,10 @@ const CityShow = (props) => {
             <div className="city-popup">
                 <div className='city-popup-inner'>
                     <div className="row">
-                        <div className="col-xs-12 left-push row">
-                            <div className="top-right2"><Link to={`${props.hashString}`} onClick={props.closePopup}>x close</Link></div>
-                            
+                        <div className="col-xs-12 left-push row zero-padding">
                                 <div className="col-xs-12 zero-padding">
-                                    <div className="col-xs-12 bottom-line zero-padding">
+                                    <div className="col-xs-12 bottom-line fixed white-background">
+                                    <div className="top-right2"><Link to={`${props.hashString}`} onClick={props.closePopup}>x close</Link></div>
                                         <div className="name-container">
                                             <h6>{props.city.name}, {props.city.long_state}&nbsp;</h6>
                                         </div>
@@ -69,9 +68,9 @@ const CityShow = (props) => {
                                                     </div>
                                                     
                                                     <div className="col-xs-12 info-bit-container">
-                                                        <p><h7>Quick Facts</h7><br></br><strong>{props.city.name}</strong> is a city located in {props.city.long_state} with a population of <strong>{withCommas(props.city.pop_total)} residents</strong>.  The <strong>median age</strong> of the population in {props.city.name} is <strong>{props.city.age_median}</strong>.  The median age for females is {props.city.age_median_female} and males is {props.city.age_median_male}.</p>
+                                                        <p><h7>Quick Facts</h7><br></br><strong>{props.city.name}</strong> is a city located in {props.city.long_state} with a population of <strong>{withCommas(props.city.pop_total)} residents</strong>.  The <strong>median age</strong> of the population in {props.city.name} is <strong>{props.city.age_median}</strong>.  The median age for females in {props.city.name} is {props.city.age_median_female} and males is {props.city.age_median_male}.</p>
                                                         <p>The median household income is <strong>${withCommas(props.city.income_median)}</strong> and {props.city.name} has a poverty rate of <strong>{props.city.poverty_perc}%</strong>.  This is {povertyStatement(props.city.poverty_perc)}</p>
-                                                        <p><h7>Highlights</h7><br></br> {props.city.name} {highlightsParagraph(highlights(props.city))}</p>
+                                                        {highlights(props.city).length > 0 ? <p><h7>Highlights</h7><br></br> {props.city.name} {highlightsParagraph(highlights(props.city))}</p> : null }
                                                     </div>
                                                     
                                             </div>
@@ -98,13 +97,15 @@ const CityShow = (props) => {
                                         </div>
                                 </div>
                             
-                                <div className="col-xs-12 details zero-padding">
+                                <div className="col-xs-12 zero-padding">
                                     <div className="col-md-7 col-xs-12 zero-padding">
-                                        <div className="col-xs-12 graph-container">
-                                            <div className="stats-title-big"><h7>Median Home Value</h7></div>
-                                            <div className="stats-detail-big">${withCommas(props.city.homes_median_value)}</div>
-                                            <HomeValueCompare city={props.city} />
-                                        </div>
+                                        {props.city.homes_median_value > 1000 ? 
+                                            <div className="col-xs-12 graph-container">
+                                                <div className="stats-title-big"><h7>Median Home Value</h7></div>
+                                                <div className="stats-detail-big">${withCommas(props.city.homes_median_value)}</div>
+                                                <HomeValueCompare city={props.city} />
+                                            </div> : null
+                                        }
                                     </div>
                                     <div className="col-md-5 col-xs-12 zero-padding">
                                         test

@@ -232,6 +232,8 @@
     
     .bottom-line {
       border-bottom: rgb(185, 185, 185) 1px solid;
+      max-width: 77%;
+      padding-top: 20px;
     }
 
    
@@ -278,8 +280,8 @@
 
     .top-right2 {
       position: absolute;
-      top: 0%;
-      right: 3%;
+      top: 15%;
+      right: 0%;
       z-index: 1000;
     }
 
@@ -714,7 +716,7 @@
     }
     .city-popup-inner {
       position: absolute;
-      padding: 20px;
+      padding: 0px 20px 20px 20px;
       left: 10%;
       right: 10%;
       top: 10%;
@@ -751,7 +753,7 @@
     }
 
     .details {
-      margin-top: 10px;
+      margin-top: 60px;
     }
 
     .facts-container {
