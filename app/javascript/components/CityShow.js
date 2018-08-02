@@ -52,53 +52,62 @@ const CityShow = (props) => {
                                         {highlights(props.city).length > 0 ? <div className="highlights-container">{highlights(props.city).map( (city) => city)}</div> : null}
                                     </div>
                                     <div className="col-xs-12 details zero-padding">
-                                    <div className="col-md-7 col-xs-12 zero-padding">
-                                                <div className="col-xs-12 facts-container">
-                                                    <div className="col-xs-4">
-                                                        <div className="stats-title-big"><h7>US Region</h7></div>
-                                                        <div className="stats-detail-big">{formatRegion(props.city.region)}</div>
+                                        <div className="col-md-7 col-xs-12 zero-padding">
+                                                    <div className="col-xs-12 facts-container">
+                                                        <div className="col-xs-4">
+                                                            <div className="stats-title-big"><h7>US Region</h7></div>
+                                                            <div className="stats-detail-big">{formatRegion(props.city.region)}</div>
+                                                        </div>
+                                                        <div className="col-xs-4">
+                                                            <div className="stats-title-big"><h7>County</h7></div>
+                                                            <div className="stats-detail-big">{props.city.county}</div>
+                                                        </div>
+                                                        <div className="col-xs-4">
+                                                            <div className="stats-title-big"><h7>Population</h7></div>
+                                                            <div className="stats-detail-big">{withCommas(props.city.pop_total)}</div>
+                                                        </div>
                                                     </div>
-                                                    <div className="col-xs-4">
-                                                        <div className="stats-title-big"><h7>County</h7></div>
-                                                        <div className="stats-detail-big">{props.city.county}</div>
+                                                    
+                                                    <div className="col-xs-12 info-bit-container">
+                                                        <strong>{props.city.name}</strong> is a city located in {props.city.long_state} with a population of <strong>{withCommas(props.city.pop_total)} residents</strong>.  The <strong>median age</strong> of the population in {props.city.name} is <strong>{props.city.age_median}</strong>.  The median age for females is {props.city.age_median_female} and males is {props.city.age_median_male}.
                                                     </div>
-                                                    <div className="col-xs-4">
-                                                        <div className="stats-title-big"><h7>Population</h7></div>
-                                                        <div className="stats-detail-big">{withCommas(props.city.pop_total)}</div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div className="col-xs-12 graph-container">
-                                                        <div className="stats-title-big"><h7>Median Home Value</h7></div>
-                                                        <div className="stats-detail-big">${withCommas(props.city.homes_median_value)}</div>
-                                                        <HomeValueCompare city={props.city} />
-                                                </div>
-                                                
-                                        </div>
-                                        <div className="col-md-5 col-xs-12 zero-padding">
-                                            <div className="col-xs-12 zero-padding">
-                                                <div className="top-right-heart-show-page">
-                                                    <HeartButtonLg
-                                                        currentUser={props.currentUser} 
-                                                        heartedCities={props.heartedCities} 
-                                                        unheartClick={props.unheartClick} 
-                                                        heartClick={props.heartClick} 
-                                                        toggleAuthPopup={props.toggleAuthPopup} 
-                                                        city={props.city}/>
-                                                </div>
-                                                <div style={bgStyle} title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + "-" + props.city.img_license}>
-                                                    </div>
-                                                    <div className="col-xs-12 zero-padding">
-                                                    <div className="photo-credit zero-padding" title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + "-" + props.city.img_license}><center><Link to={props.city.img_wiki_src} target="_blank">---- Photo Credit ----</Link></center>
-                                                </div>
-                                                </div> 
+                                                    
                                             </div>
+                                            <div className="col-md-5 col-xs-12 zero-padding">
+                                                <div className="col-xs-12 zero-padding">
+                                                    <div className="top-right-heart-show-page">
+                                                        <HeartButtonLg
+                                                            currentUser={props.currentUser} 
+                                                            heartedCities={props.heartedCities} 
+                                                            unheartClick={props.unheartClick} 
+                                                            heartClick={props.heartClick} 
+                                                            toggleAuthPopup={props.toggleAuthPopup} 
+                                                            city={props.city}/>
+                                                    </div>
+                                                    <div style={bgStyle} title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + "-" + props.city.img_license}>
+                                                        </div>
+                                                        <div className="col-xs-12 zero-padding">
+                                                        <div className="photo-credit zero-padding" title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + "-" + props.city.img_license}><center><Link to={props.city.img_wiki_src} target="_blank">---- Photo Credit ----</Link></center>
+                                                    </div>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                            
                                         </div>
-                                        
-                                    </div>
                                 </div>
                             
-                             
+                                <div className="col-xs-12 details zero-padding">
+                                    <div className="col-md-7 col-xs-12 zero-padding">
+                                        <div className="col-xs-12 graph-container">
+                                            <div className="stats-title-big"><h7>Median Home Value</h7></div>
+                                            <div className="stats-detail-big">${withCommas(props.city.homes_median_value)}</div>
+                                            <HomeValueCompare city={props.city} />
+                                        </div>
+                                    </div>
+                                    <div className="col-md-5 col-xs-12 zero-padding">
+                                        test
+                                    </div>
+                                </div>
                             
                             
                             
