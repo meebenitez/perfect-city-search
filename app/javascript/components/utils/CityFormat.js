@@ -136,7 +136,8 @@ export function highlightsParagraph(highlights){
             }
         })
     } else if (highlightsArray.length > 1){
-        highlightsArray.splice(highlightsArray.length - 1, 0, <span> and </span>).push(<span>.</span>)
+        highlightsArray.splice(highlightsArray.length - 1, 0, <span> and </span>)
+        highlightsArray.push(<span>.</span>)
     }
     
     else {
