@@ -122,3 +122,15 @@ export function highlights(city){
     }
     return list
 }
+
+////////////---PARAGRAPH FORMATTING-----//////////////
+
+export function povertyStatement(rate){
+    if (rate > 15.2) {
+        return <span>higher than the national poverty rate of 15.2%.</span>
+    } else if (rate > 15.0 && rate < 16.0){
+        return <span>roughly equal to the national poverty rate of 15.2%</span>
+    } else {
+        return <span>lower than the national poverty rate of 15.2%</span>
+    }
+}

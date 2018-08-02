@@ -1,6 +1,6 @@
 import React from 'react';
 import HeartButtonLg from './HeartButtonLg'
-import {formatPop, formatFigure, formatRegion, withCommas, highlights, resizeCityShow} from './utils/CityFormat'
+import {povertyStatement, formatPop, formatFigure, formatRegion, withCommas, highlights, resizeCityShow} from './utils/CityFormat'
 import {formatIncomeHomeCompare} from './utils/MathFunctions'
 import { Route, Link } from 'react-router-dom'
 import RacialDiversityStat from './cityShow/RacialDiversityStat'
@@ -69,7 +69,8 @@ const CityShow = (props) => {
                                                     </div>
                                                     
                                                     <div className="col-xs-12 info-bit-container">
-                                                        <strong>{props.city.name}</strong> is a city located in {props.city.long_state} with a population of <strong>{withCommas(props.city.pop_total)} residents</strong>.  The <strong>median age</strong> of the population in {props.city.name} is <strong>{props.city.age_median}</strong>.  The median age for females is {props.city.age_median_female} and males is {props.city.age_median_male}.
+                                                        <p><strong>{props.city.name}</strong> is a city located in {props.city.long_state} with a population of <strong>{withCommas(props.city.pop_total)} residents</strong>.  The <strong>median age</strong> of the population in {props.city.name} is <strong>{props.city.age_median}</strong>.  The median age for females is {props.city.age_median_female} and males is {props.city.age_median_male}.</p>
+                                                        <p>The median household income is <strong>${withCommas(props.city.income_median)}</strong> and {props.city.name} has a poverty rate of <strong>{props.city.poverty_perc}%</strong>.  This is {povertyStatement(props.city.poverty_perc)}</p>
                                                     </div>
                                                     
                                             </div>
