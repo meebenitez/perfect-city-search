@@ -103,24 +103,46 @@ function diversity(raceGroup){
 export function highlights(city){
     let list = []
     if (city.popularity >= 25){
-        list.push(<div className="stat-border yellow-background" key="popular-highlight">Popular City</div>)
+        list.push([<div className="stat-border yellow-background" key="popular-highlight">Popular City</div>, <span> is <strong>popular</strong> among our users</span>])
     }
     if (city.vets_perc >= 10) {
-        list.push(<div className="stat-border blue-background" key="veteran-highlight">Large Veteran Population</div>)
+        list.push([<div className="stat-border blue-background" key="veteran-highlight">Large Veteran Population</div>, <span>has a <strong>large veteran population</strong></span>])
     }
     if (city.poverty_perc <= 7) {
-        list.push(<div className="stat-border purple-background" key="poverty-highlight">Low Poverty Rate</div>)
+        list.push([<div className="stat-border purple-background" key="poverty-highlight">Low Poverty Rate</div>,<span>has a <strong>low poverty rate</strong></span> ])
     }
     if (diversity([city.pop_white_perc, city.pop_native_perc, city.pop_pacific_perc, 
                     //city.pop_latin_hispanic_perc, 
                     city.pop_asian_perc, city.pop_black_perc, 
                     city.pop_other_race_perc]).length === 0){
-                        list.push(<div className="stat-border green-background" key="diversity-highlight">Racially Diverse</div>)
+                        list.push([<div className="stat-border green-background" key="diversity-highlight">Racially Diverse</div>, <span>is <strong>racially diverse</strong></span>])
                     }
     if (Math.abs(city.dem_vote_perc - city.gop_vote_perc) <= 15) {
-        list.push(<div className="stat-border red-background" key="swing-city-highlight">Swing County</div>)
+        list.push([<div className="stat-border red-background" key="swing-city-highlight">Swing County</div>, <span>is located in a <strong>swing county</strong></span>])
     }
     return list
+}
+
+export function highlightsParagraph(highlights){
+    const highlightsArray = highlights.map(function(highlight){
+        return <span>{highlight[1].props.children}</span>
+    })
+    if (highlightsArray.length > 2){
+        return highlightsArray.map(function(highlight, index){
+            if (index < highlightsArray.length - 1) {
+                return <span>{highlight.props.children}, </span>
+            } else {
+                return <span>and {highlight.props.children}.</span>
+            }
+        })
+    } else if (highlightsArray.length > 1){
+        highlightsArray.splice(highlightsArray.length - 1, 0, <span> and </span>).push(<span>.</span>)
+    }
+    
+    else {
+        highlightsArray.push(<span>.</span>)
+    }
+    return highlightsArray
 }
 
 ////////////---PARAGRAPH FORMATTING-----//////////////

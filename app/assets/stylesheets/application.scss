@@ -278,8 +278,8 @@
 
     .top-right2 {
       position: absolute;
-      top: -2%;
-      right: 2%;
+      top: 0%;
+      right: 3%;
     }
 
 
@@ -768,6 +768,14 @@
     .home-price-container {
       margin-top: 20px;
       height: 100%;
+    }
+
+    .source-container {
+      background-color: rgb(109, 109, 247);
+      margin-top: 30px;
+      max-width: 97%;
+      border-radius: 5px;
+      color: white;
     }
 
     .photo-credit {
