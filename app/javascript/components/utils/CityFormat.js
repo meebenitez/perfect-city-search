@@ -118,7 +118,7 @@ export function highlights(city){
                         list.push([<div className="stat-border green-background" key="diversity-highlight">Racially Diverse</div>, <span>is <strong>racially diverse</strong></span>])
                     }
     if (Math.abs(city.dem_vote_perc - city.gop_vote_perc) <= 15) {
-        list.push([<div className="stat-border red-background" key="swing-city-highlight">Swing County</div>, <span>is located in a <strong>swing county</strong></span>])
+        list.push([<div className="stat-border red-background" key="swing-city-highlight">Swing County</div>, <span>is located in a <strong>potential swing county</strong></span>])
     }
     return list
 }

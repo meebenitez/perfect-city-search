@@ -130,14 +130,11 @@ const CityShow = (props) => {
 
                                 
                                 <div className="col-xs-12 zero-padding">
+                                    <div className="col-xs-12 category-container">
+                                        <h7>General Demographics</h7>
+                                    </div>
                                     <div className="col-md-7 col-xs-12 zero-padding">
-                                        {props.city.homes_median_value > 1000 ? 
-                                            <div className="col-xs-12 graph-container">
-                                                <div className="stats-title-big"><h7>Median Home Value</h7></div>
-                                                <div className="stats-detail-big">${withCommas(props.city.homes_median_value)}</div>
-                                                <HomeValueCompare city={props.city} />
-                                            </div> : null
-                                        }
+                                        test
                                     </div>
                                     <div className="col-md-5 col-xs-12 zero-padding">
                                         test
@@ -219,6 +216,14 @@ export default CityShow;
 
 
 /*
+
+{props.city.homes_median_value > 1000 ? 
+                                            <div className="col-xs-12 graph-container">
+                                                <div className="stats-title-big"><h8>Median Home Value</h8></div>
+                                                <div className="stats-detail-big">${withCommas(props.city.homes_median_value)}</div>
+                                                <HomeValueCompare city={props.city} />
+                                            </div> : null
+                                        }
 
 <div className="col-xs-12 category-container">
                                             <div className="col-xs-12 zero-padding">
