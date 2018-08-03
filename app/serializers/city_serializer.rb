@@ -19,7 +19,7 @@ class CitySerializer < ActiveModel::Serializer
           :pop_mixed_race,
           :pop_mixed_race_perc,
           :pop_latin_hispanic,
-          :pop_latin_hispanic_perc,
+          #:pop_latin_hispanic_perc,
           :commuters_total,
           :commuters_drivers,
           :commuters_drivers_perc,
