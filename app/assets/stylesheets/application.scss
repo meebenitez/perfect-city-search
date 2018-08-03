@@ -852,6 +852,10 @@
       margin-top: 15px;
     }
 
+    .politics-chart-container{
+      max-width: 75%;
+    }
+
     .city-map-container {
       padding-top: 10px;
       padding-left: 0px;
@@ -860,14 +864,22 @@
     }
 
     .climate-img {
-      width: 70px;
-      height: 70px;
+      width: 100px;
+      height: 100px;
       padding-right: 15px;
       padding-top: 10px;
+      padding-bottom: 10px;
       display: inline-block;
     }
-    .climate-container {
-      padding-top: 10px;
+    .category-container {
+      padding-bottom: 15px;
+    }
+
+    .correction-container {
+      background-color: rgb(140, 138, 145);
+      color: white;
+      border-radius: 5px;
+      padding: 8px;
     }
 
     

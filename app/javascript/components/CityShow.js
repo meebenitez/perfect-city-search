@@ -6,6 +6,7 @@ import { Route, Link } from 'react-router-dom'
 import RacialDiversityStat from './cityShow/RacialDiversityStat'
 import HomeValueCompare from './cityShow/HomeValueCompare'
 import IncomeCompare from './cityShow/IncomeCompare'
+import PoliticsCompare from './cityShow/PoliticsCompare'
 import CityShowMapContainer from '../containers/CityShowMapContainer'
 //import {PieChart} from 'react-easy-chart';
 //import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, HorizontalBarSeries} from 'react-vis';
@@ -105,15 +106,25 @@ const CityShow = (props) => {
                                         <CityShowMapContainer {...props} />
                                     </div>
                                     <div className="col-md-5 col-xs-12 zero-padding">
-                                        <div className="col-xs-12 climate-container">
+                                        <div className="col-xs-12 category-container">
                                             <div className="col-xs-12 zero-padding">
                                                 <h7>Climate</h7><br></br><strong>Coming Soon!</strong>
                                             </div>
-                                            <div className="col-xs-12 zero-padding">
+                                            <div className="col-xs-12 zero-padding category-container">
                                                 <img src={require('../../assets/images/sunny.png')} className="climate-img"/>
                                                 <img src={require('../../assets/images/rainy.png')} className="climate-img"/>
                                             </div>
+                                            <div className="col-xs-12 zero-padding">
+                                                <p>{props.city.name} averages <strong>(placeholder) days of sun</strong> and <strong>(placeholder) days of rain</strong> annually.  The average high temperature in the summertime is <strong>(placeholder)</strong>, while the average low temperature in the wintertime is <strong>(placeholder)</strong>.</p>
+                                                <p>Last year {props.city.name} had <strong>(placeholder) inches of snowfall</strong>.</p>
+                                            </div>
                                         </div>
+                                        <div className="col-xs-12 category-container">
+                                            <div className="col-xs-12 correction-container">
+                                                <h4>Spot a mistake? Have a better photo of {props.city.name} for us to use?</h4> Help us make this page about {props.city.name} better by emailing your corrections and feedback to <span className="underline">corrections@citysleuthusa.com</span>.  
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
 
@@ -206,6 +217,23 @@ const CityShow = (props) => {
 
 export default CityShow;
 
+
+/*
+
+<div className="col-xs-12 category-container">
+                                            <div className="col-xs-12 zero-padding">
+                                                <h7>Politics</h7><br></br>
+                                                <p>The following chart shows the 2016 US Presidental Race voting results for {props.city.county}:</p>
+                                                {Math.abs(props.city.dem_vote_perc - props.city.gop_vote_perc) <= 15 ? <p><strong>{props.city.name} is located in a potential swing county</strong>, meaning that one political party won the county by less than a 15% margin.</p>: null}
+                                            </div>
+                                            <div className="col-xs-12 zero-padding">
+
+                                            <PoliticsCompare city={props.city} />
+
+                                            </div>
+                                        </div>
+
+                                        */
 
 
 
