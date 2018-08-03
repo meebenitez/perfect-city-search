@@ -15,7 +15,7 @@ const RacialDiversityStat= (props) => {
         ["Native-American" , props.city.pop_native_perc],
         ["Asian" , props.city.pop_asian_perc],
         ["Pacific Islander" , props.city.pop_pacific_perc],
-        //["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
+        ["Latin / Hispanic" , props.city.pop_latin_hispanic_perc],
         ["Mixed Race" , props.city.pop_mixed_race_perc]
     ]
 
@@ -44,10 +44,9 @@ const RacialDiversityStat= (props) => {
                 props.city.pop_native_perc,
                 props.city.pop_asian_perc,
                 props.city.pop_pacific_perc,
-                0,//temp hispanic
-                //props.city.pop_latin_hispanic_perc],
-                props.city.pop_mixed_race_perc
-            ]
+                //temp hispanic
+                props.city.pop_latin_hispanic_perc,
+                props.city.pop_mixed_race_perc]
           },
           {
             label: 'United States',
