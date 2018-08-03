@@ -229,6 +229,14 @@
 
     //////////HELPERS
     
+    .origin-zero{
+        position: relative;
+        top: 50%;
+        left: 50%;
+        height:20px;
+        width:20px;
+        transform:translate(-50%,-50%)
+    }
     
     .bottom-line {
       border-bottom: rgb(185, 185, 185) 1px solid;
@@ -834,6 +842,12 @@
 
     .graph-container {
       margin-top: 15px;
+    }
+
+    .city-map-container {
+      padding-top: 10px;
+      padding-left: 0px;
+      border-radius: 5px;
     }
 
     

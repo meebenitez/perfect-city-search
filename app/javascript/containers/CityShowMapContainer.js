@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import CityPin from '../components/CityPin'
+import CityShowPin from '../components/CityShowPin'
 import MediaQuery from 'react-responsive'
 import Aux from '../components/Aux'
  
@@ -66,6 +66,9 @@ getMapOptions = (maps: Maps) => {
     //import styles from "../../assets/stylesheets/application.scss"
 
     let num = 1
+
+    const marker = <CityShowPin key = {this.props.city.id} text = {`${ this.props.city.name }`} city = {this.props.city} lat = {this.props.city.longitude + 25 } lng = {this.props.city.latitude - .009} />
+
    
     return (
       <Aux>
@@ -79,6 +82,7 @@ getMapOptions = (maps: Maps) => {
               zoomControl = {true}
               options={this.getMapOptions}
             >
+            {marker}
             </GoogleMapReact>
           </div>
         </MediaQuery>
