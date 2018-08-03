@@ -15,8 +15,9 @@ export class Map extends React.Component {
       
             let zoom = 4;
 
-            let lat = 37.759703;
-            let lng = -96.5556;
+            let lat = this.props.mapCenter.lat;
+            let lng = this.props.mapCenter.lng;
+
             const center = new maps.LatLng(lat, lng);
             const mapConfig = Object.assign({}, {
               center: center,

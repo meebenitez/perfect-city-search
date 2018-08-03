@@ -40,7 +40,7 @@ const City = props => {
                     </div>
 
        
-            <div className="bottom-right">
+            <div className="top-right-heart">
                 <HeartButton 
                     currentUser={props.currentUser} 
                     heartedCities={props.heartedCities} 

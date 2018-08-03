@@ -6,6 +6,7 @@ import { Route, Link } from 'react-router-dom'
 import RacialDiversityStat from './cityShow/RacialDiversityStat'
 import HomeValueCompare from './cityShow/HomeValueCompare'
 import IncomeCompare from './cityShow/IncomeCompare'
+import CityShowMapContainer from '../containers/CityShowMapContainer'
 //import {PieChart} from 'react-easy-chart';
 //import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, HorizontalBarSeries} from 'react-vis';
 import {Doughnut as DoughnutChart} from 'react-chartjs-2';
@@ -69,7 +70,7 @@ const CityShow = (props) => {
                                                     
                                                     <div className="col-xs-12 info-bit-container">
                                                         <p><h7>Quick Facts</h7><br></br><strong>{props.city.name}</strong> is a city located in {props.city.long_state} with a population of <strong>{withCommas(props.city.pop_total)} residents</strong>.  The <strong>median age</strong> of the population in {props.city.name} is <strong>{props.city.age_median}</strong>.  The median age for females in {props.city.name} is {props.city.age_median_female} and males is {props.city.age_median_male}.</p>
-                                                        <p>The median household income is <strong>${withCommas(props.city.income_median)}</strong> and {props.city.name} has a poverty rate of <strong>{props.city.poverty_perc}%</strong>.  This is {povertyStatement(props.city.poverty_perc)}</p>
+        <p>The median household income is {props.city.income_median > 0 ? <strong>${withCommas(props.city.income_median)}</strong> : <strong>not available</strong>} and {props.city.name} has a poverty rate of <strong>{props.city.poverty_perc}%</strong>.  This is {povertyStatement(props.city.poverty_perc)}</p>
                                                         {highlights(props.city).length > 0 ? <p><h7>Highlights</h7><br></br> {props.city.name} {highlightsParagraph(highlights(props.city))}</p> : null }
                                                     </div>
                                                     
@@ -98,6 +99,11 @@ const CityShow = (props) => {
                                 </div>
                             
                                 <div className="col-xs-12 zero-padding">
+                                    <CityShowMapContainer {...props} />
+                                </div>
+
+                                
+                                <div className="col-xs-12 zero-padding">
                                     <div className="col-md-7 col-xs-12 zero-padding">
                                         {props.city.homes_median_value > 1000 ? 
                                             <div className="col-xs-12 graph-container">
@@ -114,6 +120,7 @@ const CityShow = (props) => {
                             
                             
                             
+                                
                                 <div className="col-xs-12">
                                     <div className="col-md-6 col-xs-12">
                                         <RacialDiversityStat city={props.city} />

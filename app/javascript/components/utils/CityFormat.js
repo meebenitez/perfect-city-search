@@ -103,7 +103,7 @@ function diversity(raceGroup){
 export function highlights(city){
     let list = []
     if (city.popularity >= 25){
-        list.push([<div className="stat-border yellow-background" key="popular-highlight">Popular City</div>, <span> is <strong>popular</strong> among our users</span>])
+        list.push([<div className="stat-border yellow-background" key="popular-highlight">Popular City</div>, <span> is a <strong>popular city</strong> amongst our users</span>])
     }
     if (city.vets_perc >= 10) {
         list.push([<div className="stat-border blue-background" key="veteran-highlight">Large Veteran Population</div>, <span>has a <strong>large veteran population</strong></span>])
