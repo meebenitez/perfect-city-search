@@ -43,7 +43,7 @@ const CityShow = (props) => {
                     <div className="row">
                         <div className="col-xs-12 left-push row zero-padding">
                                 <div className="col-xs-12 zero-padding">
-                                    <div className="col-xs-12 bottom-line fixed white-background">
+                                    <div className="col-xs-12 bottom-line-popup fixed white-background">
                                     <div className="top-right2"><Link to={`${props.hashString}`} onClick={props.closePopup}>x close</Link></div>
                                         <div className="name-container">
                                             <h6>{props.city.name}, {props.city.long_state}&nbsp;</h6>
