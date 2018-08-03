@@ -47,7 +47,7 @@ const CityShow = (props) => {
                                     <div className="col-xs-12 bottom-line-popup fixed white-background">
                                         <div className="top-right2"><Link to={`${props.hashString}`} onClick={props.closePopup}>x close</Link></div>
                                         <div className="name-container">
-                                            <h6>{props.city.name}, {props.city.long_state}&nbsp;{ (props.city.popularity >= 25) ? <span className="star">★&nbsp;&nbsp;</span> : null }<img src={require('../../assets/images/facebook.png')} className="img-social"/>&nbsp;<img src={require('../../assets/images/twitter.png')} className="img-social"/></h6>
+                                            <h6>{props.city.name}, {props.city.long_state}&nbsp;{ (props.city.popularity >= 25) ? <span className="star">★&nbsp;&nbsp;</span> : null }<img src={require('../../assets/images/facebook.png')} alt="share this city on facebook!" className="img-social"/>&nbsp;<img src={require('../../assets/images/twitter.png')} className="img-social"/></h6>
                                         </div>          
                                     </div>
                                     <div className="col-xs-12 details zero-padding">
@@ -105,8 +105,14 @@ const CityShow = (props) => {
                                         <CityShowMapContainer {...props} />
                                     </div>
                                     <div className="col-md-5 col-xs-12 zero-padding">
-                                        <div className="col-xs-12">
-                                            <p><h7>Climate</h7><br></br><strong>Coming Soon!</strong></p>
+                                        <div className="col-xs-12 climate-container">
+                                            <div className="col-xs-12 zero-padding">
+                                                <h7>Climate</h7><br></br><strong>Coming Soon!</strong>
+                                            </div>
+                                            <div className="col-xs-12 zero-padding">
+                                                <img src={require('../../assets/images/sunny.png')} className="climate-img"/>
+                                                <img src={require('../../assets/images/rainy.png')} className="climate-img"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
