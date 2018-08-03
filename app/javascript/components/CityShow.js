@@ -105,7 +105,9 @@ const CityShow = (props) => {
                                         <CityShowMapContainer {...props} />
                                     </div>
                                     <div className="col-md-5 col-xs-12 zero-padding">
-                                        <p><h7>Climate</h7><br></br><strong>Coming Soon!</strong></p>
+                                        <div className="col-xs-12">
+                                            <p><h7>Climate</h7><br></br><strong>Coming Soon!</strong></p>
+                                        </div>
                                     </div>
                                 </div>
 
