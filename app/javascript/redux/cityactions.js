@@ -192,6 +192,9 @@ export const unheartClick = (city) => {
     
 }
 
+
+
+
 export const updateHearted = (heartedCities) => {
     return {
         type: 'UPDATE_HEARTED',

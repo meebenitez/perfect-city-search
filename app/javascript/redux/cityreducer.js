@@ -77,7 +77,8 @@ const initialState = {
     mapCenter: {lat: 38.00, lng: -96.5556},
     highlightedCity: null,
     extendedFiltersPopup: false,
-    key: ""
+    key: "",
+    holdPage: false,
 }
 
 const cityreducer = (state = initialState, action) => {
@@ -292,12 +293,18 @@ const cityreducer = (state = initialState, action) => {
         case 'TOGGLE_CITY_POPUP':
             return {
                 ...state,
-                showCityPopup: action.showCityPopup
+                showCityPopup: action.showCityPopup,
+                holdPage: action.showCityPopup
             }
         case 'TOGGLE_FILTERS_POPUP':
             return {
                 ...state,
                 extendedFiltersPopup: action.extendedFiltersPopup
+            }
+        case 'HOLD_PAGE':
+            return {
+                ...state,
+                holdPage: action.status
             }
         case 'CHANGE_ZOOM':
             if (state.mapZoom === 4){

@@ -84,7 +84,8 @@ const CityShow = (props) => {
                                                             unheartClick={props.unheartClick} 
                                                             heartClick={props.heartClick} 
                                                             toggleAuthPopup={props.toggleAuthPopup} 
-                                                            city={props.city}/>
+                                                            city={props.city}
+                                                            toggleSingleCityAuthPopup={props.toggleSingleCityAuthPopup}/>
                                                     </div>
                                                     <div style={bgStyle} title={props.city.img_title.replace(/<\/?[^>]+(>|$)/g, "") + " by " + props.city.img_artist.replace(/<\/?[^>]+(>|$)/g, "") + "-" + props.city.img_license}>
                                                         </div>
@@ -99,7 +100,12 @@ const CityShow = (props) => {
                                 </div>
                             
                                 <div className="col-xs-12 city-map-container">
-                                    <CityShowMapContainer {...props} />
+                                    <div className="col-md-7 col-xs-12 zero-padding">
+                                        <CityShowMapContainer {...props} />
+                                    </div>
+                                    <div className="col-md-5 col-xs-12 zero-padding">
+                                        <p><h7>Climate Facts</h7><br></br><strong>Coming Soon!</strong></p>
+                                    </div>
                                 </div>
 
                                 

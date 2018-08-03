@@ -65,6 +65,7 @@ class App extends React.Component {
                           unheartClick={this.props.unheartClick}
                           currentUser = {this.props.currentUser}
                           hashString = {this.props.hashString}
+                          cityShowAuth = {this.props.cityShowAuth}
                           toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}/> : null }
                       {this.props.extendedFiltersPopup ? 
                       <FilterPopup {...this.props} /> : null}
@@ -109,7 +110,8 @@ const mapStateToProps = state => {
     highlightedCity: state.city.highlightedCity,
     extendedFiltersPopup: state.city.extendedFiltersPopup,
     loginError: state.auth.loginError,
-    hashString: state.city.hashString
+    hashString: state.city.hashString,
+    holdPage: state.city.holdPage
   }
 }
 
