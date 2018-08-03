@@ -47,9 +47,8 @@ const CityShow = (props) => {
                                     <div className="col-xs-12 bottom-line-popup fixed white-background">
                                         <div className="top-right2"><Link to={`${props.hashString}`} onClick={props.closePopup}>x close</Link></div>
                                         <div className="name-container">
-                                            <h6>{props.city.name}, {props.city.long_state}&nbsp;</h6>
-                                        </div>
-                                        {highlights(props.city).length > 0 ? <div className="highlights-container">{highlights(props.city).map( (city) => city[0])}</div> : null}
+                                            <h6>{props.city.name}, {props.city.long_state}&nbsp;{ (props.city.popularity >= 25) ? <span className="star">★&nbsp;&nbsp;</span> : null }<img src={require('../../assets/images/facebook.png')} className="img-social"/>&nbsp;<img src={require('../../assets/images/twitter.png')} className="img-social"/></h6>
+                                        </div>          
                                     </div>
                                     <div className="col-xs-12 details zero-padding">
                                         <div className="col-md-7 col-xs-12 zero-padding">
@@ -71,7 +70,9 @@ const CityShow = (props) => {
                                                     <div className="col-xs-12 info-bit-container">
                                                         <p><h7>Quick Facts</h7><br></br><strong>{props.city.name}</strong> is a city located in {props.city.long_state} with a population of <strong>{withCommas(props.city.pop_total)} residents</strong>.  The <strong>median age</strong> of the population in {props.city.name} is <strong>{props.city.age_median}</strong>.  The median age for females in {props.city.name} is {props.city.age_median_female} and males is {props.city.age_median_male}.</p>
                                                         <p>The median household income is {props.city.income_median > 0 ? <strong>${withCommas(props.city.income_median)}</strong> : <strong>not available</strong>} and {props.city.name} has a poverty rate of <strong>{props.city.poverty_perc}%</strong>.  This is {povertyStatement(props.city.poverty_perc)}</p>
-                                                        {highlights(props.city).length > 0 ? <p><h7>Highlights</h7><br></br> {props.city.name} {highlightsParagraph(highlights(props.city))}</p> : null }
+                                                        {highlights(props.city).length > 0 ? <div><h7>Highlights</h7><br></br> 
+                                                        <div className="highlights-container">{highlights(props.city).map( (city) => city[0])}</div>
+                                                        <p>{props.city.name} {highlightsParagraph(highlights(props.city))}</p></div> : null }
                                                     </div>
                                                     
                                             </div>
@@ -104,7 +105,7 @@ const CityShow = (props) => {
                                         <CityShowMapContainer {...props} />
                                     </div>
                                     <div className="col-md-5 col-xs-12 zero-padding">
-                                        <p><h7>Climate Facts</h7><br></br><strong>Coming Soon!</strong></p>
+                                        <p><h7>Climate</h7><br></br><strong>Coming Soon!</strong></p>
                                     </div>
                                 </div>
 
