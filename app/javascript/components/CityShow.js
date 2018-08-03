@@ -121,7 +121,7 @@ const CityShow = (props) => {
                                         </div>
                                         <div className="col-xs-12 category-container">
                                             <div className="col-xs-12 correction-container">
-                                                <h4>Spot a mistake? Have a better photo of {props.city.name} for us to use?</h4> Help us make this page about {props.city.name} better by emailing your corrections and feedback to <span className="underline">corrections@citysleuthusa.com</span>.  
+                                                <h4>Spot a mistake? Have a better city photo for us to use?</h4> Help us make this page about {props.city.name} better by emailing your corrections and feedback to <span className="underline">corrections@citysleuthusa.com</span>.  
                                             </div>
                                         </div>
                                         
