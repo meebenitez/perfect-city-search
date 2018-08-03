@@ -61,8 +61,7 @@ const RacialDiversityStat= (props) => {
                 1.3,
                 5.8,
                 .2,
-                0,//temp hispanic
-                //props.city.pop_latin_hispanic_perc],
+                17.6,
                 2.7
             ]
           }
