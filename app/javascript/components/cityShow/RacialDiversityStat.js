@@ -88,7 +88,7 @@ const RacialDiversityStat= (props) => {
     if (props.city !== null) {
         return (
             <div>
-                <center><span style={{fontWeight: "bold"}}>Racial Diversity (% of population)</span></center>
+                <center><span style={{fontWeight: "bold", fontSize: "18px"}}>Racial Diversity (% of population)</span></center>
                 <Bar data={dataBar} options={options} width={300} height={150} />                
             </div>
         )

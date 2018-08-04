@@ -134,34 +134,46 @@ const CityShow = (props) => {
                                         <h7>General Demographics</h7>
                                     </div>
                                     <div className="col-md-6 col-xs-12 zero-padding">
-                                    <RacialDiversityStat city={props.city} />
-                                    </div>
-                                    <div className="col-md-6 col-xs-12 zero-padding">
+                                        <RacialDiversityStat city={props.city} />
                                         <div className="col-xs-12 zero-padding">
                                             <center>
+                                                <div className="age-header">Median Age</div>
                                                 <div className="age-container">
                                                     <img src={require('../../assets/images/person2.png')} className="age-img"/>
                                                     <div className="age-main"><strong>{props.city.age_median} years</strong></div>
                                                 </div>
                                                 <div className="age-container">
-                                                    <div className="col-xs-5 zero-padding">
+                                                    <div className="col-xs-2 zero-padding">
+                                                    </div>
+                                                    <div className="col-xs-4 zero-padding">
                                                         <center>
                                                             <img src={require('../../assets/images/female.png')} className="age-img-sex"/>
                                                             <div className="age-sex">{props.city.age_median_female} years</div>
                                                         </center>
                                                     </div>
-                                                    <div className="col-xs-2 zero-padding">
-                                                        <center><div className="age-header">Median Age</div></center>
-                                                    </div>
-                                                    <div className="col-xs-5 zero-padding">
+                                                    <div className="col-xs-4 zero-padding">
                                                         <center>
                                                             <img src={require('../../assets/images/male.png')} className="age-img-sex"/>
                                                             <div className="age-sex">{props.city.age_median_male} years</div>
                                                         </center>
                                                     </div>
+                                                    <div className="col-xs-2 zero-padding">
+                                                    </div>
                                                 </div>
                                             </center>
                                         </div>
+                                    </div>
+                                    <div className="col-md-6 col-xs-12 zero-padding">
+                                        <div className="col-xs-12 category-container">
+                                            <div className="col-xs-12 zero-padding">
+                                                <h7>Politics</h7><br></br>
+                                                <p>The following chart shows the 2016 US Presidental Race voting results for {props.city.county}:</p>
+                                                {Math.abs(props.city.dem_vote_perc - props.city.gop_vote_perc) <= 15 ? <p><strong>{props.city.name} is located in a potential swing county</strong>, meaning that the political party with the majority votes for {props.city.county} won by a margin of less than 15%.</p>: null}
+                                            </div>
+                                            <div className="col-xs-12 zero-padding">
+                                                <PoliticsCompare city={props.city} />
+                                            </div>
+                                        </div>    
                                     </div>
                                 </div>
                             
@@ -221,8 +233,8 @@ const CityShow = (props) => {
                         <div className="col-xs-12 left-push zero-padding row">
                         <br></br>
                         </div>
-                    </div>        
-            </div>
+                    </div>       
+                    </div> 
         )
     } else {
         return (
@@ -235,6 +247,11 @@ const CityShow = (props) => {
 
 
 export default CityShow;
+
+
+
+
+
 
 
 /*
