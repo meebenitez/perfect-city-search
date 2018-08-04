@@ -28,7 +28,7 @@ class City < ApplicationRecord
                 return where("poverty_perc <= ?", 7)
             elsif type == "high"
                 return where("poverty_perc >= ?", 18)
-            elsif type="avg"
+            elsif type == "avg"
                 return where("poverty_perc > ? AND poverty_perc < ?", 7, 17)
             else
                 return nil
