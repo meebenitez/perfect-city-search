@@ -878,7 +878,7 @@
     }
     .category-container {
       padding-top: 10px;
-      padding-bottom: 10px;
+      padding-bottom: 15px;
     }
 
     .correction-container {
@@ -886,6 +886,19 @@
       color: white;
       border-radius: 5px;
       padding: 8px;
+    }
+
+    .general-container {
+      border:1px solid rgba(105, 103, 103, 0.5);
+      border-radius: 5px;
+      padding: 8px;
+      margin-top: 15px;
+    }
+
+    .asterisk {
+      display: inline-block;
+      font-size: 10;
+      font-style: italic;
     }
 
 

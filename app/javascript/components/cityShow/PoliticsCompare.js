@@ -45,7 +45,7 @@ const PoliticsCompare= (props) => {
     if (props.city !== null) {
         return (
             <div className="politics-chart-container">
-                <Doughnut data={data} options={options} width="50" height="50" />                
+                <Doughnut data={data} options={options} />                
             </div>
         )
     } else {

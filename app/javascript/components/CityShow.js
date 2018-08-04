@@ -1,6 +1,6 @@
 import React from 'react';
 import HeartButtonLg from './HeartButtonLg'
-import {povertyStatement, formatPop, formatFigure, formatRegion, withCommas, highlights, resizeCityShow, highlightsParagraph} from './utils/CityFormat'
+import {povertyStatement, formatPop, formatFigure, formatRegion, withCommas, highlights, resizeCityShow, highlightsParagraph, diversity} from './utils/CityFormat'
 import {formatIncomeHomeCompare} from './utils/MathFunctions'
 import { Route, Link } from 'react-router-dom'
 import RacialDiversityStat from './cityShow/RacialDiversityStat'
@@ -129,13 +129,48 @@ const CityShow = (props) => {
                                 </div>
 
                                 
-                                <div className="col-xs-12 zero-padding">
+                                <div className="col-xs-12 general-container">
                                     <div className="col-xs-12 category-container">
                                         <h7>General Demographics</h7>
                                     </div>
                                     <div className="col-md-6 col-xs-12 zero-padding">
                                         <RacialDiversityStat city={props.city} />
-                                        <div className="col-xs-12 zero-padding">
+                                    </div>
+                                    <div className="col-md-6 col-xs-12 zero-padding">
+                                    <h7>Racial Diversity</h7><br></br>
+                                    <p>The racial demographic of {props.city.name}, {props.city.short_state} is 
+                                        <strong> {props.city.pop_white_perc}% White</strong>, 
+                                        <strong> {props.city.pop_black_perc}% Black</strong>,
+                                        <strong> {props.city.pop_native_perc}% Native-American</strong>,
+                                        <strong> {props.city.pop_asian_perc}% Asian</strong>,
+                                        <strong> {props.city.pop_pacific_perc}% Pacific / Islander</strong>,
+                                        <strong> {props.city.pop_latin_hispanic_perc}% Latin or Hispanic</strong>*,
+                                        and <strong>{props.city.pop_mixed_race_perc}% Mixed</strong>. This data was sourced from the US Census Bureau 2016 American Community Survey</p>
+
+                                    <p>We would consider {props.city.name} {
+                                        diversity([props.city.pop_white_perc, props.city.pop_native_perc, props.city.pop_pacific_perc, 
+                                            props.city.pop_latin_hispanic_perc, 
+                                            props.city.pop_asian_perc, props.city.pop_black_perc, 
+                                            props.city.pop_other_race_perc]).length !== 1 ? <span>to be <strong>racially diverse.</strong></span> : <span>to <strong>not be</strong> racially diverse.</span>
+                                    } </p>
+
+                                    <p><span className="asterisk">The "Latin / Hispanic" dataset includes hispanics and latinos of any race, including those who identify as White.</span></p>
+                                    </div>
+                                </div>
+
+
+                                <div className="col-xs-12 category-container">
+                                    <div className="col-xs-12 zero-padding">
+                                        <h7>Politics</h7><br></br>
+                                        <p>The following chart shows the 2016 US Presidental Race voting results for {props.city.county}:</p>
+                                        {Math.abs(props.city.dem_vote_perc - props.city.gop_vote_perc) <= 15 ? <p><strong>{props.city.name} is located in a potential swing county</strong>, meaning that the political party with the majority votes for {props.city.county} won by a margin of less than 15%.</p>: null}
+                                    </div>
+                                    <div className="col-xs-12 zero-padding">
+                                        <PoliticsCompare city={props.city} />
+                                    </div>
+                                </div>    
+                            
+                                <div className="col-xs-12 zero-padding">
                                             <center>
                                                 <div className="age-header">Median Age</div>
                                                 <div className="age-container">
@@ -162,22 +197,6 @@ const CityShow = (props) => {
                                                 </div>
                                             </center>
                                         </div>
-                                    </div>
-                                    <div className="col-md-6 col-xs-12 zero-padding">
-                                        <div className="col-xs-12 category-container">
-                                            <div className="col-xs-12 zero-padding">
-                                                <h7>Politics</h7><br></br>
-                                                <p>The following chart shows the 2016 US Presidental Race voting results for {props.city.county}:</p>
-                                                {Math.abs(props.city.dem_vote_perc - props.city.gop_vote_perc) <= 15 ? <p><strong>{props.city.name} is located in a potential swing county</strong>, meaning that the political party with the majority votes for {props.city.county} won by a margin of less than 15%.</p>: null}
-                                            </div>
-                                            <div className="col-xs-12 zero-padding">
-                                                <PoliticsCompare city={props.city} />
-                                            </div>
-                                        </div>    
-                                    </div>
-                                </div>
-                            
-                            
                             
                                 
                                 <div className="col-xs-12">
