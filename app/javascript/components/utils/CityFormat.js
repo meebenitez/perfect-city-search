@@ -114,7 +114,7 @@ export function highlights(city){
     if (diversity([city.pop_white_perc, city.pop_native_perc, city.pop_pacific_perc, 
                     city.pop_latin_hispanic_perc, 
                     city.pop_asian_perc, city.pop_black_perc, 
-                    city.pop_other_race_perc]).length === 0){
+                    city.pop_other_race_perc]).length !== 1){
                         list.push([<div className="stat-border green-background" key="diversity-highlight">Racially Diverse</div>, <span>is <strong>racially diverse</strong></span>])
                     }
     if (Math.abs(city.dem_vote_perc - city.gop_vote_perc) <= 15) {

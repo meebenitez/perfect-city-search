@@ -46,6 +46,31 @@ class City < ApplicationRecord
                 .where("pop_native_perc <= ?", 40).where("pop_asian_perc <= ?", 40)
                 .where("pop_pacific_perc <= ?", 40).where("pop_other_race_perc <= ?", 40)
                 .where("pop_latin_hispanic_perc <= ?", 40)
+                .or(where("pop_white_perc >= ?", 40).where("pop_native_perc >= ?", 40))
+                .or(where("pop_white_perc >= ?", 40).where("pop_black_perc >= ?", 40))
+                .or(where("pop_white_perc >= ?", 40).where("pop_latin_hispanic_perc >= ?", 40))
+                .or(where("pop_white_perc >= ?", 40).where("pop_asian_perc >= ?", 40))
+                .or(where("pop_white_perc >= ?", 40).where("pop_pacific_perc >= ?", 40))
+                .or(where("pop_white_perc >= ?", 40).where("pop_other_race_perc >= ?", 40))
+                .or(where("pop_black_perc >= ?", 40).where("pop_native_perc >= ?", 40))
+                .or(where("pop_black_perc >= ?", 40).where("pop_latin_hispanic_perc >= ?", 40))
+                .or(where("pop_black_perc >= ?", 40).where("pop_asian_perc >= ?", 40))
+                .or(where("pop_black_perc >= ?", 40).where("pop_pacific_perc >= ?", 40))
+                .or(where("pop_black_perc >= ?", 40).where("pop_other_race_perc >= ?", 40))
+                .or(where("pop_native_perc >= ?", 40).where("pop_latin_hispanic_perc >= ?", 40))
+                .or(where("pop_native_perc >= ?", 40).where("pop_asian_perc >= ?", 40))
+                .or(where("pop_native_perc >= ?", 40).where("pop_pacific_perc >= ?", 40))
+                .or(where("pop_native_perc >= ?", 40).where("pop_other_race_perc >= ?", 40))
+                .or(where("pop_latin_hispanic_perc >= ?", 40).where("pop_asian_perc >= ?", 40))
+                .or(where("pop_latin_hispanic_perc >= ?", 40).where("pop_pacific_perc >= ?", 40))
+                .or(where("pop_latin_hispanic_perc >= ?", 40).where("pop_other_race_perc >= ?", 40))
+                .or(where("pop_asian_perc >= ?", 40).where("pop_pacific_perc >= ?", 40))
+                .or(where("pop_asian_perc >= ?", 40).where("pop_other_race_perc >= ?", 40))
+                .or(where("pop_pacific_perc >= ?", 40).where("pop_other_race_perc >= ?", 40))
+
+
+
+
             end
         end
 
