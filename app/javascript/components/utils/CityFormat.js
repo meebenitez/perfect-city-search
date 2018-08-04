@@ -95,7 +95,7 @@ export function resizeCityShow(url) {
 
 function diversity(raceGroup){
     let resultArray = raceGroup.filter((race)=> {
-        return race >= 40
+        return race >= 30
     })
     return resultArray
 }
