@@ -843,6 +843,11 @@
       text-align: center;
     }
 
+    .stats-side-by-side {
+      font-size: 18px;
+      display: inline-block
+    }
+
     .fixed-column {
       max-width: 100%;
       background-color: red;
@@ -881,6 +886,41 @@
       color: white;
       border-radius: 5px;
       padding: 8px;
+    }
+
+    .age-img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .age-img-sex{
+      height: 70px;
+    }
+
+    .age-container {
+      padding-top: 10px;
+      margin: 0px;
+    }
+
+    .age-sex {
+      padding-top: 5px;
+      font-size: 17px;
+    }
+
+    .age-main {
+      padding-top: 5px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .age-header {
+      font-size: 25px;
+      font-weight: bold;
+      padding-top: 20px;
+    }
+
+    .highlight-p{
+      display: inline-block;
     }
 
     

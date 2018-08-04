@@ -66,7 +66,8 @@ class App extends React.Component {
                           currentUser = {this.props.currentUser}
                           hashString = {this.props.hashString}
                           cityShowAuth = {this.props.cityShowAuth}
-                          toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}/> : null }
+                          toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}
+                          /> : null }
                       {this.props.extendedFiltersPopup ? 
                       <FilterPopup {...this.props} /> : null}
                       <SearchContainer {...this.props}/>

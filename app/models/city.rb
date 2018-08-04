@@ -67,10 +67,6 @@ class City < ApplicationRecord
                 .or(where("pop_asian_perc >= ?", 40).where("pop_pacific_perc >= ?", 40))
                 .or(where("pop_asian_perc >= ?", 40).where("pop_other_race_perc >= ?", 40))
                 .or(where("pop_pacific_perc >= ?", 40).where("pop_other_race_perc >= ?", 40))
-
-
-
-
             end
         end
 

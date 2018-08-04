@@ -103,22 +103,22 @@ function diversity(raceGroup){
 export function highlights(city){
     let list = []
     if (city.popularity >= 25){
-        list.push([<div className="stat-border yellow-background" key="popular-highlight">Popular City</div>, <span> is a <strong>popular city</strong> amongst our users</span>])
+        list.push([<div className="stat-border yellow-background" key="popular-highlight">Popular City</div>, <div className="highlight-p" key="popular-statement"> is a <strong key="popular">popular city</strong> amongst our users</div>])
     }
     if (city.vets_perc >= 10) {
-        list.push([<div className="stat-border blue-background" key="veteran-highlight">Large Veteran Population</div>, <span>has a <strong>large veteran population</strong></span>])
+        list.push([<div className="stat-border blue-background" key="veteran-highlight">Large Veteran Population</div>, <div className="highlight-p" key="veteran-statement">has a <strong key="veteran">large veteran population</strong></div>])
     }
     if (city.poverty_perc <= 7) {
-        list.push([<div className="stat-border purple-background" key="poverty-highlight">Low Poverty Rate</div>,<span>has a <strong>low poverty rate</strong></span> ])
+        list.push([<div className="stat-border purple-background" key="poverty-highlight">Low Poverty Rate</div>,<div className="highlight-p" key="poverty-statement">has a <strong key="poverty">low poverty rate</strong></div> ])
     }
     if (diversity([city.pop_white_perc, city.pop_native_perc, city.pop_pacific_perc, 
                     city.pop_latin_hispanic_perc, 
                     city.pop_asian_perc, city.pop_black_perc, 
                     city.pop_other_race_perc]).length !== 1){
-                        list.push([<div className="stat-border green-background" key="diversity-highlight">Racially Diverse</div>, <span>is <strong>racially diverse</strong></span>])
+                        list.push([<div className="stat-border green-background" key="diversity-highlight">Racially Diverse</div>, <div className="highlight-p" key="diversity-statement">is <strong key="diversity">racially diverse</strong></div>])
                     }
     if (Math.abs(city.dem_vote_perc - city.gop_vote_perc) <= 15) {
-        list.push([<div className="stat-border red-background" key="swing-city-highlight">Swing County</div>, <span>is located in a <strong>potential swing county</strong></span>])
+        list.push([<div className="stat-border red-background" key="swing-city-highlight">Swing County</div>, <div className="highlight-p" key="swing-city-statement">is located in a <strong key="swing-city">potential swing county</strong></div>])
     }
     return list
 }
