@@ -133,10 +133,10 @@ const CityShow = (props) => {
                                     <div className="col-xs-12 category-container">
                                         <h7>General Demographics</h7>
                                     </div>
-                                    <div className="col-md-7 col-xs-12 zero-padding">
-                                        test
+                                    <div className="col-md-6 col-xs-12 zero-padding">
+                                    <RacialDiversityStat city={props.city} />
                                     </div>
-                                    <div className="col-md-5 col-xs-12 zero-padding">
+                                    <div className="col-md-6 col-xs-12 zero-padding">
                                         test
                                     </div>
                                 </div>
@@ -145,9 +145,7 @@ const CityShow = (props) => {
                             
                                 
                                 <div className="col-xs-12">
-                                    <div className="col-md-6 col-xs-12">
-                                        <RacialDiversityStat city={props.city} />
-                                    </div>
+                                    
                                     <div className="col-md-6 col-xs-12">
                                         <span style={{fontWeight: "bold"}}>Veteran Population: </span>
                                         <br></br>{props.city.vets_perc}%<span style={{fontSize: "13px"}}> - (US avg: 6%)</span>

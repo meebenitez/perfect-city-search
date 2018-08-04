@@ -32,49 +32,34 @@ const RacialDiversityStat= (props) => {
         ],
         datasets: [
           {
-            label: `${props.city.name}, ${props.city.short_state}`,
-            backgroundColor: 'rgba(251,209,40,1)',
-            borderColor: 'rgba(251,209,40,1)',
+            label: "",
+            backgroundColor: ['rgba(230,46,37,.75)','rgba(251,209,40,.75)','rgba(111,91,157,.75)','rgba(44,127,250,.75)','rgba(183,183,183,.75)','rgba(106,204,157,.75)', 'rgba(181,73,70,.75)'],
+            borderColor: ['rgba(230,46,37,.75)','rgba(251,209,40,.75)','rgba(111,91,157,.75)','rgba(44,127,250,.75)','rgba(183,183,183,.75)','rgba(106,204,157,.75)', 'rgba(181,73,70,.75)'],
             borderWidth: 1,
-            hoverBackgroundColor: 'rgba(251,209,40,1)',
-            hoverBorderColor: 'rgba(251,209,40,1)',
             data: [
                 props.city.pop_white_perc,
                 props.city.pop_black_perc,
                 props.city.pop_native_perc,
                 props.city.pop_asian_perc,
                 props.city.pop_pacific_perc,
-                //temp hispanic
                 props.city.pop_latin_hispanic_perc,
                 props.city.pop_mixed_race_perc]
-          },
-          {
-            label: 'United States',
-            backgroundColor: 'rgba(219,219,219,0.2)',
-            borderColor: 'rgba(219,219,219,0.2)',
-            borderWidth: 1,
-            hoverBackgroundColor: 'rgba(219,219,219,0.2)',
-            hoverBorderColor: 'rgba(219,219,219,0.2)',
-            data: [
-                76.6,
-                13.4,
-                1.3,
-                5.8,
-                .2,
-                17.6,
-                2.7
-            ]
-          }
-        ]
+          }],
       };
 
     const options = {
+        legend: {
+            display: false,
+        },
         plugins: {
             datalabels: {
                display: true,
                color: 'black',
                align: 'end',
-               anchor: 'end'
+               anchor: 'center',
+               callback: function(value) {
+                return value + "%"
+                }
             }
          },
          scales: {
