@@ -198,7 +198,7 @@ const CityShow = (props) => {
                                         <div className="col-md-6 col-xs-12 inner-blurb category-spacing extra-top-space">
                                             <h7>Politics</h7>
                                             <br></br>
-                                            <p>This chart shows the 2016 US Presidental Race voting results for {props.city.county}. {politicsStatement(parseFloat(props.city.dem_vote_perc.toFixed(2)), parseFloat(props.city.gop_vote_perc.toFixed(2)), parseFloat(props.city.ind_vote_perc.toFixed(2)))}</p>
+                                            <p>This chart shows the 2016 US Presidental Race voting results for {props.city.county}, {props.city.short_state}. {politicsStatement(parseFloat(props.city.dem_vote_perc.toFixed(2)), parseFloat(props.city.gop_vote_perc.toFixed(2)), parseFloat(props.city.ind_vote_perc.toFixed(2)))}</p>
                                         
                                             <p>{Math.abs(props.city.dem_vote_perc - props.city.gop_vote_perc) <= 15 ? <span><strong>{props.city.name} is located in a potential swing county</strong>, meaning that the political party with the majority votes for {props.city.county} won by a margin of less than 15%.</span> : null}</p>
 
