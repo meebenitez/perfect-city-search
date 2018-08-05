@@ -13,6 +13,7 @@ import CityShowMapContainer from '../containers/CityShowMapContainer'
 import QuickFacts from './cityShow/QuickFacts'
 import ClimateStats from './cityShow/ClimateStats'
 import AgeStats from './cityShow/AgeStats'
+import VeteranStats from './cityShow/VeteranStats'
 //import {PieChart} from 'react-easy-chart';
 //import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, HorizontalBarSeries} from 'react-vis';
 import {Doughnut as DoughnutChart} from 'react-chartjs-2';
@@ -119,18 +120,7 @@ const CityShow = (props) => {
                                             <AgeStats city={props.city} />
                                         </div>
                                         <div className="col-md-6 col-xs-12 zero-padding">
-                                            <div className="short-facts-container blue-background">
-                                                <center>
-                                                    <div className="age-header">Veteran Population</div>
-                                                    <div className="age-container">
-                                                        <img src={require('../../assets/images/dogtags.png')} className="vet-img"/>
-                                                    </div>
-                                                    <div className="vet-container">
-                                                        Veterans make up <strong>{props.city.vets_perc}%</strong> of the population in {props.city.name}, {props.city.short_state}.
-                                                        <br></br>(The US rate is 6%)
-                                                    </div>
-                                                </center>
-                                            </div>
+                                            <VeteranStats city={props.city} />
                                         </div>
                                         <div className="col-md-6 col-xs-12 zero-padding category-spacing">
                                             <PoliticsCompare city={props.city} />
@@ -139,8 +129,34 @@ const CityShow = (props) => {
                                             <PoliticsBlurb city={props.city} />
                                         </div>
                                     </div>
-                                    
-                                    
+                                </div>
+
+                                <div className="col-xs-12 general-container">
+                                    <div className="col-xs-12 category-container">
+                                        <div className="col-xs-12 category-container">
+                                            <h7>Economy</h7>
+                                        </div>
+                                        <div className="col-md-6 col-xs-12 zero-padding">
+                                            Median Income placeholder
+                                         </div>
+                                        <div className="col-md-6 col-xs-12 inner-blurb">
+                                            Poverty placeholder
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col-xs-12 general-container">
+                                    <div className="col-xs-12 category-container">
+                                        <div className="col-xs-12 category-container">
+                                            <h7>Housing</h7>
+                                        </div>
+                                        <div className="col-md-6 col-xs-12 zero-padding">
+                                            Median Home Price placeholder
+                                         </div>
+                                        <div className="col-md-6 col-xs-12 inner-blurb">
+                                            Misc placeholder
+                                        </div>
+                                    </div>
                                 </div>
 
 
@@ -148,7 +164,7 @@ const CityShow = (props) => {
                             
                                 <div className="col-xs-12 zero-padding">
                                             
-                                        </div>
+                                </div>
                
                             
                                 <span style={{fontWeight: "bold"}}>Median Household Income: </span>
