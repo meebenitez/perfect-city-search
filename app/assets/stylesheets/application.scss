@@ -901,10 +901,26 @@
       font-style: italic;
     }
 
+    .inner-blurb {
+      padding: 10px;
+    }
+
+    .short-facts-container {
+      border:1px solid rgba(105, 103, 103, 0.5);
+      border-radius: 5px;
+      padding: 8px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
 
     .age-img {
       width: 100px;
       height: 100px;
+    }
+
+    .vet-img {
+      height: 130px;
     }
 
     .age-img-sex{
@@ -913,8 +929,22 @@
 
     .age-container {
       padding-top: 10px;
-      margin: 0px;
+      padding-bottom: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+      display: inline-block;
     }
+
+    .vet-container {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      max-width: 50%;
+      margin-left: 5px;
+      margin-right: 5px;
+      height: 100px;
+      display: inline-block;
+    }
+
 
     .age-sex {
       padding-top: 5px;

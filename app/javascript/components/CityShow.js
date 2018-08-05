@@ -70,7 +70,7 @@ const CityShow = (props) => {
                                                     
                                                     <div className="col-xs-12 info-bit-container">
                                                         <p><h7>Quick Facts</h7><br></br><strong>{props.city.name}</strong> is a city located in {props.city.long_state} with a population of <strong>{withCommas(props.city.pop_total)} residents</strong>.  The <strong>median age</strong> of the population in {props.city.name} is <strong>{props.city.age_median}</strong>.  The median age for females in {props.city.name} is {props.city.age_median_female} and males is {props.city.age_median_male}.</p>
-                                                        <p>The median household income is {props.city.income_median > 0 ? <strong>${withCommas(props.city.income_median)}</strong> : <strong>not available</strong>} and {props.city.name} has a poverty rate of <strong>{props.city.poverty_perc}%</strong>.  This is {povertyStatement(props.city.poverty_perc)}</p>
+                                                        <p>The median household income is {props.city.income_median > 0 ? <strong>${withCommas(props.city.income_median)}</strong> : <strong>not available</strong>} and {props.city.name} has a poverty rate of <strong>{props.city.poverty_perc}%</strong>.  This is {povertyStatement(props.city.poverty_perc)} This data was sourced from the US Census Bureau 2016 ACS.</p>
                                                         {highlights(props.city).length > 0 ? <div><h7>Highlights</h7><br></br> 
                                                         <div className="highlights-container">{highlights(props.city).map( (city) => city[0])}</div>
                                                         <p>{props.city.name} {highlightsParagraph(highlights(props.city)).map((city) => city)}</p></div> : null }
@@ -131,31 +131,70 @@ const CityShow = (props) => {
                                 
                                 <div className="col-xs-12 general-container">
                                     <div className="col-xs-12 category-container">
-                                        <h7>General Demographics</h7>
-                                    </div>
-                                    <div className="col-md-6 col-xs-12 zero-padding">
-                                        <RacialDiversityStat city={props.city} />
-                                    </div>
-                                    <div className="col-md-6 col-xs-12 zero-padding">
-                                    <h7>Racial Diversity</h7><br></br>
-                                    <p>The racial demographic of {props.city.name}, {props.city.short_state} is 
-                                        <strong> {props.city.pop_white_perc}% White</strong>, 
-                                        <strong> {props.city.pop_black_perc}% Black</strong>,
-                                        <strong> {props.city.pop_native_perc}% Native-American</strong>,
-                                        <strong> {props.city.pop_asian_perc}% Asian</strong>,
-                                        <strong> {props.city.pop_pacific_perc}% Pacific / Islander</strong>,
-                                        <strong> {props.city.pop_latin_hispanic_perc}% Latin or Hispanic</strong>*,
-                                        and <strong>{props.city.pop_mixed_race_perc}% Mixed</strong>. This data was sourced from the US Census Bureau 2016 American Community Survey</p>
+                                        <div className="col-xs-12 category-container">
+                                            <h7>General Demographics</h7>
+                                        </div>
+                                        <div className="col-md-6 col-xs-12 zero-padding">
+                                            <RacialDiversityStat city={props.city} />
+                                         </div>
+                                        <div className="col-md-6 col-xs-12 inner-blurb">
+                                            <h7>Racial Diversity</h7><br></br>
+                                            <p>The racial demographic of {props.city.name}, {props.city.short_state} is 
+                                                <strong> {props.city.pop_white_perc}% White</strong>, 
+                                                <strong> {props.city.pop_black_perc}% Black</strong>,
+                                                <strong> {props.city.pop_native_perc}% Native-American</strong>,
+                                                <strong> {props.city.pop_asian_perc}% Asian</strong>,
+                                                <strong> {props.city.pop_pacific_perc}% Pacific / Islander</strong>,
+                                                <strong> {props.city.pop_latin_hispanic_perc}% Latin or Hispanic</strong>*,
+                                                and <strong>{props.city.pop_mixed_race_perc}% Mixed</strong>. This data was sourced from the US Census Bureau 2016 American Community Survey</p>
 
-                                    <p>We would consider {props.city.name} {
-                                        diversity([props.city.pop_white_perc, props.city.pop_native_perc, props.city.pop_pacific_perc, 
-                                            props.city.pop_latin_hispanic_perc, 
-                                            props.city.pop_asian_perc, props.city.pop_black_perc, 
-                                            props.city.pop_other_race_perc]).length !== 1 ? <span>to be <strong>racially diverse.</strong></span> : <span>to <strong>not be</strong> racially diverse.</span>
-                                    } </p>
+                                            <p>We would consider {props.city.name} {
+                                                diversity([props.city.pop_white_perc, props.city.pop_native_perc, props.city.pop_pacific_perc, 
+                                                    props.city.pop_latin_hispanic_perc, 
+                                                    props.city.pop_asian_perc, props.city.pop_black_perc, 
+                                                    props.city.pop_other_race_perc]).length !== 1 ? <span>to be <strong>racially diverse.</strong></span> : <span>to <strong>not be</strong> racially diverse.</span>
+                                            } </p>
 
-                                    <p><span className="asterisk">The "Latin / Hispanic" dataset includes hispanics and latinos of any race, including those who identify as White.</span></p>
+                                            <p><span className="asterisk">The "Latin / Hispanic" dataset includes hispanics and latinos of any race, including those who identify as White.</span></p>
+                                        </div>
                                     </div>
+                                    <div className="col-xs-12 category-container">
+                                        <div className="col-md-6 col-xs-12 zero-padding">
+                                            <div className="short-facts-container grey-background">
+                                                <center>
+                                                    <div className="age-header">Median Age</div>
+                                                    <div className="age-container">
+                                                        <img src={require('../../assets/images/female.png')} className="age-img-sex"/>
+                                                        <div className="age-sex">{props.city.age_median_female} years</div>
+                                                    </div>
+                                                    <div className="age-container">
+                                                        <img src={require('../../assets/images/person2.png')} className="age-img"/>
+                                                        <div className="age-main"><strong>{props.city.age_median} years</strong></div>
+                                                    </div>
+                                                    <div className="age-container">
+                                                        <img src={require('../../assets/images/male.png')} className="age-img-sex"/>
+                                                        <div className="age-sex">{props.city.age_median_male} years</div>
+                                                    </div>                                       
+                                                </center>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6 col-xs-12 zero-padding">
+                                            <div className="short-facts-container blue-background">
+                                                <center>
+                                                    <div className="age-header">Veteran Population</div>
+                                                    <div className="age-container">
+                                                        <img src={require('../../assets/images/dogtags.png')} className="vet-img"/>
+                                                    </div>
+                                                    <div className="vet-container">
+                                                        Veterans make up <strong>{props.city.vets_perc}%</strong> of the population in {props.city.name}, {props.city.short_state}.
+                                                        <br></br>(The US rate is 6%)
+                                                    </div>
+                                                </center>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
                                 </div>
 
 
@@ -171,31 +210,7 @@ const CityShow = (props) => {
                                 </div>    
                             
                                 <div className="col-xs-12 zero-padding">
-                                            <center>
-                                                <div className="age-header">Median Age</div>
-                                                <div className="age-container">
-                                                    <img src={require('../../assets/images/person2.png')} className="age-img"/>
-                                                    <div className="age-main"><strong>{props.city.age_median} years</strong></div>
-                                                </div>
-                                                <div className="age-container">
-                                                    <div className="col-xs-2 zero-padding">
-                                                    </div>
-                                                    <div className="col-xs-4 zero-padding">
-                                                        <center>
-                                                            <img src={require('../../assets/images/female.png')} className="age-img-sex"/>
-                                                            <div className="age-sex">{props.city.age_median_female} years</div>
-                                                        </center>
-                                                    </div>
-                                                    <div className="col-xs-4 zero-padding">
-                                                        <center>
-                                                            <img src={require('../../assets/images/male.png')} className="age-img-sex"/>
-                                                            <div className="age-sex">{props.city.age_median_male} years</div>
-                                                        </center>
-                                                    </div>
-                                                    <div className="col-xs-2 zero-padding">
-                                                    </div>
-                                                </div>
-                                            </center>
+                                            
                                         </div>
                             
                                 
