@@ -158,44 +158,30 @@ const CityShow = (props) => {
                                         </div>
                                     </div>
                                 </div>
-
-
-                               
-                            
-                                <div className="col-xs-12 zero-padding">
-                                            
+                                <div className="col-xs-12 general-container">
+                                    <div className="col-xs-12 category-container">
+                                        <div className="col-xs-12 category-container">
+                                            <h7>Transportation</h7>
+                                        </div>
+                                    </div>
                                 </div>
-               
-                            
-                                <span style={{fontWeight: "bold"}}>Median Household Income: </span>
-                                <br></br>
-                                {props.city.homes_median_value > 100 ? <span>${withCommas(props.city.income_median)} <span style={{fontSize: "13px"}}> - (US avg: $59,039)</span></span> : "no data"}
-                                <br></br>
-                                <br></br>
-                                <span style={{fontWeight: "bold"}}>Poverty Rate </span>
-                                <br></br>
-                                {props.city.poverty_perc}%<span style={{fontSize: "13px"}}> - (US avg: 12.7%)</span>
-                                <br></br>
-                                <br></br>
-                                <span style={{fontWeight: "bold"}}>Median Home Value</span>
-                                <br></br>
-                                {props.city.homes_median_value > 100 ? <span>${withCommas(props.city.homes_median_value)}<span style={{fontSize: "13px"}}> - (US avg: $215,600)</span></span> : "no data" }
-                                <br></br>
-                                <br></br>
-                                <span style={{fontWeight: "bold"}}>Owners vs Renters</span>
-                                <br></br>
-                                <div className="stat-border">{Math.floor(props.city.homes_renter_occupied_perc)}% Renters</div>
-                                <div className="stat-border">{Math.floor(props.city.homes_owner_occupied_perc)}% Owners</div>
-                                <br></br>
-                                <br></br>
-                                <span style={{fontWeight: "bold"}}>Solar Installed Homes</span>
-                                <br></br>
-                                {Math.floor(props.city.homes_solar_perc)}%<span style={{fontSize: "13px"}}> - (US avg: %1.02)</span>
+                                <div className="col-xs-12 general-container">
+                                    <div className="col-xs-12 category-container">
+                                        <div className="col-xs-12 category-container">
+                                            <h7>Crime and Safety</h7>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-xs-12 general-container">
+                                    <div className="col-xs-12 category-container">
+                                        <div className="col-xs-12 category-container">
+                                            <h7>Education</h7>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="col-xs-12 left-push zero-padding row">
-                        <br></br>
-                        </div>
+                        
                     </div>       
                     </div> 
         )
