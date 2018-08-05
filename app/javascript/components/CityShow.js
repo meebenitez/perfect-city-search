@@ -104,7 +104,7 @@ const CityShow = (props) => {
 
                                 
                                 <div className="col-xs-12 general-container">
-                                    <div className="col-xs-12 category-container">
+                                    <div className="col-xs-12">
                                         <div className="col-xs-12 category-container">
                                             <h7>General Demographics</h7>
                                         </div>
