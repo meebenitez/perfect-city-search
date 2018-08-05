@@ -1,6 +1,6 @@
 import React from 'react';
 import HeartButtonLg from './HeartButtonLg'
-import {povertyStatement, formatPop, formatFigure, formatRegion, withCommas, highlights, resizeCityShow, highlightsParagraph, diversity} from './utils/CityFormat'
+import {povertyStatement, formatPop, formatFigure, formatRegion, withCommas, highlights, resizeCityShow, highlightsParagraph, diversity, politicsStatement} from './utils/CityFormat'
 import {formatIncomeHomeCompare} from './utils/MathFunctions'
 import { Route, Link } from 'react-router-dom'
 import RacialDiversityStat from './cityShow/RacialDiversityStat'
@@ -192,52 +192,31 @@ const CityShow = (props) => {
                                                 </center>
                                             </div>
                                         </div>
+                                        <div className="col-md-6 col-xs-12 zero-padding category-spacing">
+                                            <PoliticsCompare city={props.city} />
+                                         </div>
+                                        <div className="col-md-6 col-xs-12 inner-blurb category-spacing">
+                                            <h7>Politics</h7><br></br>
+                                            <p>This chart shows the 2016 US Presidental Race voting results for {props.city.county}. {politicsStatement(parseFloat(props.city.dem_vote_perc.toFixed(2)), parseFloat(props.city.gop_vote_perc.toFixed(2)), parseFloat(props.city.ind_vote_perc.toFixed(2)))}</p>
+                                        
+                                            <p>{Math.abs(props.city.dem_vote_perc - props.city.gop_vote_perc) <= 15 ? <span><strong>{props.city.name} is located in a potential swing county</strong>, meaning that the political party with the majority votes for {props.city.county} won by a margin of less than 15%.</span> : null}</p>
+
+                                            <p>This data was sourced from Tony McGovern's "<a href="https://github.com/tonmcg/County_Level_Election_Results_12-16" target="_blank">County-Level Presidential General Election Results for 2012 - 2016</a>" (originally scraped from Townhall.com).</p>
+
+                                        </div>
                                     </div>
                                     
                                     
                                 </div>
 
 
-                                <div className="col-xs-12 category-container">
-                                    <div className="col-xs-12 zero-padding">
-                                        <h7>Politics</h7><br></br>
-                                        <p>The following chart shows the 2016 US Presidental Race voting results for {props.city.county}:</p>
-                                        {Math.abs(props.city.dem_vote_perc - props.city.gop_vote_perc) <= 15 ? <p><strong>{props.city.name} is located in a potential swing county</strong>, meaning that the political party with the majority votes for {props.city.county} won by a margin of less than 15%.</p>: null}
-                                    </div>
-                                    <div className="col-xs-12 zero-padding">
-                                        <PoliticsCompare city={props.city} />
-                                    </div>
-                                </div>    
+                               
                             
                                 <div className="col-xs-12 zero-padding">
                                             
                                         </div>
+               
                             
-                                
-                                <div className="col-xs-12">
-                                    
-                                    <div className="col-md-6 col-xs-12">
-                                        <span style={{fontWeight: "bold"}}>Veteran Population: </span>
-                                        <br></br>{props.city.vets_perc}%<span style={{fontSize: "13px"}}> - (US avg: 6%)</span>
-                                    </div>
-
-
-                                </div>
-                            
-                                <br></br>
-                                <br></br>
-                                
-                                <br></br>
-                                
-                                <br></br>
-                                <br></br>
-                                <span style={{fontWeight: "bold"}}>2016 Presidential Election Results for {props.city.county}</span>
-                                <br></br>
-                                <div className="stat-border">{Math.floor(props.city.gop_vote_perc)}% Trump</div>
-                                <div className="stat-border">{Math.floor(props.city.dem_vote_perc)}% Clinton</div>
-                                <div className="stat-border">{Math.floor(props.city.ind_vote_perc)}% Independent</div>
-                                <br></br>
-                                <br></br>
                                 <span style={{fontWeight: "bold"}}>Median Household Income: </span>
                                 <br></br>
                                 {props.city.homes_median_value > 100 ? <span>${withCommas(props.city.income_median)} <span style={{fontSize: "13px"}}> - (US avg: $59,039)</span></span> : "no data"}

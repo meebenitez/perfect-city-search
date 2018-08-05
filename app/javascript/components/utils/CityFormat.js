@@ -117,7 +117,7 @@ export function highlights(city){
                     city.pop_other_race_perc]).length !== 1){
                         list.push([<div className="stat-border green-background" key="diversity-highlight">Racially Diverse</div>, <div className="highlight-p" key="diversity-statement">is <strong key="diversity">racially diverse</strong></div>])
                     }
-    if (Math.abs(city.dem_vote_perc - city.gop_vote_perc) <= 15) {
+    if (Math.abs(parseFloat(city.dem_vote_perc) - parseFloat(city.gop_vote_perc)) <= 15) {
         list.push([<div className="stat-border red-background" key="swing-city-highlight">Swing County</div>, <div className="highlight-p" key="swing-city-statement">is located in a <strong key="swing-city">potential swing county</strong></div>])
     }
     return list
@@ -155,5 +155,44 @@ export function povertyStatement(rate){
         return <span>roughly equal to the national poverty rate of 15.2%</span>
     } else {
         return <span>lower than the national poverty rate of 15.2%</span>
+    }
+}
+
+export function politicsWinner(dem, gop, ind){
+    if (dem > gop && dem > ind) {
+        return "dem"
+    } else if (gop > dem && gop > ind){
+        return "gop"
+    } else if (ind > dem && ind > gop){
+        return "ind"
+    } else if (dem === gop) {
+        return "dem/gop"
+    } else if (dem === ind) {
+        return "dem/ind"
+    } else if (gop === ind) {
+        return "gop/ind"
+    } else {
+        return "no value"
+    }
+}
+
+export function politicsStatement(dem, gop, ind){
+    const winner = politicsWinner(dem, gop, ind);
+    if (winner === "dem") {
+        return <span> <strong>Democratic nominee, Hillary Clinton, won this county with {dem}% of the votes</strong>. {gop > ind ? <span>Republican nominee, Donald Trump, received {gop}% of the votes, and independent party candidates received {ind}% of the votes.</span> : <span> Independent party candidates recieved {ind}% of the votes, and Republican nominee, Donald Trump, recieved {gop}% of the votes.</span>}</span>
+    } else if (winner === "gop"){
+        return <span> <strong>Republican nominee, Donald Trump, won this county with {gop}% of the votes</strong>. 
+        {dem > ind ? <span> Democratic nominee, Hillary Clinton, received {dem}% of the votes, and independent party candidates received {ind}% of the votes.</span> : <span> Independent party candidates recieved {ind}% of the votes, and Democratic nominee, Hillary Clinton, recieved {dem}% of the votes.</span>}</span>
+    } else if (winner === "ind") {
+        return <span><strong>Independent party candidates won this county with {ind}% of the votes</strong>. 
+        {dem > gop ? <span> Democratic nominee, Hillary Clinton, received {dem}% of the votes, and Republican nominee, Donald Trump, received {gop}% of the votes.</span> : <span> Republican nominee, Donald Trump, recieved {gop}% of the votes, and Democratic nominee, Hillary Clinton, recieved {dem}% of the votes.</span>}</span>
+    } else if (winner === "dem/gop") {
+        return <span><strong>Both Democratic and Republican nominees, Hillary Clinton and Donald Trump, tied in this county</strong> with each receiving {dem}% of the votes. Independent party candidates recieved {ind}% of the votes.</span>
+    } else if (winner === "dem/ind") {
+        return <span><strong>The Democratic nominee, Hillary Clinton, tied with independent party candidates in winning this county</strong>. Each received {dem}% of the votes. The Republican nominee, Donald Trump, lost with {gop}% of the votes.</span>
+    } else if (winner === "gop/ind"){
+        return <span><strong>The Republican nominee, Donald Trump, tied with independent party candidates in winning this county</strong>. Each received {gop}% of the votes. The Democratic nominee, Hillary Clinton, lost with {dem}% of the votes.</span>
+    } else {
+        return null;
     }
 }

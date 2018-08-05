@@ -45,6 +45,11 @@ const PoliticsCompare= (props) => {
     if (props.city !== null) {
         return (
             <div className="politics-chart-container">
+                <center>
+                    <span style={{fontWeight: "bold", fontSize: "18px"}}>{props.city.county}</span>
+                    <br></br>
+                    <span style={{fontWeight: "bold", fontSize: "18px"}}>2016 Presidential Election Results</span>
+                </center>
                 <Doughnut data={data} options={options} />                
             </div>
         )
