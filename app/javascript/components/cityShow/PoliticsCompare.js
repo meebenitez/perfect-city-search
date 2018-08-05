@@ -11,7 +11,7 @@ const PoliticsCompare= (props) => {
 
 
     const data = {
-        labels: ['Trump', 'Clinton', 'Independent'],
+        labels: ['Trump (%)', 'Clinton (%)', 'Independent (%)'],
         datasets: [
             {
                 data: [props.city.gop_vote_perc.toFixed(2), props.city.dem_vote_perc.toFixed(2), props.city.ind_vote_perc.toFixed(2)],

@@ -195,14 +195,14 @@ const CityShow = (props) => {
                                         <div className="col-md-6 col-xs-12 zero-padding category-spacing">
                                             <PoliticsCompare city={props.city} />
                                          </div>
-                                        <div className="col-md-6 col-xs-12 inner-blurb category-spacing">
-                                            <h7>Politics</h7><br></br>
+                                        <div className="col-md-6 col-xs-12 inner-blurb category-spacing extra-top-space">
+                                            <h7>Politics</h7>
+                                            <br></br>
                                             <p>This chart shows the 2016 US Presidental Race voting results for {props.city.county}. {politicsStatement(parseFloat(props.city.dem_vote_perc.toFixed(2)), parseFloat(props.city.gop_vote_perc.toFixed(2)), parseFloat(props.city.ind_vote_perc.toFixed(2)))}</p>
                                         
                                             <p>{Math.abs(props.city.dem_vote_perc - props.city.gop_vote_perc) <= 15 ? <span><strong>{props.city.name} is located in a potential swing county</strong>, meaning that the political party with the majority votes for {props.city.county} won by a margin of less than 15%.</span> : null}</p>
 
                                             <p>This data was sourced from Tony McGovern's "<a href="https://github.com/tonmcg/County_Level_Election_Results_12-16" target="_blank">County-Level Presidential General Election Results for 2012 - 2016</a>" (originally scraped from Townhall.com).</p>
-
                                         </div>
                                     </div>
                                     
