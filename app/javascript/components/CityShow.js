@@ -12,6 +12,7 @@ import PoliticsBlurb from './cityShow/PoliticsBlurb'
 import CityShowMapContainer from '../containers/CityShowMapContainer'
 import QuickFacts from './cityShow/QuickFacts'
 import ClimateStats from './cityShow/ClimateStats'
+import AgeStats from './cityShow/AgeStats'
 //import {PieChart} from 'react-easy-chart';
 //import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, HorizontalBarSeries} from 'react-vis';
 import {Doughnut as DoughnutChart} from 'react-chartjs-2';
@@ -115,23 +116,7 @@ const CityShow = (props) => {
                                     </div>
                                     <div className="col-xs-12 category-container">
                                         <div className="col-md-6 col-xs-12 zero-padding">
-                                            <div className="short-facts-container grey-background">
-                                                <center>
-                                                    <div className="age-header">Median Age</div>
-                                                    <div className="age-container">
-                                                        <img src={require('../../assets/images/female.png')} className="age-img-sex"/>
-                                                        <div className="age-sex">{props.city.age_median_female} years</div>
-                                                    </div>
-                                                    <div className="age-container">
-                                                        <img src={require('../../assets/images/person2.png')} className="age-img"/>
-                                                        <div className="age-main"><strong>{props.city.age_median} years</strong></div>
-                                                    </div>
-                                                    <div className="age-container">
-                                                        <img src={require('../../assets/images/male.png')} className="age-img-sex"/>
-                                                        <div className="age-sex">{props.city.age_median_male} years</div>
-                                                    </div>                                       
-                                                </center>
-                                            </div>
+                                            <AgeStats city={props.city} />
                                         </div>
                                         <div className="col-md-6 col-xs-12 zero-padding">
                                             <div className="short-facts-container blue-background">
