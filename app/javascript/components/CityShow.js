@@ -131,16 +131,19 @@ const CityShow = (props) => {
                                     </div>
                                 </div>
 
+                                <div className="col-xs-12 correction-container">
+                                    <center>This page is currently under construction (I'm working on making the data pretty). Please come back another time to check out the final product. Thanks!</center>
+                                </div>
+
                                 <div className="col-xs-12 general-container">
                                     <div className="col-xs-12 category-container">
                                         <div className="col-xs-12 category-container">
                                             <h7>Economy</h7>
+                                            <p>Coming Soon!</p>
                                         </div>
                                         <div className="col-md-6 col-xs-12 zero-padding">
-                                            Median Income placeholder
                                          </div>
                                         <div className="col-md-6 col-xs-12 inner-blurb">
-                                            Poverty placeholder
                                         </div>
                                     </div>
                                 </div>
@@ -149,12 +152,11 @@ const CityShow = (props) => {
                                     <div className="col-xs-12 category-container">
                                         <div className="col-xs-12 category-container">
                                             <h7>Housing</h7>
+                                            <p>Coming Soon!</p>
                                         </div>
                                         <div className="col-md-6 col-xs-12 zero-padding">
-                                            Median Home Price placeholder
                                          </div>
                                         <div className="col-md-6 col-xs-12 inner-blurb">
-                                            Misc placeholder
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +164,7 @@ const CityShow = (props) => {
                                     <div className="col-xs-12 category-container">
                                         <div className="col-xs-12 category-container">
                                             <h7>Transportation</h7>
-                                            <p>placeholder</p>
+                                            <p>Coming Soon!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +172,7 @@ const CityShow = (props) => {
                                     <div className="col-xs-12 category-container">
                                         <div className="col-xs-12 category-container">
                                             <h7>Crime and Safety</h7>
-                                            <p>placeholder</p>
+                                            <p>Coming Soon!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +180,7 @@ const CityShow = (props) => {
                                     <div className="col-xs-12 category-container">
                                         <div className="col-xs-12 category-container">
                                             <h7>Education</h7>
-                                            <p>placeholder</p>
+                                            <p>Coming Soon!</p>
                                         </div>
                                     </div>
                                 </div>
