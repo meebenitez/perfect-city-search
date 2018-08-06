@@ -13,6 +13,8 @@ class CityShowMapContainer extends Component {
 }
 
 
+
+
 _reset = () => {
   debugger;
 }
@@ -57,10 +59,25 @@ getMapOptions = (maps: Maps) => {
  
   render() {
 
+
     const styleDesktop = { 
       // MUST specify dimensions of the Google map or it will not work. Also works best when style is specified inside the render function and created as an object
-      width: '38vw', // 90vw basically means take up 90% of the width screen. px also works.
-      height: '63vh', // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+      width: '95%', // 90vw basically means take up 90% of the width screen. px also works.
+      height: '63vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+    }
+
+    //47
+    //84
+
+    const styleDesktopSmall = {
+      width: '100%', // 90vw basically means take up 90% of the width screen. px also works.
+      height: '63vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+    }
+
+    const styleMobile = {
+      width: '100%', // 90vw basically means take up 90% of the width screen. px also works.
+      height: '63vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+
     }
 
     //import styles from "../../assets/stylesheets/application.scss"
@@ -72,7 +89,7 @@ getMapOptions = (maps: Maps) => {
    
     return (
       <Aux>
-        <MediaQuery minWidth={1400}>
+        <MediaQuery minWidth={1200}>
           <div style={styleDesktop}>
             <GoogleMapReact
               bootstrapURLKeys={{ key: this.props.googleApiKey }}
@@ -86,6 +103,38 @@ getMapOptions = (maps: Maps) => {
             </GoogleMapReact>
           </div>
         </MediaQuery>
+
+        <MediaQuery minWidth={768} maxWidth={1200}>
+          <div style={styleDesktopSmall}>
+            <GoogleMapReact
+              bootstrapURLKeys={{ key: this.props.googleApiKey }}
+              center={{lat: parseFloat(this.props.city.longitude), lng: parseFloat(this.props.city.latitude)}}
+              zoom={6}
+              disableDefaultUI = {true}
+              zoomControl = {true}
+              options={this.getMapOptions}
+            >
+            {marker}
+            </GoogleMapReact>
+          </div>
+        </MediaQuery>
+
+        <MediaQuery maxWidth={768}>
+          <div style={styleMobile}>
+            <GoogleMapReact
+              bootstrapURLKeys={{ key: this.props.googleApiKey }}
+              center={{lat: parseFloat(this.props.city.longitude), lng: parseFloat(this.props.city.latitude)}}
+              zoom={6}
+              disableDefaultUI = {true}
+              zoomControl = {true}
+              options={this.getMapOptions}
+            >
+            {marker}
+            </GoogleMapReact>
+          </div>
+        </MediaQuery>
+
+        
     </Aux>
     );
   }
