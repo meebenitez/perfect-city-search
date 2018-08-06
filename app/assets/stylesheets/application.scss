@@ -391,19 +391,22 @@
       height: 50px;
     }
 
+    .header-right-container {
+      float: right;
+    }
+
     .link-box{
       border: red 1px solid;
-      padding: 0px 5px 5px 5px;
-      border-radius: 5px;
       margin-left: 15px;
       max-width: auto;
       text-align: center;
-      float: right;
+      border-radius: 5px;
     }
 
     .link-div{ 
       padding: 0px 5px 5px 5px;
       margin-left: 15px;
+      float: right;
     }
 
     a.navlink1 {
@@ -476,8 +479,6 @@
       width:12px;
       height:12px;
     }
-
-   
 
     .filter-icon {
       height: 20px;
@@ -1034,6 +1035,7 @@
       color: red;
     }
 
+
     h2 {
       font-family: 'Lato', sans-serif;
       font-size: 20px;
@@ -1235,16 +1237,17 @@
 
    /* RESPONSIVE NAVBAR */
   .dropbtn {
-      color: #FF3B3F;
-      padding: 8px;
+      color: #FC4A1A;
+      padding: 0px;
       font-size: 26px;
       border: none;
       cursor: pointer;
   }
   .dropdown {
-      float: left;
+      float: right;
       position: relative;
       display: inline-block;
+      z-index: 1001;
   }
   .dropdown-content {
       display: none;
@@ -1252,7 +1255,7 @@
       background-color: #f9f9f9;
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
+      z-index: 1001;
   }
   .dropdown-content a {
       color: black;
@@ -1261,12 +1264,25 @@
       display: block;
   }
   .dropdown-content a:hover {
-    background-color: #aaa;
-    color: white;
+    background-color: white;
+    color: black;
   }
   .dropdown:hover .dropdown-content {
       display: block;
   }
   .dropdown:hover .dropbtn {
-      background-color: #EFEFEF;
+      background-color: white;
+      z-index: 1001;
   }
+
+/*--------RESPONSIVE --------------*/
+
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  .logo-icon {
+    height: 25px;
+  }   
+}
