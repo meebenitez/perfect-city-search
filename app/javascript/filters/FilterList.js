@@ -81,16 +81,11 @@ const FilterList = (props) => {
 
     return (
         <Aux>
-            <MediaQuery minWidth={1200}>
+            
                 <div className="filter-container">
                     {renderFilters} 
                 </div>
-            </MediaQuery>
-            <MediaQuery maxWidth={1200}>
-                <div className="filter-container">
-                    {renderFiltersMin}
-                </div>
-            </MediaQuery>
+
         </Aux>
             
     )

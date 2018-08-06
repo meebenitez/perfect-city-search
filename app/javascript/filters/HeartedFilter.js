@@ -1,7 +1,6 @@
 import React from 'react';
 import Aux from '../components/Aux'
 import {withCommas} from '../components/utils/filterFunctions'
-import MediaQuery from 'react-responsive'
 
 class HeartedFilter extends React.Component {
     constructor(props){
@@ -38,33 +37,16 @@ class HeartedFilter extends React.Component {
 
         return (
             <Aux>
-                <MediaQuery minWidth={1200}>
-                    <div className="filter-popup-parent">
-                        <div className={this.props.activeFilters.includes("HeartedFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick}>
-                            {this.props.activeFilters.includes("HeartedFilter") ? 
-                                <img src={require('../../assets/images/redheart.png')} className="filter-icon"/> 
-                                : <img src={require('../../assets/images/greyheart.png')} className="filter-icon"/>}
-                            {this.props.activeFilters.includes("HeartedFilter") ?
-                                <span>&nbsp;&nbsp;<span className="bold">Hearted</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
-                                : <span>&nbsp;Hearted</span>}<label htmlFor="hearted"></label>
-                        </div>                
-                    </div>
-                </MediaQuery>
-                <MediaQuery maxWidth={1200}>
                 <div className="filter-popup-parent">
                     <div className={this.props.activeFilters.includes("HeartedFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick}>
                         {this.props.activeFilters.includes("HeartedFilter") ? 
                             <img src={require('../../assets/images/redheart.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greyheart.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("HeartedFilter") ?
-                            <span>&nbsp;&nbsp;<span className="bold"></span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
-                            : null }<label htmlFor="hearted"></label>
+                            <span>&nbsp;&nbsp;<span className="bold">Hearted</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
+                            : <span>&nbsp;Hearted</span>}<label htmlFor="hearted"></label>
                     </div>                
                 </div>
-                </MediaQuery>
-
-
-                
             </Aux>
             )
         }

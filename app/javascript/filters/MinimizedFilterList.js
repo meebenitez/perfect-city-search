@@ -1,23 +1,15 @@
 import React from 'react';
 import PopulationFilter from './PopulationFilter'
-import PopularFilter from './PopularFilter'
-import HeartedFilter from './HeartedFilter'
 import AgeFilter from './AgeFilter'
 import RegionFilter from './RegionFilter'
 import HomePriceFilter from './HomePriceFilter'
 import MedianIncomeFilter from './MedianIncomeFilter'
-import VoterDemoFilter from './VoterDemoFilter'
-import GoodSchoolsFilter from './GoodSchoolsFilter'
-import PotFriendlyFilter from './PotFriendlyFilter'
-import CollegeGradFilter from './CollegeGradFilter'
-import LowCrimeFilter from './LowCrimeFilter'
-import HighEmploymentFilter from './HighEmploymentFilter'
-import NameSearchFilter from './NameSearchFilter'
+import {checkDivClassGroup, findOne} from '../components/utils/filterFunctions'
 import FilterPopup from './FilterPopup'
 import DemographicsFilter from './DemographicsFilter'
 import HousingStatsFilter from './HousingStatsFilter'
 import EconomyFilter from './EconomyFilter'
-import MoreFilter from './MoreFilter'
+import Aux from '../components/Aux'
 
 
     class MinimizedFilterList extends React.Component {
@@ -109,10 +101,7 @@ import MoreFilter from './MoreFilter'
                 <Aux>
                     <div className="filter-popup-parent">
                         <div className={checkDivClassGroup(this.props.activeFilters, filterListStrings, this.state.morePopup)} data-tooltip="test test yoyo" onClick={this.handleClick} ref={this.setMoreButtonRef}>
-                            {findOne(filterListStrings, this.props.activeFilters) ? 
-                                <img src={require('../../assets/images/bluemore.png')} className="filter-icon"/> 
-                                : <img src={require('../../assets/images/greymore.png')} className="filter-icon"/>}
-                            <span>&nbsp;&nbsp;More</span>&nbsp;&nbsp;{this.state.morePopup ? <img src={require('../../assets/images/greyuparrow.png')} className="filter-icon-md"/> : <img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/>}<label htmlFor="More"></label>
+                            <span>&nbsp;&nbsp;Filters</span>&nbsp;&nbsp;{this.state.morePopup ? <img src={require('../../assets/images/greyuparrow.png')} className="filter-icon-md"/> : <img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/>}<label htmlFor="More"></label>
                         </div>
                         {this.state.morePopup ?
                         <span> 
@@ -135,4 +124,4 @@ import MoreFilter from './MoreFilter'
             }
     }
     
-    export default MoreFilter;
+    export default MinimizedFilterList;

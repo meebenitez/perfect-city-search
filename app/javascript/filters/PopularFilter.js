@@ -1,7 +1,6 @@
 import React from 'react';
 import Aux from '../components/Aux'
 import {withCommas} from '../components/utils/filterFunctions'
-import MediaQuery from 'react-responsive'
 
 class PopularFilter extends React.Component {
     constructor(props){
@@ -30,31 +29,16 @@ class PopularFilter extends React.Component {
         return (
 
             <Aux>
-
-                <MediaQuery minWidth={1200}>
-                    <div className="filter-popup-parent">
-                        <div className={this.props.activeFilters.includes("PopularFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick}>
-                            {this.props.activeFilters.includes("PopularFilter") ? 
-                                <img src={require('../../assets/images/star.png')} className="filter-icon"/> 
-                                : <img src={require('../../assets/images/greystar.png')} className="filter-icon"/>}
-                            {this.props.activeFilters.includes("PopularFilter") ?
-                                <span>&nbsp;&nbsp;<span className="bold">Popular</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
-                                : <span>&nbsp;Popular</span>}<label htmlFor="popular"></label>
-                        </div>                
-                    </div>
-                </MediaQuery>
-                <MediaQuery maxWidth={1200}>
                 <div className="filter-popup-parent">
-                        <div className={this.props.activeFilters.includes("PopularFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick}>
-                            {this.props.activeFilters.includes("PopularFilter") ? 
-                                <img src={require('../../assets/images/star.png')} className="filter-icon"/> 
-                                : <img src={require('../../assets/images/greystar.png')} className="filter-icon"/>}
-                            {this.props.activeFilters.includes("PopularFilter") ?
-                                <span>&nbsp;&nbsp;<span className="bold"></span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
-                                : null}<label htmlFor="popular"></label>
-                        </div>                
-                    </div>
-                </MediaQuery>
+                    <div className={this.props.activeFilters.includes("PopularFilter") ? "filter-div filter-on tooltip-top" : "filter-div filter-off" } data-tooltip="test test yoyo" onClick={this.handleClick}>
+                        {this.props.activeFilters.includes("PopularFilter") ? 
+                            <img src={require('../../assets/images/star.png')} className="filter-icon"/> 
+                            : <img src={require('../../assets/images/greystar.png')} className="filter-icon"/>}
+                        {this.props.activeFilters.includes("PopularFilter") ?
+                            <span>&nbsp;&nbsp;<span className="bold">Popular</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
+                            : <span>&nbsp;Popular</span>}<label htmlFor="popular"></label>
+                    </div>                
+                </div>
             </Aux>
             )
         }
