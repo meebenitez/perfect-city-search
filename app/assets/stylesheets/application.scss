@@ -1191,7 +1191,7 @@
 
     .search-box {
       display:inline-block;
-      width: 250px;
+      width: 200px;
       height: 35px;
       border: 1px solid #ccc;
       outline: 0;
@@ -1274,7 +1274,10 @@
 
 /*--------RESPONSIVE --------------*/
 
-@media screen and (max-width: 900px) and (min-width: 768px) {
+
+
+
+@media screen and (max-width: 1094px) and (min-width: 768px) {
   h1 {
     font-size: 25px;
   }
