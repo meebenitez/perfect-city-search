@@ -178,6 +178,7 @@ const CityShow = (props) => {
                                     <div className="col-xs-12 category-container">
                                         <div className="col-xs-12 category-container">
                                             <h7>Education</h7>
+                                            <p>placeholder</p>
                                         </div>
                                     </div>
                                 </div>
