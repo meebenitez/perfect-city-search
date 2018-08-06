@@ -1279,10 +1279,14 @@
 
 @media screen and (max-width: 900px) {
   h1 {
-    font-size: 25px;
+    font-size: 27px;
   }
 
   .logo-icon {
-    height: 25px;
+    height: 27px;
   }   
+
+  .filter-container {
+    margin-top: 5px;
+  }
 }

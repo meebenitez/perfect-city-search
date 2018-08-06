@@ -6,18 +6,15 @@ import AgeFilter from './AgeFilter'
 import RegionFilter from './RegionFilter'
 import HomePriceFilter from './HomePriceFilter'
 import MedianIncomeFilter from './MedianIncomeFilter'
-import VoterDemoFilter from './VoterDemoFilter'
-import GoodSchoolsFilter from './GoodSchoolsFilter'
-import PotFriendlyFilter from './PotFriendlyFilter'
-import CollegeGradFilter from './CollegeGradFilter'
-import LowCrimeFilter from './LowCrimeFilter'
-import HighEmploymentFilter from './HighEmploymentFilter'
 import NameSearchFilter from './NameSearchFilter'
 import FilterPopup from './FilterPopup'
 import DemographicsFilter from './DemographicsFilter'
 import HousingStatsFilter from './HousingStatsFilter'
 import EconomyFilter from './EconomyFilter'
 import MoreFilter from './MoreFilter'
+import MinimizedFilterList from './MinimizedFilterList'
+import MediaQuery from 'react-responsive'
+import Aux from '../components/Aux'
 
 const FilterList = (props) => {
 
@@ -48,6 +45,23 @@ const FilterList = (props) => {
         //HomePriceFilter,
     ]
 
+    const filterListMinimized = props.currentUser ? [
+        NameSearchFilter,
+        PopularFilter,
+        HeartedFilter,
+        MinimizedFilterList,
+        //MedianIncomeFilter,
+        //AgeFilter,
+        //HomePriceFilter,
+    ] : [
+        NameSearchFilter,
+        PopularFilter,
+        MinimizedFilterList,
+        //MedianIncomeFilter,
+        //AgeFilter,
+        //HomePriceFilter,
+    ]
+
     const checkActive = (filterName) => {
         if (props.activeFilters.includes(filterName)) {
             return true
@@ -60,11 +74,25 @@ const FilterList = (props) => {
         return <Filter activeFilters={props.activeFilters} onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)} searchTerm={props.searchTerm} currentUser={props.currentUser} toggleAuthPopup={props.toggleAuthPopup}/>
     });
 
+    const renderFiltersMin = filterListMinimized.map( (Filter) => {
+        return <Filter activeFilters={props.activeFilters} onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)} searchTerm={props.searchTerm} currentUser={props.currentUser} toggleAuthPopup={props.toggleAuthPopup}/>
+    });
+
 
     return (
-    <div className="filter-container">
-        {renderFilters} 
-    </div>
+        <Aux>
+            <MediaQuery minWidth={1200}>
+                <div className="filter-container">
+                    {renderFilters} 
+                </div>
+            </MediaQuery>
+            <MediaQuery maxWidth={1200}>
+                <div className="filter-container">
+                    {renderFiltersMin}
+                </div>
+            </MediaQuery>
+        </Aux>
+            
     )
 }
 
