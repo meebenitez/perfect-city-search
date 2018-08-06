@@ -10,7 +10,7 @@ const FixedMapContainer = (props) =>
       
             
 
-                <div className="col-xs-6 row">
+                <div className="col-sm-6 col-xs-12 row">
                     
                     <div className="col-xs-12 zero-padding">
                     <div className="map-container">

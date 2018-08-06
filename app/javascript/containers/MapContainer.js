@@ -57,17 +57,17 @@ getMapOptions = (maps: Maps) => {
 
     const styleDesktop = { 
       // MUST specify dimensions of the Google map or it will not work. Also works best when style is specified inside the render function and created as an object
-      width: '47vw', // 90vw basically means take up 90% of the width screen. px also works.
+      width: '98%', // 90vw basically means take up 90% of the width screen. px also works.
       height: '84vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
 
     const styleDesktopSmall = {
-      width: '45vw', // 90vw basically means take up 90% of the width screen. px also works.
+      width: '98%', // 90vw basically means take up 90% of the width screen. px also works.
       height: '84vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
 
     const styleMobile = {
-      width: '94vw', // 90vw basically means take up 90% of the width screen. px also works.
+      width: '100%', // 90vw basically means take up 90% of the width screen. px also works.
       height: '40vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
 
     }
@@ -83,7 +83,7 @@ getMapOptions = (maps: Maps) => {
 
     return (
       <Aux>
-        <MediaQuery minWidth={1400}>
+        <MediaQuery minWidth={1200}>
           <div style={styleDesktop}>
             <GoogleMapReact
               bootstrapURLKeys={{ key: this.props.googleApiKey }}
@@ -99,8 +99,22 @@ getMapOptions = (maps: Maps) => {
         </MediaQuery>
       
     
-        <MediaQuery maxWidth={1400}>
+      <MediaQuery minWidth={768} maxWidth={1200}>
         <div style={styleDesktopSmall}>
+          <GoogleMapReact
+            bootstrapURLKeys={{ key: this.props.googleApiKey }}
+            center={this.props.mapCenter}
+            zoom={this.props.mapZoom}
+            disableDefaultUI = {true}
+            zoomControl = {true}
+            options={this.getMapOptions}
+          >
+            {renderMarkers}
+          </GoogleMapReact>
+        </div>
+      </MediaQuery>
+      <MediaQuery maxWidth={768}>
+        <div style={styleMobile}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: this.props.googleApiKey }}
             center={this.props.mapCenter}
