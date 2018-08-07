@@ -22,7 +22,6 @@ const City = props => {
         backgroundColor: 'rgba(236, 234, 234, 0.25)',
         WebkitTransition: 'all', // note the capital 'W' here
         msTransition: 'all', // 'ms' is the only lowercase vendor prefix
-        borderRadius: '10px',
         border: '1px solid #929494'
     };
        
