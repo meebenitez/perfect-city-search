@@ -15,7 +15,7 @@ class NameSearchFilter extends React.Component {
 	    {
             this.didSwitchParentObject= false;
             //debugger;
-	        this.refs.myTextInput.value = this.props.searchTerm;
+	        this.refs.myTextInput.value = this.props.searchTerm.split("%20").join(" ");
 	    }
 	}
 

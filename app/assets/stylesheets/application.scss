@@ -1191,13 +1191,30 @@
       -webkit-appearance: searchfield-cancel-button;
     }
 
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: rgb(38,38,38);
+      opacity: 1; /* Firefox */
+    }
+  
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: rgb(38,38,38);
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: rgb(38,38,38);
+    }
+
     .search-box {
       display:inline-block;
       width: 200px;
-      height: 35px;
-      border: 1px solid #ccc;
+      height: 33px;
+      margin-left: 5px;
+      margin-bottom: 0px;
+      border: 1px solid #929494;
       outline: 0;
       border-radius: 5px;
+      color: black;
     }
     .search-box:focus {
       border: 1px solid #88cfff;

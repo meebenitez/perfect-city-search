@@ -1,6 +1,6 @@
 import React from 'react';
 import Aux from '../components/Aux'
-import NameSearchFilter from './NameSearchFilter'
+import PotFriendlyFilter from './PotFriendlyFilter'
 import {checkDivClassGroup, findOne} from '../components/utils/filterFunctions'
 
 
@@ -79,15 +79,15 @@ class MoreFilter extends React.Component {
         }
 
         const filterList = [
-            NameSearchFilter
+            PotFriendlyFilter
             ]
 
         const filterListStrings = [
-            "NameSearchFilter"
+            "PotFriendlyFilter"
         ]
-        const renderFilters = filterList.map( (Filter) => {
-            return <Filter activeFilters={this.props.activeFilters} onFilterChange={this.props.onFilterChange} key={Filter.name} filterHolder={this.props.filterHolder} params={this.props.params} isActive={checkActive(Filter.name)} currentUser={this.props.currentUser}/>
-        });
+        //const renderFilters = filterList.map( (Filter) => {
+        //    return <Filter activeFilters={this.props.activeFilters} onFilterChange={this.props.onFilterChange} key={Filter.name} filterHolder={this.props.filterHolder} params={this.props.params} isActive={checkActive(Filter.name)} currentUser={this.props.currentUser}/>
+        //});
     
         return (
             <Aux>
@@ -96,7 +96,7 @@ class MoreFilter extends React.Component {
                         {findOne(filterListStrings, this.props.activeFilters) ? 
                             <img src={require('../../assets/images/bluemore.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greymore.png')} className="filter-icon"/>}
-                        <span>&nbsp;&nbsp;More Filters</span>&nbsp;&nbsp;{this.state.morePopup ? <img src={require('../../assets/images/greyuparrow.png')} className="filter-icon-md"/> : <img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/>}<label htmlFor="More"></label>
+                        <span>&nbsp;&nbsp;More</span>&nbsp;&nbsp;{this.state.morePopup ? <img src={require('../../assets/images/greyuparrow.png')} className="filter-icon-md"/> : <img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/>}<label htmlFor="More"></label>
                     </div>
                     {this.state.morePopup ?
                     <span> 

@@ -6,7 +6,7 @@ import AgeFilter from './AgeFilter'
 import RegionFilter from './RegionFilter'
 import HomePriceFilter from './HomePriceFilter'
 import MedianIncomeFilter from './MedianIncomeFilter'
-import NameSearchContainerFilter from './NameSearchContainerFilter'
+import NameSearchFilter from './NameSearchFilter'
 import FilterPopup from './FilterPopup'
 import DemographicsFilter from './DemographicsFilter'
 import HousingStatsFilter from './HousingStatsFilter'
@@ -28,6 +28,7 @@ const FilterList = (props) => {
         HousingStatsFilter,
         EconomyFilter,
         MoreFilter,
+        NameSearchFilter,
         //MedianIncomeFilter,
         //AgeFilter,
         //HomePriceFilter,
@@ -37,8 +38,8 @@ const FilterList = (props) => {
         DemographicsFilter,
         HousingStatsFilter,
         EconomyFilter,
-        NameSearchContainerFilter,
         MoreFilter,
+        NameSearchFilter,
         //MedianIncomeFilter,
         //AgeFilter,
         //HomePriceFilter,
@@ -47,14 +48,14 @@ const FilterList = (props) => {
     const filterListMinimized = props.currentUser ? [
         PopularFilter,
         HeartedFilter,
-        NameSearchContainerFilter,
+        NameSearchFilter,
         MinimizedFilterList,
         //MedianIncomeFilter,
         //AgeFilter,
         //HomePriceFilter,
     ] : [
         PopularFilter,
-        NameSearchContainerFilter,
+        NameSearchFilter,
         MinimizedFilterList,
         //MedianIncomeFilter,
         //AgeFilter,
