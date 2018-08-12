@@ -35,7 +35,7 @@ class PopularFilter extends React.Component {
                             <img src={require('../../assets/images/star.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greystar.png')} className="filter-icon"/>}
                         {this.props.activeFilters.includes("PopularFilter") ?
-                            <span>&nbsp;&nbsp;<span className="bold">Popular</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="filter-icon-sm"/></span></span>
+                            <span>&nbsp;&nbsp;<span className="bold">Popular</span><span onClick={this.handleClear}>&nbsp;&nbsp;&nbsp;<img src={require('../../assets/images/xout2.png')} className="x-icon-name-search"/></span></span>
                             : <span>&nbsp;Popular</span>}<label htmlFor="popular"></label>
                     </div>                
                 </div>

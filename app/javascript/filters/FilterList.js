@@ -21,6 +21,8 @@ const FilterList = (props) => {
 
 // Creating two different lists so I can later offer registered users special filters
     const filterList = props.currentUser ? [
+        
+        NameSearchFilter,
         PopularFilter,
         HeartedFilter,
         RegionFilter,
@@ -28,18 +30,17 @@ const FilterList = (props) => {
         HousingStatsFilter,
         EconomyFilter,
         MoreFilter,
-        NameSearchFilter,
         //MedianIncomeFilter,
         //AgeFilter,
         //HomePriceFilter,
     ] : [
+        NameSearchFilter,
         PopularFilter,
         RegionFilter,
         DemographicsFilter,
         HousingStatsFilter,
         EconomyFilter,
         MoreFilter,
-        NameSearchFilter,
         //MedianIncomeFilter,
         //AgeFilter,
         //HomePriceFilter,

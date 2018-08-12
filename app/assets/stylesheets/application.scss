@@ -220,7 +220,7 @@
     }
 
     .yellow-background {
-      background-color: rgb(255, 246, 122);
+      background-color: #f7ff88;
     }
 
     .white-background {
@@ -489,6 +489,11 @@
 
     .filter-icon-sm {
       width: 10px;
+      vertical-align: middle;
+    }
+    .x-icon-name-search {
+      width: 10px;
+      margin-left: 10px;
       vertical-align: middle;
     }
 
@@ -1192,19 +1197,6 @@
     }
 
 
-    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: rgb(38,38,38);
-      opacity: 1; /* Firefox */
-    }
-  
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: rgb(38,38,38);
-    }
-
-    ::-ms-input-placeholder { /* Microsoft Edge */
-        color: rgb(38,38,38);
-    }
-
     .search-box {
       display:inline-block;
       width: 200px;
@@ -1217,7 +1209,7 @@
       color: black;
     }
     .search-box:focus {
-      border: 1px solid #88cfff;
+      border: 1px solid #f7ff88;
     }
     .close-icon {
       border:1px solid transparent;
