@@ -1,7 +1,6 @@
-
 import React from 'react';
 import Aux from '../components/Aux'
-import AgeFilter from './AgeFilter'
+import NameSearchFilter from './NameSearchFilter'
 import {checkDivClassGroup, findOne} from '../components/utils/filterFunctions'
 
 
@@ -80,11 +79,11 @@ class MoreFilter extends React.Component {
         }
 
         const filterList = [
-            AgeFilter
-        ]
+            NameSearchFilter
+            ]
 
         const filterListStrings = [
-            "AgeFilter"
+            "NameSearchFilter"
         ]
         const renderFilters = filterList.map( (Filter) => {
             return <Filter activeFilters={this.props.activeFilters} onFilterChange={this.props.onFilterChange} key={Filter.name} filterHolder={this.props.filterHolder} params={this.props.params} isActive={checkActive(Filter.name)} currentUser={this.props.currentUser}/>
@@ -97,7 +96,7 @@ class MoreFilter extends React.Component {
                         {findOne(filterListStrings, this.props.activeFilters) ? 
                             <img src={require('../../assets/images/bluemore.png')} className="filter-icon"/> 
                             : <img src={require('../../assets/images/greymore.png')} className="filter-icon"/>}
-                        <span>&nbsp;&nbsp;More</span>&nbsp;&nbsp;{this.state.morePopup ? <img src={require('../../assets/images/greyuparrow.png')} className="filter-icon-md"/> : <img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/>}<label htmlFor="More"></label>
+                        <span>&nbsp;&nbsp;More Filters</span>&nbsp;&nbsp;{this.state.morePopup ? <img src={require('../../assets/images/greyuparrow.png')} className="filter-icon-md"/> : <img src={require('../../assets/images/greydownarrow.png')} className="filter-icon-md"/>}<label htmlFor="More"></label>
                     </div>
                     {this.state.morePopup ?
                     <span> 
@@ -113,6 +112,7 @@ class MoreFilter extends React.Component {
                             Education Filter
 
                         </div>
+                        
                     </span> : null }                       
                 </div>
             </Aux>
@@ -121,3 +121,4 @@ class MoreFilter extends React.Component {
 }
 
 export default MoreFilter;
+
