@@ -78,7 +78,7 @@ getMapOptions = (maps: Maps) => {
 
    const renderMarkers = 
         this.props.cities.map((city) => 
-        <CityPin key = {city.id} text = {`${ city.name }`} city = {city} lat = {city.longitude + 25 } lng = {city.latitude - .009} highlightedCity = {this.props.highlightedCity} />
+        <CityPin key = {city.id} text = {`${ city.name }`} city = {city} lat = {city.longitude + 25 } lng = {city.latitude - .009} highlightedCity = {this.props.highlightedCity} heartedCities = {this.props.heartedCities} />
       )
 
     return (
