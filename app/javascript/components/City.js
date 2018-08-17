@@ -33,7 +33,7 @@ const City = props => {
                         <div className="dead-center">
                             <Link className="citynamelink" to={`#city=${props.city.name}_${props.city.short_state}_${props.city.id}`} onClick= {() => props.showSingleCity()} onMouseEnter={() => props.nameHover(props.city)} >
                                 <h3>&nbsp;&nbsp;{props.city.name}, {props.city.short_state.toUpperCase()}&nbsp;&nbsp;
-                                { (props.city.popularity >= 25) ? <span className="star">★&nbsp;&nbsp;</span> : null }</h3>
+                                { (props.city.popularity >= 25) ? <span className="star">&nbsp;★&nbsp;&nbsp;</span> : null }</h3>
                             </Link>
                         </div>
                     </div>
