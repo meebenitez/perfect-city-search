@@ -11,7 +11,7 @@ const REGIONS = [
     {"heartland": "Heartland"},
     {"midwest": "Midwest"},
     {"southeast": "Southeast"},
-    {"appalachian_highlands": "Appaliachia"},
+    {"appalachian_highlands": "Appalachia"},
     {"mid_atlantic": "MidAtlantic"},
     {"new_england": "New England"}
 ] 
