@@ -239,7 +239,28 @@
     }
     .highlight{
       z-index: 1001;
-  }
+    }
+    
+    .city-pin-parent{
+      position: relative;
+      width: auto;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .city-pin-popup {
+      position: absolute;
+      text-align: center;
+      top: -45px;
+      padding: 10px;
+      background-color: white;
+      border: rgb(63, 63, 63) 1px solid;
+      border-radius: 4px;
+      left: 50%;
+    
+    }
+
+
     
     .bottom-line {
       border-bottom: rgb(185, 185, 185) 1px solid;
