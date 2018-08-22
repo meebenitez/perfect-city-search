@@ -20,10 +20,13 @@ class Login extends React.Component {
             <div> 
                 <h3>Login</h3>
                 <br></br>
+                (Recruiter login: test@email.com, password1234)
+                <br></br>
                 <form>
                     <input id="email" placeholder="email" /><br></br>
                     <input id="password" type="password"placeholder="password" /><br></br>
                     <button onClick={e => this.handleLogin(e)}>Submit</button>
+                    <br></br>
                 </form>
             </div>
         ) 
