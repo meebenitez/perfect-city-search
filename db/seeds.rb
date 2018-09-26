@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'csv'
+require 'pry'
 
 
     City.delete_all
@@ -20,6 +21,7 @@ end
 csv_text = File.read(Rails.root.join('db', 'new_upload_voters2.csv'))
 csv = CSV.parse(csv_text, :headers => false)
     csv.each do |row|
+        #binding.pry
         City.create!({
           :name => row[0],
           :short_state => row[1],

@@ -23,7 +23,7 @@ const RacialDiversityBlurb = props => {
                         diversity([props.city.pop_white_perc, props.city.pop_native_perc, props.city.pop_pacific_perc, 
                             props.city.pop_latin_hispanic_perc, 
                             props.city.pop_asian_perc, props.city.pop_black_perc, 
-                            props.city.pop_other_race_perc]).length !== 1 ? <span>to be <strong>racially diverse.</strong></span> : <span>to <strong>not be</strong> racially diverse.</span>
+                            props.city.pop_other_race_perc]).length < 1 ? <span>to be <strong>racially diverse.</strong></span> : <span>to <strong>not be</strong> racially diverse.</span>
                     } </p>
 
                     <p><span className="asterisk">The "Latin / Hispanic" dataset includes hispanics and latinos of any race, including those who identify as White.</span></p>

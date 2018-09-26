@@ -1,3 +1,4 @@
+require 'pry'
 class City < ApplicationRecord
     has_many :cities_users
     has_many :users, through: :cities_users
@@ -36,37 +37,11 @@ class City < ApplicationRecord
         end
 
         def racial_diversity(type)
-            if type == "no"
-                return where("pop_white_perc >= ?", 70).or(where("pop_black_perc >= ?", 70))
-                .or(where("pop_native_perc >= ?", 70)).or(where("pop_asian_perc >= ?", 70))
-                .or(where("pop_pacific_perc >= ?", 70)).or(where("pop_other_race_perc >= ?", 70))
-                .or(where("pop_latin_hispanic_perc >= ?", 70))
-            else type == "yes"
-                return where("pop_white_perc <= ?", 30).where("pop_black_perc <= ?", 30)
-                .where("pop_native_perc <= ?", 30).where("pop_asian_perc <= ?", 30)
-                .where("pop_pacific_perc <= ?", 30).where("pop_other_race_perc <= ?", 30)
-                .where("pop_latin_hispanic_perc <= ?", 30)
-                .or(where("pop_white_perc >= ?", 30).where("pop_native_perc >= ?", 30))
-                .or(where("pop_white_perc >= ?", 30).where("pop_black_perc >= ?", 30))
-                .or(where("pop_white_perc >= ?", 30).where("pop_latin_hispanic_perc >= ?", 30))
-                .or(where("pop_white_perc >= ?", 30).where("pop_asian_perc >= ?", 30))
-                .or(where("pop_white_perc >= ?", 30).where("pop_pacific_perc >= ?", 30))
-                .or(where("pop_white_perc >= ?", 30).where("pop_other_race_perc >= ?", 30))
-                .or(where("pop_black_perc >= ?", 30).where("pop_native_perc >= ?", 30))
-                .or(where("pop_black_perc >= ?", 30).where("pop_latin_hispanic_perc >= ?", 30))
-                .or(where("pop_black_perc >= ?", 30).where("pop_asian_perc >= ?", 30))
-                .or(where("pop_black_perc >= ?", 30).where("pop_pacific_perc >= ?", 30))
-                .or(where("pop_black_perc >= ?", 30).where("pop_other_race_perc >= ?", 30))
-                .or(where("pop_native_perc >= ?", 30).where("pop_latin_hispanic_perc >= ?", 30))
-                .or(where("pop_native_perc >= ?", 30).where("pop_asian_perc >= ?", 30))
-                .or(where("pop_native_perc >= ?", 30).where("pop_pacific_perc >= ?", 30))
-                .or(where("pop_native_perc >= ?", 30).where("pop_other_race_perc >= ?", 30))
-                .or(where("pop_latin_hispanic_perc >= ?", 30).where("pop_asian_perc >= ?", 30))
-                .or(where("pop_latin_hispanic_perc >= ?", 30).where("pop_pacific_perc >= ?", 30))
-                .or(where("pop_latin_hispanic_perc >= ?", 30).where("pop_other_race_perc >= ?", 30))
-                .or(where("pop_asian_perc >= ?", 30).where("pop_pacific_perc >= ?", 30))
-                .or(where("pop_asian_perc >= ?", 30).where("pop_other_race_perc >= ?", 30))
-                .or(where("pop_pacific_perc >= ?", 30).where("pop_other_race_perc >= ?", 30))
+            if type == "yes"
+                #binding.pry
+                return where("pop_white_perc < ?", 60).where("pop_black_perc < ?", 60).where("pop_native_perc < ?", 60)
+                .where("pop_asian_perc < ?", 60).where("pop_pacific_perc < ?", 60).where("pop_other_race_perc < ?", 60)
+                .where("pop_latin_hispanic_perc < ?", 60)
             end
         end
 
