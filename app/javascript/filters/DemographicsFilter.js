@@ -6,6 +6,7 @@ import PopulationFilter from './PopulationFilter'
 import VetFilter from './VetFilter'
 import DiversityFilter from './DiversityFilter'
 import PoliticsFilter from './PoliticsFilter'
+import SwingCountyFilter from './SwingCountyFilter'
 import {checkDivClassGroup, findOne} from '../components/utils/filterFunctions'
 
 
@@ -89,6 +90,7 @@ class DemographicsFilter extends React.Component {
             PoliticsFilter,
             DiversityFilter,
             VetFilter,
+            SwingCountyFilter
         ]
 
         const filterListStrings = [
@@ -97,6 +99,7 @@ class DemographicsFilter extends React.Component {
             "PoliticsFilter",
             "DiversityFilter",
             "VetFilter",
+            "SwingCountyFilter"
         ]
         const renderFilters = filterList.map( (Filter) => {
             return <Filter activeFilters={this.props.activeFilters} onFilterChange={this.props.onFilterChange} key={Filter.name} filterHolder={this.props.filterHolder} params={this.props.params} isActive={checkActive(Filter.name)} currentUser={this.props.currentUser}/>

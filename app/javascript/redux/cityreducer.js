@@ -13,7 +13,8 @@ const FILTERS = [
     "DiversityFilter",
     "SolarFilter",
     "PovertyFilter",
-    "PoliticsFilter"
+    "PoliticsFilter",
+    "SwingCountyFilter"
 ]
     
     
@@ -32,7 +33,8 @@ const HASHMAP = {
     "high-diversity": "[diversity]=",
     "solar-friendly" : "[solar]",
     "poverty-rate" : "[poverty_rate]=",
-    "majority-party" : "[majority-party]="
+    "majority-party" : "[majority_party]=",
+    "swing-county" : "[swing_county]="
 
 }
 
@@ -51,7 +53,8 @@ const PARAMMAP = {
         "high-diversity": "DiversityFilter",
         "solar-friendly" : "SolarFilter",
         "poverty-rate": "PovertyFilter",
-        "majority-party" : "PoliticsFilter"
+        "majority-party" : "PoliticsFilter",
+        "swing-county" : "SwingCountyFilter"
     }
          
     
