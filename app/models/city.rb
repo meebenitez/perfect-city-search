@@ -45,10 +45,11 @@ class City < ApplicationRecord
             end
         end
 
-        def swing_county(type)
-            if type == "yes"
-                #binding.pry
+        def swing_county(type, party)
+            if party == "democrat" || party == nil
                 return where("dem_vote_perc - gop_vote_perc <= ?", 15)
+            else
+                return where("gop_vote_perc - dem_vote_perc <= ?", 15)
             end
         end
 
