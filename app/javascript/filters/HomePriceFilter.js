@@ -10,6 +10,7 @@ class HomePriceFilter extends React.Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.grabParamValues = this.grabParamValues.bind(this)
+        this.handleChangeSlider = this.handleChangeSlider.bind(this)
 
         this.state = {min: 5000, max: 100000}
    
@@ -38,6 +39,10 @@ class HomePriceFilter extends React.Component {
         } else {
             console.log ("empty value")
         }
+    }
+
+    handleChangeSlider(values){
+        this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${values[0]}&[home_price_to]=${values[1]}`, `home-price=${values[0]}to${values[1]}`)
     }
 
     render(){ 
@@ -88,6 +93,7 @@ class HomePriceFilter extends React.Component {
               />
             )
           }
+
     
         const sliderStyle = {  // Give the slider some width
             position: 'relative',
@@ -118,7 +124,8 @@ class HomePriceFilter extends React.Component {
                     domain={[0, 1000000]}
                     step={5000}
                     mode={2}
-                    values={[this.state.min, this.state.max]}  
+                    values={[this.state.min, this.state.max]}
+                    onChange={(values) => this.handleChangeSlider(values)}  
                 >
                     <Rail>
                     {({ getRailProps }) => (
