@@ -34,6 +34,7 @@ const CityList = (props) => {
     );
 
 
+
     return (
         <div>
                 <div className="list-group row">{renderCities}</div>
