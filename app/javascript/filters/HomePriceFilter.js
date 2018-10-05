@@ -61,15 +61,15 @@ class HomePriceFilter extends React.Component {
                 style={{
                   left: `${percent}%`,
                   position: 'absolute',
-                  marginLeft: -15,
-                  marginTop: 25,
+                  marginLeft: -10,
+                  marginTop: 17,
                   zIndex: 2,
-                  width: 30,
-                  height: 30,
-                  textAlign: 'center',
+                  width: 15,
+                  height: 15,
+                  textAlign: '4588ab',
                   cursor: 'pointer',
                   borderRadius: '50%',
-                  backgroundColor: '#2C4870',
+                  backgroundColor: '#4588ab',
                 }}
                 {...getHandleProps(id)} // pass in the id
               >
@@ -86,8 +86,8 @@ class HomePriceFilter extends React.Component {
                   position: 'absolute',
                   height: 10,
                   zIndex: 1,
-                  marginTop: 35,
-                  backgroundColor: 'red',
+                  marginTop: 20,
+                  backgroundColor: '#62b1da',
                   borderRadius: 5,
                   cursor: 'pointer',
                   left: `${source.percent}%`,
@@ -101,16 +101,15 @@ class HomePriceFilter extends React.Component {
     
         const sliderStyle = {  // Give the slider some width
             position: 'relative',
-            width: '100%',
+            width: '85%',
             height: 80,
-            border: '1px solid steelblue',
         }
     
         const railStyle = { 
             position: 'absolute',
             width: '100%',
             height: 10,
-            marginTop: 35,
+            marginTop: 20,
             borderRadius: 5,
             backgroundColor: '#8B9CB6',
           }
@@ -122,55 +121,52 @@ class HomePriceFilter extends React.Component {
             <Aux>
                 
                     <span className="underline">Median Home Value</span>
-                    <br></br>                            
-                    <Slider
-                    rootStyle={sliderStyle}
-                    domain={[0, 1000000]}
-                    step={5000}
-                    mode={2}
-                    values={[this.state.min, this.state.max]}
-                    onChange={(values) => this.handleChangeSlider(values)}  
-                >
-                    <Rail>
-                    {({ getRailProps }) => (
-                        <div style={railStyle} {...getRailProps()} />
-                    )}
-                    </Rail>
-                    <Handles>
-                    {({ handles, getHandleProps }) => (
-                        <div className="slider-handles">
-                        {handles.map(handle => (
-                            <Handle
-                            key={handle.id}
-                            handle={handle}
-                            getHandleProps={getHandleProps}
-                            />
-                        ))}
-                        </div>
-                    )}
-                    </Handles>
-                    <Tracks left={false} right={false}>
-                    {({ tracks, getTrackProps }) => (
-                        <div className="slider-tracks">
-                        {tracks.map(({ id, source, target }) => (
-                            <Track
-                            key={id}
-                            source={source}
-                            target={target}
-                            getTrackProps={getTrackProps}
-                            />
-                        ))}
-                        </div>
-                    )}
-                    </Tracks>
-                </Slider>
                     <br></br>
-                    <span className="average">US Average: $215,600</span>
-                    <br></br>
-                    <br></br>   
-                    <br></br>                         
-
-                
+                    <span className="average">US Average: $215,600</span>                            
+                    <center><div>
+                        <Slider
+                            rootStyle={sliderStyle}
+                            domain={[0, 1000000]}
+                            step={5000}
+                            mode={2}
+                            values={[this.state.min, this.state.max]}
+                            onChange={(values) => this.handleChangeSlider(values)}  
+                        >
+                            <Rail>
+                            {({ getRailProps }) => (
+                                <div style={railStyle} {...getRailProps()} />
+                            )}
+                            </Rail>
+                            <Handles>
+                            {({ handles, getHandleProps }) => (
+                                <div className="slider-handles">
+                                {handles.map(handle => (
+                                    <Handle
+                                    key={handle.id}
+                                    handle={handle}
+                                    getHandleProps={getHandleProps}
+                                    />
+                                ))}
+                                </div>
+                            )}
+                            </Handles>
+                            <Tracks left={false} right={false}>
+                            {({ tracks, getTrackProps }) => (
+                                <div className="slider-tracks">
+                                {tracks.map(({ id, source, target }) => (
+                                    <Track
+                                    key={id}
+                                    source={source}
+                                    target={target}
+                                    getTrackProps={getTrackProps}
+                                    />
+                                ))}
+                                </div>
+                            )}
+                            </Tracks>
+                        </Slider>
+                        <br></br>
+                        </div></center>                        
             </Aux>
             )
         }
