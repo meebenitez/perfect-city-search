@@ -47,6 +47,10 @@ class HomePriceFilter extends React.Component {
 
     handleChangeSlider(values){
         this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${values[0]}&[home_price_to]=${values[1]}`, `home-price=${values[0]}to${values[1]}`)
+        this.setState({
+            min: values[0],
+            max: values[1],
+          })
     }
 
     render(){ 
@@ -67,8 +71,8 @@ class HomePriceFilter extends React.Component {
                   width: 15,
                   height: 15,
                   textAlign: '4588ab',
+                  color: 'white',
                   cursor: 'pointer',
-                  borderRadius: '50%',
                   backgroundColor: '#4588ab',
                 }}
                 {...getHandleProps(id)} // pass in the id
@@ -122,7 +126,9 @@ class HomePriceFilter extends React.Component {
                 
                     <span className="underline">Median Home Value</span>
                     <br></br>
-                    <span className="average">US Average: $215,600</span>                            
+                    <span className="average">US Average: $215,600</span>
+                    <br></br>
+                    <span>${withCommas(this.state.min)} TO ${withCommas(this.state.max)}</span>                            
                     <center><div>
                         <Slider
                             rootStyle={sliderStyle}
