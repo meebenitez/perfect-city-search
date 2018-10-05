@@ -8,11 +8,10 @@ class HomePriceFilter extends React.Component {
     constructor(props){
         super(props)
 
-        this.handleChange = this.handleChange.bind(this)
+        //this.handleChange = this.handleChange.bind(this)
         this.grabParamValues = this.grabParamValues.bind(this)
         this.handleChangeSlider = this.handleChangeSlider.bind(this)
-
-        this.state = {min: 5000, max: 100000}
+        this.state = {min: 0, max: 1000000}
    
     }
 
@@ -26,11 +25,15 @@ class HomePriceFilter extends React.Component {
   
     componentDidMount(){
         if (this.props.activeFilters.includes("HomePriceFilter")){
-        this.refs.homeValueMinRef.value = parseInt(this.grabParamValues(0))
-        this.refs.homeValueMaxRef.value = parseInt(this.grabParamValues(1))
+            this.setState({
+                min: parseInt(this.grabParamValues(0)),
+                max: parseInt(this.grabParamValues(1)),
+              })
         }
     }
 
+    /*
+    OBSOLETE
     handleChange(event){
         if ((this.refs.homeValueMinRef.value.split(",").join("") + this.refs.homeValueMaxRef.value.split(",").join("")) < 1 ){
             this.props.onFilterChange("HomePriceFilter", "")
@@ -40,6 +43,7 @@ class HomePriceFilter extends React.Component {
             console.log ("empty value")
         }
     }
+    */
 
     handleChangeSlider(values){
         this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${values[0]}&[home_price_to]=${values[1]}`, `home-price=${values[0]}to${values[1]}`)
@@ -160,13 +164,6 @@ class HomePriceFilter extends React.Component {
                     )}
                     </Tracks>
                 </Slider>
-
-                <br></br>
-                    <span className="input-filter">$
-                        <input type="number" id="homeValueMin" name="focus" required className="input-filter-minmax" onChange={this.handleChange} placeholder="min" ref = "homeValueMinRef"/>                              
-                        &nbsp;to $
-                        <input type="number" id="homeValueMax" name="focus" required className="input-filter-minmax" onChange={this.handleChange} placeholder="max" ref = "homeValueMaxRef"/>
-                    </span>
                     <br></br>
                     <span className="average">US Average: $215,600</span>
                     <br></br>
