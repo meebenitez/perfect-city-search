@@ -10,36 +10,30 @@ import MediaQuery from 'react-responsive'
 const Navbar = (props) => {
     return (
         <Aux>
-
-
-        <MediaQuery minWidth={768}>
-            <NavLink
-                    to={`${window.location.hash}`}
-                    onClick={props.toggleAuthPopup}
-                    className="navlink1 link-div link-box"
-                    activeClassName="navlink1active">{ props.currentUser ?<h5>{props.currentUser}&nbsp;</h5> : <h5>Sign up</h5> }</NavLink>
-            <NavLink
-                    to={`${window.location.hash}`}
-                    className="navlink1 link-div"
-                    activeClassName="navlink1active">Advertise With Us</NavLink>
             <NavLink
                 to={`${window.location.hash}`}
-                className="navlink1 link-div"
-                activeClassName="navlink1active">Faqs</NavLink> 
-        </MediaQuery>
-        <MediaQuery maxWidth={768}>
+                activeClassName="navlink1active">Advertise With Us
+            </NavLink>
+            <NavLink
+                to={`${window.location.hash}`}
+                activeClassName="navlink1active">Faqs
+            </NavLink>
             <NavLink
                     to={`${window.location.hash}`}
                     onClick={props.toggleAuthPopup}
-                    className="navlink1 link-div link-box"
-                    activeClassName="navlink1active">{ props.currentUser ?<h5>{props.currentUser}&nbsp;</h5> : <h5>Sign up</h5> }</NavLink>
-        </MediaQuery>
-
-           
-              
+                    >{ props.currentUser ?<div className="signup">{props.currentUser}</div> : <div className="signup">Sign up</div> }</NavLink> 
       </Aux>
     )
 }
+
+
+/*
+<NavLink
+    to={`${window.location.hash}`}
+    onClick={props.toggleAuthPopup}
+    className="navlink1 link-div link-box"
+    activeClassName="navlink1active">{ props.currentUser ?<h5>{props.currentUser}&nbsp;</h5> : <h5>Sign up</h5> }</NavLink>
+    */
 
 
 export default Navbar;

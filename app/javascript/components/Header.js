@@ -6,13 +6,23 @@ import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
       return (
-        <Aux>   
-            <div className="row nav">
-                
-                <div className="col-xs-4 header-left-padding">
-                    <NavLink to="/"><h1>CitySleuth USA&nbsp;<img src={require('../../assets/images/redglass.png')} className="logo-icon"/></h1></NavLink>
+        <Aux> 
+            <div className="nav">
+                <div className="nav-header">
+                    <div className="nav-title">
+                    <NavLink to="/">
+                        CitySleuth USA&nbsp;<img src={require('../../assets/images/redglass.png')} className="logo-icon"/></NavLink>
+                    </div>
                 </div>
-                <div className="col-xs-8 header-right-container zero-padding">
+                <div className="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                </div>
+                <input type="checkbox" id="nav-check"></input>
+                <div className="nav-links">
                     <Navbar toggleAuthPopup={props.toggleAuthPopup} currentUser={props.currentUser} initialFetch={props.initialFetch}/>
                 </div>
             </div>

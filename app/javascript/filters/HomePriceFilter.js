@@ -130,8 +130,6 @@ class HomePriceFilter extends React.Component {
                 
                     <span className="underline">Median Home Value</span>
                     <br></br>
-                    <span className="average">US Average: $215,600</span>
-                    <br></br>
                     <span>${withCommas(this.state.min)} TO ${withCommas(this.state.max)}</span>                            
                     <center><div>
                         <Slider
