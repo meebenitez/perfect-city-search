@@ -13,6 +13,7 @@ import CollegeGradFilter from './CollegeGradFilter'
 import LowCrimeFilter from './LowCrimeFilter'
 import HighEmploymentFilter from './HighEmploymentFilter'
 import NameSearchFilter from './NameSearchFilter'
+import { Link } from 'react-router-dom'
 
 
 const FilterPopup = (props) => {
@@ -47,8 +48,6 @@ const FilterPopup = (props) => {
     }
 
 
-
-
     const renderFilters = filterList.map( (Filter) => {
         return <Filter activeFilters={props.activeFilters} onFilterChange={props.onFilterChange} key={Filter.name} filterHolder={props.filterHolder} params={props.params} isActive={checkActive(Filter.name)} searchTerm={props.searchTerm} currentUser={props.currentUser} toggleAuthPopup={props.toggleAuthPopup}/>
     });
@@ -57,6 +56,8 @@ const FilterPopup = (props) => {
     return (
     <div className="extended-filters-popup">
         <div className="extended-filters-popup-inner">
+            <div className="top-right3"><Link to={`${props.hashString}`} onClick={props.toggleExtendedFiltersPopup}>x close</Link></div>
+            <div>City Filters</div>
             {renderFilters}
         </div>
     </div>

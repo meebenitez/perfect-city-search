@@ -77,7 +77,7 @@ class App extends React.Component {
                   </div>
                 </div>
                 <div className="col-xs-12 filter-container-collapsed  zero-padding white-background fixed">
-                      <div className="filter-condensed">Add Filters</div>  
+                      <div className="filter-condensed" onClick={this.props.toggleExtendedFiltersPopup}>Filters</div>  
                 </div>
               
             </div>
