@@ -76,7 +76,9 @@ class App extends React.Component {
                       
                   </div>
                 </div>
-                <div className="col-xs-12 filter-container-collapsed  zero-padding white-background fixed">test</div>
+                <div className="col-xs-12 filter-container-collapsed  zero-padding white-background fixed">
+                      <div className="filter-condensed">Add Filters</div>  
+                </div>
               
             </div>
        </Aux>
