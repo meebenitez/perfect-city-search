@@ -5,6 +5,7 @@ import CityShow from './CityShow'
 import FilterPopup from '../filters/FilterPopup'
 import Test from './Test'
 import SearchContainer from '../containers/SearchContainer'
+import FilterContainer from '../containers/FilterContainer'
 import Header from './Header'
 import { connect } from 'react-redux'
 import * as authActions from '../redux/authactions'
@@ -35,13 +36,14 @@ class App extends React.Component {
         <Aux>
           <div className="col-xs-12 zero-padding white-background">
               
-                <div className="col-xs-12 white-background fixed">
-                  <div className="max-width-container header-height">
+                <div className="col-xs-12 white-background fixed bottom-line fixed zero-padding">
+                  <div className="header-height">
                     <Header 
-                      toggleAuthPopup={this.props.toggleAuthPopup} 
-                      currentUser={this.props.currentUser} 
-                      initialFetch={this.props.initialFetch} />   
+                      {...this.props} />   
                   </div>
+                  <div className="max-width-container">
+                    <FilterContainer {...this.props}/>
+                </div>
                 </div>
               
               
@@ -74,6 +76,7 @@ class App extends React.Component {
                       
                   </div>
                 </div>
+                <div className="col-xs-12 filter-container-collapsed  zero-padding white-background fixed">test</div>
               
             </div>
        </Aux>

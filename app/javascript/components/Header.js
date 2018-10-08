@@ -9,19 +9,32 @@ const Header = (props) => {
         <Aux> 
             <div className="nav">
                 <div className="nav-header">
+                    <div className="dropdown-switch">
+                        <div className="dropbtn-holder">
+                            <div className="dropdown">
+                                <div className="dropbtn">☰</div>
+                                <div className="dropdown-content">
+                                <NavLink
+                                    to={`${window.location.hash}`}
+                                    activeClassName="navlink1active">Advertise With Us
+                                </NavLink>
+                                <NavLink
+                                    to={`${window.location.hash}`}
+                                    activeClassName="navlink1active">Faqs
+                                </NavLink>
+                                <NavLink
+                                        to={`${window.location.hash}`}
+                                        onClick={props.toggleAuthPopup}
+                                        >{ props.currentUser ? "Sign out" : "Sign up" }</NavLink> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className="nav-title">
-                    <NavLink to="/">
-                        CitySleuth USA&nbsp;<img src={require('../../assets/images/redglass.png')} className="logo-icon"/></NavLink>
+                        <NavLink to="/">
+                            CitySleuth USA&nbsp;<img src={require('../../assets/images/redglass.png')} className="logo-icon"/></NavLink>
                     </div>
                 </div>
-                <div className="nav-btn">
-                <label for="nav-check">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-                </div>
-                <input type="checkbox" id="nav-check"></input>
                 <div className="nav-links">
                     <Navbar toggleAuthPopup={props.toggleAuthPopup} currentUser={props.currentUser} initialFetch={props.initialFetch}/>
                 </div>

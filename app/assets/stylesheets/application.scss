@@ -293,6 +293,7 @@
 
     .fixed {
       position: fixed;
+      z-index: 2;
     }
 
     .bold {
@@ -429,7 +430,7 @@
 
     .header-height {
       margin-top: 10px;
-      padding: 0px;
+      padding-left: 10px;
       height: 50px;
     }
 
@@ -474,6 +475,11 @@
       border-radius: 5px;
     }
 
+    .signup:hover {
+      background-color: #ff0000;
+      color: white; 
+    }
+
   
 
     ////////PARENT CONTAINER SIZING
@@ -500,12 +506,15 @@
     /////////////FILTER CONTAINER & COMPONENTS
 
     .filter-margin-top {
-      margin-top: 60px;
       height: 75px;
     }
 
     .filter-container {
       margin-top: 20px;
+    }
+
+    .filter-container-collapsed {
+      display: none;
     }
 
     .input-filter {
@@ -1293,68 +1302,14 @@
     }
 
    /* RESPONSIVE NAVBAR */
-  .dropbtn {
-      color: #FC4A1A;
-      padding: 0px;
-      font-size: 26px;
-      border: none;
-      cursor: pointer;
-  }
-  .dropdown {
-      float: left;
-      position: relative;
-      display: inline-block;
-      z-index: 1001;
-  }
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1001;
-  }
-  .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-  }
-  .dropdown-content a:hover {
-    background-color: white;
-    color: black;
-  }
-  .dropdown:hover .dropdown-content {
-      display: block;
-  }
-  .dropdown:hover .dropbtn {
-      background-color: white;
-      z-index: 1001;
-  }
+
+  
+   
 
 /*--------RESPONSIVE --------------*/
 
 
 
-
-@media screen and (max-width: 1094px) and (min-width: 768px) {
-  h1 {
-    font-size: 25px;
-  }
-
-  .logo-icon {
-    height: 25px;
-  }   
-
-  .filter-container {
-    margin-top: 5px;
-  }
-
-  .filter-margin-top {
-    margin-top: 60px;
-    height: 100px;
-  }
-}
 
 @media screen and (max-width: 768px) {
   h1 {
@@ -1367,11 +1322,6 @@
 
   .filter-container {
     margin-top: 5px;
-  }
-
-  .filter-margin-top {
-    margin-top: 100px;
-    height: 100px;
   }
 
 }
@@ -1392,6 +1342,7 @@
   margin: 0px;
   width: 100%;
   position: relative;
+  z-index: 1001;
 }
 
 .nav > .nav-header {
@@ -1410,7 +1361,8 @@
 }
 
 .nav > .nav-links {
-  display: inline;
+  display: inline-block;
+  position: relative;
   float: right;
   font-size: 18px;
   font-family: 'Lato', sans-serif;
@@ -1435,7 +1387,61 @@
   display: none;
 }
 
-@media (max-width:600px) {
+
+.dropbtn {
+      color: #FC4A1A;
+      font-size: 1.5em;
+      margin-right: 10px;
+      margin-left: 0px;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+  }
+  .dropdown {
+      float: left;
+      position: relative;
+      display: inline-block;
+      z-index: 1001;
+  }
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1001;
+  }
+  .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+  }
+  .dropdown-content a:hover {
+    background-color: red;
+    color: black;
+    text-decoration: underline;
+  }
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+  .dropdown:hover .dropbtn {
+      background-color: white;
+      z-index: 1001;
+  }
+
+
+
+
+
+.dropdown-switch {
+  display: none;
+}
+
+@media (max-width:715px) {
+  .nav {
+    height: 20px;
+  }
   .nav > .nav-btn {
     display: inline-block;
     position: absolute;
@@ -1457,27 +1463,43 @@
     height: 10px;
     border-top: 2px solid #eee;
   }
+
   .nav > .nav-links {
-    position: absolute;
+    display: none;
+  }
+
+  
+  .nav > .nav-header > .nav-title {
+    font-size: 1.5em;
+  }
+  
+
+  .filter-container {
+    display: none;
+  }
+
+  .filter-container-collapsed {
     display: block;
-    width: 100%;
-    background-color: #333;
-    height: 0px;
-    transition: all 0.3s ease-in;
-    overflow-y: hidden;
-    top: 50px;
-    left: 0px;
+    height: 50px;
+    bottom: 0px;
   }
-  .nav > .nav-links > a {
-    display: block;
-    width: 100%;
+
+  .dropdown-switch {
+    display: inline-block;
+    position: relative;
+    z-index: 1001;
   }
-  .nav > #nav-check:not(:checked) + .nav-links {
-    height: 0px;
+
+  .filter-margin-top {
+    height: 20px;
+    margin: 0px;
+    background-color: transparent;
   }
-  .nav > #nav-check:checked + .nav-links {
-    height: calc(100vh - 50px);
-    overflow-y: auto;
+
+  .header-height {
+    margin-top: 5px;
+    padding-left: 5px;
+    height: 35px;
   }
 }
 

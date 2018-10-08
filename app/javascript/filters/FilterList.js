@@ -86,7 +86,6 @@ const FilterList = (props) => {
                 <div className="filter-container">
                     {renderFilters} 
                 </div>
-
         </Aux>
             
     )
