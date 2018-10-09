@@ -56,8 +56,9 @@ const PARAMMAP = {
         "majority-party" : "PoliticsFilter",
         "swing-county" : "SwingCountyFilter"
     }
-         
-    
+      
+var defaultZoom = window.innerWidth <= 815 ? 3 : 4;    
+
 const initialState = {
     cities: [],
     params: [],
@@ -76,7 +77,7 @@ const initialState = {
     hashString: "",
     searchTerm: "",
     searchCities: [],
-    mapZoom: 4,
+    mapZoom: defaultZoom,
     mapCenter: {lat: 38.00, lng: -96.5556},
     highlightedCity: null,
     extendedFiltersPopup: false,

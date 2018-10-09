@@ -1483,7 +1483,7 @@
 }
 
 .small-list-margin {
-  margin-top: 340px;
+  margin-top: 300px;
 }
 
 .filter-plus {
@@ -1494,6 +1494,10 @@
 
 
 @media (max-width:815px) {
+
+  .map-container{
+    margin-top: 15px;
+  }
 
   .search-container-large {
     display: none;
@@ -1591,6 +1595,11 @@
 
 
 @media (max-width:365px) {
+
+  .map-container{
+    margin-top: 5px;
+  }
+
   .nav > .nav-header > .nav-title {
     font-size: 1em;
   }
@@ -1623,6 +1632,13 @@
     margin-top: 5px;
     padding-left: 10px;
     height: 25px;
+  }
+
+  .small-map-margin {
+    margin-top: 30px;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
   }
 
 
