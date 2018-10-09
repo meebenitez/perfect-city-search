@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Aux from './Aux'
 import Devise from './auth/Devise'
 import CityShow from './CityShow'
+import Pagination from './Pagination';
 import FilterPopup from '../filters/FilterPopup'
 import Test from './Test'
 import SearchContainer from '../containers/SearchContainer'
@@ -45,8 +46,6 @@ class App extends React.Component {
                     <FilterContainer {...this.props}/>
                 </div>
                 </div>
-              
-              
                 <div className="col-xs-12">
                   <div>
                       {this.props.showAuthPopup ? 
@@ -76,8 +75,8 @@ class App extends React.Component {
                       
                   </div>
                 </div>
-                <div className="col-xs-12 filter-container-collapsed  zero-padding white-background fixed">
-                      <div className="filter-condensed" onClick={this.props.toggleExtendedFiltersPopup}>Filters</div>  
+                <div className="col-xs-12 pagination-collapsed  zero-padding white-background fixed">
+                    <Pagination count={this.props.cities.length} {...this.props}/>
                 </div>
               
             </div>

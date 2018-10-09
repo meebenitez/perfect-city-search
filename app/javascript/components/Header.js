@@ -38,13 +38,16 @@ const Header = (props) => {
                 <div className="nav-links">
                     <Navbar toggleAuthPopup={props.toggleAuthPopup} currentUser={props.currentUser} initialFetch={props.initialFetch}/>
                 </div>
+                <div className="filter zero-padding">
+                    <div className="filter-condensed" onClick={props.toggleExtendedFiltersPopup}>Add Filters</div>
+                    <div className="filter-plus" onClick={props.toggleExtendedFiltersPopup}>+</div>  
+                </div>
             </div>
         </Aux>
       )
      
     }
 export default Header;
-
 
 /*
 

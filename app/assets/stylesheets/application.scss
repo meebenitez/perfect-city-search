@@ -514,13 +514,10 @@
     .filter-condensed {
       background-color: red;
       color: white;
-      height: 30px;
-      width: 95%;
-      margin: 10px;
-      overflow: hidden;
-      text-align: center;
-      vertical-align: middle;
-      line-height: 30px;
+      height: auto;
+      padding: 5px 10px 5px 10px;
+      margin-right: 10px;
+      border-radius: 5px;
       cursor: pointer;
     }
 
@@ -537,6 +534,9 @@
     }
 
     .filter-container-collapsed {
+      display: none;
+    }
+    .pagination-collapsed {
       display: none;
     }
 
@@ -1342,9 +1342,6 @@
     font-size: 20px;
   }
 
-  .logo-icon {
-    height: 20px;
-  }   
 
   .filter-container {
     margin-top: 5px;
@@ -1393,6 +1390,12 @@
   font-size: 18px;
   font-family: 'Lato', sans-serif;
 }
+
+.nav > .filter {
+  display: none;
+}
+
+
 
 .nav > .nav-links > a {
   font-family: 'Lato', sans-serif;
@@ -1483,8 +1486,15 @@
   margin-top: 340px;
 }
 
+.filter-plus {
+  display: none;
+}
+
+
+
 
 @media (max-width:815px) {
+
   .search-container-large {
     display: none;
   }
@@ -1522,6 +1532,14 @@
     display: none;
   }
 
+  .nav > .filter {
+    display: inline-block;
+    position: relative;
+    float: right;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+  }
+
   
   .nav > .nav-header > .nav-title {
     font-size: 1.5em;
@@ -1535,6 +1553,15 @@
   .filter-container-collapsed {
     display: block;
     height: 50px;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    z-index: 1001;
+  }
+
+  .pagination-collapsed {
+    display: block;
+    height: 25px;
     bottom: 0px;
     width: 100%;
   }
@@ -1556,5 +1583,48 @@
     padding-left: 5px;
     height: 35px;
   }
+
+  .logo-icon {
+    height: 25px;
+  }
+}
+
+
+@media (max-width:365px) {
+  .nav > .nav-header > .nav-title {
+    font-size: 1em;
+  }
+
+  .logo-icon {
+    height: 15px;
+  }
+
+  .dropbtn {
+    font-size: 1em;
+    margin-right: 5px;
+    line-height: 1;
+  }
+  .filter-plus {
+    display: block;
+    background-color: red;
+    color: white;
+    height: auto;
+    padding: 0px 5px 0px 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .filter-condensed {
+    display: none;
+  }
+
+  .header-height {
+    margin-top: 5px;
+    padding-left: 10px;
+    height: 25px;
+  }
+
+
 }
 

@@ -39,11 +39,11 @@ const CityList = (props) => {
         <div>
                 <div className="list-group row">{renderCities}</div>
                 {welcomeMessage()}
-                <Pagination count={props.cities.length} totalCount={props.totalCount} totalPages={props.totalPages} startPage={props.startPage} pageChange={props.pageChange} page={props.page} currentRoute={props.currentRoute} perPage={props.perPage}/>              
         </div>
     )
 }
     
+//<Pagination count={props.cities.length} totalCount={props.totalCount} totalPages={props.totalPages} startPage={props.startPage} pageChange={props.pageChange} page={props.page} currentRoute={props.currentRoute} perPage={props.perPage}/>              
     
 
 export default CityList;
