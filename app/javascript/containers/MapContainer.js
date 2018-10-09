@@ -19,6 +19,8 @@ _reset = () => {
 
 getMapOptions = (maps: Maps) => {
 
+  const typeControl = this.props.size[0] === "100%" ? false : true;
+
     return {
         streetViewControl: false,
         scaleControl: true,
@@ -35,16 +37,12 @@ getMapOptions = (maps: Maps) => {
         minZoom: 2,
         maxZoom: 18,
 
-        mapTypeControl: true,
+        mapTypeControl: typeControl,
         mapTypeId: maps.MapTypeId.ROADMAP,
         mapTypeControlOptions: {
             style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
             position: maps.ControlPosition.BOTTOM_CENTER,
-            mapTypeIds: [
-                maps.MapTypeId.ROADMAP,
-                maps.MapTypeId.SATELLITE,
-                maps.MapTypeId.HYBRID
-            ]
+            mapTypeIds: [maps.MapTypeId.ROADMAP, maps.MapTypeId.SATELLITE, maps.MapTypeId.HYBRID]
         },
 
         zoomControl: true,
@@ -57,8 +55,8 @@ getMapOptions = (maps: Maps) => {
 
     const styleDesktop = { 
       // MUST specify dimensions of the Google map or it will not work. Also works best when style is specified inside the render function and created as an object
-      width: '98%', // 90vw basically means take up 90% of the width screen. px also works.
-      height: '84vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+      width: this.props.size[0] , // 90vw basically means take up 90% of the width screen. px also works.
+      height: this.props.size[1] // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
 
     const styleDesktopSmall = {
@@ -67,7 +65,7 @@ getMapOptions = (maps: Maps) => {
     }
 
     const styleMobile = {
-      width: '100%', // 90vw basically means take up 90% of the width screen. px also works.
+      width: this.props.size, // 90vw basically means take up 90% of the width screen. px also works.
       height: '40vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
 
     }
@@ -90,7 +88,6 @@ getMapOptions = (maps: Maps) => {
 
     return (
       <Aux>
-        <MediaQuery minWidth={1200}>
           <div style={styleDesktop}>
             <GoogleMapReact
               bootstrapURLKeys={{ key: this.props.googleApiKey }}
@@ -103,37 +100,9 @@ getMapOptions = (maps: Maps) => {
               {renderMarkers}
             </GoogleMapReact>
           </div>
-        </MediaQuery>
       
     
-      <MediaQuery minWidth={768} maxWidth={1200}>
-        <div style={styleDesktopSmall}>
-          <GoogleMapReact
-            bootstrapURLKeys={{ key: this.props.googleApiKey }}
-            center={this.props.mapCenter}
-            zoom={this.props.mapZoom}
-            disableDefaultUI = {true}
-            zoomControl = {true}
-            options={this.getMapOptions}
-          >
-            {renderMarkers}
-          </GoogleMapReact>
-        </div>
-      </MediaQuery>
-      <MediaQuery maxWidth={768}>
-        <div style={styleMobile}>
-          <GoogleMapReact
-            bootstrapURLKeys={{ key: this.props.googleApiKey }}
-            center={this.props.mapCenter}
-            zoom={this.props.mapZoom}
-            disableDefaultUI = {true}
-            zoomControl = {true}
-            options={this.getMapOptions}
-          >
-            {renderMarkers}
-          </GoogleMapReact>
-        </div>
-      </MediaQuery>
+      
     </Aux>
     );
   }

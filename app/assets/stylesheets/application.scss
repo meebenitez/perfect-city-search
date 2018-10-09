@@ -794,13 +794,15 @@
     .extended-filters-popup-inner {
       position: absolute;
       padding: 20px;
-      left: 5%;
-      right: 5%;
-      top: 5%;
-      bottom: 5%;
+      left: 3%;
+      right: 3%;
+      top: 3%;
+      bottom: 3%;
       margin: auto;
       background: white;
       border-radius: 5px;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     .city-popup {
@@ -1462,7 +1464,35 @@
   display: none;
 }
 
-@media (max-width:715px) {
+.search-container-large {
+  display: block;
+}
+.search-container-small {
+  display: none;
+}
+
+.small-map-margin {
+  margin-top: 35px;
+  height: 50px;
+  width: 100%;
+  z-index: 1;
+  background-color: white;
+}
+
+.small-list-margin {
+  margin-top: 340px;
+}
+
+
+@media (max-width:815px) {
+  .search-container-large {
+    display: none;
+  }
+  .search-container-small {
+    display: block;
+  }
+
+
   .nav {
     height: 20px;
   }
@@ -1512,7 +1542,7 @@
   .dropdown-switch {
     display: inline-block;
     position: relative;
-    z-index: 1001;
+    z-index: 1500;
   }
 
   .filter-margin-top {

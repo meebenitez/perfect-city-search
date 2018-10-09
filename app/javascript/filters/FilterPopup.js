@@ -57,7 +57,9 @@ const FilterPopup = (props) => {
     <div className="extended-filters-popup">
         <div className="extended-filters-popup-inner">
             <div className="top-right3"><Link to={`${props.hashString}`} onClick={props.toggleExtendedFiltersPopup}>x close</Link></div>
-            <div>City Filters</div>
+            <div>
+                <h4>Add Filters</h4>
+            </div>
             {renderFilters}
         </div>
     </div>
