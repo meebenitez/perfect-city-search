@@ -8,10 +8,10 @@ class HomePriceFilter extends React.Component {
     constructor(props){
         super(props)
 
-        //this.handleChange = this.handleChange.bind(this)
         this.grabParamValues = this.grabParamValues.bind(this)
         this.handleChangeSlider = this.handleChangeSlider.bind(this)
         this.sliderTick = this.sliderTick.bind(this)
+        this.clearAll = this.clearAll.bind(this)
         this.state = {min: 0, max: 1000000}
    
     }
@@ -26,32 +26,32 @@ class HomePriceFilter extends React.Component {
   
     componentDidMount(){
         if (this.props.activeFilters.includes("HomePriceFilter")){
-            this.setState({
+            this.setState({ ...this.state,
                 min: parseInt(this.grabParamValues(0)),
                 max: parseInt(this.grabParamValues(1)),
               })
         }
     }
 
-    /*
-    OBSOLETE
-    handleChange(event){
-        if ((this.refs.homeValueMinRef.value.split(",").join("") + this.refs.homeValueMaxRef.value.split(",").join("")) < 1 ){
-            this.props.onFilterChange("HomePriceFilter", "")
-        } else if (this.refs.homeValueMinRef.value && this.refs.homeValueMaxRef.value){
-            this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${this.refs.homeValueMinRef.value.split(",").join("")}&[home_price_to]=${this.refs.homeValueMaxRef.value.split(",").join("")}`, `home-price=${this.refs.homeValueMinRef.value.split(",").join("")}to${this.refs.homeValueMaxRef.value.split(",").join("")}`)
-        } else {
-            console.log ("empty value")
-        }
+    clearAll(){
+        this.setState({ ...this.state,
+            min: 0,
+            max: 1000000,
+          }, () => {
+            this.handleChangeSlider([this.state.min,this.state.max]);
+          })
     }
-    */
 
     handleChangeSlider(values){
-        this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${values[0]}&[home_price_to]=${values[1]}`, `home-price=${values[0]}to${values[1]}`)
+        if (values[0] === 0 && values[1] === 1000000){
+            this.props.onFilterChange("HomePriceFilter", "")
+        } else {
+            this.props.onFilterChange("HomePriceFilter", `[home_price_from]=${values[0]}&[home_price_to]=${values[1]}`, `home-price=${values[0]}to${values[1]}`)
+        }
     }
 
     sliderTick(values){
-        this.setState({
+        this.setState({ ...this.state,
             min: values[0],
             max: values[1],
         })
@@ -59,9 +59,8 @@ class HomePriceFilter extends React.Component {
 
     render(){ 
 
-
-        function Handle({ // your handle component
-            handle: { id, value, percent }, // you get an id, the value and the percentage to place it.
+        function Handle({ 
+            handle: { id, value, percent }, 
             getHandleProps,
           }) {
             return (
@@ -70,31 +69,31 @@ class HomePriceFilter extends React.Component {
                   left: `${percent}%`,
                   position: 'absolute',
                   marginLeft: -10,
-                  marginTop: 17,
+                  marginTop: 8,
                   zIndex: 2,
                   width: 15,
                   height: 15,
                   textAlign: '4588ab',
-                  color: 'white',
+                  color: 'transparent',
                   cursor: 'pointer',
                   backgroundColor: '#4588ab',
                 }}
-                {...getHandleProps(id)} // pass in the id
+                {...getHandleProps(id)} 
               >
-                <div style={{ fontSize: 11, marginTop: -20 }}>{value}</div>
+                <div style={{ fontSize: '.5em', marginTop: -20 }}>{value}</div>
               </div>
             )
           }
     
     
-          function Track({ source, target, getTrackProps }) { // your own track component
+          function Track({ source, target, getTrackProps }) { 
             return (
               <div
                 style={{
                   position: 'absolute',
                   height: 10,
                   zIndex: 1,
-                  marginTop: 20,
+                  marginTop: 10,
                   backgroundColor: '#62b1da',
                   borderRadius: 5,
                   cursor: 'pointer',
@@ -110,14 +109,14 @@ class HomePriceFilter extends React.Component {
         const sliderStyle = {  // Give the slider some width
             position: 'relative',
             width: '85%',
-            height: 80,
+            height: 15,
         }
     
         const railStyle = { 
             position: 'absolute',
             width: '100%',
             height: 10,
-            marginTop: 20,
+            marginTop: 10,
             borderRadius: 5,
             backgroundColor: '#8B9CB6',
           }
@@ -128,10 +127,12 @@ class HomePriceFilter extends React.Component {
         return (
             <Aux>
                 
-                    <span className="underline">Median Home Value</span>
-                    <br></br>
-                    <span>${withCommas(this.state.min)} TO ${withCommas(this.state.max)}</span>                            
-                    <center><div>
+                    <div className="rangeHeader">
+                        <div className="range-filter-title">Median Home Value</div>
+                        <div className="range-clear-button" onClick={() => this.clearAll()} >Reset</div>
+                    </div>
+                    <div className="values">${withCommas(this.state.min)} - ${withCommas(this.state.max)}</div>                            
+                    <div className="slider-container">
                         <Slider
                             rootStyle={sliderStyle}
                             domain={[0, 1000000]}
@@ -174,8 +175,7 @@ class HomePriceFilter extends React.Component {
                             )}
                             </Tracks>
                         </Slider>
-                        <br></br>
-                        </div></center>                        
+                        </div>                        
             </Aux>
             )
         }
