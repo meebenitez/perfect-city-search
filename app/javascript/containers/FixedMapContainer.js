@@ -6,8 +6,8 @@ import MapContainer from './MapContainer'
 
 const FixedMapContainer = (props) => 
     <Aux>
-        <div className={props.size[0] === "100%" ? "col-xs-12 row affix zero-padding" : "col-xs-12 col-sm-6 row"}>
-            <div className={props.size[0] === "100%" ? "col-xs-12 zero-padding affix white-background" : "col-xs-6 zero-padding affix white-background"}>
+        <div className={props.size[0] === "100vw" ? "col-xs-12 row affix zero-padding" : "col-xs-12 col-sm-6 row"}>
+            <div className={props.size[0] === "100vw" ? "col-xs-12 zero-padding affix white-background" : "col-xs-6 zero-padding affix white-background"}>
             <div className="map-container">
                 <MapContainer {...props} />
             </div>

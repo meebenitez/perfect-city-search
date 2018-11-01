@@ -13,8 +13,9 @@ const SearchContainer = (props) =>
                 <div className="max-width-container">
                     <div className="search-container-small zero-padding">
                         <div className="col-xs-12 zero-padding">
-                            <div className="small-map-margin affix white-background zero-padding bottom-line">
-                                <FixedMapContainer {...props} size={["100%", "35vh"]} defaultZoom={"test"} />
+                            <div className="small-map-margin affix white-background zero-padding">
+                                <FixedMapContainer {...props} size={["100vw", "32vh"]} defaultZoom={"test"} />
+                                <div className="cities-label">test</div>
                             </div>
                         </div>
                         <div className="col-xs-12">

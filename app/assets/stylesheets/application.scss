@@ -354,11 +354,14 @@
       right: 10%;
     }
 
+
     .dead-center {
       position: absolute;
-      width: 92%;
+      width: 100%;
       height: auto;
       top: 50%;
+      padding-right: 5%;
+      padding-left: 5%;
       text-align: center;
       margin-top: -10px;
     }
@@ -386,11 +389,14 @@
 
 
     /////////////CITY COMPONENT
+    .item-spacing {
+      padding: 5px 20px 5px 20px;
+    }
+
     .inner {
-      padding-left: 10px;
-      padding-right: 10px;
       padding-top: 0px;
       padding-bottom: 0px;
+      text-align: center;
     }
 
 
@@ -504,7 +510,7 @@
     }
 
     .right-margin-top {
-      margin-top: 135px;
+      margin-top: 130px;
       padding-top: 0px;
       padding-right: 15px;
     }
@@ -1097,7 +1103,7 @@
 
     .top-right-heart {
       position: absolute;
-      top: 10%;
+      top: 15%;
       right: 7%; 
     }
 
@@ -1483,10 +1489,14 @@
 }
 
 .small-list-margin {
-  margin-top: 300px;
+  margin-top: 280px;
 }
 
 .filter-plus {
+  display: none;
+}
+
+.cities-label {
   display: none;
 }
 
@@ -1497,6 +1507,8 @@
 
   .map-container{
     margin-top: 15px;
+    padding-bottom: 15px;
+    background-color: white;
   }
 
   .search-container-large {
@@ -1596,8 +1608,19 @@
 
 @media (max-width:365px) {
 
+  .cities-label{
+    margin-top: 230px;
+    display: block;
+    height: 200px;
+    background-color: red;
+    z-index: 1800;
+  }
+
   .map-container{
     margin-top: 5px;
+    width: 100%;
+    padding: 0px;
+    text-align: center;
   }
 
   .nav > .nav-header > .nav-title {
@@ -1635,10 +1658,27 @@
   }
 
   .small-map-margin {
-    margin-top: 30px;
+    margin-top: 25px;
+    padding-top: 5px;
+    height: 250px;
     width: 100%;
     z-index: 1;
     background-color: white;
+  }
+
+  .small-list-margin {
+    margin-top: 280px;
+  }
+
+  .inner {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding: 5px 3px 5px 3px;
+  }
+
+  .max-width-container {
+    padding: 0px;
+    margin: 0px;
   }
 
 

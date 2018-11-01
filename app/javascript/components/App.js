@@ -49,26 +49,9 @@ class App extends React.Component {
                 <div className="col-xs-12">
                   <div>
                       {this.props.showAuthPopup ? 
-                        <Devise 
-                          updateCurrentUser={this.props.updateCurrentUser} 
-                          currentUser={this.props.currentUser} 
-                          closePopup={this.props.toggleAuthPopup} 
-                          signUp={this.props.signUp} 
-                          login={this.props.login}
-                          loginError={this.props.loginError}
-                          logout={this.props.logout}/> : null}
+                        <Devise {... this.props} /> : null}
                       {this.props.showCityPopup ?
-                        <CityShow 
-                          closePopup={this.props.toggleCityPopup} 
-                          city={this.props.singleCity}
-                          heartedCities = {this.props.heartedCities}
-                          heartClick={this.props.heartClick}
-                          unheartClick={this.props.unheartClick}
-                          currentUser = {this.props.currentUser}
-                          hashString = {this.props.hashString}
-                          cityShowAuth = {this.props.cityShowAuth}
-                          toggleSingleCityAuthPopup = {this.props.toggleSingleCityAuthPopup}
-                          /> : null }
+                        <CityShow {...this.props} /> : null }
                       {this.props.extendedFiltersPopup ? 
                       <FilterPopup {...this.props} /> : null}
                       <SearchContainer {...this.props}/>

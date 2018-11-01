@@ -19,7 +19,7 @@ _reset = () => {
 
 getMapOptions = (maps: Maps) => {
 
-  const typeControl = this.props.size[0] === "100%" ? false : true;
+  const typeControl = this.props.size[0] === "100vw" ? false : true;
 
     return {
         streetViewControl: false,

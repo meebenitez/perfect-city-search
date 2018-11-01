@@ -57,18 +57,18 @@ const City = props => {
     //props.showSingleCity
     return (
         <Aux>
-            <MediaQuery minWidth={1200}>
-                <div className="list-group-item col-xs-4 noborder">
+            <MediaQuery minWidth={815}>
+                <div className="list-group-item col-xs-4 item-spacing noborder">
                     {cityItem()}
                 </div>
             </MediaQuery>
-            <MediaQuery minWidth={768} maxWidth={1200}>
-                <div className="list-group-item col-xs-6 noborder">
+            <MediaQuery minWidth={365} maxWidth={815}>
+                <div className="list-group-item col-xs-6 item-spacing noborder">
                         {cityItem()}
                 </div>
             </MediaQuery>
-            <MediaQuery maxWidth={768}>
-                <div className="list-group-item col-xs-4 noborder">
+            <MediaQuery maxWidth={365}>
+                <div className="list-group-item col-xs-12 item-spacing noborder zero-padding">
                     {cityItem()}
                 </div>
             </MediaQuery>
